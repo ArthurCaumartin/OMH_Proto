@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "New_Event", menuName = "GameEvent")]
+public class GameEvent : ScriptableObject
+{
+    private List<GameEventListener> _listeners = new List<GameEventListener>();
+
+    public void Raise()
+    {
+        for (int i = 0; i < _listeners.Count; i++)
+        {
+            _listeners[i].OnEventRaise();
+        }
+    }
+
+    public void RegisterListener(GameEventListener listenerToAdd)
+    {
+        if (!_listeners.Contains(listenerToAdd))
+            _listeners.Add(listenerToAdd);
+    }
+
+    public void UnRegisterListener(GameEventListener listenerToAdd)
+    {
+        if (_listeners.Contains(listenerToAdd))
+            _listeners.Remove(listenerToAdd);
+    }
+}
