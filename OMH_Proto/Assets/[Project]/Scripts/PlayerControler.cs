@@ -6,14 +6,14 @@ public class PlayerControler : MonoBehaviour
 {
     public bool DEBUG = false;
     [Header("Movement :")]
-    [SerializeField] private float _moveSpeed = 15;
-    [SerializeField] private float _moveAcceleration = 5;
+    [SerializeField] private FloatReference _moveSpeed;
+    [SerializeField] private FloatReference _moveAcceleration;
 
     [Header("Aim :")]
     [SerializeField] private LayerMask _groundLayer = 10;
     [SerializeField] private CameraControler _camControler;
     [SerializeField] private Transform _aimContainer;
-    [SerializeField] private float _aimSpeed = 5;
+    [SerializeField] private FloatReference _aimSpeed;
     private Vector3 _mouseWorldPos;
 
 
@@ -61,8 +61,8 @@ public class PlayerControler : MonoBehaviour
         if (!_canMove) return;
 
         _inputVector = _moveInputAction.ReadValue<Vector2>();
-        Vector3 velocityTarget = new Vector3(_inputVector.x, 0, _inputVector.y) * _moveSpeed * 100 * Time.fixedDeltaTime;
-        _rb.velocity = Vector3.Lerp(_rb.velocity, velocityTarget, Time.deltaTime * _moveAcceleration);
+        Vector3 velocityTarget = new Vector3(_inputVector.x, 0, _inputVector.y) * _moveSpeed.Value * 100 * Time.fixedDeltaTime;
+        _rb.velocity = Vector3.Lerp(_rb.velocity, velocityTarget, Time.deltaTime * _moveAcceleration.Value);
     }
 
 
@@ -86,7 +86,7 @@ public class PlayerControler : MonoBehaviour
                                 , new Vector3(hit.point.x, hit.point.y + 1, hit.point.z)
                                 , Color.red);
 
-        _mouseWorldPos = Vector3.SmoothDamp(_mouseWorldPos, hit.point, ref _aimVelocity, 1 / _aimSpeed, Mathf.Infinity);
+        _mouseWorldPos = Vector3.SmoothDamp(_mouseWorldPos, hit.point, ref _aimVelocity, 1 / _aimSpeed.Value, Mathf.Infinity);
         Vector3 worldMouseDirection = (_mouseWorldPos - transform.position).normalized;
         worldMouseDirection.y = 0;
 
