@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    //TODO add range for proj life time
+    //TODO set la durée du destroy avec la range et la speed
     [SerializeField] private LayerMask _mobLayer;
     private float _speed;
     private float _damage;
