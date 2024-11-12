@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6004264751952235209}
   - component: {fileID: 1115393156313987994}
   - component: {fileID: 5373833948252290904}
-  - component: {fileID: 4021998504032239583}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -148,34 +147,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &4021998504032239583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2294628952006894197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 1ef557f46f9b64d44a7451596034930f, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2294628952006894197}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &3240089663382158827
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,13 +395,13 @@ MonoBehaviour:
     type: 3}
   _stat:
     damage:
-      propertyType: 1
+      propertyType: 0
       constantValue: 10
       variable: {fileID: 11400000, guid: d119d6116264226448c12c8cb9df7707, type: 2}
     attackPerSecond:
-      propertyType: 1
-      constantValue: 2
-      variable: {fileID: 11400000, guid: 27024d8c2a5fb9e469a571e5ff933d0b, type: 2}
+      propertyType: 0
+      constantValue: 5.15
+      variable: {fileID: 0}
     range:
       propertyType: 0
       constantValue: 10
