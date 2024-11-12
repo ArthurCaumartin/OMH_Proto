@@ -19,7 +19,7 @@ public class FloatReference
             if (propertyType == PropertyType.Constant)
                 return constantValue;
             else
-                return constantValue;
+                return variable.Value;
         }
 
         set
