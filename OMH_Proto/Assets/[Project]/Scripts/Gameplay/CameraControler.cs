@@ -19,11 +19,6 @@ public class CameraControler : MonoBehaviour
         if (!_camera) _camera = Camera.main;
     }
 
-    private void OnValidate()
-    {
-        // if (_target) FollowTarget(false);
-    }
-
     private void Update()
     {
         if(!_target) return;
@@ -48,30 +43,6 @@ public class CameraControler : MonoBehaviour
         _inputOffSet = offSet * _inputFollowStrengh;
     }
 
-    // public void SetCameraOnState(PartyState state)
-    // {
-    // switch (state)
-    // {
-    //     case PartyState.Mobile:
-    //         DOTween.To((time) =>
-    //         {
-    //             transform.eulerAngles = Vector3.Lerp(_towerdefenceData.angle, _movingData.angle, time);
-    //             _posOffset = Vector3.Lerp(_towerdefenceData.offSet, _movingData.offSet, time);
-    //         }, 0, 1, _transitionDuration)
-    //         .SetEase(Ease.Linear);
-    //         break;
-
-    //     case PartyState.TowerDefence | PartyState.TowerDefencePlacement:
-    //         DOTween.To((time) =>
-    //         {
-    //             transform.eulerAngles = Vector3.Lerp(_movingData.angle, _towerdefenceData.angle, time);
-    //             _posOffset = Vector3.Lerp(_movingData.offSet, _towerdefenceData.offSet, time);
-    //         }, 0, 1, _transitionDuration)
-    //         .SetEase(Ease.Linear);
-    //         break;
-    // }
-    // }
-
     //! ///////////////////////////////////////////////////
     //! ///////////////////////////////////////////////////
     //! CALL BY EDITOR CLASS
@@ -81,11 +52,16 @@ public class CameraControler : MonoBehaviour
             transform.LookAt(_target);
     }
 
+    public void SaveOffSet()
+    {
+        _posOffset = transform.position - _target.position;
+    }
+
     public void Reset()
     {
         _posOffset = Vector3.zero;
         transform.rotation = Quaternion.identity;
-        OnValidate();
+        transform.position = _target.position;
     }
     //! ///////////////////////////////////////////////////
     //! ///////////////////////////////////////////////////
