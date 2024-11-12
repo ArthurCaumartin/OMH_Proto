@@ -7,11 +7,7 @@ public class PlayerControler : MonoBehaviour
     [Header("Movement :")]
     [SerializeField] private float _moveSpeed = 15;
     [SerializeField] private float _moveAcceleration = 5;
-    [Header("Dash :")]
-    [SerializeField] private float _dashDuration = 3;
-    [SerializeField] private float _dashSpeed = 3;
-    [SerializeField] private float _dashCooldown = 2;
-    [SerializeField] private AnimationCurve _dashVelocityCurve;
+
     [Header("Aim :")]
     [SerializeField] private LayerMask _groundLayer = 10;
     [SerializeField] private CameraControler _camControler;
@@ -46,7 +42,7 @@ public class PlayerControler : MonoBehaviour
 
         _mainCamera = Camera.main;
         _camControler = _mainCamera.GetComponent<CameraControler>();
-        
+
         _moveInputAction = GetComponent<PlayerInput>().actions.FindAction("Move");
         _aimInputAction = GetComponent<PlayerInput>().actions.FindAction("Aim");
         _rb = GetComponent<Rigidbody>();
@@ -57,7 +53,6 @@ public class PlayerControler : MonoBehaviour
     {
         Move();
         MouseAim();
-        Dash();
     }
 
     private void Move()
@@ -106,26 +101,6 @@ public class PlayerControler : MonoBehaviour
     //     _camControler.SetInputOffSet(_currentAimTarget);
     //     _aimContainer.forward = new Vector3(_currentAimTarget.x, 0, _currentAimTarget.y);
     // }
-
-    private void Dash()
-    {
-        if (!_isDashing) return;
-        _dashTime += Time.deltaTime;
-        _rb.velocity = _dashDirection.normalized * 100
-                                                 * _dashSpeed
-                                                 * _dashVelocityCurve.Evaluate(Mathf.InverseLerp(0, _dashDuration, _dashTime))
-                                                 * Time.fixedDeltaTime;
-
-        if (_dashTime > _dashDuration)
-        {
-            _canMove = true;
-            _canAim = true;
-            _isDashing = false;
-            _dashTime = 0;
-
-            StartCoroutine(DashCooldown(_dashCooldown));
-        }
-    }
 
     private void OnDash(InputValue value)
     {
