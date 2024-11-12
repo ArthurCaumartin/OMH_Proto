@@ -6,6 +6,7 @@ public class FlaotReferenceDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
+        //! Begin et End c'est pour la gestion des ctrl + z
         EditorGUI.BeginProperty(position, label, property);
 
         //! get les prop interne
@@ -14,21 +15,17 @@ public class FlaotReferenceDrawer : PropertyDrawer
         var variable = property.FindPropertyRelative("variable");
 
         if (propertyType == null || constantValue == null || variable == null)
-        { 
+        {
             EditorGUI.LabelField(position, label.text, "Check FloatReference fields");
-            EditorGUI.EndProperty(); // Assurez-vous de bien terminer ici aussi
+            EditorGUI.EndProperty();
             return;
         }
 
         Rect labelRect = new Rect(position.x, position.y, position.width / 3, position.height);
         Rect popupRect = new Rect(position.x, position.y, position.width, position.height);
         Rect fieldRect = new Rect(position.width / 2f, position.y, position.width / 2, position.height);
-        // Rect fieldRect = new Rect(position.x/*  + 2 * position.width / 4 */, position.y, position.width / 3, position.height);
 
-        EditorGUI.LabelField(labelRect, label);
-
-        // propertyType.enumValueIndex = EditorGUI.Popup(popupRect, propertyType.enumValueIndex, propertyType.enumDisplayNames);
-
+        //! tres cryptique la gestion des event encore
         if (Event.current.type == EventType.ContextClick && popupRect.Contains(Event.current.mousePosition))
         {
             GenericMenu menu = new GenericMenu();
@@ -45,8 +42,23 @@ public class FlaotReferenceDrawer : PropertyDrawer
             menu.ShowAsContext();
             Event.current.Use();
         }
-        EditorGUI.PropertyField(fieldRect, propertyType.enumValueIndex == (int)PropertyType.Constant ? constantValue : variable, GUIContent.none);
 
+        if (propertyType.enumValueIndex == (int)PropertyType.Constant)
+        {
+            EditorGUI.BeginProperty(fieldRect, label, property);
+            EditorGUI.DrawRect(position, new Color(0.1f, 0.2f, 0.2f, .35f));
+
+            //! dessine un float field et renvoie la valeur drag
+            constantValue.floatValue = EditorGUI.FloatField(position, label, constantValue.floatValue);
+        }
+        else
+        {
+            //! ajoute le label de la propetry
+            EditorGUI.LabelField(labelRect, label);
+            EditorGUI.DrawRect(position, new Color(0.1f, 0.2f, 0.2f, .35f));
+            EditorGUI.PropertyField(fieldRect, variable, GUIContent.none);
+        }
+        // EditorGUI.PropertyField(fieldRect, propertyType.enumValueIndex == (int)PropertyType.Constant ? constantValue : variable, GUIContent.none);
         EditorGUI.EndProperty();
     }
 }
