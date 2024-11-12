@@ -26,6 +26,7 @@ public class CameraControler : MonoBehaviour
 
     private void Update()
     {
+        if(!_target) return;
         FollowTarget(_dampMovement);
     }
 
