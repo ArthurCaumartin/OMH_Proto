@@ -8,9 +8,11 @@ public class CameraControlerEditor : Editor
     {
         CameraControler controler = (CameraControler)target;
         base.OnInspectorGUI();
-        GUILayout.Space(10);
+        GUILayout.Space(3);
         if (GUILayout.Button("Look At Target")) controler.LookAtTarget();
-        GUILayout.Space(15);
+        GUILayout.Space(3);
+        if (GUILayout.Button("Save Offset")) controler.SaveOffSet();
+        GUILayout.Space(10);
         if (GUILayout.Button("Reset")) controler.Reset();
     }
 }
