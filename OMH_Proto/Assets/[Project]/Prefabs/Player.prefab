@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 330d65731f618ec4d8249d1a6245e82b,
     type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 1
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -79,41 +79,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61fa2b0ee043ca4cb53c6cf02d00f8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 8
-  _moveAcceleration: 15
-  _dashDuration: 3
-  _dashSpeed: 3
-  _dashCooldown: 2.03
-  _dashVelocityCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  DEBUG: 0
+  _moveSpeed:
+    propertyType: 0
+    constantValue: 8
+    variable: {fileID: 0}
+  _moveAcceleration:
+    propertyType: 0
+    constantValue: 10
+    variable: {fileID: 0}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 1024
   _camControler: {fileID: 0}
   _aimContainer: {fileID: 8778281330849690049}
-  _aimSpeed: 5
+  _aimSpeed:
+    propertyType: 0
+    constantValue: 10
+    variable: {fileID: 0}
 --- !u!54 &1115393156313987994
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -361,5 +344,81 @@ Transform:
   m_Children:
   - {fileID: 4517866506792968840}
   - {fileID: 4588348626714198221}
+  - {fileID: 3028660181941817257}
   m_Father: {fileID: 3559937780372564217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6570192975262435698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3028660181941817257}
+  - component: {fileID: 4115082527801276617}
+  m_Layer: 0
+  m_Name: WeaponContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3028660181941817257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570192975262435698}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8778281330849690049}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4115082527801276617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570192975262435698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9218224d5651d72429294c37f1fb3308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectile: {fileID: 6403736433643166296, guid: d49a1cea79879ec4d83dfedacc23edbf,
+    type: 3}
+  _stat:
+    damage:
+      propertyType: 0
+      constantValue: 10
+      variable: {fileID: 0}
+    attackPerSecond:
+      propertyType: 0
+      constantValue: 10
+      variable: {fileID: 0}
+    range:
+      propertyType: 0
+      constantValue: 10
+      variable: {fileID: 0}
+    projectileSpeed:
+      propertyType: 0
+      constantValue: 10
+      variable: {fileID: 0}
+  _bulletCount:
+    propertyType: 0
+    constantValue: 1
+    variable: {fileID: 0}
+  _spread:
+    propertyType: 0
+    constantValue: 0
+    variable: {fileID: 0}
+  _randomness:
+    propertyType: 0
+    constantValue: 0
+    variable: {fileID: 0}
