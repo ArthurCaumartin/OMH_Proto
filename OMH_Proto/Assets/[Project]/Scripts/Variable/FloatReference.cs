@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 //! https://www.youtube.com/watch?v=raQ3iHhE_Kk&t=1s
 
@@ -8,8 +9,8 @@ public enum PropertyType { Constant, Variable }
 public class FloatReference
 {
     public PropertyType propertyType = PropertyType.Constant;
-    public float constantValue;
-    public FloatVariable variable;
+    [SerializeField] private float constantValue;
+    [SerializeField] private FloatVariable variable;
 
     public float Value
     {
