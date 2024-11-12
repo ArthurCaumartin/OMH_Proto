@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         _gameTime.Value += Time.deltaTime;
         if (_gameTime.Value > _explorationDuration.Value)
         {
-            print("Set Defense !");
+            // print("Set Defense !");
             SetGameState(GameState.Defense);
         }
     }
