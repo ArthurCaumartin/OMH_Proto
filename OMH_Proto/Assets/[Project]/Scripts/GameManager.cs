@@ -1,9 +1,19 @@
 using UnityEngine;
 
+public enum GameState
+{
+    NotSet,
+    Exploration,
+    Defense,
+}
+
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameEvent _defenseStartEvent;
+    [Space]
     [SerializeField] private FloatReference _gameTime;
     [SerializeField] private FloatReference _explorationDuration;
+    private GameState _currentGameState;
 
     private void Start()
     {
@@ -13,9 +23,26 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         _gameTime.Value += Time.deltaTime;
-        if(_gameTime.Value > _explorationDuration.Value)
+        if (_gameTime.Value > _explorationDuration.Value)
         {
-            print("TRIGGER DEFENSE PHASE");
+            print("Set Defense !");
+            SetGameState(GameState.Defense);
+        }
+    }
+
+    private void SetGameState(GameState toSet)
+    {
+        if (_currentGameState == toSet) return;
+        _currentGameState = toSet;
+        switch (_currentGameState)
+        {
+            case GameState.Exploration:
+                //! ????
+                break;
+
+            case GameState.Defense:
+                _defenseStartEvent.Raise();
+                break;
         }
     }
 }
