@@ -17,8 +17,9 @@ public class PhysicsAgent : MonoBehaviour
     private float _0to1Distance;
     private Rigidbody _rigidbody;
 
-    private float _reConputePathTime;
-    private Vector3[] _vectorPath;
+    private float _reComputePathTime;
+    private Vector3[] _path = new Vector3[2];
+
 
     private void Start()
     {
@@ -27,56 +28,60 @@ public class PhysicsAgent : MonoBehaviour
         GetNewPath();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         ComputePath();
 
-        if (_navPath.corners.Count() == 0)
-        {
-            return;
-            // _navPath = new NavMeshPath();
-            // NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 1000, NavMesh.AllAreas);
-            // _navPath.corners = new[] { transform.position, hit.position };
-        }
-        _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity
-                                            , (_navPath.corners[1] - transform.position).normalized * _speed
-                                            , Time.deltaTime * _acceleration);
-        _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, Physics.gravity.y, _rigidbody.velocity.z);
+        // _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity
+        //                                     , (_path[1] - transform.position).normalized * _speed
+        //                                     , Time.deltaTime * _acceleration);
+        // _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, Physics.gravity.y, _rigidbody.velocity.z);
+        //TODO dot product pour voire si on change de direction et on frene au cas ou
+        _rigidbody.AddForce((_path[1] - transform.position).normalized * _speed * Time.fixedDeltaTime, ForceMode.Impulse);
 
-        for (int i = 0; i < _navPath.corners.Length - 1; i++)
+        for (int i = 0; i < _path.Length - 1; i++)
         {
-            Debug.DrawLine(_navPath.corners[i], _navPath.corners[i + 1], Color.red);
+            Debug.DrawLine(_path[i], _path[i + 1], Color.red);
         }
     }
 
     private void ComputePath()
     {
-        if (_navPath == null || _navPath.corners.Count() == 0)
+        if(_path.Length == 0)
         {
-            GetNewPath();
-            return;
+            _path = GetNewPath();
         }
 
         //! Si on est proche du point target on refait le path et on reset le timer
-        if (Vector3.Distance(transform.position, _navPath.corners[0]) > _0to1Distance)
+        if (Vector3.Distance(transform.position, _path[0]) > _0to1Distance)
         {
-            GetNewPath();
+            _path = GetNewPath();
             return;
         }
 
-        _reConputePathTime += Time.deltaTime;
-        if (_reConputePathTime > 1 / _reComputePathPerSecond)
+        _reComputePathTime += Time.deltaTime;
+        if (_reComputePathTime > 1 / _reComputePathPerSecond)
         {
-            GetNewPath();
+            _path = GetNewPath();
         }
     }
 
-    private void GetNewPath()
+    private Vector3[] GetNewPath()
     {
-        _reConputePathTime = 0;
-        if (NavMesh.CalculatePath(transform.position, _target.position, NavMesh.AllAreas, _navPath))
-            _0to1Distance = Vector3.Distance(_navPath.corners[0], _navPath.corners[1]);
-
+        _reComputePathTime = 0;
+        NavMeshPath newNavPath = new NavMeshPath();
+        if (NavMesh.CalculatePath(transform.position, _target.position, NavMesh.AllAreas, newNavPath))
+        {
+            _0to1Distance = Vector3.Distance(newNavPath.corners[0], newNavPath.corners[1]);
+            return newNavPath.corners;
+        }
+        else
+        {
+            _navPath = new NavMeshPath();
+            NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 1000, NavMesh.AllAreas);
+            _0to1Distance = Vector3.Distance(transform.position, hit.position);
+            return new[] { transform.position, hit.position };
+        }
     }
 
     public void SetTarget(Transform value)

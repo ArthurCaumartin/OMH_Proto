@@ -299,7 +299,6 @@ GameObject:
   - component: {fileID: 295116959}
   - component: {fileID: 295116962}
   - component: {fileID: 295116961}
-  - component: {fileID: 295116960}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -322,27 +321,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2063672055}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &295116960
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 295116958}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &295116961
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1576,14 +1554,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Shape:
     rid: 2165059622077464581
-  m_Size: {x: 10, y: 0, z: -100}
+  m_Size: {x: 114.15051, y: 0, z: -165.73886}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_PivotLocation: 1
   m_PivotPosition: {x: 0, y: 0, z: 0}
-  m_UnmodifiedMeshVersion: 681
+  m_UnmodifiedMeshVersion: 5361
   m_ShapeBox:
-    m_Center: {x: 5, y: 0.0001, z: -50}
-    m_Extent: {x: 50, y: 0, z: 5}
+    m_Center: {x: 29.257416, y: 0.0001, z: -50}
+    m_Extent: {x: 82.86943, y: 0, z: 57.075256}
   references:
     version: 2
     RefIds:
@@ -1628,15 +1606,15 @@ MonoBehaviour:
   - m_Vertices: 03000000
   m_SharedTextures: []
   m_Positions:
-  - {x: 0, y: 0.0001, z: -100}
-  - {x: 0, y: 0.0001, z: 0}
-  - {x: 10, y: 0.0001, z: -100}
-  - {x: 10, y: 0.0001, z: 0}
+  - {x: -27.81784, y: 0.0001, z: -132.86943}
+  - {x: -27.81784, y: 0.0001, z: 32.86943}
+  - {x: 86.33267, y: 0.0001, z: -132.86943}
+  - {x: 86.33267, y: 0.0001, z: 32.86943}
   m_Textures0:
-  - {x: 0, y: -100}
-  - {x: 0, y: 0}
-  - {x: 10, y: -100}
-  - {x: 10, y: 0}
+  - {x: -27.81784, y: -132.86943}
+  - {x: -27.81784, y: 32.86943}
+  - {x: 86.33267, y: -132.86943}
+  - {x: 86.33267, y: 32.86943}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
@@ -1653,7 +1631,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1402565865}
-  m_VersionIndex: 681
+  m_VersionIndex: 5361
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1675,8 +1653,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 4
     localAABB:
-      m_Center: {x: 5, y: 0.0001, z: -50}
-      m_Extent: {x: 5, y: 0, z: 50}
+      m_Center: {x: 29.257416, y: 0.0001, z: -50}
+      m_Extent: {x: 57.075256, y: 0, z: 82.86943}
   m_Shapes:
     vertices: []
     shapes: []
@@ -1755,7 +1733,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 192
-    _typelessdata: 0000000017b7d1380000c8c2000000000000803f000000000000803f0000000000000000000080bf000000000000c8c20000000017b7d13800000000000000000000803f000000000000803f0000000000000000000080bf00000000000000000000204117b7d1380000c8c2000000000000803f000000000000803f0000000000000000000080bf000020410000c8c20000204117b7d13800000000000000000000803f000000000000803f0000000000000000000080bf0000204100000000
+    _typelessdata: f08adec117b7d13893de04c3000000000000803f000000000000803f0000000000000000000080bff08adec193de04c3f08adec117b7d1384c7a0342000000000000803f000000000000803f0000000000000000000080bff08adec14c7a034254aaac4217b7d13893de04c3000000000000803f000000000000803f0000000000000000000080bf54aaac4293de04c354aaac4217b7d1384c7a0342000000000000803f000000000000803f0000000000000000000080bf54aaac424c7a0342
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -1809,8 +1787,8 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: 5, y: 0.0001, z: -50}
-    m_Extent: {x: 5, y: 0, z: 50}
+    m_Center: {x: 29.257416, y: 0.0001, z: -50}
+    m_Extent: {x: 57.075256, y: 0, z: 82.86943}
   m_MeshUsageFlags: 0
   m_CookingOptions: 30
   m_BakedConvexCollisionMesh: 
@@ -2432,8 +2410,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2117488773}
   _agent: {fileID: 3186105598397709751, guid: 79b0b90dd5ecea8418eb1d6890915a97, type: 3}
-  _count: 5
-  _spawnPerSecond: 1
+  _count: 296
+  _spawnPerSecond: 7.49
 --- !u!1 &2077896508
 GameObject:
   m_ObjectHideFlags: 0
