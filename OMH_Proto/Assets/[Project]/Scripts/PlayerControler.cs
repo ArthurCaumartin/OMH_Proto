@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerControler : MonoBehaviour
 {
+    public bool DEBUG = false;
     [Header("Movement :")]
     [SerializeField] private float _moveSpeed = 15;
     [SerializeField] private float _moveAcceleration = 5;
@@ -64,28 +65,30 @@ public class PlayerControler : MonoBehaviour
         _rb.velocity = Vector3.Lerp(_rb.velocity, velocityTarget, Time.deltaTime * _moveAcceleration);
     }
 
+
+
+    /// <summary> 
+    /// Get la pos du pointer sur le sol et compute la direction par rapport au joueur
+    /// <summary> 
     private void MouseAim()
     {
         if (!_canAim) return;
 
         Vector2 pixelPos = _aimInputAction.ReadValue<Vector2>();
-        print("Pixel pos : " + pixelPos);
         Ray camRay = _mainCamera.ScreenPointToRay(pixelPos);
-        Debug.DrawRay(camRay.origin, camRay.direction * 100, Color.green);
+
+        if (DEBUG) Debug.DrawRay(camRay.origin, camRay.direction * 100, Color.green);
+
         Physics.Raycast(camRay, out RaycastHit hit, Mathf.Infinity, _groundLayer);
         if (!hit.collider) return;
-        Debug.DrawLine(new Vector3(hit.point.x, hit.point.y - 1, hit.point.z)
-                    , new Vector3(hit.point.x, hit.point.y + 1, hit.point.z), Color.red);
 
+        if (DEBUG) Debug.DrawLine(new Vector3(hit.point.x, hit.point.y - 1, hit.point.z)
+                                , new Vector3(hit.point.x, hit.point.y + 1, hit.point.z)
+                                , Color.red);
 
-        print("World no damp : " + _mouseWorldPos);
         _mouseWorldPos = Vector3.SmoothDamp(_mouseWorldPos, hit.point, ref _aimVelocity, 1 / _aimSpeed, Mathf.Infinity);
-        // _mouseWorldPos = hit.point;
-        print("World pos : " + _mouseWorldPos);
-
         Vector3 worldMouseDirection = (_mouseWorldPos - transform.position).normalized;
         worldMouseDirection.y = 0;
-        print("Direction : " + worldMouseDirection);
 
         _camControler.SetInputOffSet(worldMouseDirection);
         _aimContainer.forward = worldMouseDirection;
