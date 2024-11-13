@@ -11,7 +11,7 @@ public class TargetFinder : MonoBehaviour
 
     private void Start()
     {
-        _agent = GetComponent<PhysicsAgent>();
+        _agent = GetComponentInParent<PhysicsAgent>();
     }
 
     public void Initialize(MobTarget ifLostTarget)
