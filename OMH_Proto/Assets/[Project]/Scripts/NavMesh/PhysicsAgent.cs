@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.AI.Navigation;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class PhysicsAgent : MonoBehaviour
 {
     //TODO add un delais pour la recalculation du path
-    [SerializeField] private float _reComputePathPerSecond = .5f;
     [SerializeField] private Transform _target;
+    [SerializeField] private float _reComputePathPerSecond = .5f;
+    [Space]
     [SerializeField] private float _speed = 20;
     [SerializeField] private float _acceleration = 5;
+    [SerializeField] private float _fallingVelocity = -8;
     private NavMeshPath _navPath;
     private float _0to1Distance;
     private Rigidbody _rigidbody;
@@ -30,14 +27,15 @@ public class PhysicsAgent : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!_target) return;
         ComputePath();
 
-        // _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity
-        //                                     , (_path[1] - transform.position).normalized * _speed
-        //                                     , Time.deltaTime * _acceleration);
-        // _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, Physics.gravity.y, _rigidbody.velocity.z);
-        //TODO dot product pour voire si on change de direction et on frene au cas ou
-        _rigidbody.AddForce((_path[1] - transform.position).normalized * _speed * Time.fixedDeltaTime, ForceMode.Impulse);
+        _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity
+                                            , (_path[1] - transform.position).normalized * _speed
+                                            , Time.deltaTime * _acceleration);
+        _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _fallingVelocity, _rigidbody.velocity.z);
+
+        // _rigidbody.AddForce((_path[1] - transform.position).normalized * _speed * Time.fixedDeltaTime, ForceMode.Impulse);
 
         for (int i = 0; i < _path.Length - 1; i++)
         {
