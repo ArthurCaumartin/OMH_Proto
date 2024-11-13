@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerControler : MonoBehaviour
 {
+    //TODO PLAYER Faire un script player Aim / player movement !!!
     public bool DEBUG = false;
     [Header("Movement :")]
     [SerializeField] private FloatReference _moveSpeed;
@@ -15,8 +16,6 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private Transform _aimContainer;
     [SerializeField] private FloatReference _aimSpeed;
     private Vector3 _mouseWorldPos;
-
-
 
     private InputAction _moveInputAction;
     private InputAction _aimInputAction;
@@ -64,8 +63,6 @@ public class PlayerControler : MonoBehaviour
         Vector3 velocityTarget = new Vector3(_inputVector.x, 0, _inputVector.y) * _moveSpeed.Value * 100 * Time.fixedDeltaTime;
         _rb.velocity = Vector3.Lerp(_rb.velocity, velocityTarget, Time.deltaTime * _moveAcceleration.Value);
     }
-
-
 
     /// <summary> 
     /// Get la pos du pointer sur le sol et compute la direction par rapport au joueur
