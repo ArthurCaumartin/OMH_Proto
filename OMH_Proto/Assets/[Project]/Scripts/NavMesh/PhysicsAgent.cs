@@ -10,7 +10,7 @@ public class PhysicsAgent : MonoBehaviour
     [Space]
     [SerializeField] private float _speed = 20;
     [SerializeField] private float _acceleration = 5;
-    [SerializeField] private float _fallingVelocity = -8;
+    [SerializeField] private float _fallingVelocity = 0;
     private NavMeshPath _navPath;
     private float _0to1Distance;
     private Rigidbody _rigidbody;
