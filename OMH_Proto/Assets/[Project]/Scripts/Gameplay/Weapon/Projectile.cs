@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -22,10 +23,14 @@ public class Projectile : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector3.forward * _speed * Time.deltaTime);
-        Physics.Raycast(transform.position, -transform.forward, out RaycastHit hit, .2f, _mobLayer);
+        Physics.Raycast(transform.position, -transform.forward, out RaycastHit hit, 1f, _mobLayer);
         if(hit.collider)
         {
-            //TODO do damage :)
+            print("Hit " + hit.collider.gameObject.name);
+
+            EnemyLife enemyLife = hit.collider.gameObject.GetComponent<EnemyLife>();
+            enemyLife.DoDamages(10);
+            
             Destroy(gameObject);
         }
     }
