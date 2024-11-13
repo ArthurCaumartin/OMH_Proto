@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3186105598397709751}
   - component: {fileID: 3018958233928957756}
   - component: {fileID: 5990873467246876987}
+  - component: {fileID: -2737448881527777787}
+  - component: {fileID: -6411161857729405815}
   m_Layer: 0
   m_Name: PhysicsAgent
   m_TagString: Mob
@@ -47,9 +49,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da9ecd2ccafc734698b7d5b7f117906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DEBUG: 1
   _target: {fileID: 0}
   _reComputePathPerSecond: 0.5
-  _speed: 13
+  _speed: 4.5
   _acceleration: 5
   _fallingVelocity: 0
 --- !u!54 &3018958233928957756
@@ -100,6 +103,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &-2737448881527777787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191879917368600816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbd4998d0293364c8d906e8c8469283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _agent: {fileID: 3186105598397709751}
+--- !u!65 &-6411161857729405815
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191879917368600816}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 4, z: 4}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &7999337778162119440
 GameObject:
   m_ObjectHideFlags: 0

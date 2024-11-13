@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 public class PhysicsAgent : MonoBehaviour
 {
+    public bool DEBUG = true;
     //TODO add un delais pour la recalculation du path
     [SerializeField] private Transform _target;
     [SerializeField] private float _reComputePathPerSecond = .5f;
@@ -27,16 +28,25 @@ public class PhysicsAgent : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!_target) return;
         ComputePath();
+        MoveRigidbody();
+        DebugPath();   
+    }
+
+    private void MoveRigidbody()
+    {
+        if (!_target) return;
 
         _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity
                                             , (_path[1] - transform.position).normalized * _speed
                                             , Time.deltaTime * _acceleration);
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _fallingVelocity, _rigidbody.velocity.z);
-
         // _rigidbody.AddForce((_path[1] - transform.position).normalized * _speed * Time.fixedDeltaTime, ForceMode.Impulse);
+    }
 
+    private void DebugPath()
+    {
+        if(!DEBUG) return;
         for (int i = 0; i < _path.Length - 1; i++)
         {
             Debug.DrawLine(_path[i], _path[i + 1], Color.red);
@@ -85,5 +95,6 @@ public class PhysicsAgent : MonoBehaviour
     public void SetTarget(Transform value)
     {
         _target = value;
+        _path = GetNewPath();
     }
 }
