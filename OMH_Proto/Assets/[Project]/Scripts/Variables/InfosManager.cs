@@ -10,7 +10,7 @@ public class InfosManager : ScriptableObject
     [Header("Values")]
     public FloatVariable metal;
     public FloatVariable syringe;
-    public float key = 2;
+    public FloatVariable key;
     public bool artifact = false;
 
     [Header("Objects")]
@@ -20,13 +20,4 @@ public class InfosManager : ScriptableObject
     public float movementSpeed;
     public float gunAttackSpeed;
     public float gunDamages;
-
-    private void OnEnable()
-    {
-        Debug.Log("Reset Values");
-        // metal.Value = 0;
-        // syringe.Value = 2;
-        // key = 2;
-        // artifact = false;
-    } 
 }
