@@ -68,6 +68,7 @@ public class CameraControler : MonoBehaviour
     {
         if (!_target) return;
         transform.position = _target.position + _posOffset;
+        transform.eulerAngles = _rotOffset;
     }
 
     public void Reset()
