@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(SphereCollider))]
 public class TargetFinder : MonoBehaviour
 {
     public bool DEBUG = true;
@@ -11,7 +11,7 @@ public class TargetFinder : MonoBehaviour
 
     private void Start()
     {
-        _agent = GetComponent<PhysicsAgent>();
+        _agent = GetComponentInParent<PhysicsAgent>();
     }
 
     public void Initialize(MobTarget ifLostTarget)
