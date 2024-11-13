@@ -441,9 +441,16 @@ MonoBehaviour:
   _target: {fileID: 1568838233}
   _camera: {fileID: 330585545}
   _dampMovement: 1
-  _followSpeed: 5
-  _inputFollowStrengh: 2
+  _followSpeed:
+    propertyType: 0
+    constantValue: 0
+    variable: {fileID: 0}
+  _inputFollowStrengh:
+    propertyType: 0
+    constantValue: 0
+    variable: {fileID: 0}
   _posOffset: {x: 0, y: 14.18, z: -6.67}
+  _rotOffset: {x: 0, y: 0, z: 0}
 --- !u!43 &404577029
 Mesh:
   m_ObjectHideFlags: 0
@@ -1514,29 +1521,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1747475986}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1060747218 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7187046051254820072, guid: 149cb6bc104b64f40986aedc6c54b1b6,
-    type: 3}
-  m_PrefabInstance: {fileID: 2484132347816861272}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1060747221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060747218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c77b1a5ca7ecd9441a6b4e9a6e672ef4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _infosManager: {fileID: 11400000, guid: 13b82694bb59d814f9665ca87983ffe7, type: 2}
-  _baseMetal: 0
-  _baseSyringe: 2
-  _baseKey: 2
-  _baseArtifact: 0
 --- !u!1 &1094647011
 GameObject:
   m_ObjectHideFlags: 0
@@ -2978,11 +2962,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7187046051254820072, guid: 149cb6bc104b64f40986aedc6c54b1b6,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1060747221}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 149cb6bc104b64f40986aedc6c54b1b6, type: 3}
 --- !u!1001 &3638817301272174769
 PrefabInstance:
