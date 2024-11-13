@@ -23,20 +23,19 @@ public class PhysicsAgent : MonoBehaviour
     {
         _navPath = new NavMeshPath();
         _rigidbody = GetComponent<Rigidbody>();
-        GetNewPath();
+        if (_target) GetNewPath();
     }
 
     private void FixedUpdate()
     {
+        if (!_target) return;
         ComputePath();
         MoveRigidbody();
-        DebugPath();   
+        DebugPath();
     }
 
     private void MoveRigidbody()
     {
-        if (!_target) return;
-
         _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity
                                             , (_path[1] - transform.position).normalized * _speed
                                             , Time.deltaTime * _acceleration);
@@ -46,7 +45,7 @@ public class PhysicsAgent : MonoBehaviour
 
     private void DebugPath()
     {
-        if(!DEBUG) return;
+        if (!DEBUG) return;
         for (int i = 0; i < _path.Length - 1; i++)
         {
             Debug.DrawLine(_path[i], _path[i + 1], Color.red);
@@ -55,7 +54,7 @@ public class PhysicsAgent : MonoBehaviour
 
     private void ComputePath()
     {
-        if(_path.Length == 0)
+        if (_path.Length == 0)
         {
             _path = GetNewPath();
         }
@@ -67,6 +66,7 @@ public class PhysicsAgent : MonoBehaviour
             return;
         }
 
+        //TODO OPTI nerf le refresh en fonction du nombre de phys agent
         _reComputePathTime += Time.deltaTime;
         if (_reComputePathTime > 1 / _reComputePathPerSecond)
         {
@@ -95,6 +95,6 @@ public class PhysicsAgent : MonoBehaviour
     public void SetTarget(Transform value)
     {
         _target = value;
-        _path = GetNewPath();
+        if (_target) _path = GetNewPath();
     }
 }
