@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraControler : MonoBehaviour
@@ -7,11 +8,13 @@ public class CameraControler : MonoBehaviour
     [SerializeField] private Camera _camera;
     [Header("Moving Parametre :")]
     [SerializeField] private bool _dampMovement = true;
-    [SerializeField] private float _followSpeed = 5f;
-    [SerializeField] private float _inputFollowStrengh = 2f;
+    [SerializeField] private FloatReference _followSpeed;
+    [SerializeField] private FloatReference _inputFollowStrengh;
     [Header("Data Set up :")]
     [SerializeField] private Vector3 _posOffset;
-    private Vector3 _velocity;
+    [SerializeField] private Vector3 _rotOffset;
+    private Vector3 _posVelocity;
+    private Vector3 _rotVelocity;
     private Vector3 _inputOffSet;
 
     private void Start()
@@ -21,7 +24,7 @@ public class CameraControler : MonoBehaviour
 
     private void Update()
     {
-        if(!_target) return;
+        if (!_target) return;
         FollowTarget(_dampMovement);
     }
 
@@ -30,17 +33,19 @@ public class CameraControler : MonoBehaviour
         if (dampMovement)
         {
             Vector3 targetPos = _target.position + _posOffset + new Vector3(_inputOffSet.x, 0, _inputOffSet.y);
-            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref _velocity, 1 / _followSpeed, Mathf.Infinity);
+            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref _posVelocity, 1 / _followSpeed.Value, Mathf.Infinity);
+            transform.eulerAngles = Vector3.SmoothDamp(transform.eulerAngles, _rotOffset, ref _rotVelocity, 1 / _followSpeed.Value, Mathf.Infinity);
         }
         else
         {
             transform.position = _target.position + _posOffset + new Vector3(_inputOffSet.x, 0, _inputOffSet.y);
+            transform.eulerAngles = _rotOffset;
         }
     }
 
     public void SetInputOffSet(Vector2 offSet)
     {
-        _inputOffSet = offSet * _inputFollowStrengh;
+        _inputOffSet = offSet * _inputFollowStrengh.Value;
     }
 
     //! ///////////////////////////////////////////////////
@@ -48,13 +53,22 @@ public class CameraControler : MonoBehaviour
     //! CALL BY EDITOR CLASS
     public void LookAtTarget()
     {
-        if (_target)
-            transform.LookAt(_target);
+        if (!_target) return;
+        transform.LookAt(_target);
     }
 
     public void SaveOffSet()
     {
+        if (!_target) return;
         _posOffset = transform.position - _target.position;
+        _rotOffset = transform.eulerAngles;
+    }
+
+    public void GoOnTarget()
+    {
+        if (!_target) return;
+        transform.position = _target.position + _posOffset;
+        transform.eulerAngles = _rotOffset;
     }
 
     public void Reset()

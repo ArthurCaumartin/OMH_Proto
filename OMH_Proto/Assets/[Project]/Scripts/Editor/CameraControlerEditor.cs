@@ -12,6 +12,8 @@ public class CameraControlerEditor : Editor
         if (GUILayout.Button("Look At Target")) controler.LookAtTarget();
         GUILayout.Space(3);
         if (GUILayout.Button("Save Offset")) controler.SaveOffSet();
+        GUILayout.Space(3);
+        if (GUILayout.Button("Go On Target")) controler.GoOnTarget();
         GUILayout.Space(10);
         if (GUILayout.Button("Reset")) controler.Reset();
     }

@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 3186105598397709751}
   - component: {fileID: 3018958233928957756}
   - component: {fileID: 5990873467246876987}
+  - component: {fileID: -2737448881527777787}
+  - component: {fileID: 2713222995199660508}
   m_Layer: 0
   m_Name: PhysicsAgent
-  m_TagString: Untagged
+  m_TagString: Mob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7191879917368600816}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.59, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47,10 +49,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da9ecd2ccafc734698b7d5b7f117906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _reComputePathPerSecond: 0.5
+  DEBUG: 1
   _target: {fileID: 0}
-  _speed: 13
+  _reComputePathPerSecond: 2
+  _speed: 4.5
   _acceleration: 5
+  _fallingVelocity: 0
 --- !u!54 &3018958233928957756
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -98,6 +102,45 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &-2737448881527777787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191879917368600816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbd4998d0293364c8d906e8c8469283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DEBUG: 0
+  _agent: {fileID: 3186105598397709751}
+  _maxFollowDistance:
+    propertyType: 0
+    constantValue: 20
+    variable: {fileID: 0}
+--- !u!135 &2713222995199660508
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191879917368600816}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 10
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &7999337778162119440
 GameObject:

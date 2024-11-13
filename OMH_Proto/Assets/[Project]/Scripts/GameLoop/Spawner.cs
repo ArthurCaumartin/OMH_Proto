@@ -23,6 +23,7 @@ public class Spawner : MonoBehaviour
             _currentCount++;
             PhysicsAgent a = Instantiate(_agent, transform.TransformPoint(new Vector3(Random.Range(-1f, 1f), .5f, Random.Range(-1f, 1f))), Quaternion.identity);
             a.SetTarget(_target);
+            a.transform.SetParent(transform);
         }
     }
 }
