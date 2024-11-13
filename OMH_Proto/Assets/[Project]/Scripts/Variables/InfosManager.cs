@@ -21,11 +21,12 @@ public class InfosManager : ScriptableObject
     public float gunAttackSpeed;
     public float gunDamages;
 
-    // private void OnEnable()
-    // {
-    //     metal.Value = 0;
-    //     syringe.Value = 2;
-    //     key = 2;
-    //     artifact = false;
-    // }
+    private void OnEnable()
+    {
+        Debug.Log("Reset Values");
+        // metal.Value = 0;
+        // syringe.Value = 2;
+        // key = 2;
+        // artifact = false;
+    } 
 }
