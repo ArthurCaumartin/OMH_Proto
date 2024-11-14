@@ -1797,85 +1797,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1279944413
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1279944415}
-  - component: {fileID: 1279944414}
-  - component: {fileID: 1279944416}
-  m_Layer: 0
-  m_Name: SpawnerManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1279944414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1279944413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14cae838027a1dc49a63d67d081cefad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gasTankTarget: {fileID: 1879639991}
-  _spawnerScriptables:
-  - {fileID: 11400000, guid: 6fd3975d78978f844b31651dae16da75, type: 2}
-  - {fileID: 11400000, guid: 17ec408f5f79e30478d7972c7740f26f, type: 2}
-  - {fileID: 11400000, guid: abe98cfb228116149874b179d8f94877, type: 2}
-  _spawners: []
---- !u!4 &1279944415
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1279944413}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.992102, y: -11.870934, z: -6.111061}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1279944416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1279944413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 1ef557f46f9b64d44a7451596034930f, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1279944414}
-        m_TargetAssemblyTypeName: SpawnManager, Assembly-CSharp
-        m_MethodName: StartDefense
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1392971625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,7 +2405,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 5848826c94052194eac64371ec8bec8f, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a84b0706cf1d23e4e97482a491d97630, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &1747475988
 MonoBehaviour:
@@ -3459,6 +3380,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 518393d0a1ba2a645a14233b43e32bc3, type: 3}
+--- !u!1001 &8006915355876114831
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2421241010059515345, guid: c512a6c5d60c9094d92b97e08707a82f,
+        type: 3}
+      propertyPath: m_Name
+      value: SpawnerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473439344484328292, guid: c512a6c5d60c9094d92b97e08707a82f,
+        type: 3}
+      propertyPath: _gasTankTarget
+      value: 
+      objectReference: {fileID: 1879639991}
+    - target: {fileID: 5588780492750944184, guid: c512a6c5d60c9094d92b97e08707a82f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30.992102
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588780492750944184, guid: c512a6c5d60c9094d92b97e08707a82f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.870934
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588780492750944184, guid: c512a6c5d60c9094d92b97e08707a82f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.111061
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588780492750944184, guid: c512a6c5d60c9094d92b97e08707a82f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588780492750944184, guid: c512a6c5d60c9094d92b97e08707a82f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588780492750944184, guid: c512a6c5d60c9094d92b97e08707a82f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588780492750944184, guid: c512a6c5d60c9094d92b97e08707a82f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588780492750944184, guid: c512a6c5d60c9094d92b97e08707a82f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588780492750944184, guid: c512a6c5d60c9094d92b97e08707a82f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588780492750944184, guid: c512a6c5d60c9094d92b97e08707a82f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c512a6c5d60c9094d92b97e08707a82f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3470,8 +3464,8 @@ SceneRoots:
   - {fileID: 3638817301272174769}
   - {fileID: 354759577271041101}
   - {fileID: 2484132347816861272}
+  - {fileID: 8006915355876114831}
   - {fileID: 1747475986}
-  - {fileID: 1279944415}
   - {fileID: 7059113410707255713}
   - {fileID: 477722329}
   - {fileID: 228305083}
