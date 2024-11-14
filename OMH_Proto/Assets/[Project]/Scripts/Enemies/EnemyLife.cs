@@ -6,12 +6,16 @@ public class EnemyLife : MonoBehaviour
 {
     [SerializeField] private float _mobHealth;
     [SerializeField] private Material _hitMaterial, _baseMaterial;
-    [SerializeField] private MeshRenderer _enemyMesh;
+    [SerializeField] private Renderer _enemyRenderer;
+
+    private void Start()
+    {
+        _enemyRenderer.material = _baseMaterial;
+    }
 
     public void DoDamages(float value)
     {
-        print("Hitted");
-
+        // print("Hitted");
         StartCoroutine(Hit());
         _mobHealth -= value;
         if (_mobHealth <= 0)
@@ -27,8 +31,8 @@ public class EnemyLife : MonoBehaviour
 
     public IEnumerator Hit()
     {
-        _enemyMesh.material = _hitMaterial;
+        _enemyRenderer.material = _hitMaterial;
         yield return new WaitForSeconds(0.2f);
-        _enemyMesh.material = _baseMaterial;
+        _enemyRenderer.material = _baseMaterial;
     }
 }
