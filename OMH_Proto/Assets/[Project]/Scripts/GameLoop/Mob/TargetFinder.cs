@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
@@ -8,6 +9,10 @@ public class TargetFinder : MonoBehaviour
     [SerializeField] private FloatReference _maxFollowDistance;
     private MobTarget _currentTarget;
     private MobTarget _ifLostTarget;
+    private float _distanceWithTarget;
+
+    public float TargetDistance { get => _currentTarget ? _distanceWithTarget : Mathf.Infinity; }
+    public GameObject Target { get => _currentTarget ? _currentTarget.gameObject : null; }
 
     private void Start()
     {
@@ -33,13 +38,13 @@ public class TargetFinder : MonoBehaviour
 
     private bool IsTargetToFar()
     {
-        float distanceWithTarget = Vector3.Distance(transform.position, _currentTarget.transform.position);
-        if (distanceWithTarget > _maxFollowDistance.Value)
+        _distanceWithTarget = Vector3.Distance(transform.position, _currentTarget.transform.position);
+        if (_distanceWithTarget > _maxFollowDistance.Value)
             return true;
         return false;
     }
 
-    public void SetAgentTarget(MobTarget toSet)
+    private void SetAgentTarget(MobTarget toSet)
     {
         if (!toSet)
         {
@@ -67,7 +72,7 @@ public class TargetFinder : MonoBehaviour
 
     public void OnDrawGizmos()
     {
-        if(!DEBUG) return;
+        if (!DEBUG) return;
         Gizmos.color = new Color(1, 0, 0, .2f);
         Gizmos.DrawSphere(transform.position, _maxFollowDistance.Value);
     }
