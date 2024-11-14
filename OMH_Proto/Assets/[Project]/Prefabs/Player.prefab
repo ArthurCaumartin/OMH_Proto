@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 3559937780372564217}
   - component: {fileID: 1970674781677848145}
   - component: {fileID: 6004264751952235209}
+  - component: {fileID: -6959715634536104708}
   - component: {fileID: 1115393156313987994}
   - component: {fileID: 5373833948252290904}
   - component: {fileID: 8497644964651202182}
+  - component: {fileID: 6179444021224761878}
+  - component: {fileID: 2252123760680003841}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -83,16 +86,28 @@ MonoBehaviour:
   DEBUG: 0
   _moveSpeed:
     propertyType: 0
-    constantValue: 4
+    constantValue: 20
     variable: {fileID: 0}
   _moveAcceleration:
     propertyType: 0
     constantValue: 6
     variable: {fileID: 0}
+--- !u!114 &-6959715634536104708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294628952006894197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18422c1d5b766d946a96cdbdb076891c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DEBUG: 0
   _groundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _camControler: {fileID: 0}
   _aimContainer: {fileID: 8778281330849690049}
   _aimSpeed:
     propertyType: 0
@@ -123,7 +138,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!136 &5373833948252290904
 CapsuleCollider:
@@ -161,6 +176,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onPlayerInteract: {fileID: 11400000, guid: 2fc0014f61b24214aade9040ad809284, type: 2}
+--- !u!114 &6179444021224761878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294628952006894197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002e28a139e44ed47b94b6c9d3b1b36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _proirity:
+    propertyType: 0
+    constantValue: 50
+    variable: {fileID: 0}
+--- !u!114 &2252123760680003841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294628952006894197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4649d2c2215bd374c8966de7e202be65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health:
+    propertyType: 0
+    constantValue: 20
+    variable: {fileID: 0}
 --- !u!1 &3240089663382158827
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +461,7 @@ MonoBehaviour:
       variable: {fileID: 11400000, guid: d119d6116264226448c12c8cb9df7707, type: 2}
     attackPerSecond:
       propertyType: 0
-      constantValue: 5.15
+      constantValue: 7.25
       variable: {fileID: 0}
     range:
       propertyType: 0
@@ -434,5 +481,5 @@ MonoBehaviour:
     variable: {fileID: 0}
   _randomness:
     propertyType: 0
-    constantValue: 0
+    constantValue: 0.18
     variable: {fileID: 0}
