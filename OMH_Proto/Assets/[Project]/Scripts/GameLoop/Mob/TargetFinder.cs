@@ -7,8 +7,8 @@ public class TargetFinder : MonoBehaviour
     public bool DEBUG = true;
     [SerializeField] private PhysicsAgent _agent;
     [SerializeField] private FloatReference _maxFollowDistance;
-    private MobTarget _currentTarget;
-    private MobTarget _ifLostTarget;
+    [SerializeField] private MobTarget _ifLostTarget;
+    [SerializeField] private MobTarget _currentTarget;
     private float _distanceWithTarget;
 
     public float TargetDistance { get => _currentTarget ? _distanceWithTarget : Mathf.Infinity; }
@@ -17,6 +17,8 @@ public class TargetFinder : MonoBehaviour
     private void Start()
     {
         _agent = GetComponentInParent<PhysicsAgent>();
+
+        if(_ifLostTarget) SetAgentTarget(_ifLostTarget);
     }
 
     public void Initialize(MobTarget ifLostTarget)
