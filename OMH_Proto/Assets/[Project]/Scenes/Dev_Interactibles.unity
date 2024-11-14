@@ -518,7 +518,7 @@ MonoBehaviour:
     constantValue: 0
     variable: {fileID: 11400000, guid: efae37e3f88e31d48a5e17f7f6aa7888, type: 2}
   _posOffset: {x: 0, y: 14.18, z: -6.67}
-  _rotOffset: {x: 0, y: 0, z: 0}
+  _rotOffset: {x: 64.80861, y: 0, z: 0}
 --- !u!43 &404577029
 Mesh:
   m_ObjectHideFlags: 0
@@ -1657,6 +1657,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1747475986}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1093817442
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5422842546304363236, guid: 9c8b67459e58da147b29c928c9cffdf6,
+        type: 3}
+      propertyPath: m_Name
+      value: Siphon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934358553184525867, guid: 9c8b67459e58da147b29c928c9cffdf6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934358553184525867, guid: 9c8b67459e58da147b29c928c9cffdf6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00009918213
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934358553184525867, guid: 9c8b67459e58da147b29c928c9cffdf6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934358553184525867, guid: 9c8b67459e58da147b29c928c9cffdf6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934358553184525867, guid: 9c8b67459e58da147b29c928c9cffdf6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934358553184525867, guid: 9c8b67459e58da147b29c928c9cffdf6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934358553184525867, guid: 9c8b67459e58da147b29c928c9cffdf6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934358553184525867, guid: 9c8b67459e58da147b29c928c9cffdf6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934358553184525867, guid: 9c8b67459e58da147b29c928c9cffdf6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934358553184525867, guid: 9c8b67459e58da147b29c928c9cffdf6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5422842546304363236, guid: 9c8b67459e58da147b29c928c9cffdf6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1879639991}
+  m_SourcePrefab: {fileID: 100100000, guid: 9c8b67459e58da147b29c928c9cffdf6, type: 3}
 --- !u!1 &1094647011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,6 +1827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14cae838027a1dc49a63d67d081cefad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gasTankTarget: {fileID: 1879639991}
   _spawnerScriptables:
   - {fileID: 11400000, guid: 6fd3975d78978f844b31651dae16da75, type: 2}
   - {fileID: 11400000, guid: 17ec408f5f79e30478d7972c7740f26f, type: 2}
@@ -2425,6 +2498,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93eb5dfb62ab6fa4aabc9faef6bf562c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1879639990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5422842546304363236, guid: 9c8b67459e58da147b29c928c9cffdf6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1093817442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1879639991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879639990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002e28a139e44ed47b94b6c9d3b1b36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _proirity:
+    propertyType: 0
+    constantValue: 3000
+    variable: {fileID: 0}
 --- !u!1 &2031092329
 GameObject:
   m_ObjectHideFlags: 0
@@ -3380,3 +3475,4 @@ SceneRoots:
   - {fileID: 7059113410707255713}
   - {fileID: 477722329}
   - {fileID: 228305083}
+  - {fileID: 1093817442}

@@ -6,11 +6,13 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyPrefab;
     
-    public void SpawnMob(int numberOfMobs, int durationOfSpawn)
+    public void SpawnMob(int numberOfMobs, int durationOfSpawn, MobTarget gasTankTarget)
     {
-        GameObject tempObject = Instantiate(_enemyPrefab, Vector3.zero, Quaternion.identity, transform);
-            
-            
+        GameObject tempObject = Instantiate(_enemyPrefab, transform.position, Quaternion.identity, transform);
+
+        TargetFinder targetFinder = tempObject.GetComponentInChildren<TargetFinder>();
+        targetFinder.Initialize(gasTankTarget);
+        
         print("Spawn " + numberOfMobs + " enemies during " + durationOfSpawn);
     }
 }

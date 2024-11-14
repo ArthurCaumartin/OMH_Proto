@@ -6,9 +6,11 @@ using UnityEngine.Assertions;
 
 public class SpawnManager : MonoBehaviour
 {
+    [SerializeField] private MobTarget _gasTankTarget;
+    
     [SerializeField] private List<SpawnerScriptable> _spawnerScriptables = new List<SpawnerScriptable>();
     [SerializeField] private List<EnemySpawner> _spawners = new List<EnemySpawner>();
-
+    
     private float _timer = 0;
     /// <summary>
     /// Connect to game time
@@ -69,7 +71,7 @@ public class SpawnManager : MonoBehaviour
             {
                 if (_timer >= _spawnerScriptables[i]._waves[j].timeToSpawn && !_spawnerScriptables[i]._waves[j].hasBeenCalled)
                 {
-                    CallSpawn(_spawnerScriptables[i]._waves[j].numberOfEnemies, _spawnerScriptables[i]._waves[j].durationOfSpawn, i);
+                    CallSpawn(_spawnerScriptables[i]._waves[j].numberOfEnemies, _spawnerScriptables[i]._waves[j].durationOfSpawn, _gasTankTarget,i);
 
                     _spawnerScriptables[i]._waves[j].hasBeenCalled = true;
                     // _spawnerScriptables[i]._waves.Remove(_spawnerScriptables[i]._waves[j]);
@@ -78,9 +80,9 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private void CallSpawn(int numberOfMobs, int durationOfSpawn, int index)
+    private void CallSpawn(int numberOfMobs, int durationOfSpawn, MobTarget gasTankTarget,int index)
     {
-        _spawners[index].SpawnMob(numberOfMobs, durationOfSpawn);
+        _spawners[index].SpawnMob(numberOfMobs, durationOfSpawn, gasTankTarget);
     }
     
     public void StartDefense()
