@@ -28,7 +28,11 @@ public class PhysicsAgent : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_target) return;
+        if (!_target)
+        {
+            _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity, Vector3.zero, Time.fixedDeltaTime * 2);
+            return;
+        }
         ComputePath();
         MoveRigidbody();
         DebugPath();
@@ -36,14 +40,12 @@ public class PhysicsAgent : MonoBehaviour
 
     private void MoveRigidbody()
     {
-        //TODO rotate to _path[1]
         Vector3 direction = (_path[1] - transform.position).normalized;
-        transform.forward = Vector3.Lerp(transform.forward, direction, Time.deltaTime * 5);
+        transform.right = Vector3.Lerp(transform.right, new Vector3(direction.x, 0, direction.z), Time.deltaTime * 5);
         _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity
                                             , direction * _speed
                                             , Time.deltaTime * _acceleration);
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _fallingVelocity, _rigidbody.velocity.z);
-        // _rigidbody.AddForce((_path[1] - transform.position).normalized * _speed * Time.fixedDeltaTime, ForceMode.Impulse);
     }
 
     private void DebugPath()
@@ -97,6 +99,7 @@ public class PhysicsAgent : MonoBehaviour
 
     public void SetTarget(Transform value)
     {
+        print("Set target to " + value);
         _target = value;
         if (_target) _path = GetNewPath();
     }
