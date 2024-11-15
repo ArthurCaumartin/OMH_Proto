@@ -204,20 +204,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4649d2c2215bd374c8966de7e202be65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isShieldDown: 0
+  _shieldUpMaterial: {fileID: 2100000, guid: a62aa9b6dde1b1947874e8ec9dc7b059, type: 2}
+  _shieldDownMaterial: {fileID: 2100000, guid: 3a7ed852e9350524fa5d83f897468ef3, type: 2}
+  _shieldMeshRenderer: {fileID: 1876922868465553276}
   _timeShieldRegen:
     propertyType: 0
     constantValue: 3
     variable: {fileID: 0}
-  _shieldUpMaterial: {fileID: 2100000, guid: a62aa9b6dde1b1947874e8ec9dc7b059, type: 2}
-  _shieldDownMaterial: {fileID: 2100000, guid: 3a7ed852e9350524fa5d83f897468ef3, type: 2}
-  _playerMovementSpeed: {fileID: 11400000, guid: 0cb0af77b234bcc43912805a14589686,
-    type: 2}
+  _playerMovementSpeed:
+    propertyType: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 0cb0af77b234bcc43912805a14589686, type: 2}
   _playerBoostMoveSpeed:
     propertyType: 0
-    constantValue: 0
+    constantValue: 10
     variable: {fileID: 0}
-  _shieldMeshRenderer: {fileID: 1876922868465553276}
 --- !u!1 &3240089663382158827
 GameObject:
   m_ObjectHideFlags: 0
