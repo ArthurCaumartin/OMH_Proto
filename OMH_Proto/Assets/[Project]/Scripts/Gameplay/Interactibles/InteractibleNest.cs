@@ -6,6 +6,8 @@ public class InteractibleNest : Interactibles
 {
     [SerializeField] private GameEvent _destroyNest;
 
+    [SerializeField] private GameObject _enemySpawner;
+
     public override void Interact()
     {
         if (!_isPlayerInRange) return;
@@ -18,6 +20,8 @@ public class InteractibleNest : Interactibles
 
         _infosManager.syringe.Value -= 1;
         _destroyNest.Raise();
+        
+        _enemySpawner.BroadcastMessage("DestroyNest");
         
         Destroy(gameObject);
     }
