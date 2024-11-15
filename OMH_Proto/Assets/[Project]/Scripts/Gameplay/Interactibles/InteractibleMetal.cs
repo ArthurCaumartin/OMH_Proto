@@ -10,7 +10,18 @@ public class InteractibleMetal : Interactibles
     {
         if (!_isPlayerInRange) return;
         
-        _infosManager.metal.Value += 10;
+        FloatVariable metalValue = new FloatVariable();
+        
+        for (int i = 0; i < _infosManager._variables.Count; i++)
+        {
+            if (_infosManager._variables[i]._variableName == "Artifact")
+            {
+                metalValue = _infosManager._variables[i]._floatVariable;
+                break;
+            }
+        }
+        
+        metalValue.Value += 10;
 
         _gainMetal.Raise();
         

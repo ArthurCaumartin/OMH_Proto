@@ -7,17 +7,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "InfosManager", menuName = "Infos")]
 public class InfosManager : ScriptableObject
 {
-    [Header("Values")]
-    public FloatVariable metal;
-    public FloatVariable syringe;
-    public FloatVariable key;
-    public bool artifact = false;
+    public List<VariablesInfos> _variables = new List<VariablesInfos>();
+}
 
-    [Header("Objects")]
-    public List<GameObject> items;
+[Serializable]
+public class VariablesInfos
+{
+    public string _variableName;
+    public FloatVariable _floatVariable;
+    public float _resetValue;
 
-    [Header("Stats")]
-    public float movementSpeed;
-    public float gunAttackSpeed;
-    public float gunDamages;
+    public void Reset()
+    {
+        _floatVariable.Value = _resetValue;
+    }
 }
