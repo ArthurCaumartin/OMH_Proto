@@ -1,8 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MobAttack : MonoBehaviour
 {
     [SerializeField] private TargetFinder _targetFinder;
+    [SerializeField] private Transform _attackTransform;
+    [SerializeField] private AnimatorParametreSetter _animatorSetter;
     [Space]
     [SerializeField] private FloatReference _distanceTrigger;
     [SerializeField] private FloatReference _damage;
@@ -11,7 +15,7 @@ public class MobAttack : MonoBehaviour
 
     private void Update()
     {
-        if(!_targetFinder.Target) return;
+        if (!_targetFinder.Target) return;
         if (_targetFinder.TargetDistance < _distanceTrigger.Value)
         {
             _attackTime += Time.deltaTime;
@@ -25,14 +29,6 @@ public class MobAttack : MonoBehaviour
 
     public void Attack()
     {
-        //! play une animation
-        //! disable le Physic Agent
-        //! donne une Methode de callback
-
-        GameObject target = _targetFinder.Target;
-        if(!target) return;
-        print("Mob attack : " + target.name);
-        Health h = target.GetComponent<Health>();
-        if(h) h.health.Value -= _damage.Value;
+        _animatorSetter.SetParametre();
     }
 }

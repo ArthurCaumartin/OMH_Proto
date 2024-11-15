@@ -4,11 +4,17 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class TargetFinder : MonoBehaviour
 {
+    //TODO prendre l'agro quand on prend un degat, sauf si on target le siphon
+
+    //TODO remplacer le trigger par un overlap pour delete le soft lock si target set a null et que les trigger on deja u lieu
+    //TODO 
+
     public bool DEBUG = true;
     [SerializeField] private PhysicsAgent _agent;
     [SerializeField] private FloatReference _maxFollowDistance;
-    private MobTarget _currentTarget;
-    private MobTarget _ifLostTarget;
+    [Space]
+    [SerializeField] private MobTarget _ifLostTarget;
+    [SerializeField] private MobTarget _currentTarget;
     private float _distanceWithTarget;
 
     public float TargetDistance { get => _currentTarget ? _distanceWithTarget : Mathf.Infinity; }
@@ -17,6 +23,8 @@ public class TargetFinder : MonoBehaviour
     private void Start()
     {
         _agent = GetComponentInParent<PhysicsAgent>();
+
+        if (_ifLostTarget) SetAgentTarget(_ifLostTarget);
     }
 
     public void Initialize(MobTarget ifLostTarget)
@@ -30,8 +38,9 @@ public class TargetFinder : MonoBehaviour
 
         if (IsTargetToFar())
         {
-            // print("Target et so NULL");
+            print("Target lost !");
             _currentTarget = _ifLostTarget ? _ifLostTarget : null;
+            print("Target set to : " + (_currentTarget ? _currentTarget.name : "NULL"));
             SetAgentTarget(_currentTarget);
         }
     }
