@@ -39,6 +39,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1131759335441054111, guid: 79b0b90dd5ecea8418eb1d6890915a97,
+        type: 3}
+      propertyPath: _targetLayer.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131759335441054111, guid: 79b0b90dd5ecea8418eb1d6890915a97,
+        type: 3}
+      propertyPath: _targetDetectionRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131759335441054111, guid: 79b0b90dd5ecea8418eb1d6890915a97,
+        type: 3}
+      propertyPath: _targetDetectionPerSecond
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3018958233928957756, guid: 79b0b90dd5ecea8418eb1d6890915a97,
         type: 3}
       propertyPath: m_Constraints
@@ -52,7 +67,7 @@ PrefabInstance:
     - target: {fileID: 6852756309002608138, guid: 79b0b90dd5ecea8418eb1d6890915a97,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.6
+      value: -48.82
       objectReference: {fileID: 0}
     - target: {fileID: 6852756309002608138, guid: 79b0b90dd5ecea8418eb1d6890915a97,
         type: 3}
@@ -62,7 +77,7 @@ PrefabInstance:
     - target: {fileID: 6852756309002608138, guid: 79b0b90dd5ecea8418eb1d6890915a97,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 37
+      value: 45.15
       objectReference: {fileID: 0}
     - target: {fileID: 6852756309002608138, guid: 79b0b90dd5ecea8418eb1d6890915a97,
         type: 3}
@@ -108,6 +123,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534632837865527310, guid: 79b0b90dd5ecea8418eb1d6890915a97,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -164,15 +184,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetFinder: {fileID: 1684269268328890534}
-  _attackTransform: {fileID: 0}
   _animatorSetter: {fileID: 774277459202370959}
   _distanceTrigger:
     propertyType: 0
-    constantValue: 5
-    variable: {fileID: 0}
-  _damage:
-    propertyType: 0
-    constantValue: 10
+    constantValue: 4
     variable: {fileID: 0}
   _attackPerSecond:
     propertyType: 0
