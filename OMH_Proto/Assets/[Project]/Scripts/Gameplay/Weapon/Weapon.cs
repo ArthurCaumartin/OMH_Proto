@@ -9,6 +9,12 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected Projectile _projectile;
     [SerializeField] protected StatContainer _stat;
     private float _attackTime;
+    private InputAction _attackInputAction;
+
+    private void Start()
+    {
+        _attackInputAction = GetComponentInParent<PlayerInput>().actions.FindAction("Attack");
+    }
 
     public virtual void Attack()
     {
@@ -18,14 +24,19 @@ public class Weapon : MonoBehaviour
     private void Update()
     {
         _attackTime += Time.deltaTime;
-    }
-
-    private void OnAttack(InputValue value)
-    {
-        if (value.Get<float>() > .5f && _attackTime > 1 / _stat.attackPerSecond.Value)
+        if (_attackInputAction.ReadValue<float>() > .5f && _attackTime > 1 / _stat.attackPerSecond.Value)
         {
             _attackTime = 0;
             Attack();
         }
     }
+
+    // private void OnAttack(InputValue value)
+    // {
+    //     if (value.Get<float>() > .5f && _attackTime > 1 / _stat.attackPerSecond.Value)
+    //     {
+    //         _attackTime = 0;
+    //         Attack();
+    //     }
+    // }
 }
