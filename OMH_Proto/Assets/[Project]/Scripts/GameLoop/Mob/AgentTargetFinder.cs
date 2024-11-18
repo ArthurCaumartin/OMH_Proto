@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TargetFinder : MonoBehaviour
+public class AgentTargetFinder : MonoBehaviour
 {
     //TODO prendre l'agro quand on prend un degat, sauf si on target le siphon
 
