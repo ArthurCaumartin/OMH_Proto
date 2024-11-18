@@ -56,7 +56,7 @@ public class AgentTargetFinder : MonoBehaviour
             for (int i = 0; i < col.Length; i++)
             {
                 MobTarget t = col[i].GetComponent<MobTarget>();
-                if(t == _ifLostTarget) continue;
+                if(t == _ifLostTarget || t.gameObject == gameObject) continue;
                 if (t) SetAgentTarget(t);
             }
         }
