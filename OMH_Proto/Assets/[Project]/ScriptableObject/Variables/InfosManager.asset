@@ -12,11 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675b017f6abc62f4da680fd645da23cd, type: 3}
   m_Name: InfosManager
   m_EditorClassIdentifier: 
-  metal: {fileID: 11400000, guid: 5cecde5db3ccbdb4f90e412031e11c2d, type: 2}
-  syringe: {fileID: 11400000, guid: 9251047eb0ab4b241aca90ae13039e56, type: 2}
-  key: {fileID: 11400000, guid: 28d538c4736c2b64385136eb82c4267a, type: 2}
-  artifact: 0
-  items: []
-  movementSpeed: 10
-  gunAttackSpeed: 5
-  gunDamages: 15
+  _variables:
+  - _variableName: Syringe
+    _floatVariable: {fileID: 11400000, guid: 9251047eb0ab4b241aca90ae13039e56, type: 2}
+    _resetValue: 1
+  - _variableName: Metal
+    _floatVariable: {fileID: 11400000, guid: 5cecde5db3ccbdb4f90e412031e11c2d, type: 2}
+    _resetValue: 0
+  - _variableName: PlayerMovementSpeed
+    _floatVariable: {fileID: 11400000, guid: 0cb0af77b234bcc43912805a14589686, type: 2}
+    _resetValue: 10
+  - _variableName: Key
+    _floatVariable: {fileID: 11400000, guid: 28d538c4736c2b64385136eb82c4267a, type: 2}
+    _resetValue: 0
+  - _variableName: Artifact
+    _floatVariable: {fileID: 11400000, guid: f247b4d783b246f4ea6106a091004d2d, type: 2}
+    _resetValue: 0

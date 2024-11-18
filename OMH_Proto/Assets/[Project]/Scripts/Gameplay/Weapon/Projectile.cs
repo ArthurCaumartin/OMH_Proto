@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
             print("Hit " + hit.collider.gameObject.name);
 
             EnemyLife enemyLife = hit.collider.gameObject.GetComponent<EnemyLife>();
-            enemyLife.DoDamages(10);
+            enemyLife.TakeDamages(10);
             
             Destroy(gameObject);
         }

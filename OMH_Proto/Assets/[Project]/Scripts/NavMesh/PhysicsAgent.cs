@@ -11,7 +11,6 @@ public class PhysicsAgent : MonoBehaviour
     [SerializeField] private float _speed = 20;
     [SerializeField] private float _acceleration = 5;
     [SerializeField] private float _fallingVelocity = 0;
-    private NavMeshPath _navPath;
     private float _0to1Distance;
     private Rigidbody _rigidbody;
 
@@ -21,7 +20,6 @@ public class PhysicsAgent : MonoBehaviour
 
     private void Start()
     {
-        _navPath = new NavMeshPath();
         _rigidbody = GetComponent<Rigidbody>();
         if (_target) GetNewPath();
     }
@@ -90,7 +88,6 @@ public class PhysicsAgent : MonoBehaviour
         }
         else
         {
-            _navPath = new NavMeshPath();
             NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 1000, NavMesh.AllAreas);
             _0to1Distance = Vector3.Distance(transform.position, hit.position);
             return new[] { transform.position, hit.position };
@@ -99,7 +96,7 @@ public class PhysicsAgent : MonoBehaviour
 
     public void SetTarget(Transform value)
     {
-        print("Set target to " + value);
+        // print("Set target to " + value);
         _target = value;
         if (_target) _path = GetNewPath();
     }
