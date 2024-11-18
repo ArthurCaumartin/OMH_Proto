@@ -10,7 +10,7 @@ public class EnemyLife : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        _enemyRenderer.material = _baseMaterial;
+        if (_enemyRenderer) _enemyRenderer.material = _baseMaterial;
     }
 
     public void TakeDamages(float value)
@@ -31,6 +31,7 @@ public class EnemyLife : MonoBehaviour, IDamageable
 
     public IEnumerator Hit()
     {
+        if(!_enemyRenderer) yield return null;
         _enemyRenderer.material = _hitMaterial;
         yield return new WaitForSeconds(0.2f);
         _enemyRenderer.material = _baseMaterial;
