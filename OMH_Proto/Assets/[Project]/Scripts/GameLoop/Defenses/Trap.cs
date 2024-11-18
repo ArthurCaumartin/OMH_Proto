@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    [SerializeField] private FloatReference _trapHitRange, _trapActivationTimer;
+    [SerializeField] private FloatReference _trapHitRange, _trapActivationTimer, _trapDamages;
     [SerializeField] private LayerMask _targetLayer;
-    [SerializeField] private GameObject _visualTrap;
+    // [SerializeField] private GameObject _visualTrap;
     
     private float _timer;
     
@@ -33,7 +33,7 @@ public class Trap : MonoBehaviour
 
     private void Activate()
     {
-        StartCoroutine(VisualTrap());
+        // StartCoroutine(VisualTrap());
         
         Collider[] col = Physics.OverlapSphere(transform.position, _trapHitRange.Value, _targetLayer);
         for (int i = 0; i < col.Length; i++)
@@ -41,21 +41,20 @@ public class Trap : MonoBehaviour
             EnemyLife t = col[i].GetComponent<EnemyLife>();
             if (t)
             {
-                t.TakeDamages(50);
+                t.TakeDamages(_trapDamages.Value);
+            }
+            PhysicsAgent y = col[i].GetComponent<PhysicsAgent>();
+            if (y)
+            {
+                y.StartCoroutine("TrapSlow");
             }
         }
     }
 
-    public void OnDrawGizmos()
-    {
-        Gizmos.color = new Color(1, 0, 0, .5f);
-        // Gizmos.DrawSphere(transform.position, _trapHitRange.Value);
-    }
-
-    IEnumerator VisualTrap()
-    {
-        _visualTrap.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        _visualTrap.SetActive(false);
-    }
+    // IEnumerator VisualTrap()
+    // {
+    //     _visualTrap.SetActive(true);
+    //     yield return new WaitForSeconds(1f);
+    //     _visualTrap.SetActive(false);
+    // }
 }
