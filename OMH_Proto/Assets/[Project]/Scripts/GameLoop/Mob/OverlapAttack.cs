@@ -11,10 +11,11 @@ public class OverlapAttack : MonoBehaviour
         Collider[] col = Physics.OverlapSphere(_pivot.position, _raduis.Value);
         for (int i = 0; i < col.Length; i++)
         {
-            Health overLapHealth = col[i].GetComponent<Health>();
-            if (overLapHealth)
+            IDamageable overLapHealth = col[i].GetComponent<IDamageable>();
+            if (overLapHealth != null)
             {
-                overLapHealth.health.Value -= _damage.Value;
+                overLapHealth.TakeDamages(_damage.Value);
+                // overLapHealth.health.Value -= _damage.Value;
                 break;
             }
         }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyLife : MonoBehaviour
+public class EnemyLife : MonoBehaviour, IDamageable
 {
     [SerializeField] private float _mobHealth;
     [SerializeField] private Material _hitMaterial, _baseMaterial;
@@ -13,7 +13,7 @@ public class EnemyLife : MonoBehaviour
         _enemyRenderer.material = _baseMaterial;
     }
 
-    public void DoDamages(float value)
+    public void TakeDamages(float value)
     {
         // print("Hitted");
         StartCoroutine(Hit());

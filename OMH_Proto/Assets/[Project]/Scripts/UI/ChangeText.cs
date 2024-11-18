@@ -18,7 +18,7 @@ public class ChangeText : MonoBehaviour
 
     public void ChangeTextInCanvas()
     {
-        print("Change Text");
+        // print("Change Text");
         
         _textToChange.text = _baseText + _valueToChange.Value;
     }
