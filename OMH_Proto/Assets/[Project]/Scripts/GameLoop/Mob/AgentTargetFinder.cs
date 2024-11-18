@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TargetFinder : MonoBehaviour
+public class AgentTargetFinder : MonoBehaviour
 {
     //TODO prendre l'agro quand on prend un degat, sauf si on target le siphon
 
@@ -56,7 +56,7 @@ public class TargetFinder : MonoBehaviour
             for (int i = 0; i < col.Length; i++)
             {
                 MobTarget t = col[i].GetComponent<MobTarget>();
-                if(t == _ifLostTarget) continue;
+                if(t == _ifLostTarget || t.gameObject == gameObject) continue;
                 if (t) SetAgentTarget(t);
             }
         }

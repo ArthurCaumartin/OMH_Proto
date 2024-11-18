@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -99,5 +100,12 @@ public class PhysicsAgent : MonoBehaviour
         // print("Set target to " + value);
         _target = value;
         if (_target) _path = GetNewPath();
+    }
+
+    public IEnumerator TrapSlow()
+    {
+        _speed /= 2;
+        yield return new WaitForSeconds(1f);
+        _speed *= 2;
     }
 }

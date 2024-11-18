@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+/// <summary>
+/// transform.forward set by playerControler with parent rotation
+/// </summary>
 public class Weapon : MonoBehaviour
 {
-    //! /////////////////////////////////////////////////////////////
-    //? transform.forward set by playerControler with parent rotation
-    //! /////////////////////////////////////////////////////////////
+    //TODO debug le fait de tirer quand on place un Placable, avec OnEnable/Disable et check si on arreter de shoot avant de pouvoir shoot
     [SerializeField] protected Projectile _projectile;
     [SerializeField] protected StatContainer _stat;
     private float _attackTime;
