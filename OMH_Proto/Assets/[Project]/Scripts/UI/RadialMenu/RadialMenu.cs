@@ -27,6 +27,7 @@ public class RadialMenu : MonoBehaviour
     {
         print("Clic on button_" + index);
         _placer.Select(index);
+        Open(false, true);
     }
 
     private void BakeMenu()
@@ -68,16 +69,12 @@ public class RadialMenu : MonoBehaviour
 
     public void Open(bool value, bool skipAnim = false)
     {
-        for (int i = 0; i < _buttonList.Count; i++)
-            _buttonList[i].gameObject.SetActive(value);
-
         transform.DOScale(value ? Vector3.one : Vector3.zero, skipAnim ? 0 : _popAnimationDuration)
         .OnComplete(() => DisableButton(value));
     }
 
     private void OnOpenRadialMenu(InputValue value)
     {
-        print("RRRRR");
-        Open(value.Get<float>() > .5f);
+        Open(value.Get<float>() > .5f, true);
     }
 }
