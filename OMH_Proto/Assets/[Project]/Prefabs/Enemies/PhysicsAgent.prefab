@@ -47,10 +47,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DEBUG: 0
   _agent: {fileID: 3186105598397709751}
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _targetDetectionPerSecond: 0
+  _targetDetectionRange: 0
   _maxFollowDistance:
     propertyType: 0
     constantValue: 20
     variable: {fileID: 0}
+  _ifLostTarget: {fileID: 0}
+  _currentTarget: {fileID: 0}
 --- !u!135 &8534632837865527310
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -123,7 +130,10 @@ MonoBehaviour:
   DEBUG: 1
   _target: {fileID: 0}
   _reComputePathPerSecond: 2
-  _speed: 4.5
+  _enemySpeed:
+    propertyType: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: bb18cb6d42f33a148b27cce2ae4d29cc, type: 2}
   _acceleration: 5
   _fallingVelocity: 0
 --- !u!54 &3018958233928957756

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,17 @@ using UnityEngine;
 public class TurretLife : MonoBehaviour, IDamageable
 {
     [SerializeField] private FloatReference _turretHealth;
-    
+    private float _health;
+
+    private void Start()
+    {
+        _health = _turretHealth.Value;
+    }
+
     public void TakeDamages(float damageAmount)
     {
-        _turretHealth.Value -= damageAmount;
-        if (_turretHealth.Value <= 0)
+        _health -= damageAmount;
+        if (_health <= 0)
         {
             Destroyed();
         } 

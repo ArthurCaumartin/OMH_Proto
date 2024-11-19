@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     private InputAction _moveInputAction;
     private Rigidbody _rb;
     private Vector2 _inputVector;
-    private Camera _mainCamera;
 
     private void Start()
     {
@@ -23,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        _moveInputAction = GetComponent<PlayerInput>().actions.FindAction("Move");
+        _moveInputAction = GetComponent<PlayerInput>().actions.FindAction("GroundMove");
         _rb = GetComponent<Rigidbody>();
     }
 
