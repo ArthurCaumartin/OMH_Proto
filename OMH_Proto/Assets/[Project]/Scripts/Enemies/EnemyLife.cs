@@ -5,7 +5,8 @@ using UnityEngine.Events;
 
 public class EnemyLife : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float _mobHealth;
+    [SerializeField] private FloatReference _mobHealth;
+    private float _health;
     [SerializeField] private Material _hitMaterial, _baseMaterial;
     [SerializeField] private Renderer _enemyRenderer;
     
@@ -14,6 +15,8 @@ public class EnemyLife : MonoBehaviour, IDamageable
 
     private void Start()
     {
+        _health = _mobHealth.Value;
+        
         if (_enemyRenderer) _enemyRenderer.material = _baseMaterial;
     }
 
@@ -21,8 +24,8 @@ public class EnemyLife : MonoBehaviour, IDamageable
     {
         // print("Hitted");
         StartCoroutine(Hit());
-        _mobHealth -= value;
-        if (_mobHealth <= 0)
+        _health -= value;
+        if (_health <= 0)
         {
             Death();
         }

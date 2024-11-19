@@ -59,6 +59,17 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 3186105598397709751, guid: 79b0b90dd5ecea8418eb1d6890915a97,
+        type: 3}
+      propertyPath: _enemySpeed.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: bb18cb6d42f33a148b27cce2ae4d29cc,
+        type: 2}
+    - target: {fileID: 3186105598397709751, guid: 79b0b90dd5ecea8418eb1d6890915a97,
+        type: 3}
+      propertyPath: _enemySpeed.propertyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3684375313250104330, guid: 79b0b90dd5ecea8418eb1d6890915a97,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -184,16 +195,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d864905e509a354782411158b9e0f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetFinder: {fileID: 1684269268328890534}
+  agentTargetFinder: {fileID: 1684269268328890534}
   _animatorSetter: {fileID: 774277459202370959}
   _distanceTrigger:
     propertyType: 0
     constantValue: 4
     variable: {fileID: 0}
   _attackPerSecond:
-    propertyType: 0
+    propertyType: 1
     constantValue: 1
-    variable: {fileID: 0}
+    variable: {fileID: 11400000, guid: a2918642451133e4c8b76143978e7b0e, type: 2}
 --- !u!114 &3042697620327133910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,10 +217,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cfc8ee3cda94ba48a5fccc24dd8a888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mobHealth: 50
+  _mobHealth:
+    propertyType: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 252ef0c9dde5e7146b9e2e918a1b6a8b, type: 2}
   _hitMaterial: {fileID: 2100000, guid: 3a7ed852e9350524fa5d83f897468ef3, type: 2}
   _baseMaterial: {fileID: 2100000, guid: a458de3a730afc848b59ecb5cfd9757d, type: 2}
   _enemyRenderer: {fileID: 668268029340200664}
+  _onDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &5140264044202311630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -377,9 +394,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pivot: {fileID: 5346584433708203658}
   _damage:
-    propertyType: 0
+    propertyType: 1
     constantValue: 10
-    variable: {fileID: 0}
+    variable: {fileID: 11400000, guid: ae7df87d31f4dba4d9600853b5e93745, type: 2}
   _raduis:
     propertyType: 0
     constantValue: 0.5

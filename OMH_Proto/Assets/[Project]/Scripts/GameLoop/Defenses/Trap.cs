@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    [SerializeField] private FloatReference _trapHitRange, _trapActivationTimer, _trapDamages;
+    [SerializeField] private FloatReference _trapHitRange, _trapActivationTimer, _trapDamages, _trapSlowStrenght, _trapSlowDuration;
     [SerializeField] private LayerMask _targetLayer;
     // [SerializeField] private GameObject _visualTrap;
     
@@ -46,7 +46,7 @@ public class Trap : MonoBehaviour
             PhysicsAgent y = col[i].GetComponent<PhysicsAgent>();
             if (y)
             {
-                y.StartCoroutine("TrapSlow");
+                y.SlowAgent(_trapSlowStrenght.Value, _trapSlowDuration.Value);
             }
         }
     }

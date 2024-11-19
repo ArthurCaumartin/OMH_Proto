@@ -39,6 +39,7 @@ Transform:
   m_Children:
   - {fileID: 8778281330849690049}
   - {fileID: 829873062983409457}
+  - {fileID: 4042040969516973665}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1970674781677848145
@@ -220,6 +221,7 @@ MonoBehaviour:
     propertyType: 0
     constantValue: 0.5
     variable: {fileID: 0}
+  _shieldAnimator: {fileID: 0}
 --- !u!1 &3240089663382158827
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +305,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3669759955075900725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4042040969516973665}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4042040969516973665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669759955075900725}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3559937780372564217}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3911483281773623572
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,13 +667,13 @@ MonoBehaviour:
     type: 3}
   _stat:
     damage:
-      propertyType: 0
+      propertyType: 1
       constantValue: 10
-      variable: {fileID: 0}
+      variable: {fileID: 11400000, guid: 93800fa8bbbd2914c9506c2bba733a3a, type: 2}
     attackPerSecond:
-      propertyType: 0
+      propertyType: 1
       constantValue: 7.25
-      variable: {fileID: 0}
+      variable: {fileID: 11400000, guid: 87dec22a913d1754db68c85a1b1e0f0e, type: 2}
     range:
       propertyType: 0
       constantValue: 10
