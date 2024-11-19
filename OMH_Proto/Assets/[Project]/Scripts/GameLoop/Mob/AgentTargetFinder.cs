@@ -53,10 +53,12 @@ public class AgentTargetFinder : MonoBehaviour
         {
             _targetDetectionTime = 0;
             Collider[] col = Physics.OverlapSphere(transform.position, _targetDetectionRange, _targetLayer);
+            //TODO shuffle l'array
+            //TODO limite d'agro par target
             for (int i = 0; i < col.Length; i++)
             {
                 MobTarget t = col[i].GetComponent<MobTarget>();
-                if(t == _ifLostTarget) continue;
+                if (t == _ifLostTarget) continue;
                 if (t) SetAgentTarget(t);
             }
         }
@@ -64,7 +66,7 @@ public class AgentTargetFinder : MonoBehaviour
 
     private bool IsTargetToFar()
     {
-        if(_currentTarget == _ifLostTarget) return false;
+        if (_currentTarget == _ifLostTarget) return false;
         return _distanceWithTarget > _maxFollowDistance.Value;
     }
 
@@ -76,7 +78,7 @@ public class AgentTargetFinder : MonoBehaviour
             return;
         }
 
-        
+
 
         if (_currentTarget)
         {
