@@ -20,7 +20,7 @@ public class Placer : MonoBehaviour
         _mainCamera = Camera.main;
     }
 
-    private void Select(int index)
+    public void Select(int index)
     {
         //* If Player selecte a placable allready select
         if (_gostPlacable)
