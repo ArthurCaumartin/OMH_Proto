@@ -36,10 +36,10 @@ public class RadialMenu : MonoBehaviour
         for (int i = 0; i < _menuLenth; i++)
         {
             float time = Mathf.InverseLerp(0, _menuLenth - 1, i);
-            print("Time : " + time);
+            // print("Time : " + time);
 
             float radialTime = Mathf.Lerp(-360, 360, time);
-            print("Raial Time : " + radialTime);
+            // print("Raial Time : " + radialTime);
 
             Vector3 newPos = new Vector3(Mathf.Cos(radialTime), Mathf.Sin(radialTime), 0);
             Button b = Instantiate(_buttonPrefab, transform);
