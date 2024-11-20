@@ -25,7 +25,7 @@ public class RadialMenu : MonoBehaviour
 
     public void ButtonClic(int index)
     {
-        print("Clic on button_" + index);
+        // print("Clic on button_" + index);
         _placer.Select(index);
         Open(false, true);
     }
