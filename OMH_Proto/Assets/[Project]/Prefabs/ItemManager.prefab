@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3230639010064852665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8295012558792768289}
+  - component: {fileID: 3324407491258960684}
+  - component: {fileID: 7551448560026122879}
+  m_Layer: 0
+  m_Name: ItemManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8295012558792768289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3230639010064852665}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.628353, y: -17.25145, z: 23.415209}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3324407491258960684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3230639010064852665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b2461495cc2da44946e39ceaec4a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _commonList: {fileID: 11400000, guid: 0104227a93639c14285c4dc7fd942e68, type: 2}
+  _rareList: {fileID: 11400000, guid: eae94c81d347e5748b2307fdba0d85f6, type: 2}
+  _epicList: {fileID: 11400000, guid: 058a536409d864945a1874c16441c8fe, type: 2}
+  turretHealth: {fileID: 11400000, guid: 50357f8ddb38eb644911e18ffda52a74, type: 2}
+  turretDamages: {fileID: 11400000, guid: e6f600cb279a94c4b81f1d8a90d9622d, type: 2}
+  turretAS: {fileID: 11400000, guid: 634b4313d18a3cf4387656b89c55e8d8, type: 2}
+  wallHealth: {fileID: 11400000, guid: b3d51128892dafe44985432fe8ca5112, type: 2}
+  trapAS: {fileID: 11400000, guid: a36a29439fca385479350298437a7884, type: 2}
+  trapDamages: {fileID: 11400000, guid: e42ac2fd639b9cc4a8075035142eb4ac, type: 2}
+  trapEffectDuration: {fileID: 11400000, guid: 10b519de33aa10949a2723079758fdcc, type: 2}
+  trapEffectStrenght: {fileID: 11400000, guid: 5bbfd04527151b3408b7415b5db6cf0a, type: 2}
+--- !u!114 &7551448560026122879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3230639010064852665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: d56a6701ecc57d644830f244620320c7, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3324407491258960684}
+        m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
+        m_MethodName: GainItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

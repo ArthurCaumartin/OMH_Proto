@@ -23,4 +23,6 @@ public struct ItemStatsContainer
         trapDamages,
         trapEffectDuration,
         trapEffectStrenght;
+
+    
 }
