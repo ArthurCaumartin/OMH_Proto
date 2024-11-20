@@ -23,7 +23,6 @@ public class InteractibleArtifact : Interactibles
         
         artifactValue.Value = 1f;
         
-        // print("");
         _getArtifact.Raise();
         
         Destroy(gameObject);
