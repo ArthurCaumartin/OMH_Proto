@@ -26,10 +26,10 @@ public class Projectile : MonoBehaviour
         Physics.Raycast(transform.position, -transform.forward, out RaycastHit hit, 1f, _mobLayer);
         if(hit.collider)
         {
-            print("Hit " + hit.collider.gameObject.name);
+            // print("Hit " + hit.collider.gameObject.name);
 
             EnemyLife enemyLife = hit.collider.gameObject.GetComponent<EnemyLife>();
-            enemyLife.TakeDamages(10);
+            enemyLife?.TakeDamages(_damage);
             
             Destroy(gameObject);
         }

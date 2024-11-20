@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,8 +8,8 @@ public class PhysicsAgent : MonoBehaviour
     //TODO add un delais pour la recalculation du path
     [SerializeField] private Transform _target;
     [SerializeField] private float _reComputePathPerSecond = .5f;
-    [Space]
-    [SerializeField] private float _speed = 20;
+    [Space] [SerializeField] private FloatReference _enemySpeed;
+    private float _speed;
     [SerializeField] private float _acceleration = 5;
     [SerializeField] private float _fallingVelocity = 0;
     private float _0to1Distance;
@@ -20,6 +21,8 @@ public class PhysicsAgent : MonoBehaviour
 
     private void Start()
     {
+        _speed = _enemySpeed.Value;
+        
         _rigidbody = GetComponent<Rigidbody>();
         if (_target) GetNewPath();
     }
@@ -99,5 +102,18 @@ public class PhysicsAgent : MonoBehaviour
         // print("Set target to " + value);
         _target = value;
         if (_target) _path = GetNewPath();
+    }
+
+    public void SlowAgent(float strenght, float duration)
+    {
+        StartCoroutine(TrapSlow(strenght, duration));
+    }
+
+    private IEnumerator TrapSlow(float strenght, float duration)
+    {
+        float tempSpeed = _speed;
+        _speed *= 1 - (float)(double)(duration/100);
+        yield return new WaitForSeconds(duration);
+        _speed = tempSpeed;
     }
 }

@@ -1,10 +1,11 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class MobAttack : MonoBehaviour
 {
-    [SerializeField] private TargetFinder _targetFinder;
+    [FormerlySerializedAs("_targetFinder")] [SerializeField] private AgentTargetFinder agentTargetFinder;
     [SerializeField] private AnimatorParametreSetter _animatorSetter;
     [Space]
     [SerializeField] private FloatReference _distanceTrigger;
@@ -13,8 +14,8 @@ public class MobAttack : MonoBehaviour
 
     private void Update()
     {
-        if (!_targetFinder.Target) return;
-        if (_targetFinder.TargetDistance <= _distanceTrigger.Value)
+        if (!agentTargetFinder.Target) return;
+        if (agentTargetFinder.TargetDistance <= _distanceTrigger.Value)
         {
             _attackTime += Time.deltaTime;
             if (_attackTime > 1 / _attackPerSecond.Value)

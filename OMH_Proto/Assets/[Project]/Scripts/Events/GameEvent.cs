@@ -6,11 +6,11 @@ public class GameEvent : ScriptableObject
 {
     private List<GameEventListener> _listeners = new List<GameEventListener>();
 
-    public void Raise()
+    public void Raise(bool eventValue = true)
     {
         for (int i = 0; i < _listeners.Count; i++)
         {
-            _listeners[i].OnEventRaise();
+            _listeners[i].OnEventRaise(eventValue);
         }
     }
 
