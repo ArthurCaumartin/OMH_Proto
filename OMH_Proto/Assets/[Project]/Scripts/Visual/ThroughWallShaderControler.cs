@@ -15,6 +15,7 @@ public class ThroughWallShaderControler : MonoBehaviour
     [SerializeField] private Material _mat;
     private Camera _mainCamera;
     private float _startSize;
+    private float _cameraDistance;
 
     private void Start()
     {
@@ -30,9 +31,10 @@ public class ThroughWallShaderControler : MonoBehaviour
         // _mat.SetVector("_CutPosition", normaliseScreenPos);
 
 
-        if (DEBUG) Debug.DrawRay(_mainCamera.transform.position, (transform.position - _mainCamera.transform.position).normalized * 100, Color.cyan);
+        _cameraDistance = Vector3.Distance(transform.position, _mainCamera.transform.position);
+        if (DEBUG) Debug.DrawRay(_mainCamera.transform.position, (transform.position - _mainCamera.transform.position).normalized * _cameraDistance, Color.cyan);
         RaycastHit[] hits = Physics.RaycastAll(_mainCamera.transform.position
-                                        , (transform.position - _mainCamera.transform.position).normalized, 100, _wallLayer);
+                                        , (transform.position - _mainCamera.transform.position).normalized, _cameraDistance, _wallLayer);
 
         // print(hits.Length == 0 ? "Nothing hit !" : "it wall");
         float target = hits.Length != 0 ? _startSize : 0;
