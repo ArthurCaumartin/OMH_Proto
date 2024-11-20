@@ -7,11 +7,11 @@ using UnityEngine;
 public class ThroughWallShaderControler : MonoBehaviour
 {
     [SerializeField] private Transform _target;
-    [SerializeField] private float _followSpeed = 5;
+    [SerializeField] private float _followSpeed = 15;
     [SerializeField] private float _sizeSpeed = 5;
     [SerializeField] private LayerMask _wallLayer;
     [SerializeField] private Material _mat;
-    [SerializeField, Range(0, 1)] private float _startCutSize = 0.18f;
+    [SerializeField, Range(0, 1)] private float _startCutSize = 0.2f;
     private Camera _mainCamera;
     private float _startSize;
 
@@ -24,13 +24,13 @@ public class ThroughWallShaderControler : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector2 normaliseScreenPos = _mainCamera.WorldToViewportPoint(_target.position);
+        Vector2 normaliseScreenPos = _mainCamera.WorldToViewportPoint(transform.position);
         // _mat.SetVector("_CutPosition", normaliseScreenPos);
 
 
-        Debug.DrawRay(_mainCamera.transform.position, (_target.position - _mainCamera.transform.position).normalized * 100, Color.cyan);
-        RaycastHit[] hits = Physics.RaycastAll(transform.position
-                                        , (_target.position - _mainCamera.transform.position).normalized, 100, _wallLayer);
+        Debug.DrawRay(_mainCamera.transform.position, (transform.position - _mainCamera.transform.position).normalized * 100, Color.cyan);
+        RaycastHit[] hits = Physics.RaycastAll(_mainCamera.transform.position
+                                        , (transform.position - _mainCamera.transform.position).normalized, 100, _wallLayer);
 
         print(hits.Length == 0 ? "Nothing hit !" : "it wall");
         float target = hits.Length != 0 ? _startSize : 0;
