@@ -28,7 +28,7 @@ public class ItemManager : MonoBehaviour
     public void GainItem()
     {
         int randomNumber = Random.Range(0, 99);
-        print(randomNumber);
+        // print(randomNumber);
         ItemScriptable itemToGain;
 
         if (randomNumber >= 0 && randomNumber <= 64)
