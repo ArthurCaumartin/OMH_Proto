@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class ThroughWallShaderControler : MonoBehaviour
 {
-    [SerializeField] private Transform _target;
+    [SerializeField, Range(0, 1)] private float _startCutSize = 0.2f;
     [SerializeField] private float _followSpeed = 15;
     [SerializeField] private float _sizeSpeed = 5;
+    [Space]
     [SerializeField] private LayerMask _wallLayer;
     [SerializeField] private Material _mat;
-    [SerializeField, Range(0, 1)] private float _startCutSize = 0.2f;
     private Camera _mainCamera;
     private float _startSize;
 
