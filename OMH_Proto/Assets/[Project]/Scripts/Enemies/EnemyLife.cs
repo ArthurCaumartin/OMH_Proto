@@ -9,14 +9,16 @@ public class EnemyLife : MonoBehaviour, IDamageable
     private float _health;
     [SerializeField] private Material _hitMaterial, _baseMaterial;
     [SerializeField] private Renderer _enemyRenderer;
-    
+
     [SerializeField] private UnityEvent<EnemyLife> _onDeathEvent;
+    [SerializeField] private UnityEvent _onDamageEvent;
+    public UnityEvent OnDamageEvent { get => _onDamageEvent; }
     public UnityEvent<EnemyLife> OnDeathEvent { get => _onDeathEvent; }
 
     private void Start()
     {
         _health = _mobHealth.Value;
-        
+
         if (_enemyRenderer) _enemyRenderer.material = _baseMaterial;
     }
 
@@ -24,6 +26,7 @@ public class EnemyLife : MonoBehaviour, IDamageable
     {
         // print("Hitted");
         StartCoroutine(Hit());
+        _onDamageEvent.Invoke();
         _health -= value;
         if (_health <= 0)
         {
@@ -38,7 +41,7 @@ public class EnemyLife : MonoBehaviour, IDamageable
 
     public IEnumerator Hit()
     {
-        if(!_enemyRenderer) yield return null;
+        if (!_enemyRenderer) yield return null;
         _enemyRenderer.material = _hitMaterial;
         yield return new WaitForSeconds(0.2f);
         _enemyRenderer.material = _baseMaterial;
