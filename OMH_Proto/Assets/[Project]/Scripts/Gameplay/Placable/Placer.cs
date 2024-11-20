@@ -40,20 +40,22 @@ public class Placer : MonoBehaviour
         {
             if (_ressourceCondition)
             {
-                if (_ressourceCondition.Value - _gostPlacable.cost.Value < 0) 
+                if (_ressourceCondition.Value - _gostPlacable.cost.Value < 0)
                     return;
                 else
                     _ressourceCondition.Value -= _gostPlacable.cost.Value;
             }
 
-            GameObject newPlacable = Instantiate(_gostPlacable.gameObject, _gostPlacable.transform.position, _gostPlacable.transform.rotation);
+            // GameObject newPlacable = Instantiate(_gostPlacable.gameObject, _gostPlacable.transform.position, _gostPlacable.transform.rotation);
+            _gostPlacable.CallPlaceEvent();
             UnSelect();
         }
     }
 
     private void UnSelect()
     {
-        Destroy(_gostPlacable.gameObject);
+        // Destroy(_gostPlacable.gameObject);
+        _gostPlacable = null;
         _onPlacableSelect.Raise(true);
     }
 
@@ -64,10 +66,6 @@ public class Placer : MonoBehaviour
             _gostPlacable.transform.position = MouseAimPosition(_gostPlacable.transform.position);
         }
     }
-
-    public void OnOne(InputValue value) { Select(0); }
-    public void OnTow(InputValue value) { Select(1); }
-    public void OnTree(InputValue value) { Select(2); }
 
     private void OnPlacePlacable(InputValue value)
     {

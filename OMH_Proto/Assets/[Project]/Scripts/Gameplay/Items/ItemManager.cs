@@ -11,9 +11,12 @@ public class ItemManager : MonoBehaviour
     [SerializeField] private ItemStatsContainer _refsStatsContainer, _baseStatsContainer;
     [SerializeField] private ItemStatsContainer _multplierStatsContainer;
 
+    [SerializeField] private ObjectUIManager _objectUIManager;
+    [SerializeField] private GameEvent _gainItem;
+
     public List<ItemScriptable> _playerItemsList = new List<ItemScriptable>();
 
-    private void Start()
+    private void Awake()
     {
         _baseStatsContainer.turretDamages.Value = _refsStatsContainer.turretDamages.Value;
         _baseStatsContainer.turretHealth.Value = _refsStatsContainer.turretHealth.Value;
@@ -54,7 +57,11 @@ public class ItemManager : MonoBehaviour
         
         AddItem(_multplierStatsContainer, itemToGain);
         
+        _objectUIManager.AddObjectUI(itemToGain._itemName, itemToGain._itemDescription, itemToGain._itemSprite);
+        
         ModifyStats();
+        
+        _gainItem.Raise();
     }
 
     private void ModifyStats()

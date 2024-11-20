@@ -7,8 +7,9 @@ using UnityEngine;
 public class ItemScriptable : ScriptableObject
 {
     public string _itemName;
-    public ItemStatsContainer _itemStats;
+    public string _itemDescription;
     public Sprite _itemSprite;
+    public ItemStatsContainer _itemStats;
 }
 
 
