@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
-    [SerializeField] private GameEvent _onPlayerInteract;
+    [SerializeField] private GameEvent _onPlayerInteract, _onOpenPanel;
     
     public void OnInteract()
     {
         _onPlayerInteract.Raise();
+    }
+
+    public void OnPannel()
+    {
+        _onOpenPanel.Raise();
     }
 }
