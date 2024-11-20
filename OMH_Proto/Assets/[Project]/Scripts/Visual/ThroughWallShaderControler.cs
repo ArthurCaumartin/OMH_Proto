@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ThroughWallShaderControler : MonoBehaviour
 {
+    public bool DEBUG = false;
     [SerializeField, Range(0, 1)] private float _startCutSize = 0.2f;
     [SerializeField] private float _followSpeed = 15;
     [SerializeField] private float _sizeSpeed = 5;
@@ -24,11 +25,12 @@ public class ThroughWallShaderControler : MonoBehaviour
 
     private void LateUpdate()
     {
+        //TODO fix la distance du raycast :)
         Vector2 normaliseScreenPos = _mainCamera.WorldToViewportPoint(transform.position);
         // _mat.SetVector("_CutPosition", normaliseScreenPos);
 
 
-        Debug.DrawRay(_mainCamera.transform.position, (transform.position - _mainCamera.transform.position).normalized * 100, Color.cyan);
+        if (DEBUG) Debug.DrawRay(_mainCamera.transform.position, (transform.position - _mainCamera.transform.position).normalized * 100, Color.cyan);
         RaycastHit[] hits = Physics.RaycastAll(_mainCamera.transform.position
                                         , (transform.position - _mainCamera.transform.position).normalized, 100, _wallLayer);
 
