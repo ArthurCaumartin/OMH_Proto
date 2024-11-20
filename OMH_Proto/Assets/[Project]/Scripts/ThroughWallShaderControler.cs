@@ -32,7 +32,7 @@ public class ThroughWallShaderControler : MonoBehaviour
         RaycastHit[] hits = Physics.RaycastAll(_mainCamera.transform.position
                                         , (transform.position - _mainCamera.transform.position).normalized, 100, _wallLayer);
 
-        print(hits.Length == 0 ? "Nothing hit !" : "it wall");
+        // print(hits.Length == 0 ? "Nothing hit !" : "it wall");
         float target = hits.Length != 0 ? _startSize : 0;
         _mat.SetVector("_CutPosition", Vector2.Lerp(_mat.GetVector("_CutPosition"), normaliseScreenPos, Time.deltaTime * _followSpeed));
         _mat.SetFloat("_CutSize", Mathf.Lerp(_mat.GetFloat("_CutSize"), target, Time.deltaTime * _sizeSpeed));
