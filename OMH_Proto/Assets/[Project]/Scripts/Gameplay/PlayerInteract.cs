@@ -8,6 +8,7 @@ public class PlayerInteract : MonoBehaviour
     
     public void OnInteract()
     {
+        print("Interact");
         _onPlayerInteract.Raise();
     }
 
