@@ -11,7 +11,7 @@ public class FillImage : MonoBehaviour
     [SerializeField] private FloatReference _fillDuration;
     [SerializeField] private AnimationCurve _animationCurve;
 
-    private float tempFloat = 0;
+    private float tempFloat = 0.35f;
 
     public void StartFillImage()
     {
