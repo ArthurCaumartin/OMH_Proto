@@ -9,6 +9,7 @@ public class VerifyCondition : MonoBehaviour
     
     public void Verify()
     {
+        print(_componentToVerify.enabled);
         if (_componentToVerify.enabled)
         {
             _componentToVerify.enabled = false;
