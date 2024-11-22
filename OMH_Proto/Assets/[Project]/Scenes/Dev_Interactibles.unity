@@ -197,6 +197,84 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 27116048}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &132910996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 132910999}
+  - component: {fileID: 132910998}
+  - component: {fileID: 132910997}
+  m_Layer: 0
+  m_Name: RessourceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &132910997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132910996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 301e3c45fa7078a4db498dab40c0b5cd, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 132910998}
+        m_TargetAssemblyTypeName: RessourceManager, Assembly-CSharp
+        m_MethodName: GainRessource
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &132910998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132910996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8a1708aff35f64e91859d92b395caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _metalScriptable:
+    propertyType: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 5cecde5db3ccbdb4f90e412031e11c2d, type: 2}
+  _updateMetalUI: {fileID: 11400000, guid: f8390551fbee7dd43a6869bf7eab0ce2, type: 2}
+--- !u!4 &132910999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132910996}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.91131, y: -11.766177, z: 15.631825}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &146159998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1590,6 +1668,91 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &731844928
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 941015427276077013, guid: b5ac317eb236343498356852efbb727c,
+        type: 3}
+      propertyPath: _gainRessourceEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: d56a6701ecc57d644830f244620320c7,
+        type: 2}
+    - target: {fileID: 941015427276077013, guid: b5ac317eb236343498356852efbb727c,
+        type: 3}
+      propertyPath: _timerToGetRessource.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 38352aa442437d74fb3ccdceacd29f56,
+        type: 2}
+    - target: {fileID: 941015427276077013, guid: b5ac317eb236343498356852efbb727c,
+        type: 3}
+      propertyPath: _timerToGetRessource.propertyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581449509341635567, guid: b5ac317eb236343498356852efbb727c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581449509341635567, guid: b5ac317eb236343498356852efbb727c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.43302718
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581449509341635567, guid: b5ac317eb236343498356852efbb727c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581449509341635567, guid: b5ac317eb236343498356852efbb727c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581449509341635567, guid: b5ac317eb236343498356852efbb727c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581449509341635567, guid: b5ac317eb236343498356852efbb727c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581449509341635567, guid: b5ac317eb236343498356852efbb727c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581449509341635567, guid: b5ac317eb236343498356852efbb727c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581449509341635567, guid: b5ac317eb236343498356852efbb727c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581449509341635567, guid: b5ac317eb236343498356852efbb727c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074154257697189100, guid: b5ac317eb236343498356852efbb727c,
+        type: 3}
+      propertyPath: m_Name
+      value: Metal (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b5ac317eb236343498356852efbb727c, type: 3}
 --- !u!1001 &739658753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2493,56 +2656,6 @@ MonoBehaviour:
     propertyType: 0
     constantValue: 0
     variable: {fileID: 0}
---- !u!1 &1158126367 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3230639010064852665, guid: e6b9dd08360b2d44fb486d2ee381e901,
-    type: 3}
-  m_PrefabInstance: {fileID: 8041061425806206780}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1158126371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1158126367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 301e3c45fa7078a4db498dab40c0b5cd, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1158126372}
-        m_TargetAssemblyTypeName: RessourceManager, Assembly-CSharp
-        m_MethodName: GainRessource
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1158126372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1158126367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e8a1708aff35f64e91859d92b395caf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _metalScriptable:
-    propertyType: 1
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 5cecde5db3ccbdb4f90e412031e11c2d, type: 2}
 --- !u!1 &1392971625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2920,23 +3033,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 941015427276077013, guid: b5ac317eb236343498356852efbb727c,
-        type: 3}
-      propertyPath: _gainRessourceEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: d56a6701ecc57d644830f244620320c7,
-        type: 2}
-    - target: {fileID: 941015427276077013, guid: b5ac317eb236343498356852efbb727c,
-        type: 3}
-      propertyPath: _timerToGetRessource.variable
-      value: 
-      objectReference: {fileID: 11400000, guid: 38352aa442437d74fb3ccdceacd29f56,
-        type: 2}
-    - target: {fileID: 941015427276077013, guid: b5ac317eb236343498356852efbb727c,
-        type: 3}
-      propertyPath: _timerToGetRessource.propertyType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1581449509341635567, guid: b5ac317eb236343498356852efbb727c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2990,7 +3086,7 @@ PrefabInstance:
     - target: {fileID: 9074154257697189100, guid: b5ac317eb236343498356852efbb727c,
         type: 3}
       propertyPath: m_Name
-      value: Metal
+      value: MetalGenerator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4617,15 +4713,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3230639010064852665, guid: e6b9dd08360b2d44fb486d2ee381e901,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1158126372}
-    - targetCorrespondingSourceObject: {fileID: 3230639010064852665, guid: e6b9dd08360b2d44fb486d2ee381e901,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1158126371}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6b9dd08360b2d44fb486d2ee381e901, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -4643,3 +4731,5 @@ SceneRoots:
   - {fileID: 354759577271041101}
   - {fileID: 763447356}
   - {fileID: 1531025249}
+  - {fileID: 731844928}
+  - {fileID: 132910999}
