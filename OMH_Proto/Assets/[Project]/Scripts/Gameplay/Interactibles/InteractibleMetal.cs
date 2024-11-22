@@ -20,11 +20,40 @@ public class InteractibleMetal : Interactibles
                 break;
             }
         }
-        
-        metalValue.Value += 10;
 
-        _gainMetal.Raise();
+        _isGeneratorActivated = true;
+
+        // metalValue.Value += 10;
+        // _gainMetal.Raise();
+        // Destroy(gameObject);
+    }
+    
+    
+    [SerializeField] private FloatReference _timerToGetRessource;
+    
+    private float _timer;
+    private bool _isGeneratorActivated;
+
+    private void Update()
+    {
+        if (!_isGeneratorActivated) return;
         
-        Destroy(gameObject);
+        _timer += Time.deltaTime;
+        if (_timer >= _timerToGetRessource.Value)
+        {
+            GainRessource();
+        }
+    }
+
+    public void ActivateGenerator()
+    {
+        _isGeneratorActivated = true;
+    }
+
+    private void GainRessource()
+    {
+        _timer = 0;
+        
+        _gainMetal.Raise();
     }
 }
