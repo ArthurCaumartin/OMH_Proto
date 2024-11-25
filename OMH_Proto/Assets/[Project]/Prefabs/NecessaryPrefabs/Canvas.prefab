@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 371041964424854908}
   - component: {fileID: 6075532088815037500}
   - component: {fileID: 5875946334105937175}
+  - component: {fileID: 620745380148602314}
   m_Layer: 5
   m_Name: KeyCounter
   m_TagString: Untagged
@@ -252,6 +253,34 @@ MonoBehaviour:
       - m_Target: {fileID: 6075532088815037500}
         m_TargetAssemblyTypeName: InverseActivation, Assembly-CSharp
         m_MethodName: InverseActivationText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &620745380148602314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172224684530889960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 2f4546881cd8ab64b82e7864c3bc6ebe, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6610087823468309884}
+        m_TargetAssemblyTypeName: ChangeText, Assembly-CSharp
+        m_MethodName: ChangeTextInCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1808,6 +1837,7 @@ GameObject:
   - component: {fileID: 6157050111010881499}
   - component: {fileID: 5142992360582513555}
   - component: {fileID: 7052339821629848701}
+  - component: {fileID: 2320766569464605891}
   m_Layer: 5
   m_Name: SyringeCounter
   m_TagString: Untagged
@@ -1862,7 +1892,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Seringue : 2'
+  m_text: 'Seringue : 0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2017,6 +2049,34 @@ MonoBehaviour:
   _objectToModify: {fileID: 0}
   _imageToModify: {fileID: 0}
   _textToModify: {fileID: 6370933147309860961}
+--- !u!114 &2320766569464605891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3841639891172306953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 9dbab37f3f59da945958abbea302af3b, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 25683008356811695}
+        m_TargetAssemblyTypeName: ChangeText, Assembly-CSharp
+        m_MethodName: ChangeTextInCanvas
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3879799916242671827
 GameObject:
   m_ObjectHideFlags: 0
