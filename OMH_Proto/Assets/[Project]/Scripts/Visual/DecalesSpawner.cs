@@ -17,7 +17,7 @@ public class DecalesSpawner : MonoBehaviour
         Vector3 offset = Random.insideUnitSphere;
         offset.y = 0;
         DecalProjector d = Instantiate(_decalePrefab, transform.position + offset, Quaternion.Euler(90f, 0, Random.Range(0, 360)));
-        d.transform.position = new Vector3(d.transform.position.x, 6, d.transform.position.z);
+        d.transform.position = new Vector3(d.transform.position.x, .1f, d.transform.position.z);
         // Destroy(d.gameObject, 5);
     }
 }
