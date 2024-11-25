@@ -14,9 +14,8 @@ public class QTEUI : MonoBehaviour
 
     private List<Image> _imageList = new List<Image>();
 
-    public void ActivateUI(List<Vector2> inputList, Vector3 canvasWorldPos)
+    public void ActivateUI(List<Vector2> inputList)
     {
-        transform.position = canvasWorldPos;
         SetNewImageList(inputList);
     }
 
