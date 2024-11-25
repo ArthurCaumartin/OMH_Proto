@@ -38,14 +38,7 @@ public class Interactibles : MonoBehaviour
 
     public virtual void Interact()
     {
-        QTE.instance.Play(transform.position, QTESequence.RandomSequence(10), (isGoodAction) =>
-        {
-            print(isGoodAction ? "Good Action" : "Bad Action");
-        },
-        () =>
-        {
-            print("QTE done :)");
-        });
+
     }
 
     public void A(bool value)
