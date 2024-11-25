@@ -11,7 +11,7 @@ public class PlayerInteract : MonoBehaviour
         print("Interact");
         _onPlayerInteract.Raise();
     }
-
+    
     public void OnPannel()
     {
         _onOpenPanel.Raise();
