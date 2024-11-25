@@ -25,14 +25,14 @@ public class Interactibles : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        print("InRange");
+        // print("InRange");
         _onEnterInteractibleRange.Raise();
         _isPlayerInRange = true;
     }
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        print("NotInRange");
+        // print("NotInRange");
         _onExitInteractibleRange.Raise();
         _isPlayerInRange = false;
     }
