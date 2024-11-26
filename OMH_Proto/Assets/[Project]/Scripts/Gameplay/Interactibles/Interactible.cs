@@ -24,18 +24,15 @@ public class Interactible : MonoBehaviour
     public virtual void OnQTEInput(bool isInputValide)
     {
         print("INTERACTIBLE : QTE input : " + isInputValide);
-
     }
 
     public virtual void OnQTEWin()
     {
         print("INTERACTIBLE : QTE win !");
-
     }
 
     public virtual void OnQTEKill()
     {
         print("INTERACTIBLE : QTE kill !");
-
     }
 }

@@ -11,7 +11,7 @@ public class QTE : MonoBehaviour
     public UnityEvent OnWin { get => _onQTEWin; }
     public UnityEvent OnKill { get => _onQTEKill; }
 
-    [SerializeField] private List<Vector2> _directionSequence;
+    private List<Vector2> _directionSequence;
     private int _index = 0;
     private QTEUI _qteUi;
     private bool _isRuning = false;
