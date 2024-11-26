@@ -49,9 +49,9 @@ GameObject:
   - component: {fileID: 962849696332332229}
   - component: {fileID: 7002515124789053993}
   - component: {fileID: 6610087823468309884}
-  - component: {fileID: 371041964424854908}
   - component: {fileID: 6075532088815037500}
   - component: {fileID: 5875946334105937175}
+  - component: {fileID: 371041964424854908}
   - component: {fileID: 620745380148602314}
   m_Layer: 5
   m_Name: KeyCounter
@@ -76,7 +76,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 324.57654, y: 174}
+  m_AnchoredPosition: {x: 249.27649, y: 132.20001}
   m_SizeDelta: {x: 143.5304, y: 97.6017}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &962849696332332229
@@ -191,34 +191,7 @@ MonoBehaviour:
   _valueToChange: {fileID: 11400000, guid: 28d538c4736c2b64385136eb82c4267a, type: 2}
   _textToChange: {fileID: 7002515124789053993}
   _baseText: "Cl\xE9 : "
---- !u!114 &371041964424854908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172224684530889960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: ba78fa4c369de55498646cdbc2975624, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6610087823468309884}
-        m_TargetAssemblyTypeName: ChangeText, Assembly-CSharp
-        m_MethodName: ChangeTextInCanvas
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _isColoredGreen: 0
 --- !u!114 &6075532088815037500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +224,34 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6075532088815037500}
+        m_TargetAssemblyTypeName: InverseActivation, Assembly-CSharp
+        m_MethodName: InverseActivationText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &371041964424854908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172224684530889960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: ba78fa4c369de55498646cdbc2975624, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5509021515629035237}
         m_TargetAssemblyTypeName: InverseActivation, Assembly-CSharp
         m_MethodName: InverseActivationText
         m_Mode: 1
@@ -365,7 +366,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 104.19995, y: 27.5}
+  m_AnchoredPosition: {x: 34.8125, y: 47.69998}
   m_SizeDelta: {x: 187.4586, y: 26.8276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8378934632501752341
@@ -480,6 +481,7 @@ MonoBehaviour:
   _valueToChange: {fileID: 11400000, guid: a36a29439fca385479350298437a7884, type: 2}
   _textToChange: {fileID: 2522458434062025634}
   _baseText: 'Trap AttackSpeed : '
+  _isColoredGreen: 1
 --- !u!114 &5869433092241033811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,8 +565,8 @@ GameObject:
   - component: {fileID: 2842179102396864275}
   - component: {fileID: 8779856591835943020}
   - component: {fileID: 4327265074070386517}
-  - component: {fileID: 4891372702237682204}
   - component: {fileID: 5509021515629035237}
+  - component: {fileID: 4891372702237682204}
   - component: {fileID: 3282678688351674104}
   - component: {fileID: 4151490607181702454}
   m_Layer: 5
@@ -590,8 +592,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 448.78247, y: 13}
-  m_SizeDelta: {x: 391.93, y: 268.856}
+  m_AnchoredPosition: {x: 369.1006, y: -9.674593}
+  m_SizeDelta: {x: 401.7288, y: 251.7081}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &2842179102396864275
 CanvasGroup:
@@ -643,6 +645,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectImagePrefab: {fileID: 5711160756206247915, guid: f15f31e42926ad14782bebe672e88130,
     type: 3}
+--- !u!114 &5509021515629035237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402390186772159074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8e9d92ad1102f47b33a4760d44d45e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToModify: {fileID: 0}
+  _imageToModify: {fileID: 4151490607181702454}
+  _textToModify: {fileID: 0}
 --- !u!114 &4891372702237682204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,21 +688,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5509021515629035237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 402390186772159074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a8e9d92ad1102f47b33a4760d44d45e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectToModify: {fileID: 0}
-  _imageToModify: {fileID: 4151490607181702454}
-  _textToModify: {fileID: 0}
 --- !u!222 &3282678688351674104
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -912,7 +914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 104.2, y: 85}
+  m_AnchoredPosition: {x: 34.812546, y: 83.19998}
   m_SizeDelta: {x: 187.4586, y: 26.8276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5015889791978661646
@@ -1027,6 +1029,7 @@ MonoBehaviour:
   _valueToChange: {fileID: 11400000, guid: e42ac2fd639b9cc4a8075035142eb4ac, type: 2}
   _textToChange: {fileID: 869657963483862491}
   _baseText: 'Trap Damages : '
+  _isColoredGreen: 1
 --- !u!114 &2996046326279988710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1561,7 +1564,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -118, y: 85}
+  m_AnchoredPosition: {x: -214, y: 83.2}
   m_SizeDelta: {x: 219.3552, y: 26.8276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1028926508639210298
@@ -1676,6 +1679,7 @@ MonoBehaviour:
   _valueToChange: {fileID: 11400000, guid: e6f600cb279a94c4b81f1d8a90d9622d, type: 2}
   _textToChange: {fileID: 8812320540119762740}
   _baseText: 'Turret Damages : '
+  _isColoredGreen: 1
 --- !u!114 &5140310380804091127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1834,9 +1838,9 @@ GameObject:
   - component: {fileID: 8081042379571698895}
   - component: {fileID: 6370933147309860961}
   - component: {fileID: 25683008356811695}
-  - component: {fileID: 6157050111010881499}
-  - component: {fileID: 5142992360582513555}
   - component: {fileID: 7052339821629848701}
+  - component: {fileID: 5142992360582513555}
+  - component: {fileID: 6157050111010881499}
   - component: {fileID: 2320766569464605891}
   m_Layer: 5
   m_Name: SyringeCounter
@@ -1861,7 +1865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 361.1454, y: 268}
+  m_AnchoredPosition: {x: 285.84534, y: 226.20001}
   m_SizeDelta: {x: 216.6578, y: 97.6017}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8081042379571698895
@@ -1978,7 +1982,8 @@ MonoBehaviour:
   _valueToChange: {fileID: 11400000, guid: 9251047eb0ab4b241aca90ae13039e56, type: 2}
   _textToChange: {fileID: 6370933147309860961}
   _baseText: 'Seringue : '
---- !u!114 &6157050111010881499
+  _isColoredGreen: 0
+--- !u!114 &7052339821629848701
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1987,25 +1992,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3841639891172306953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a8e9d92ad1102f47b33a4760d44d45e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 81264428e399f7c4995aba7258500095, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 25683008356811695}
-        m_TargetAssemblyTypeName: ChangeText, Assembly-CSharp
-        m_MethodName: ChangeTextInCanvas
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _objectToModify: {fileID: 0}
+  _imageToModify: {fileID: 0}
+  _textToModify: {fileID: 6370933147309860961}
 --- !u!114 &5142992360582513555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2034,7 +2026,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7052339821629848701
+--- !u!114 &6157050111010881499
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2043,12 +2035,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 3841639891172306953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a8e9d92ad1102f47b33a4760d44d45e, type: 3}
+  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectToModify: {fileID: 0}
-  _imageToModify: {fileID: 0}
-  _textToModify: {fileID: 6370933147309860961}
+  _event: {fileID: 11400000, guid: 81264428e399f7c4995aba7258500095, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5509021515629035237}
+        m_TargetAssemblyTypeName: InverseActivation, Assembly-CSharp
+        m_MethodName: InverseActivationText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2320766569464605891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2115,7 +2120,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -118, y: 27.5}
+  m_AnchoredPosition: {x: -214, y: 47.69998}
   m_SizeDelta: {x: 219.3552, y: 26.8276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8183083080390886101
@@ -2230,6 +2235,7 @@ MonoBehaviour:
   _valueToChange: {fileID: 11400000, guid: 50357f8ddb38eb644911e18ffda52a74, type: 2}
   _textToChange: {fileID: 4111263891049979766}
   _baseText: 'Turret Health : '
+  _isColoredGreen: 1
 --- !u!114 &5187493488361839985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2473,7 +2479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -118, y: -27.5}
+  m_AnchoredPosition: {x: -214, y: 7.3999634}
   m_SizeDelta: {x: 219.3552, y: 26.8276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &928926264194997771
@@ -2588,6 +2594,7 @@ MonoBehaviour:
   _valueToChange: {fileID: 11400000, guid: 634b4313d18a3cf4387656b89c55e8d8, type: 2}
   _textToChange: {fileID: 7404722820955180927}
   _baseText: 'Turret AttackSpeed : '
+  _isColoredGreen: 1
 --- !u!114 &2691203698276882594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2909,7 +2916,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 98.18738, y: -85}
+  m_AnchoredPosition: {x: 28.8, y: -32.100006}
   m_SizeDelta: {x: 199.4839, y: 26.8276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4242915528368532324
@@ -3024,6 +3031,7 @@ MonoBehaviour:
   _valueToChange: {fileID: 11400000, guid: 5bbfd04527151b3408b7415b5db6cf0a, type: 2}
   _textToChange: {fileID: 5594226337653308196}
   _baseText: 'Trap Effect Strenght : '
+  _isColoredGreen: 1
 --- !u!114 &4984642787486772526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3894,10 +3902,10 @@ GameObject:
   - component: {fileID: 1263609939954512185}
   - component: {fileID: 220422291683053454}
   - component: {fileID: 6088187098443303847}
-  - component: {fileID: 3127680729480892176}
   - component: {fileID: 6620577723231954420}
-  - component: {fileID: 7818688402238365360}
   - component: {fileID: 2721782626855261253}
+  - component: {fileID: 7818688402238365360}
+  - component: {fileID: 3127680729480892176}
   m_Layer: 5
   m_Name: Artifact
   m_TagString: Untagged
@@ -3921,7 +3929,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 556.3, y: 269.8}
+  m_AnchoredPosition: {x: 481, y: 228}
   m_SizeDelta: {x: 185.45, y: 185.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &220422291683053454
@@ -3962,34 +3970,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3127680729480892176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6543616275424645064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: c85512c0568a4c24887b606089b4846f, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6620577723231954420}
-        m_TargetAssemblyTypeName: ArtifactUI, Assembly-CSharp
-        m_MethodName: GainArtifact
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &6620577723231954420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4003,6 +3983,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _artifactImage: {fileID: 6088187098443303847}
+--- !u!114 &2721782626855261253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6543616275424645064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8e9d92ad1102f47b33a4760d44d45e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToModify: {fileID: 0}
+  _imageToModify: {fileID: 6088187098443303847}
+  _textToModify: {fileID: 0}
 --- !u!114 &7818688402238365360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4031,7 +4026,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2721782626855261253
+--- !u!114 &3127680729480892176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4040,12 +4035,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 6543616275424645064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a8e9d92ad1102f47b33a4760d44d45e, type: 3}
+  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectToModify: {fileID: 0}
-  _imageToModify: {fileID: 6088187098443303847}
-  _textToModify: {fileID: 0}
+  _event: {fileID: 11400000, guid: c85512c0568a4c24887b606089b4846f, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6620577723231954420}
+        m_TargetAssemblyTypeName: ArtifactUI, Assembly-CSharp
+        m_MethodName: GainArtifact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6590470110971801285
 GameObject:
   m_ObjectHideFlags: 0
@@ -4084,7 +4092,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -118, y: -85}
+  m_AnchoredPosition: {x: -214, y: -32.100018}
   m_SizeDelta: {x: 219.3552, y: 26.8276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7527219716139232830
@@ -4199,6 +4207,7 @@ MonoBehaviour:
   _valueToChange: {fileID: 11400000, guid: b3d51128892dafe44985432fe8ca5112, type: 2}
   _textToChange: {fileID: 575478479153051892}
   _baseText: 'Wall Health : '
+  _isColoredGreen: 1
 --- !u!114 &4436807162559836357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4661,7 +4670,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 98.18733, y: -27.5}
+  m_AnchoredPosition: {x: 28.799881, y: 7.3999815}
   m_SizeDelta: {x: 199.4839, y: 26.8276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5104551606580687480
@@ -4776,6 +4785,7 @@ MonoBehaviour:
   _valueToChange: {fileID: 11400000, guid: 10b519de33aa10949a2723079758fdcc, type: 2}
   _textToChange: {fileID: 6121294644798048604}
   _baseText: 'Trap Effect Duration : '
+  _isColoredGreen: 1
 --- !u!114 &2977760434273089417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5026,6 +5036,7 @@ MonoBehaviour:
   _valueToChange: {fileID: 11400000, guid: 5cecde5db3ccbdb4f90e412031e11c2d, type: 2}
   _textToChange: {fileID: 2896581281886861109}
   _baseText: 
+  _isColoredGreen: 0
 --- !u!1 &8062899869816923609
 GameObject:
   m_ObjectHideFlags: 0
