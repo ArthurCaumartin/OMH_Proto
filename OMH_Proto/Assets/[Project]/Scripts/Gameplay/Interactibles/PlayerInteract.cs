@@ -12,7 +12,7 @@ public class PlayerInteract : MonoBehaviour
     private float _detectionTime;
     private Interactible _nearestInteractible;
 
-    private void Update()
+    private void Update() 
     {
         _detectionTime += Time.deltaTime;
         if (_detectionTime > 1 / _detectionPerSecond)
