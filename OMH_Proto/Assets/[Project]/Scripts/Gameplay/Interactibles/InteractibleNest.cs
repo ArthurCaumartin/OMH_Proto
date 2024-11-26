@@ -2,38 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractibleNest : Interactibles
+public class InteractibleNest : Interactible
 {
+    [Space]
+    [SerializeField] private FloatVariable _syringeValue;
     [SerializeField] private GameEvent _destroyNest;
-
     [SerializeField] private GameObject _enemySpawner;
 
-    public override void Interact()
+    public override void Interact(out bool cancelInteraction)
     {
-        if (!_isPlayerInRange) return;
+        cancelInteraction = _syringeValue.Value <= 0;
+    }
 
-        FloatVariable syringeValue = new FloatVariable();
-        
-        for (int i = 0; i < _infosManager._variables.Count; i++)
-        {
-            if (_infosManager._variables[i]._variableName == "Syringe")
-            {
-                syringeValue = _infosManager._variables[i]._floatVariable;
-                break;
-            }
-        }
-        
-        if (syringeValue.Value <= 0)
-        {
-            Debug.Log("Dont have enough SERINGE");
-            return;
-        }
-
-        syringeValue.Value -= 1;
+    public override void OnQTEWin()
+    {
+        _syringeValue.Value -= 1;
         _destroyNest.Raise();
-        
-        _enemySpawner.BroadcastMessage("DestroyNest");
-        
+
+        if (_enemySpawner) _enemySpawner.BroadcastMessage("DestroyNest");
+
         Destroy(gameObject);
     }
 }
