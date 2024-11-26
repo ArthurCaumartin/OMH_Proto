@@ -29,11 +29,11 @@ public class QTEUI : MonoBehaviour
     private void SetNewImageList(List<Vector2> inputList)
     {
         ClearInputImage();
-        print($"InputList Lenth = {inputList.Count}");
+        // print($"InputList Lenth = {inputList.Count}");
 
         for (int i = 0; i < inputList.Count; i++)
         {
-            print("AIAI");
+            // print("AIAI");
             Image newImage = Instantiate(_imagePrefab, _imageContainer);
             newImage.sprite = GetDirectionSprite(inputList[i]);
             _imageList.Add(newImage);

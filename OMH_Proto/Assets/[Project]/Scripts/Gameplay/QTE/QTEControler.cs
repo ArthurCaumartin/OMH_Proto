@@ -15,7 +15,7 @@ public class QTEControler : MonoBehaviour
 
     public void PlayQTE(QTE qteToPlay)
     {
-        print("play qte");
+        // print("play qte");
         _currentQTE = qteToPlay;
         _currentQTE.StartQTE(QTESequence.RandomSequence(5));
 
@@ -53,7 +53,7 @@ public class QTEControler : MonoBehaviour
     public void OnQTEDirection(InputValue value)
     {
         if (!_currentQTE) return;
-        print("QTE Direction");
+        // print("QTE Direction");
         //! send direction to _currentQTE
         Vector2 valueVector = value.Get<Vector2>();
         if (valueVector == Vector2.zero) return;

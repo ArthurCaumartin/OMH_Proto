@@ -7,7 +7,7 @@ public class Interactible : MonoBehaviour
 
     void Start()
     {
-        if(_qte)
+        if (_qte)
         {
             _qte.OnInput.AddListener(OnQTEInput);
             _qte.OnWin.AddListener(OnQTEWin);

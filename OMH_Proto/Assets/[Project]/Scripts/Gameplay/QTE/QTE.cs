@@ -14,6 +14,8 @@ public class QTE : MonoBehaviour
     [SerializeField] private List<Vector2> _directionSequence;
     private int _index = 0;
     private QTEUI _qteUi;
+    private bool _isRuning = false;
+    public bool IsRuning { get => _isRuning; }
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class QTE : MonoBehaviour
 
     public void StartQTE(List<Vector2> directionSequence)
     {
+        _isRuning = true;
         _index = 0;
         _directionSequence = directionSequence;
         _qteUi.ActivateUI(_directionSequence);
@@ -29,6 +32,7 @@ public class QTE : MonoBehaviour
 
     private void ResetQTE()
     {
+        _isRuning = false;
         _directionSequence.Clear();
         _qteUi.ClearInputImage();
     }
@@ -41,7 +45,7 @@ public class QTE : MonoBehaviour
 
     public void PlayInput(Vector2 inputDirection)
     {
-        print($"Current Direction = {_directionSequence[_index]} / Input Direction {inputDirection}");
+        // print($"Current Direction = {_directionSequence[_index]} / Input Direction {inputDirection}");
         if (_directionSequence[_index] == inputDirection)
         {
             _qteUi.SetColor(_index, Color.green);
