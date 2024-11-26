@@ -1188,6 +1188,7 @@ GameObject:
   - component: {fileID: 202381475407420642}
   - component: {fileID: 8244965405322142139}
   - component: {fileID: 917017445784520942}
+  - component: {fileID: 1117903476229774747}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1349,8 +1350,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722faa6c7aca70f44b44ca8f82205465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onPlayerInteract: {fileID: 11400000, guid: 2fc0014f61b24214aade9040ad809284, type: 2}
-  _onOpenPanel: {fileID: 11400000, guid: 369a541fcc9bdf340b8da89386b60d8c, type: 2}
+  DEBUG: 1
+  _qteControler: {fileID: 1117903476229774747}
+  _interactibleLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  _detectionRange: 3
+  _detectionPerSecond: 2
 --- !u!114 &6179444021224761878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1432,6 +1438,18 @@ MonoBehaviour:
     propertyType: 0
     constantValue: 0
     variable: {fileID: 0}
+--- !u!114 &1117903476229774747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294628952006894197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffedefcf3ab8a4d4fb965c8b6889366c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2341652527930174639
 GameObject:
   m_ObjectHideFlags: 0
@@ -5169,25 +5187,8 @@ PrefabInstance:
       propertyPath: _placer
       value: 
       objectReference: {fileID: 1593292616541772792}
-    - target: {fileID: 9121031231740957082, guid: d8ce037e0ca4a6f448eff50692b3403f,
-        type: 3}
-      propertyPath: _menuLenght
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9121031231740957082, guid: d8ce037e0ca4a6f448eff50692b3403f,
-        type: 3}
-      propertyPath: _buttonPrefab
-      value: 
-      objectReference: {fileID: 7910105467385295294, guid: f1d40a1dfea740047aa0bd51bdb582f6,
-        type: 3}
-    - target: {fileID: 9121031231740957082, guid: d8ce037e0ca4a6f448eff50692b3403f,
-        type: 3}
-      propertyPath: _popAnimationDuration
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 8074516340525216618, guid: d8ce037e0ca4a6f448eff50692b3403f, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8ce037e0ca4a6f448eff50692b3403f, type: 3}
