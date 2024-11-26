@@ -4,6 +4,7 @@ public class Interactible : MonoBehaviour
 {
     [SerializeField] private QTE _qte;
     public QTE QTE { get => _qte; }
+    public bool HaveQTE { get => _qte; }
 
     void Start()
     {
@@ -15,10 +16,9 @@ public class Interactible : MonoBehaviour
         }
     }
 
-    public virtual void Interact(out bool haveQTE)
+    public virtual void Interact()
     {
         print("Interact");
-        haveQTE = _qte;
     }
 
     public virtual void OnQTEInput(bool isInputValide)

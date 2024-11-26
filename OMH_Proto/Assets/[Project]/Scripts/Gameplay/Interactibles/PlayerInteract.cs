@@ -46,19 +46,23 @@ public class PlayerInteract : MonoBehaviour
 
     public void OnInteract()
     {
-        if(!_nearestInteractible) return;
+        if (!_nearestInteractible) return;
 
-        _nearestInteractible.Interact(out bool haveQTE);
-        if(haveQTE)
+        if (_nearestInteractible.HaveQTE)
         {
+            if (_nearestInteractible.QTE.IsRuning) return;
+
+            _nearestInteractible.Interact();
             _qteControler.PlayQTE(_nearestInteractible.QTE);
+            return;
         }
-        //! if QTE send interactible QTE to QTEControler
+
+        _nearestInteractible.Interact();
     }
 
     public void OnDrawGizmos()
     {
-        if(!DEBUG) return;
+        if (!DEBUG) return;
         Gizmos.color = new Color(0, 1, 0, .2f);
         Gizmos.DrawSphere(transform.position, _detectionRange);
     }
