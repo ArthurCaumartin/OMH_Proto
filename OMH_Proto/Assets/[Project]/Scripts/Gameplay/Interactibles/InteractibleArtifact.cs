@@ -4,27 +4,16 @@ using UnityEngine;
 
 public class InteractibleArtifact : Interactible
 {
+    [Space]
+    [SerializeField] private FloatVariable _artifactValue;
     [SerializeField] private GameEvent _getArtifact;
 
-    // public override void Interact()
-    // {
-    //     if (!_isPlayerInRange) return;
-
-    //     FloatVariable artifactValue = new FloatVariable();
+    public override void Interact(out bool canelInteraction)
+    {
+        canelInteraction = false;
         
-    //     for (int i = 0; i < _infosManager._variables.Count; i++)
-    //     {
-    //         if (_infosManager._variables[i]._variableName == "Artifact")
-    //         {
-    //             artifactValue = _infosManager._variables[i]._floatVariable;
-    //             break;
-    //         }
-    //     }
-        
-    //     artifactValue.Value = 1f;
-        
-    //     _getArtifact.Raise();
-        
-    //     Destroy(gameObject);
-    // }
+        _artifactValue.Value = 1f;
+        _getArtifact.Raise();
+        Destroy(gameObject);
+    }
 }

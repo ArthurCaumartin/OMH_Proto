@@ -16,8 +16,9 @@ public class Interactible : MonoBehaviour
         }
     }
 
-    public virtual void Interact()
+    public virtual void Interact(out bool cancelIteraction)
     {
+        cancelIteraction = false;
         print("Interact");
     }
 

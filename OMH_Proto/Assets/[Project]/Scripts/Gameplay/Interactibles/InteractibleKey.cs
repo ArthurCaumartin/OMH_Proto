@@ -4,27 +4,16 @@ using UnityEngine;
 
 public class InteractibleKey : Interactible
 {
+    [Space]
     [SerializeField] private GameEvent _getKey;
+    [SerializeField] private FloatVariable keyValue;
 
-    // public override void Interact()
-    // {
-    //     if (!_isPlayerInRange) return;
-
-    //     FloatVariable keyValue = new FloatVariable();
-
-    //     for (int i = 0; i < _infosManager._variables.Count; i++)
-    //     {
-    //         if (_infosManager._variables[i]._variableName == "Key")
-    //         {
-    //             keyValue = _infosManager._variables[i]._floatVariable;
-    //             break;
-    //         }
-    //     }
-
-    //     keyValue.Value += 1f;
-
-    //     _getKey.Raise();
-
-    //     Destroy(gameObject);
-    // }
+    public override void Interact(out bool cancelInteraction)
+    {
+        cancelInteraction = false;
+        
+        keyValue.Value += 1f;
+        _getKey.Raise();
+        Destroy(gameObject);
+    }
 }

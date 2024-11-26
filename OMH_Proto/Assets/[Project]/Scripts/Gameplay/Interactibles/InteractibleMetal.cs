@@ -4,35 +4,27 @@ using UnityEngine;
 
 public class InteractibleMetal : Interactible
 {
+    [Space]
+    [SerializeField] private FloatReference _metalGainPerInput;
+    [SerializeField] private FloatVariable _metalCount;
     [SerializeField] private GameEvent _gainMetal;
-    
-    // public override void Interact()
-    // {
-    //     if (!_isPlayerInRange) return;
-        
-    //     FloatVariable metalValue = new FloatVariable();
-        
-    //     for (int i = 0; i < _infosManager._variables.Count; i++)
-    //     {
-    //         if (_infosManager._variables[i]._variableName == "Artifact")
-    //         {
-    //             metalValue = _infosManager._variables[i]._floatVariable;
-    //             break;
-    //         }
-    //     }
-
-    //     _isGeneratorActivated = true;
-
-    //     // metalValue.Value += 10;
-    //     // _gainMetal.Raise();
-    //     // Destroy(gameObject);
-    // }
-    
-    
     [SerializeField] private FloatReference _timerToGetRessource;
-    
     private float _timer;
     private bool _isGeneratorActivated;
+
+    public override void OnQTEInput(bool isInputValide)
+    {
+        if(isInputValide) _metalCount.Value += _metalGainPerInput.Value;
+    }
+
+    public override void OnQTEWin()
+    {
+        _isGeneratorActivated = true;
+
+        // metalValue.Value += 10;
+        // _gainMetal.Raise();
+        // Destroy(gameObject);
+    }
 
     private void Update()
     {
@@ -53,7 +45,6 @@ public class InteractibleMetal : Interactible
     private void GainRessource()
     {
         _timer = 0;
-        
         _gainMetal.Raise();
     }
 }

@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class InteractibleChest : Interactible
 {
+    [Space]
     [SerializeField] private GameEvent _openChest;
 
-    // public override void Interact()
-    // {
-    //     if (!_isPlayerInRange) return;
-        
-    //     _openChest.Raise();
-        
-    //     Destroy(gameObject);
-    // }
+    public override void OnQTEWin()
+    {
+        _openChest.Raise();
+        Destroy(gameObject);
+    }
 }

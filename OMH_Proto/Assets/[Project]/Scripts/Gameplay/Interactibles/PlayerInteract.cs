@@ -52,12 +52,13 @@ public class PlayerInteract : MonoBehaviour
         {
             if (_nearestInteractible.QTE.IsRuning) return;
 
-            _nearestInteractible.Interact();
+            _nearestInteractible.Interact(out bool cancelInteraction);
+            if(cancelInteraction) return;
             _qteControler.PlayQTE(_nearestInteractible.QTE);
             return;
         }
 
-        _nearestInteractible.Interact();
+        _nearestInteractible.Interact(out bool notUse);
     }
 
     public void OnDrawGizmos()
