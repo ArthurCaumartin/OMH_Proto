@@ -7,7 +7,7 @@ public class ResetStats : MonoBehaviour
 {
     [SerializeField] private InfosManager _infosManager;
 
-    private void Start()
+    private void Awake()
     {
         for (int i = 0; i < _infosManager._variables.Count; i++)
         {
