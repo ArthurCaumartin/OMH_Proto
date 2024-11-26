@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class Shield : MonoBehaviour, IDamageable
@@ -11,8 +13,16 @@ public class Shield : MonoBehaviour, IDamageable
 
     [SerializeField] private AnimatorTriggerSetter _shieldDownAnim, _shieldUpAnim;
 
+    private Vector3 _respawnPos;
+    
+
     private bool _isShieldDown, _isInvincible;
     private float _timerRegenShield, _timerInvincibility;
+
+    public void Awake()
+    {
+        _respawnPos = transform.position;
+    }
 
     private void Update()
     {
@@ -74,6 +84,19 @@ public class Shield : MonoBehaviour, IDamageable
 
     private void PlayerDeath()
     {
-        Destroy(gameObject);
+        Rigidbody playerRigidbody = GetComponent<Rigidbody>();
+        playerRigidbody.MovePosition(_respawnPos);
+        
+        _timerRegenShield = 0;
+        _isShieldDown = false;
+        
+        if (_shieldMeshRenderer) _shieldMeshRenderer.material = _shieldUpMaterial;
+        _playerMovementSpeed.Value -= _playerBoostMoveSpeed.Value;
+        
+    }
+
+    public void SetRespawnPos(Vector3 position)
+    {
+        _respawnPos = position;
     }
 }
