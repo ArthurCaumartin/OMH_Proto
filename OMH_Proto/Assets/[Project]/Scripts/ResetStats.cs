@@ -9,6 +9,7 @@ public class ResetStats : MonoBehaviour
 
     private void Awake()
     {
+        // print("ResetStats");
         for (int i = 0; i < _infosManager._variables.Count; i++)
         {
             _infosManager._variables[i].Reset();

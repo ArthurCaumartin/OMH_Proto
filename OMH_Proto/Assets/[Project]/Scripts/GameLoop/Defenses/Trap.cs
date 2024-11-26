@@ -7,7 +7,7 @@ public class Trap : MonoBehaviour
 {
     [SerializeField] private FloatReference _trapHitRange, _trapActivationTimer, _trapDamages, _trapSlowStrenght, _trapSlowDuration;
     [SerializeField] private LayerMask _targetLayer;
-    // [SerializeField] private GameObject _visualTrap;
+    [SerializeField] private GameObject _visualTrap;
     
     private float _timer;
     
@@ -33,7 +33,7 @@ public class Trap : MonoBehaviour
 
     private void Activate()
     {
-        // StartCoroutine(VisualTrap());
+        StartCoroutine(VisualTrap());
         
         Collider[] col = Physics.OverlapSphere(transform.position, _trapHitRange.Value, _targetLayer);
         for (int i = 0; i < col.Length; i++)
@@ -51,10 +51,10 @@ public class Trap : MonoBehaviour
         }
     }
 
-    // IEnumerator VisualTrap()
-    // {
-    //     _visualTrap.SetActive(true);
-    //     yield return new WaitForSeconds(1f);
-    //     _visualTrap.SetActive(false);
-    // }
+    IEnumerator VisualTrap()
+    {
+        _visualTrap.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        _visualTrap.SetActive(false);
+    }
 }
