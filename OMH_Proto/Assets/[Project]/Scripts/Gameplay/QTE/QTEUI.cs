@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +13,13 @@ public class QTEUI : MonoBehaviour
     [SerializeField] private Sprite _downSprite;
     [SerializeField] private Sprite _rightSprite;
     [SerializeField] private Sprite _leftSprite;
+    [SerializeField] private List<Image> _imageList;
+    private Camera _mainCam;
 
-    private List<Image> _imageList = new List<Image>();
+    private void Start()
+    {
+        _mainCam = Camera.main;
+    }
 
     public void ActivateUI(List<Vector2> inputList)
     {
@@ -22,16 +29,30 @@ public class QTEUI : MonoBehaviour
     private void SetNewImageList(List<Vector2> inputList)
     {
         ClearInputImage();
+        print($"InputList Lenth = {inputList.Count}");
+
         for (int i = 0; i < inputList.Count; i++)
         {
+            print("AIAI");
             Image newImage = Instantiate(_imagePrefab, _imageContainer);
             newImage.sprite = GetDirectionSprite(inputList[i]);
             _imageList.Add(newImage);
         }
+
+        //? look at camera
+        Vector3 newOrientation = (transform.position - _mainCam.transform.position).normalized;
+        newOrientation.x = 0; //? for good alignement
+        _imageContainer.transform.forward = newOrientation;
     }
 
-    private void ClearInputImage()
+    public void SetColor(int index, Color color)
     {
+        _imageList[index].color = color;
+    }
+
+    public void ClearInputImage()
+    {
+        if (_imageList == null) return;
         for (int i = 0; i < _imageList.Count; i++)
             Destroy(_imageList[i].gameObject);
         _imageList.Clear();
