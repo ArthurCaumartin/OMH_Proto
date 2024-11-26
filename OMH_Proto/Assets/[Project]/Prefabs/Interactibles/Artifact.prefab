@@ -11,11 +11,9 @@ GameObject:
   - component: {fileID: 4833686271000603618}
   - component: {fileID: 8935592281686477773}
   - component: {fileID: 4140893731930105695}
-  - component: {fileID: 1795278921947059993}
   - component: {fileID: 7914111202248945615}
-  - component: {fileID: 7078437564574479479}
   - component: {fileID: 8719849907544887214}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Artifact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,27 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1795278921947059993
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3160603240116195969}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 7, y: 1, z: 7}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &7914111202248945615
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -129,34 +106,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7078437564574479479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3160603240116195969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 2fc0014f61b24214aade9040ad809284, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8719849907544887214}
-        m_TargetAssemblyTypeName: InteractibleArtifact, Assembly-CSharp
-        m_MethodName: Interact
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &8719849907544887214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,9 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a3511bd6f352648b479a843f5f48ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onEnterInteractibleRange: {fileID: 11400000, guid: 7606a4874dd606b4ba00aa8ad74bcda2,
-    type: 2}
-  _onExitInteractibleRange: {fileID: 11400000, guid: d6f420f5696564a49bcdaab31c45a88b,
-    type: 2}
-  _infosManager: {fileID: 11400000, guid: 13b82694bb59d814f9665ca87983ffe7, type: 2}
+  _qte: {fileID: 0}
+  _artifactValue: {fileID: 11400000, guid: f247b4d783b246f4ea6106a091004d2d, type: 2}
   _getArtifact: {fileID: 11400000, guid: c85512c0568a4c24887b606089b4846f, type: 2}
