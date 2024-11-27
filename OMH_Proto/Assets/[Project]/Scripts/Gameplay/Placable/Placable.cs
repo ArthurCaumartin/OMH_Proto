@@ -5,22 +5,11 @@ using UnityEngine.Events;
 public class Placable : MonoBehaviour
 {
     public FloatReference cost;
-    [SerializeField] private UnityEvent _onPlace;
-    public UnityEvent OnPlaceEvent { get => _onPlace; }
+    [SerializeField] private GameObject _prefabToPlace;
+    public GameObject PrefabToPlace { get => _prefabToPlace; }
+    public bool CanBePlaced { get => _placableInTriggerRange.Count == 0; }
+
     private List<Placable> _placableInTriggerRange = new List<Placable>();
-
-    public bool CanBePlaced()
-    {
-        bool value = _placableInTriggerRange.Count == 0;
-        // print(value ? "Can be placed" : "Cannot be placed");
-        return value;
-    }
-
-    public void CallPlaceEvent()
-    {
-        // print("Placable Event Call");
-        _onPlace.Invoke();
-    }
 
     public void OnTriggerEnter(Collider other)
     {
