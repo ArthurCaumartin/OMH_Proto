@@ -10,16 +10,23 @@ public class ChangeText : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textToChange;
 
     [SerializeField] private string _baseText;
-
+    [SerializeField] private bool _isColoredGreen;
+    
+    private float _memoryValue;
+    
     private void Start()
     {
+        _memoryValue = _valueToChange.Value;
+        
         ChangeTextInCanvas();
     }
 
     public void ChangeTextInCanvas()
     {
-        // print("Change Text");
-        
+        if (_valueToChange.Value != _memoryValue && _isColoredGreen)
+        {
+            _textToChange.color = new Color32(22, 184, 0, 255);
+        }
         _textToChange.text = _baseText + _valueToChange.Value;
     }
 }

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class Shield : MonoBehaviour, IDamageable
@@ -7,27 +9,47 @@ public class Shield : MonoBehaviour, IDamageable
     [SerializeField] private FloatReference _timeShieldRegen;
     [SerializeField] private FloatReference _playerMovementSpeed;
     [SerializeField] private FloatReference _playerBoostMoveSpeed;
+    [SerializeField] private FloatReference _playerInvincibiltyDuration;
 
     [SerializeField] private AnimatorTriggerSetter _shieldDownAnim, _shieldUpAnim;
 
-    private bool _isShieldDown;
-    private float _timer;
+    private Vector3 _respawnPos;
+    
+
+    private bool _isShieldDown, _isInvincible;
+    private float _timerRegenShield, _timerInvincibility;
+
+    public void Awake()
+    {
+        _respawnPos = transform.position;
+    }
 
     private void Update()
     {
         if (_isShieldDown)
         {
-            _timer += Time.deltaTime;
+            _timerRegenShield += Time.deltaTime;
 
-            if (_timer >= _timeShieldRegen.Value)
+            if (_timerRegenShield >= _timeShieldRegen.Value)
             {
                 ShieldUp();
+            }
+        }
+
+        if (_isInvincible)
+        {
+            _timerInvincibility += Time.deltaTime;
+            if (_timerInvincibility >= _playerInvincibiltyDuration.Value)
+            {
+                _isInvincible = false;
             }
         }
     }
 
     public void TakeDamages(float damageAmount)
     {
+        if (_isInvincible) return;
+        
         if (_isShieldDown)
         {
             PlayerDeath();
@@ -41,6 +63,7 @@ public class Shield : MonoBehaviour, IDamageable
     private void ShieldDown()
     {
         _isShieldDown = true;
+        _isInvincible = true;
         
         _shieldDownAnim.SetParametre();
 
@@ -50,7 +73,7 @@ public class Shield : MonoBehaviour, IDamageable
 
     private void ShieldUp()
     {
-        _timer = 0;
+        _timerRegenShield = 0;
         _isShieldDown = false;
         
         _shieldUpAnim.SetParametre();
@@ -61,6 +84,19 @@ public class Shield : MonoBehaviour, IDamageable
 
     private void PlayerDeath()
     {
-        Destroy(gameObject);
+        Rigidbody playerRigidbody = GetComponent<Rigidbody>();
+        playerRigidbody.MovePosition(_respawnPos);
+        
+        _timerRegenShield = 0;
+        _isShieldDown = false;
+        
+        if (_shieldMeshRenderer) _shieldMeshRenderer.material = _shieldUpMaterial;
+        _playerMovementSpeed.Value -= _playerBoostMoveSpeed.Value;
+        
+    }
+
+    public void SetRespawnPos(Vector3 position)
+    {
+        _respawnPos = position;
     }
 }

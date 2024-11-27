@@ -19,6 +19,7 @@ public class VariablesInfos
 
     public void Reset()
     {
+        // Debug.Log("Reset " + _variableName);
         _floatVariable.Value = _resetValue;
     }
 }

@@ -2,29 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractibleArtifact : Interactibles
+public class InteractibleArtifact : Interactible
 {
+    [Space]
+    [SerializeField] private FloatVariable _artifactValue;
     [SerializeField] private GameEvent _getArtifact;
 
-    public override void Interact()
+    public override void Interact(out bool canelInteraction)
     {
-        if (!_isPlayerInRange) return;
-
-        FloatVariable artifactValue = new FloatVariable();
+        canelInteraction = false;
         
-        for (int i = 0; i < _infosManager._variables.Count; i++)
-        {
-            if (_infosManager._variables[i]._variableName == "Artifact")
-            {
-                artifactValue = _infosManager._variables[i]._floatVariable;
-                break;
-            }
-        }
-        
-        artifactValue.Value = 1f;
-        
+        _artifactValue.Value = 1f;
         _getArtifact.Raise();
-        
         Destroy(gameObject);
     }
 }

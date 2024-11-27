@@ -22,7 +22,7 @@ public class TurretGatling : TurretCannon
     private int _bulletCounter = 0;
     private float _counterDecrease;
     
-    public void Update()
+    public override void Update()
     {
         base.Update();
 

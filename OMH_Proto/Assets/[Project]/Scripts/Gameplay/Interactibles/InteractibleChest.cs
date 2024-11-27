@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractibleChest : Interactibles
+public class InteractibleChest : Interactible
 {
+    [Space]
     [SerializeField] private GameEvent _openChest;
 
-    public override void Interact()
+    public override void OnQTEWin()
     {
-        if (!_isPlayerInRange) return;
-        
         _openChest.Raise();
-        
         Destroy(gameObject);
     }
 }
