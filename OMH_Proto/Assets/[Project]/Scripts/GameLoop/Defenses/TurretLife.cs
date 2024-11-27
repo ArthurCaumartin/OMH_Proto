@@ -6,6 +6,7 @@ using UnityEngine;
 public class TurretLife : MonoBehaviour, IDamageable
 {
     [SerializeField] private FloatReference _turretHealth;
+    [SerializeField] private GameObject _objectToDestroy;
     private float _health;
 
     private void Start()
@@ -24,6 +25,10 @@ public class TurretLife : MonoBehaviour, IDamageable
 
     private void Destroyed()
     {
-        Destroy(gameObject);
+        if(_objectToDestroy) Destroy(_objectToDestroy);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
