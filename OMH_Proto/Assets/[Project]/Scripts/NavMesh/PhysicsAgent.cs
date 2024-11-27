@@ -9,7 +9,8 @@ public class PhysicsAgent : MonoBehaviour
     //TODO add un delais pour la recalculation du path
     [SerializeField] private Transform _target;
     [SerializeField] private float _reComputePathPerSecond = .5f;
-    [Space][SerializeField] private FloatReference _enemySpeed;
+    [Space]
+    [SerializeField] private FloatReference _enemySpeed;
     private float _speed;
     [SerializeField] private float _acceleration = 5;
     [SerializeField] private float _fallingVelocity = 0;
@@ -45,9 +46,10 @@ public class PhysicsAgent : MonoBehaviour
         Vector3 direction = (_path[1] - transform.position).normalized;
         transform.right = Vector3.Lerp(transform.right, new Vector3(direction.x, 0, direction.z), Time.deltaTime * 5);
         _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity
-                                            , direction * _speed
+                                            , direction * _speed * _enemySpeed.Value
                                             , Time.deltaTime * _acceleration);
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _fallingVelocity, _rigidbody.velocity.z);
+        print(name  + " velocity : " + _rigidbody.velocity);
     }
 
     private void DebugPath()
