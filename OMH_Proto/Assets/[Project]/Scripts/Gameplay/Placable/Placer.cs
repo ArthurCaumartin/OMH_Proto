@@ -22,6 +22,12 @@ public class Placer : MonoBehaviour
 
     public void Select(int index)
     {
+        if (_ressourceCondition)
+        {
+            if (_ressourceCondition.Value - _placableList[index].cost.Value < 0)
+                return;
+        }
+
         //* If Player selecte a placable allready select
         if (_gostPlacable)
         {
@@ -38,15 +44,8 @@ public class Placer : MonoBehaviour
         if (!_gostPlacable) return;
         if (_gostPlacable && _gostPlacable.CanBePlaced)
         {
-            if (_ressourceCondition)
-            {
-                if (_ressourceCondition.Value - _gostPlacable.cost.Value < 0)
-                    return;
-                else
-                    _ressourceCondition.Value -= _gostPlacable.cost.Value;
-            }
-
-            GameObject newPlacable = Instantiate(_gostPlacable.PrefabToPlace, _gostPlacable.transform.position, _gostPlacable.transform.rotation);
+            _ressourceCondition.Value -= _gostPlacable.cost.Value;
+            GameObject newPlaceObject = Instantiate(_gostPlacable.PrefabToPlace, _gostPlacable.transform.position, _gostPlacable.transform.rotation);
             UnSelect();
         }
     }
