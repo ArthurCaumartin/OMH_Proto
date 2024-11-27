@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,7 +9,7 @@ public class PhysicsAgent : MonoBehaviour
     //TODO add un delais pour la recalculation du path
     [SerializeField] private Transform _target;
     [SerializeField] private float _reComputePathPerSecond = .5f;
-    [Space] [SerializeField] private FloatReference _enemySpeed;
+    [Space][SerializeField] private FloatReference _enemySpeed;
     private float _speed;
     [SerializeField] private float _acceleration = 5;
     [SerializeField] private float _fallingVelocity = 0;
@@ -22,7 +23,7 @@ public class PhysicsAgent : MonoBehaviour
     private void Start()
     {
         _speed = _enemySpeed.Value;
-        
+
         _rigidbody = GetComponent<Rigidbody>();
         if (_target) GetNewPath();
     }
@@ -84,17 +85,25 @@ public class PhysicsAgent : MonoBehaviour
     {
         _reComputePathTime = 0;
         NavMeshPath newNavPath = new NavMeshPath();
+        Vector3[] pathArray;
         if (NavMesh.CalculatePath(transform.position, _target.position, NavMesh.AllAreas, newNavPath))
         {
             _0to1Distance = Vector3.Distance(newNavPath.corners[0], newNavPath.corners[1]);
-            return newNavPath.corners;
+            pathArray = newNavPath.corners;
         }
         else
         {
             NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 1000, NavMesh.AllAreas);
             _0to1Distance = Vector3.Distance(transform.position, hit.position);
-            return new[] { transform.position, hit.position };
+            pathArray = new[] { transform.position, hit.position };
         }
+
+        // print(pathArray.Length);
+        // print("1 : " + pathArray[0]);
+        // print("2 : " + pathArray[1]);
+        //? if no nav mesh the out of NavMesh.SamplePosition if Infinity :/
+        if (pathArray[1].magnitude > 50000) return new[] { transform.position, transform.position };
+        return pathArray;
     }
 
     public void SetTarget(Transform value)
@@ -112,7 +121,7 @@ public class PhysicsAgent : MonoBehaviour
     private IEnumerator TrapSlow(float strenght, float duration)
     {
         float tempSpeed = _speed;
-        _speed *= 1 - (float)(double)(duration/100);
+        _speed *= 1 - (float)(double)(duration / 100);
         yield return new WaitForSeconds(duration);
         _speed = tempSpeed;
     }
