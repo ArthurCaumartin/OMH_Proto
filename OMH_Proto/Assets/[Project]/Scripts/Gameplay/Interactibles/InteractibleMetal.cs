@@ -22,8 +22,8 @@ public class InteractibleMetal : Interactible
         _isGeneratorActivated = true;
 
         // metalValue.Value += 10;
-        // _gainMetal.Raise();
-        // Destroy(gameObject);
+        _gainMetal.Raise();
+        Destroy(gameObject);
     }
 
     private void Update()

@@ -17,7 +17,7 @@ public class QTEControler : MonoBehaviour
     {
         // print("play qte");
         _currentQTE = qteToPlay;
-        _currentQTE.StartQTE(QTESequence.RandomSequence(5));
+        _currentQTE.StartQTE();
 
         EnableControler(false);
 
