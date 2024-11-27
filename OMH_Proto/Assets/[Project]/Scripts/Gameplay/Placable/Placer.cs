@@ -45,7 +45,7 @@ public class Placer : MonoBehaviour
         if (_gostPlacable && _gostPlacable.CanBePlaced)
         {
             _ressourceCondition.Value -= _gostPlacable.cost.Value;
-            GameObject newPlaceObject = Instantiate(_gostPlacable.PrefabToPlace, _gostPlacable.transform.position, _gostPlacable.transform.rotation);
+            Instantiate(_gostPlacable.PrefabToPlace, _gostPlacable.transform.position, _gostPlacable.transform.rotation);
             UnSelect();
         }
     }
