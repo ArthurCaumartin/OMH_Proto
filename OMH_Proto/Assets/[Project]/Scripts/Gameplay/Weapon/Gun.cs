@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Gun : Weapon
 {
-    [Space]
+    [Header("Gun Main Fire Modifier :")]
     [SerializeField] private FloatReference _bulletCount;
     [SerializeField] private FloatReference _spread;
     [SerializeField] private FloatReference _randomness;
@@ -27,5 +27,11 @@ public class Gun : Weapon
             newOrientation = newOrientation.normalized;
             newProj.transform.forward = transform.rotation * newOrientation;
         }
+    }
+
+    public override void SecondaryAttack()
+    {
+        Projectile newProj = Instantiate(_secondaryProjectile, transform.position, transform.rotation);
+        newProj.Initialize(_secondaryStat.projectileSpeed.Value, _secondaryStat.damage.Value);
     }
 }
