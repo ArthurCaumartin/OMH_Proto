@@ -2007,6 +2007,74 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &1441785445
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7187046051254820072, guid: 149cb6bc104b64f40986aedc6c54b1b6,
+        type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985578122966201057, guid: 149cb6bc104b64f40986aedc6c54b1b6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985578122966201057, guid: 149cb6bc104b64f40986aedc6c54b1b6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985578122966201057, guid: 149cb6bc104b64f40986aedc6c54b1b6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985578122966201057, guid: 149cb6bc104b64f40986aedc6c54b1b6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985578122966201057, guid: 149cb6bc104b64f40986aedc6c54b1b6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985578122966201057, guid: 149cb6bc104b64f40986aedc6c54b1b6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985578122966201057, guid: 149cb6bc104b64f40986aedc6c54b1b6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985578122966201057, guid: 149cb6bc104b64f40986aedc6c54b1b6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985578122966201057, guid: 149cb6bc104b64f40986aedc6c54b1b6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985578122966201057, guid: 149cb6bc104b64f40986aedc6c54b1b6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 149cb6bc104b64f40986aedc6c54b1b6, type: 3}
 --- !u!4 &1568838233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3559937780372564217, guid: 0d5de9a24118ece489e5243a733e8424,
@@ -3205,6 +3273,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 202381475407420642, guid: 0d5de9a24118ece489e5243a733e8424,
+        type: 3}
+      propertyPath: _playerMovementSpeed
+      value: 
+      objectReference: {fileID: 11400000, guid: fcf65bded6a7d9d47a8ebd345c31069e,
+        type: 2}
+    - target: {fileID: 202381475407420642, guid: 0d5de9a24118ece489e5243a733e8424,
+        type: 3}
+      propertyPath: _playerMovementSpeed.propertyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202381475407420642, guid: 0d5de9a24118ece489e5243a733e8424,
+        type: 3}
+      propertyPath: _shieldBoostMoveSpeed.constantValue
+      value: 1.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1876922868465553276, guid: 0d5de9a24118ece489e5243a733e8424,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3272,24 +3356,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4115082527801276617, guid: 0d5de9a24118ece489e5243a733e8424,
         type: 3}
-      propertyPath: _secondaryStat.range.constantValue
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: _playerExteralMoveSpeed
+      value: 
+      objectReference: {fileID: 11400000, guid: 791c7ddbd60f27b45b112ac380f58021,
+        type: 2}
     - target: {fileID: 4115082527801276617, guid: 0d5de9a24118ece489e5243a733e8424,
         type: 3}
-      propertyPath: _secondaryStat.projectileSpeed.constantValue
-      value: 150
+      propertyPath: _playerMoveSpeedModifier.constantValue
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6004264751952235209, guid: 0d5de9a24118ece489e5243a733e8424,
         type: 3}
       propertyPath: _moveSpeed.propertyType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6004264751952235209, guid: 0d5de9a24118ece489e5243a733e8424,
         type: 3}
       propertyPath: _moveSpeed.constantValue
       value: 21.46
       objectReference: {fileID: 0}
+    - target: {fileID: 6004264751952235209, guid: 0d5de9a24118ece489e5243a733e8424,
+        type: 3}
+      propertyPath: _moveAcceleration.propertyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004264751952235209, guid: 0d5de9a24118ece489e5243a733e8424,
+        type: 3}
+      propertyPath: _externalMoveSpeedMult.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004264751952235209, guid: 0d5de9a24118ece489e5243a733e8424,
+        type: 3}
+      propertyPath: _externalMoveSpeedMult.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: fcf65bded6a7d9d47a8ebd345c31069e,
+        type: 2}
+    - target: {fileID: 6004264751952235209, guid: 0d5de9a24118ece489e5243a733e8424,
+        type: 3}
+      propertyPath: _externalMoveSpeedMult.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 791c7ddbd60f27b45b112ac380f58021,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7500126539250879010, guid: 0d5de9a24118ece489e5243a733e8424, type: 3}
@@ -3461,3 +3568,4 @@ SceneRoots:
   - {fileID: 2003473077}
   - {fileID: 753534819}
   - {fileID: 2783084168908026656}
+  - {fileID: 1441785445}
