@@ -46,10 +46,10 @@ public class PhysicsAgent : MonoBehaviour
         Vector3 direction = (_path[1] - transform.position).normalized;
         transform.right = Vector3.Lerp(transform.right, new Vector3(direction.x, 0, direction.z), Time.deltaTime * 5);
         _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity
-                                            , direction * _slowMultiplier * _enemySpeed.Value
+                                            , direction * Mathf.Clamp01(_slowMultiplier) * _enemySpeed.Value
                                             , Time.deltaTime * _acceleration);
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _fallingVelocity, _rigidbody.velocity.z);
-        print(name  + " velocity : " + _rigidbody.velocity);
+        // print(name  + " velocity : " + _rigidbody.velocity);
     }
 
     private void DebugPath()
@@ -118,13 +118,12 @@ public class PhysicsAgent : MonoBehaviour
     public void SlowAgent(float strenght, float duration)
     {
         _slowMultiplier -= strenght;
-        _slowMultiplier = Mathf.Clamp01(_slowMultiplier);
         StartCoroutine(ResetSpeed(strenght, duration));
     }
 
     private IEnumerator ResetSpeed(float strenght, float duration)
     {
         yield return new WaitForSeconds(duration);
-        _slowMultiplier = 1;
+        _slowMultiplier += strenght;
     }
 }
