@@ -21,7 +21,7 @@ public class Trap : MonoBehaviour
         EnemyLife mob = other.GetComponent<EnemyLife>();
         if (mob)
         {
-            print("EnemyInRange");
+            // print("EnemyInRange");
             if (_timer >= _trapActivationTimer.Value)
             {
                 _timer = 0;

@@ -5,34 +5,21 @@ using UnityEngine.Events;
 public class Placable : MonoBehaviour
 {
     public FloatReference cost;
-    [SerializeField] private UnityEvent _onPlace;
-    public UnityEvent OnPlaceEvent { get => _onPlace; }
-    private List<Placable> _placableInTriggerRange = new List<Placable>();
+    [SerializeField] private GameObject _prefabToPlace;
+    public GameObject PrefabToPlace { get => _prefabToPlace; }
+    public bool CanBePlaced { get => _blockObject.Count == 0; }
 
-    public bool CanBePlaced()
-    {
-        bool value = _placableInTriggerRange.Count == 0;
-        // print(value ? "Can be placed" : "Cannot be placed");
-        return value;
-    }
-
-    public void CallPlaceEvent()
-    {
-        // print("Placable Event Call");
-        _onPlace.Invoke();
-    }
+    private List<GameObject> _blockObject = new List<GameObject>();
 
     public void OnTriggerEnter(Collider other)
     {
-        Placable p = other.GetComponent<Placable>();
-        if (!p) return;
-        if (!_placableInTriggerRange.Contains(p)) _placableInTriggerRange.Add(p);
+        if (other.tag == "Defenses" || other.gameObject.layer == 15)
+            _blockObject.Add(other.gameObject);
     }
 
     public void OnTriggerExit(Collider other)
     {
-        Placable p = other.GetComponent<Placable>();
-        if (!p) return;
-        if (_placableInTriggerRange.Contains(p)) _placableInTriggerRange.Remove(p);
+        if (other.tag == "Defenses" || other.gameObject.layer == 15)
+            if (_blockObject.Contains(other.gameObject)) _blockObject.Remove(other.gameObject);
     }
 }

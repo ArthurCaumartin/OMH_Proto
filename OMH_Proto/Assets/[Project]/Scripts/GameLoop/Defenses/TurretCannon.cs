@@ -14,16 +14,6 @@ public class TurretCannon : MonoBehaviour
     [Tooltip("Modify turret damages per bullet")]
     [SerializeField, Range(0.1f, 10)] public float _damagesMultiplier = 1;
 
-    public void Start()
-    {
-        Placable p = GetComponent<Placable>();
-        if (p)
-        {
-            p.OnPlaceEvent.AddListener(() => enabled = true);
-            enabled = false;
-        }
-    }
-
     public virtual void Shoot()
     {
         Projectile newProjectile = Instantiate(_projectilePrefab, transform.position, Quaternion.LookRotation(transform.forward, Vector3.up));

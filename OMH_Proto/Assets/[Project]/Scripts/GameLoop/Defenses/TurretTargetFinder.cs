@@ -7,9 +7,6 @@ public class TurretTargetFinder : MonoBehaviour
     [SerializeField] private LayerMask _mobLayer;
     private List<EnemyLife> _mobInRangeList = new List<EnemyLife>();
     public float _range;
-    private SphereCollider _collider;
-    private StatContainer _stat;
-    private TurretCannon _cannon;
 
     public EnemyLife GetNearsetMob()
     {

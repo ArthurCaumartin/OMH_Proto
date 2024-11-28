@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 public class QTE : MonoBehaviour
 {
+    [SerializeField] private int _lenght = 5;
     [SerializeField] private UnityEvent<bool> _onInputEvent;
     [SerializeField] private UnityEvent _onQTEWin;
     [SerializeField] private UnityEvent _onQTEKill;
@@ -22,11 +23,11 @@ public class QTE : MonoBehaviour
         _qteUi = GetComponent<QTEUI>();
     }
 
-    public void StartQTE(List<Vector2> directionSequence)
+    public void StartQTE()
     {
         _isRuning = true;
         _index = 0;
-        _directionSequence = directionSequence;
+        _directionSequence = QTESequence.RandomSequence(_lenght);
         _qteUi.ActivateUI(_directionSequence);
     }
 
@@ -48,12 +49,13 @@ public class QTE : MonoBehaviour
         // print($"Current Direction = {_directionSequence[_index]} / Input Direction {inputDirection}");
         if (_directionSequence[_index] == inputDirection)
         {
-            _qteUi.SetColor(_index, Color.green);
+            _qteUi.SetGoodInputFeedBack(_index);
             _onInputEvent.Invoke(true);
             _index++;
         }
         else
         {
+            _qteUi.SetBadInputFeedBack(_index);
             _onInputEvent.Invoke(false);
         }
 
