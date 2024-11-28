@@ -28,4 +28,10 @@ public class Gun : Weapon
             newProj.transform.forward = transform.rotation * newOrientation;
         }
     }
+
+    public override void SecondaryAttack()
+    {
+        Projectile newProj = Instantiate(_secondaryProjectile, transform.position, transform.rotation);
+        newProj.Initialize(_stat.projectileSpeed.Value, _stat.damage.Value);
+    }
 }
