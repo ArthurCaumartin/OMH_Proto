@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(_externalMoveSpeedMult.Count == 0) return 1;
 
-        //TODO fonctione mais manque de precision
+        //TODO fonctione mais manque de precision, plus y'a de valeur plus elle seront gommé :/
         float externalMultiplier = 0;
         for (int i = 0; i < _externalMoveSpeedMult.Count; i++)
             externalMultiplier += _externalMoveSpeedMult[i].Value;
