@@ -9,12 +9,15 @@ public class TaserEffect : MonoBehaviour
     private float _lifeTime;
     private float _visualRefreshTime;
     private SpriteRenderer _spriteRenderer;
+    private MobAttack _attack;
 
     public void Start()
     {
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         RefreshVisual();
         transform.parent.GetComponent<PhysicsAgent>().SlowAgent(_slowEffectSrenght / 100, _duration);
+        _attack = transform.parent.GetComponent<MobAttack>();
+        _attack.enabled = false;
     }
 
     private void Update()
@@ -29,6 +32,7 @@ public class TaserEffect : MonoBehaviour
         _lifeTime += Time.deltaTime;
         if (_lifeTime > _duration)
         {
+            _attack.enabled = true;
             Destroy(gameObject);
         }
     }
