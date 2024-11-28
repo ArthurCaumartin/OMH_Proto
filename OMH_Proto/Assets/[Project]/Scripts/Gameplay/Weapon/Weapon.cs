@@ -9,13 +9,18 @@ using UnityEngine.UI;
 public class Weapon : MonoBehaviour
 {
     //TODO debug le fait de tirer quand on place un Placable, avec OnEnable/Disable et check si on arreter de shoot avant de pouvoir shoot
-    [SerializeField] protected Projectile _projectile;
-    [SerializeField] protected Projectile _secondaryProjectile;
-    [SerializeField] protected StatContainer _stat;
-    [Space]
     [SerializeField] private FloatVariable _moveSpeed;
     [SerializeField] private FloatReference _moveSpeedModifier;
+    [Header("Main Fire : ")]
+    [SerializeField] protected Projectile _projectile;
+    [SerializeField] protected StatContainer _stat;
+
+    [Header("Secondary Fire :")]
+    [SerializeField] protected Projectile _secondaryProjectile;
+    [SerializeField] private float _secondaryCooldown = 4;
+    [SerializeField] protected StatContainer _secondaryStat;
     private float _attackTime;
+    private float _secondaryCDTime;
     private InputAction _attackInputAction;
     private InputAction _secondaryAttackInputAction;
     private float _startMs;
@@ -25,6 +30,7 @@ public class Weapon : MonoBehaviour
         _attackInputAction = GetComponentInParent<PlayerInput>().actions.FindAction("Attack");
         _secondaryAttackInputAction = GetComponentInParent<PlayerInput>().actions.FindAction("SecondaryAttack");
         if (_moveSpeed) _startMs = _moveSpeed.Value;
+        _secondaryCDTime = _secondaryCooldown;
     }
 
     public virtual void Attack()
@@ -45,6 +51,8 @@ public class Weapon : MonoBehaviour
         }
 
         _attackTime += Time.deltaTime;
+        _secondaryCDTime += Time.deltaTime;
+
         if (_attackTime > 1 / _stat.attackPerSecond.Value)
         {
             if (_attackInputAction.ReadValue<float>() > .5f)
@@ -52,12 +60,12 @@ public class Weapon : MonoBehaviour
                 _attackTime = 0;
                 Attack();
             }
+        }
 
-            if (_secondaryAttackInputAction.ReadValue<float>() > .5f)
-            {
-                _attackTime = 0;
-                SecondaryAttack();
-            }
+        if (_secondaryAttackInputAction.ReadValue<float>() > .5f && _secondaryCDTime > _secondaryCooldown)
+        {
+            _secondaryCDTime = 0;
+            SecondaryAttack();
         }
     }
 }
