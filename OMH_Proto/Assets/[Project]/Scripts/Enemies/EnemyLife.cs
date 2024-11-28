@@ -25,8 +25,12 @@ public class EnemyLife : MonoBehaviour, IDamageable
     public void TakeDamages(float value)
     {
         // print("Hitted");
-        StartCoroutine(Hit());
-        _onDamageEvent.Invoke();
+        if (value > 0)
+        {
+            StartCoroutine(Hit());
+            _onDamageEvent.Invoke();
+        }
+        
         _health -= value;
         if (_health <= 0)
         {
