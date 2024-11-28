@@ -23,7 +23,7 @@ public class InteractibleMetal : Interactible
 
         // metalValue.Value += 10;
         _gainMetal.Raise();
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
 
     private void Update()

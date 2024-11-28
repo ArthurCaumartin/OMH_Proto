@@ -4,21 +4,30 @@ using UnityEngine;
 
 public class RoomTrigger : MonoBehaviour
 {
-    [SerializeField] private MapPart _mapPartOfRoom;
-    
+    // [SerializeField] private MapPart _mapPartOfRoom;
+    [SerializeField] private GameObject _mapPart1, _mapPart2;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            _mapPartOfRoom.PlayerInRoom();
+            _mapPart1.SetActive(true);
+            _mapPart2.SetActive(true);
+            // _mapPartOfRoom.PlayerInRoom();
         }
     }
     
-    private void OnTriggerExit(Collider other)
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if (other.CompareTag("Player"))
+    //     {
+    //          _mapPartOfRoom.PlayerNotInRoom();
+    //     }
+    // }
+
+    public void OnDrawGizmos()
     {
-        if (other.CompareTag("Player"))
-        {
-            _mapPartOfRoom.PlayerNotInRoom();
-        }
+        // if(!DEBUG) return;
+        Gizmos.color = new Color(0, 0, 1, .2f);
+        Gizmos.DrawSphere(transform.position, 3.25f);
     }
 }
