@@ -1262,12 +1262,16 @@ MonoBehaviour:
   DEBUG: 0
   _moveSpeed:
     propertyType: 1
-    constantValue: 3
+    constantValue: 21.46
     variable: {fileID: 11400000, guid: 59b675678d84cb04599436ed5ba52a6e, type: 2}
   _moveAcceleration:
     propertyType: 0
     constantValue: 7
     variable: {fileID: 0}
+  _externalMoveSpeedMult:
+  - {fileID: 11400000, guid: fcf65bded6a7d9d47a8ebd345c31069e, type: 2}
+  - {fileID: 11400000, guid: 791c7ddbd60f27b45b112ac380f58021, type: 2}
+  _externalMoveSpeed: 0
 --- !u!114 &-6959715634536104708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1377,17 +1381,15 @@ MonoBehaviour:
     propertyType: 0
     constantValue: 3
     variable: {fileID: 0}
-  _playerMovementSpeed:
-    propertyType: 1
-    constantValue: 1.2
-    variable: {fileID: 11400000, guid: 59b675678d84cb04599436ed5ba52a6e, type: 2}
-  _playerBoostMoveSpeed:
-    propertyType: 0
-    constantValue: 0.5
-    variable: {fileID: 0}
   _playerInvincibiltyDuration:
     propertyType: 0
     constantValue: 0.7
+    variable: {fileID: 0}
+  _playerMovementSpeed: {fileID: 11400000, guid: fcf65bded6a7d9d47a8ebd345c31069e,
+    type: 2}
+  _shieldBoostMoveSpeed:
+    propertyType: 0
+    constantValue: 1.4
     variable: {fileID: 0}
   _shieldDownAnim: {fileID: 3749236837071968019}
   _shieldUpAnim: {fileID: 3738225028306544532}
@@ -4314,9 +4316,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9218224d5651d72429294c37f1fb3308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerExteralMoveSpeed: {fileID: 11400000, guid: 791c7ddbd60f27b45b112ac380f58021,
+    type: 2}
+  _playerMoveSpeedModifier:
+    propertyType: 0
+    constantValue: 0.4
+    variable: {fileID: 0}
   _projectile: {fileID: 6403736433643166296, guid: d49a1cea79879ec4d83dfedacc23edbf,
-    type: 3}
-  _secondaryProjectile: {fileID: 8350907008403827077, guid: 8397481d79980a74fa842572c2e66fa8,
     type: 3}
   _stat:
     damage:
@@ -4335,11 +4341,26 @@ MonoBehaviour:
       propertyType: 0
       constantValue: 150
       variable: {fileID: 0}
-  _moveSpeed: {fileID: 11400000, guid: 59b675678d84cb04599436ed5ba52a6e, type: 2}
-  _moveSpeedModifier:
-    propertyType: 0
-    constantValue: -1.5
-    variable: {fileID: 0}
+  _secondaryProjectile: {fileID: 8350907008403827077, guid: 8397481d79980a74fa842572c2e66fa8,
+    type: 3}
+  _secondaryCooldown: 4
+  _secondaryStat:
+    damage:
+      propertyType: 0
+      constantValue: 0
+      variable: {fileID: 0}
+    attackPerSecond:
+      propertyType: 0
+      constantValue: 0
+      variable: {fileID: 0}
+    range:
+      propertyType: 0
+      constantValue: 10
+      variable: {fileID: 0}
+    projectileSpeed:
+      propertyType: 0
+      constantValue: 150
+      variable: {fileID: 0}
   _bulletCount:
     propertyType: 0
     constantValue: 1

@@ -7,14 +7,14 @@ public class Shield : MonoBehaviour, IDamageable
     [SerializeField] private Material _shieldUpMaterial, _shieldDownMaterial;
     [SerializeField] private Renderer _shieldMeshRenderer;
     [SerializeField] private FloatReference _timeShieldRegen;
-    [SerializeField] private FloatReference _playerMovementSpeed;
-    [SerializeField] private FloatReference _playerBoostMoveSpeed;
     [SerializeField] private FloatReference _playerInvincibiltyDuration;
+    [SerializeField] private FloatVariable _playerMovementSpeed;
+    [SerializeField] private FloatReference _shieldBoostMoveSpeed;
 
     [SerializeField] private AnimatorTriggerSetter _shieldDownAnim, _shieldUpAnim;
 
     private Vector3 _respawnPos;
-    
+
 
     private bool _isShieldDown, _isInvincible;
     private float _timerRegenShield, _timerInvincibility;
@@ -49,7 +49,7 @@ public class Shield : MonoBehaviour, IDamageable
     public void TakeDamages(float damageAmount)
     {
         if (_isInvincible) return;
-        
+
         if (_isShieldDown)
         {
             PlayerDeath();
@@ -64,35 +64,34 @@ public class Shield : MonoBehaviour, IDamageable
     {
         _isShieldDown = true;
         _isInvincible = true;
-        
+
         _shieldDownAnim.SetParametre();
 
         if (_shieldMeshRenderer) _shieldMeshRenderer.material = _shieldDownMaterial;
-        _playerMovementSpeed.Value += _playerBoostMoveSpeed.Value;
+        if (_playerMovementSpeed) _playerMovementSpeed.Value = _shieldBoostMoveSpeed.Value;
     }
 
     private void ShieldUp()
     {
         _timerRegenShield = 0;
         _isShieldDown = false;
-        
+
         _shieldUpAnim.SetParametre();
 
         if (_shieldMeshRenderer) _shieldMeshRenderer.material = _shieldUpMaterial;
-        _playerMovementSpeed.Value -= _playerBoostMoveSpeed.Value;
+        if (_playerMovementSpeed) _playerMovementSpeed.Value = 1;
     }
 
     private void PlayerDeath()
     {
         Rigidbody playerRigidbody = GetComponent<Rigidbody>();
         playerRigidbody.MovePosition(_respawnPos);
-        
+
         _timerRegenShield = 0;
         _isShieldDown = false;
-        
+
         if (_shieldMeshRenderer) _shieldMeshRenderer.material = _shieldUpMaterial;
-        _playerMovementSpeed.Value -= _playerBoostMoveSpeed.Value;
-        
+        if (_playerMovementSpeed) _playerMovementSpeed.Value = 1;
     }
 
     public void SetRespawnPos(Vector3 position)
