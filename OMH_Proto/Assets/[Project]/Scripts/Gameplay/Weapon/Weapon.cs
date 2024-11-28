@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
 {
     //TODO debug le fait de tirer quand on place un Placable, avec OnEnable/Disable et check si on arreter de shoot avant de pouvoir shoot
     [SerializeField] protected Projectile _projectile;
-    [SerializeField] protected MonoBehaviour _secondaryProjectile;
+    [SerializeField] protected Projectile _secondaryProjectile;
     [SerializeField] protected StatContainer _stat;
     [Space]
     [SerializeField] private FloatVariable _moveSpeed;
