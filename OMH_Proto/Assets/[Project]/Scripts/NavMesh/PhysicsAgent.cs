@@ -44,7 +44,10 @@ public class PhysicsAgent : MonoBehaviour
     private void MoveRigidbody()
     {
         Vector3 direction = (_path[1] - transform.position).normalized;
-        transform.right = Vector3.Lerp(transform.right, new Vector3(direction.x, 0, direction.z), Time.deltaTime * 5);
+        transform.right = Vector3.Lerp(transform.right
+                                        , new Vector3(direction.x, 0, direction.z)
+                                        , Time.deltaTime * 5 * Mathf.Clamp01(_slowMultiplier));
+                                            
         _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity
                                             , direction * Mathf.Clamp01(_slowMultiplier) * _enemySpeed.Value
                                             , Time.deltaTime * _acceleration);
