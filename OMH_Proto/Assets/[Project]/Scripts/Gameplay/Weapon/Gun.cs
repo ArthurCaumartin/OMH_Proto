@@ -31,9 +31,7 @@ public class Gun : Weapon
 
     public override void SecondaryAttack()
     {
-        
-
-
-
+        Projectile newProj = Instantiate(_secondaryProjectile, transform.position, transform.rotation);
+        newProj.Initialize(_stat.projectileSpeed.Value, _stat.damage.Value);
     }
 }
