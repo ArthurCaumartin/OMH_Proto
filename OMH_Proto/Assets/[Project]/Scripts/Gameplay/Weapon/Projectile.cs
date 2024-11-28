@@ -1,9 +1,12 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
     //TODO set la durée du destroy avec la range et la speed
+    //TODO changer TazerEffect ref par un truc plus generique pour avoir plusieur effet possible ?
+    [SerializeField] private TaserEffect _tazEffect;
     [SerializeField] private LayerMask _mobLayer;
     private float _speed;
     private float _damage;
@@ -24,13 +27,13 @@ public class Projectile : MonoBehaviour
     {
         transform.Translate(Vector3.forward * _speed * Time.deltaTime);
         Physics.Raycast(transform.position, -transform.forward, out RaycastHit hit, 1f, _mobLayer);
-        if(hit.collider)
+        if (hit.collider)
         {
             // print("Hit " + hit.collider.gameObject.name);
 
             EnemyLife enemyLife = hit.collider.gameObject.GetComponent<EnemyLife>();
             enemyLife?.TakeDamages(_damage);
-            
+
             Destroy(gameObject);
         }
     }

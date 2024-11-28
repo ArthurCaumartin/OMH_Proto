@@ -11,7 +11,7 @@ public class PhysicsAgent : MonoBehaviour
     [SerializeField] private float _reComputePathPerSecond = .5f;
     [Space]
     [SerializeField] private FloatReference _enemySpeed;
-    private float _interneSpeedMult;
+    private float _slowMultiplier = 1;
     [SerializeField] private float _acceleration = 5;
     [SerializeField] private float _fallingVelocity = 0;
     private float _0to1Distance;
@@ -23,7 +23,7 @@ public class PhysicsAgent : MonoBehaviour
 
     private void Start()
     {
-        _interneSpeedMult = _enemySpeed.Value;
+        // _interneSpeedMult = _enemySpeed.Value;
 
         _rigidbody = GetComponent<Rigidbody>();
         if (_target) GetNewPath();
@@ -46,7 +46,7 @@ public class PhysicsAgent : MonoBehaviour
         Vector3 direction = (_path[1] - transform.position).normalized;
         transform.right = Vector3.Lerp(transform.right, new Vector3(direction.x, 0, direction.z), Time.deltaTime * 5);
         _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity
-                                            , direction * _interneSpeedMult * _enemySpeed.Value
+                                            , direction * _slowMultiplier * _enemySpeed.Value
                                             , Time.deltaTime * _acceleration);
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _fallingVelocity, _rigidbody.velocity.z);
         print(name  + " velocity : " + _rigidbody.velocity);
@@ -117,14 +117,14 @@ public class PhysicsAgent : MonoBehaviour
 
     public void SlowAgent(float strenght, float duration)
     {
-        StartCoroutine(TrapSlow(strenght, duration));
+        _slowMultiplier -= strenght;
+        _slowMultiplier = Mathf.Clamp01(_slowMultiplier);
+        StartCoroutine(ResetSpeed(strenght, duration));
     }
 
-    private IEnumerator TrapSlow(float strenght, float duration)
+    private IEnumerator ResetSpeed(float strenght, float duration)
     {
-        float tempSpeed = _interneSpeedMult;
-        _interneSpeedMult *= 1 - (float)(double)(duration / 100);
         yield return new WaitForSeconds(duration);
-        _interneSpeedMult = tempSpeed;
+        _slowMultiplier = 1;
     }
 }

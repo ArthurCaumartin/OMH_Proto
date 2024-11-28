@@ -28,4 +28,12 @@ public class Gun : Weapon
             newProj.transform.forward = transform.rotation * newOrientation;
         }
     }
+
+    public override void SecondaryAttack()
+    {
+        
+
+
+
+    }
 }
