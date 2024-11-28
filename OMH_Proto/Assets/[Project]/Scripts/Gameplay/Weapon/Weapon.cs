@@ -9,8 +9,9 @@ using UnityEngine.UI;
 public class Weapon : MonoBehaviour
 {
     //TODO debug le fait de tirer quand on place un Placable, avec OnEnable/Disable et check si on arreter de shoot avant de pouvoir shoot
-    [SerializeField] private FloatVariable _moveSpeed;
-    [SerializeField] private FloatReference _moveSpeedModifier;
+    [SerializeField] private FloatVariable _playerExteralMoveSpeed;
+    [Tooltip("Multiplie PlayerMoveSpeed by indicate facotr.")]
+    [SerializeField] private FloatReference _playerMoveSpeedModifier;
     [Header("Main Fire : ")]
     [SerializeField] protected Projectile _projectile;
     [SerializeField] protected StatContainer _stat;
@@ -23,13 +24,11 @@ public class Weapon : MonoBehaviour
     private float _secondaryCDTime;
     private InputAction _attackInputAction;
     private InputAction _secondaryAttackInputAction;
-    private float _startMs;
 
     private void Start()
     {
         _attackInputAction = GetComponentInParent<PlayerInput>().actions.FindAction("Attack");
         _secondaryAttackInputAction = GetComponentInParent<PlayerInput>().actions.FindAction("SecondaryAttack");
-        if (_moveSpeed) _startMs = _moveSpeed.Value;
         _secondaryCDTime = _secondaryCooldown;
     }
 
@@ -45,9 +44,9 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if (_moveSpeed)
+        if (_playerExteralMoveSpeed)
         {
-            _moveSpeed.Value = _startMs + (_attackInputAction.ReadValue<float>() > .5f ? _moveSpeedModifier.Value : 0);
+            SetPlayerMoveSpeedMult();
         }
 
         _attackTime += Time.deltaTime;
@@ -67,5 +66,10 @@ public class Weapon : MonoBehaviour
             _secondaryCDTime = 0;
             SecondaryAttack();
         }
+    }
+
+    private void SetPlayerMoveSpeedMult()
+    {
+        _playerExteralMoveSpeed.Value = _attackInputAction.ReadValue<float>() > .5f ? _playerMoveSpeedModifier.Value : 1;
     }
 }
