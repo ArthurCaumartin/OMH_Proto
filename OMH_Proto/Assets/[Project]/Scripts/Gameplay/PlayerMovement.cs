@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private InputAction _moveInputAction;
     private Rigidbody _rb;
     private Vector2 _inputVector;
+    private Vector3 _velocityTarget;
 
     private void Start()
     {
@@ -35,7 +36,13 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         _inputVector = _moveInputAction.ReadValue<Vector2>();
-        Vector3 velocityTarget = new Vector3(_inputVector.x, 0, _inputVector.y) * _moveSpeed.Value * 100 * Time.fixedDeltaTime;
-        _rb.velocity = Vector3.Lerp(_rb.velocity, velocityTarget, Time.deltaTime * _moveAcceleration.Value);
+        _velocityTarget = new Vector3(_inputVector.x, 0, _inputVector.y) * _moveSpeed.Value * 100 * Time.fixedDeltaTime;
+        _rb.velocity = Vector3.Lerp(_rb.velocity, _velocityTarget, Time.deltaTime * _moveAcceleration.Value);
+    }
+
+    private void OnDisable()
+    {
+        _velocityTarget = Vector3.zero;
+        _rb.velocity = Vector3.zero;
     }
 }

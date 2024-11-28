@@ -10,7 +10,7 @@ public class PlayerUIControler : MonoBehaviour
         _onSwitchPanel.Raise();
     }
 
-    public void OnOpenMenu()
+    public void OnOpenPause()
     {
         _pauseMenu.SetActive(true);
         Time.timeScale = 0;

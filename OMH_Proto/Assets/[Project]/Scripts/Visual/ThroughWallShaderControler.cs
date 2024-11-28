@@ -26,13 +26,13 @@ public class ThroughWallShaderControler : MonoBehaviour
 
     private void LateUpdate()
     {
-        //TODO fix la distance du raycast :)
         Vector2 normaliseScreenPos = _mainCamera.WorldToViewportPoint(transform.position);
-        // _mat.SetVector("_CutPosition", normaliseScreenPos);
-
 
         _cameraDistance = Vector3.Distance(transform.position, _mainCamera.transform.position);
-        if (DEBUG) Debug.DrawRay(_mainCamera.transform.position, (transform.position - _mainCamera.transform.position).normalized * _cameraDistance, Color.cyan);
+        if (DEBUG) Debug.DrawRay(_mainCamera.transform.position
+                                , (transform.position - _mainCamera.transform.position).normalized * _cameraDistance
+                                , Color.cyan);
+
         RaycastHit[] hits = Physics.RaycastAll(_mainCamera.transform.position
                                         , (transform.position - _mainCamera.transform.position).normalized, _cameraDistance, _wallLayer);
 
