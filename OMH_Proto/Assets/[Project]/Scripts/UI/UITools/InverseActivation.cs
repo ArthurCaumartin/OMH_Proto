@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class InverseActivation : MonoBehaviour
 {
     [SerializeField] private GameObject _objectToModify;
-    [SerializeField] private Image _imageToModify;
-    [SerializeField] private TextMeshProUGUI _textToModify;
+    [SerializeField] private MaskableGraphic _imageToModify;
     
     public void InverseActivationObject()
     {
@@ -18,10 +17,5 @@ public class InverseActivation : MonoBehaviour
     public void InverseActivationComponent()
     {
         _imageToModify.enabled = !_imageToModify.IsActive();
-    }
-    
-    public void InverseActivationText()
-    {
-        _textToModify.enabled = !_textToModify.IsActive();
     }
 }

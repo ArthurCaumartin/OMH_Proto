@@ -46,7 +46,7 @@ public class Trap : MonoBehaviour
             PhysicsAgent y = col[i].GetComponent<PhysicsAgent>();
             if (y)
             {
-                y.SlowAgent(_trapSlowStrenght.Value, _trapSlowDuration.Value);
+                y.SlowAgent(_trapSlowStrenght.Value / 100, _trapSlowDuration.Value);
             }
         }
     }
