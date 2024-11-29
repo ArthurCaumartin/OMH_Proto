@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class AgentTargetFinder : MonoBehaviour
@@ -16,6 +17,7 @@ public class AgentTargetFinder : MonoBehaviour
     [SerializeField] private MobTarget _currentTarget;
     private float _distanceWithTarget;
     private float _targetDetectionTime;
+    public Transform _exclamationTransform;
 
     public float TargetDistance { get => _currentTarget ? _distanceWithTarget : Mathf.Infinity; }
     public GameObject Target { get => _currentTarget ? _currentTarget.gameObject : null; }
@@ -25,6 +27,7 @@ public class AgentTargetFinder : MonoBehaviour
         _agent = GetComponentInParent<PhysicsAgent>();
 
         if (_ifLostTarget) SetAgentTarget(_ifLostTarget);
+        _exclamationTransform.localScale = Vector3.zero;
     }
 
     public void Initialize(MobTarget ifLostTarget)
@@ -34,6 +37,9 @@ public class AgentTargetFinder : MonoBehaviour
 
     private void Update()
     {
+        _exclamationTransform.localScale = Vector3.Lerp(_exclamationTransform.localScale
+                                                        , _currentTarget ? Vector3.one * 50 : Vector3.zero
+                                                        , Time.deltaTime * 15);
         DetectTarget();
 
         if (_currentTarget) _distanceWithTarget = Vector3.Distance(transform.position, _currentTarget.transform.position);
@@ -72,13 +78,12 @@ public class AgentTargetFinder : MonoBehaviour
 
     private void SetAgentTarget(MobTarget toSet)
     {
+
         if (!toSet)
         {
             _agent.SetTarget(null);
             return;
         }
-
-
 
         if (_currentTarget)
         {
