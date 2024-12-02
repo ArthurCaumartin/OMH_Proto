@@ -11,7 +11,7 @@ public class Shield : MonoBehaviour, IDamageable
     [SerializeField] private FloatVariable _playerMovementSpeed;
     [SerializeField] private FloatReference _shieldBoostMoveSpeed;
 
-    [SerializeField] private AnimatorTriggerSetter _shieldDownAnim, _shieldUpAnim;
+    [SerializeField] private AnimatorBoolSetter _shieldAnim;
 
     private Vector3 _respawnPos;
 
@@ -65,7 +65,7 @@ public class Shield : MonoBehaviour, IDamageable
         _isShieldDown = true;
         _isInvincible = true;
 
-        _shieldDownAnim.SetParametre();
+        _shieldAnim.SetParametre(true);
 
         if (_shieldMeshRenderer) _shieldMeshRenderer.material = _shieldDownMaterial;
         if (_playerMovementSpeed) _playerMovementSpeed.Value = _shieldBoostMoveSpeed.Value;
@@ -76,7 +76,7 @@ public class Shield : MonoBehaviour, IDamageable
         _timerRegenShield = 0;
         _isShieldDown = false;
 
-        _shieldUpAnim.SetParametre();
+        _shieldAnim.SetParametre(false);
 
         if (_shieldMeshRenderer) _shieldMeshRenderer.material = _shieldUpMaterial;
         if (_playerMovementSpeed) _playerMovementSpeed.Value = 1;
