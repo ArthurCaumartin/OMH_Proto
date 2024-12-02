@@ -14,6 +14,8 @@ public class OverlapAttack : MonoBehaviour
             IDamageable overLapHealth = col[i].GetComponent<IDamageable>();
             if (overLapHealth != null)
             {
+                //? avoid self damage
+                if(overLapHealth == transform.parent.GetComponent<IDamageable>()) continue;
                 overLapHealth.TakeDamages(_damage.Value);
                 // overLapHealth.health.Value -= _damage.Value;
                 break;
@@ -23,7 +25,7 @@ public class OverlapAttack : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = new Color(1, 0, 0, 0.2f);
+        Gizmos.color = new Color(1, 0, 0, 0.3f);
         Gizmos.DrawSphere(_pivot.position, _raduis.Value);
     }
 }

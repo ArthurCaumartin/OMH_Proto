@@ -7,8 +7,8 @@ public class EnemyLife : MonoBehaviour, IDamageable
 {
     [SerializeField] private FloatReference _mobHealth;
     private float _health;
-    [SerializeField] private Material _hitMaterial, _baseMaterial;
-    [SerializeField] private Renderer _enemyRenderer;
+    // [SerializeField] private Material _hitMaterial, _baseMaterial;
+    // [SerializeField] private Renderer _enemyRenderer;
 
     [SerializeField] private UnityEvent<EnemyLife> _onDeathEvent;
     [SerializeField] private UnityEvent _onDamageEvent;
@@ -19,7 +19,7 @@ public class EnemyLife : MonoBehaviour, IDamageable
     {
         _health = _mobHealth.Value;
 
-        if (_enemyRenderer) _enemyRenderer.material = _baseMaterial;
+        // if (_enemyRenderer) _enemyRenderer.material = _baseMaterial;
     }
 
     public void TakeDamages(float value)
@@ -27,7 +27,7 @@ public class EnemyLife : MonoBehaviour, IDamageable
         // print("Hitted");
         if (value > 0)
         {
-            StartCoroutine(Hit());
+            // StartCoroutine(Hit());
             _onDamageEvent.Invoke();
         }
         
@@ -43,11 +43,11 @@ public class EnemyLife : MonoBehaviour, IDamageable
         Destroy(gameObject);
     }
 
-    public IEnumerator Hit()
-    {
-        if (!_enemyRenderer) yield return null;
-        _enemyRenderer.material = _hitMaterial;
-        yield return new WaitForSeconds(0.2f);
-        _enemyRenderer.material = _baseMaterial;
-    }
+    // public IEnumerator Hit()
+    // {
+    //     if (!_enemyRenderer) yield return null;
+    //     _enemyRenderer.material = _hitMaterial;
+    //     yield return new WaitForSeconds(0.2f);
+    //     _enemyRenderer.material = _baseMaterial;
+    // }
 }

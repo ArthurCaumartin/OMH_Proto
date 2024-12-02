@@ -14,6 +14,7 @@ public class PhysicsAgent : MonoBehaviour
     private float _slowMultiplier = 1;
     [SerializeField] private float _acceleration = 5;
     [SerializeField] private float _fallingVelocity = 0;
+    [Space]
     private float _0to1Distance;
     private Rigidbody _rigidbody;
 
