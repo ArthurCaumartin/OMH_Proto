@@ -12,6 +12,11 @@ public class InteractibleMetal : Interactible
     private float _timer;
     private bool _isGeneratorActivated;
 
+    public override void Interact(out bool cancelIteraction)
+    {
+        cancelIteraction = _isGeneratorActivated;
+    }
+
     public override void OnQTEInput(bool isInputValide)
     {
         if (isInputValide) _metalCount.Value += _metalGainPerInput.Value;
