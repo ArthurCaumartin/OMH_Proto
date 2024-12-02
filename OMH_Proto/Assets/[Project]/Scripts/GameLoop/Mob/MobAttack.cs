@@ -5,8 +5,8 @@ using UnityEngine.Serialization;
 
 public class MobAttack : MonoBehaviour
 {
-    [FormerlySerializedAs("_targetFinder")] [SerializeField] private AgentTargetFinder agentTargetFinder;
-    [SerializeField] private AnimatorParametreSetter _animatorSetter;
+    [FormerlySerializedAs("_targetFinder")][SerializeField] private AgentTargetFinder agentTargetFinder;
+    [SerializeField] private MobAnimationControler _animationControler;
     [Space]
     [SerializeField] private FloatReference _distanceTrigger;
     [SerializeField] private FloatReference _attackPerSecond;
@@ -28,6 +28,6 @@ public class MobAttack : MonoBehaviour
 
     public void Attack()
     {
-        _animatorSetter.SetParametre();
+        _animationControler.PlayAttackAnimation();
     }
 }
