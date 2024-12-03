@@ -24,6 +24,12 @@ public class Placer : MonoBehaviour
 
     public void Select(int index)
     {
+        if (!_levelGrid)
+        {
+            Debug.LogWarning("LE PLACER A PAS LA REF DE LA GRID DU LEVEL !!!");
+            return;
+        }
+
         if (_ressourceCondition)
         {
             if (_ressourceCondition.Value - _placableList[index].cost.Value < 0)
@@ -68,12 +74,6 @@ public class Placer : MonoBehaviour
 
     private void Update()
     {
-        if (!_levelGrid)
-        {
-            Debug.LogWarning("LE PLACER A PAS LA REF DE LA GRID DU LEVEL !!!");
-            return;
-        }
-
         if (!_gostPlacable) return;
 
         _railUnderMouse = CheckForRail();
