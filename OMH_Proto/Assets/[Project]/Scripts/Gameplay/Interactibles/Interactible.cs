@@ -3,6 +3,8 @@ using UnityEngine;
 public class Interactible : MonoBehaviour
 {
     [SerializeField] private QTE _qte;
+    
+    [SerializeField] private Material _outlineMaterial;
     public QTE QTE { get => _qte; }
     public bool HaveQTE { get => _qte; }
 
