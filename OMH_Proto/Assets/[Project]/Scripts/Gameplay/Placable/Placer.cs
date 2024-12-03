@@ -48,6 +48,13 @@ public class Placer : MonoBehaviour
         _gostPlacable = Instantiate(_placableList[index]);
     }
 
+    private void UnSelect()
+    {
+        Destroy(_gostPlacable.gameObject);
+        _gostPlacable = null;
+        _onPlacableSelect.Raise(true);
+    }
+
     private void Place()
     {
         if (!_gostPlacable) return;
@@ -56,21 +63,24 @@ public class Placer : MonoBehaviour
             if (_gostPlacable.placeOnCorridorRail && !_railUnderMouse) return;
             if (_ressourceCondition) _ressourceCondition.Value -= _gostPlacable.cost.Value;
 
-            Instantiate(_gostPlacable.PrefabToPlace, GridCellConvert(MouseAimPosition(_gostPlacable.transform.position)), _gostPlacable.transform.rotation);
+            InstantiatePlaceblePrefab();
             UnSelect();
         }
     }
 
-    public Vector3 GridCellConvert(Vector3 worldPos)
+    private void InstantiatePlaceblePrefab()
     {
-        return _levelGrid.GetCellCenterWorld(_levelGrid.WorldToCell(worldPos));
-    }
 
-    private void UnSelect()
-    {
-        Destroy(_gostPlacable.gameObject);
-        _gostPlacable = null;
-        _onPlacableSelect.Raise(true);
+        if (_gostPlacable.placeOnCorridorRail && _railUnderMouse)
+        {
+            Instantiate(_gostPlacable.PrefabToPlace //! l'enchainement de converstion (dsl le moi du future)
+                        ,WorldToCellConvert(_railUnderMouse.GetNearestPosition(MouseAimPosition(_gostPlacable.transform.position)), false)
+                        // , _railUnderMouse.GetNearestPosition(WorldToCellConvert(MouseAimPosition(_gostPlacable.transform.position)))
+                        , _gostPlacable.transform.rotation);
+            return;
+        }
+
+        Instantiate(_gostPlacable.PrefabToPlace, WorldToCellConvert(MouseAimPosition(_gostPlacable.transform.position)), _gostPlacable.transform.rotation);
     }
 
     private void Update()
@@ -78,18 +88,28 @@ public class Placer : MonoBehaviour
         if (!_gostPlacable) return;
 
         _railUnderMouse = CheckForRail();
+        MoveGostPlacableToMouse();
+    }
+
+    private void MoveGostPlacableToMouse()
+    {
         if (_gostPlacable.placeOnCorridorRail)
         {
+            
             if (_railUnderMouse)
             {
                 Vector3 railPosition = _railUnderMouse.GetNearestPosition(MouseAimPosition(_gostPlacable.transform.position));
-                _gostPlacable.transform.position = Vector3.Lerp(_gostPlacable.transform.position, GridCellConvert(railPosition), Time.deltaTime * 10);
                 _gostPlacable.transform.forward = _railUnderMouse.GetDirection();
+                _gostPlacable.transform.position = Vector3.Lerp(_gostPlacable.transform.position
+                                                                , WorldToCellConvert(railPosition, false)
+                                                                , Time.deltaTime * 10);
                 return;
             }
         }
 
-        _gostPlacable.transform.position = Vector3.Lerp(_gostPlacable.transform.position, GridCellConvert(MouseAimPosition(_gostPlacable.transform.position)), Time.deltaTime * 10);
+        _gostPlacable.transform.position = Vector3.Lerp(_gostPlacable.transform.position
+                                                        , WorldToCellConvert(MouseAimPosition(_gostPlacable.transform.position))
+                                                        , Time.deltaTime * 10);
     }
 
     private void OnPlacePlacable(InputValue value)
@@ -124,5 +144,17 @@ public class Placer : MonoBehaviour
             if (p) return p;
         }
         return null;
+    }
+
+    public Vector3 WorldToCellConvert(Vector3 worldPos, bool getCenterOfCell = true)
+    {
+        //! GetCellCenterWorld return .5 on y ???
+        Vector3 cellCenter;
+        if (getCenterOfCell)
+            cellCenter = _levelGrid.GetCellCenterWorld(_levelGrid.WorldToCell(worldPos));
+        else
+            cellCenter = _levelGrid.WorldToCell(_levelGrid.WorldToCell(worldPos));
+
+        return new Vector3(cellCenter.x, 0, cellCenter.z);
     }
 }
