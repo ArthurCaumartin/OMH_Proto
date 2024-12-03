@@ -29,4 +29,9 @@ public class ChangeText : MonoBehaviour
         }
         _textToChange.text = _baseText + _valueToChange.Value;
     }
+
+    public void Update()
+    {
+        ChangeTextInCanvas();
+    }
 }
