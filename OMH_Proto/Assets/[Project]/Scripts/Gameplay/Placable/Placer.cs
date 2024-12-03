@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class Placer : MonoBehaviour
 {
     public bool DEBUG = true;
+    [SerializeField] private Transform _playerTransform;
     [SerializeField] private Grid _levelGrid;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private FloatReference _range;
@@ -89,7 +90,6 @@ public class Placer : MonoBehaviour
         }
 
         _gostPlacable.transform.position = Vector3.Lerp(_gostPlacable.transform.position, GridCellConvert(MouseAimPosition(_gostPlacable.transform.position)), Time.deltaTime * 10);
-        // _gostPlacable.transform.forward = (_gostPlacable.transform.position - transform.position).normalized;
     }
 
     private void OnPlacePlacable(InputValue value)
@@ -111,8 +111,8 @@ public class Placer : MonoBehaviour
                                 , new Vector3(hit.point.x, hit.point.y + 1, hit.point.z)
                                 , Color.red);
 
-        return Vector3.Distance(transform.position, hit.point) > _range.Value ?
-        transform.position + (hit.point - transform.position).normalized * _range.Value : hit.point;
+        return Vector3.Distance(_playerTransform.position, hit.point) > _range.Value ?
+        _playerTransform.position + (hit.point - _playerTransform.position).normalized * _range.Value : hit.point;
     }
 
     public PlacerRail CheckForRail()
