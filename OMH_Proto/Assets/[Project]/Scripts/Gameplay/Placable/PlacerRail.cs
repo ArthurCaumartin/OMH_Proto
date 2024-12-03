@@ -11,7 +11,7 @@ public class PlacerRail : MonoBehaviour
     {
         float posTime = Mathf.InverseLerp(_startPoint.position.x, _endPoint.position.x, position.x)
                         + Mathf.InverseLerp(_startPoint.position.y, _endPoint.position.y, position.y);
-        print(posTime);
+        // print(posTime);
         _lastPosReturn = Vector3.Lerp(_startPoint.position, _endPoint.position, posTime);
         return _lastPosReturn;
     }
