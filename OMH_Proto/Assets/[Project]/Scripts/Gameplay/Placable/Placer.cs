@@ -50,6 +50,7 @@ public class Placer : MonoBehaviour
 
     private void UnSelect()
     {
+        if(!_gostPlacable) return;
         Destroy(_gostPlacable.gameObject);
         _gostPlacable = null;
         _onPlacableSelect.Raise(true);
@@ -74,8 +75,7 @@ public class Placer : MonoBehaviour
         if (_gostPlacable.placeOnCorridorRail && _railUnderMouse)
         {
             Instantiate(_gostPlacable.PrefabToPlace //! l'enchainement de converstion (dsl le moi du future)
-                        ,WorldToCellConvert(_railUnderMouse.GetNearestPosition(MouseAimPosition(_gostPlacable.transform.position)), false)
-                        // , _railUnderMouse.GetNearestPosition(WorldToCellConvert(MouseAimPosition(_gostPlacable.transform.position)))
+                        , _railUnderMouse.GetNearestPosition(MouseAimPosition(_gostPlacable.transform.position))
                         , _gostPlacable.transform.rotation);
             return;
         }
@@ -95,13 +95,12 @@ public class Placer : MonoBehaviour
     {
         if (_gostPlacable.placeOnCorridorRail)
         {
-            
             if (_railUnderMouse)
             {
                 Vector3 railPosition = _railUnderMouse.GetNearestPosition(MouseAimPosition(_gostPlacable.transform.position));
                 _gostPlacable.transform.forward = _railUnderMouse.GetDirection();
                 _gostPlacable.transform.position = Vector3.Lerp(_gostPlacable.transform.position
-                                                                , WorldToCellConvert(railPosition, false)
+                                                                , railPosition
                                                                 , Time.deltaTime * 10);
                 return;
             }
@@ -112,10 +111,6 @@ public class Placer : MonoBehaviour
                                                         , Time.deltaTime * 10);
     }
 
-    private void OnPlacePlacable(InputValue value)
-    {
-        Place();
-    }
 
     private Vector3 MouseAimPosition(Vector3 currentPos)
     {
@@ -156,5 +151,15 @@ public class Placer : MonoBehaviour
             cellCenter = _levelGrid.WorldToCell(_levelGrid.WorldToCell(worldPos));
 
         return new Vector3(cellCenter.x, 0, cellCenter.z);
+    }
+
+    private void OnPlacePlacable(InputValue value)
+    {
+        Place();
+    }
+
+    private void OnDeselectPlacable(InputValue value)
+    {
+        UnSelect();
     }
 }
