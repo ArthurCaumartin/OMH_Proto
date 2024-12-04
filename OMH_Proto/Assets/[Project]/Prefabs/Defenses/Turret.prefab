@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2701486796419150124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3810013126276675980}
+  m_Layer: 0
+  m_Name: Projectile Spawn Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3810013126276675980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2701486796419150124}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.673, z: 0.967}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6414874011100591653}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3320219042162037332
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +281,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3810013126276675980}
   m_Father: {fileID: 2191420913363419583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &485723347117839297
@@ -353,6 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7587352e8fe59a4fb75546cdaf22b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _projectileSpawnPivot: {fileID: 3810013126276675980}
   _projectilePrefab: {fileID: 6403736433643166296, guid: d49a1cea79879ec4d83dfedacc23edbf,
     type: 3}
   _finder: {fileID: 7095132486892563442}
