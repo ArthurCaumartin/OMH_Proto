@@ -7,12 +7,17 @@ public class DoorRoom : MonoBehaviour
 {
     [SerializeField] private AnimatorBoolSetter _animator;
     private bool _objectInRange;
+    private List<GameObject> _doors = new List<GameObject>();
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") || other.CompareTag("Mob"))
         {
-            OpenDoor();
-            _objectInRange = true;
+            if (_doors.Count == 0)
+            {
+                OpenDoor();
+                _objectInRange = true;
+            }
+            _doors.Add(other.gameObject);
         }
     }
     
@@ -20,8 +25,12 @@ public class DoorRoom : MonoBehaviour
     {
         if (other.CompareTag("Player") || other.CompareTag("Mob"))
         {
-            _objectInRange = false;
-            CloseDoor();
+            _doors.Remove(other.gameObject);
+            if (_doors.Count == 0)
+            {
+                _objectInRange = false;
+                CloseDoor();
+            }
         }
     }
 

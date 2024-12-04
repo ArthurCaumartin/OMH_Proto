@@ -29,10 +29,12 @@ public class InteractibleMetal : Interactible
         // metalValue.Value += 10;
         _gainMetal.Raise();
         // Destroy(gameObject);
-    }
+    } 
 
     private void Update()
     {
+        base.Update();
+        
         if (!_isGeneratorActivated) return;
 
         _timer += Time.deltaTime;

@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: -4931412764557826487}
   - component: {fileID: -2665448160974275982}
   - component: {fileID: 7348904031174619586}
+  - component: {fileID: -298088824183065046}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Defenses
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _priotity:
     propertyType: 0
-    constantValue: 0
+    constantValue: 100
     variable: {fileID: 0}
 --- !u!65 &-2665448160974275982
 BoxCollider:
@@ -182,3 +183,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-298088824183065046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5634859916197907868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4649d2c2215bd374c8966de7e202be65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value:
+    propertyType: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 3e114591be350414b9b75f4a5d061d45, type: 2}
