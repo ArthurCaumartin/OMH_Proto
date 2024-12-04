@@ -26,7 +26,7 @@ public class ThroughWallShaderControler : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector2 normaliseScreenPos = _mainCamera.WorldToViewportPoint(transform.position);
+        Vector2 normaliseScreenPos = _mainCamera.WorldToViewportPoint(transform.position + Vector3.up);
 
         _cameraDistance = Vector3.Distance(transform.position, _mainCamera.transform.position);
         if (DEBUG) Debug.DrawRay(_mainCamera.transform.position
