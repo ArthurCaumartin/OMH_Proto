@@ -7,7 +7,7 @@ public class Interactible : MonoBehaviour
     protected bool _isPlayerInRange;
     protected Renderer _renderer;
     protected Material _outlineMaterial;
-    protected float _detectionRange = 3f;
+    [SerializeField] protected float _detectionRange = 3f;
     protected float _detectionPerSecond = 2;
     protected float _detectionTime;
     
