@@ -12,9 +12,14 @@ public class InteractibleMetal : Interactible
     private float _timer;
     private bool _isGeneratorActivated;
 
+    public override void Interact(out bool cancelIteraction)
+    {
+        cancelIteraction = _isGeneratorActivated;
+    }
+
     public override void OnQTEInput(bool isInputValide)
     {
-        if(isInputValide) _metalCount.Value += _metalGainPerInput.Value;
+        if (isInputValide) _metalCount.Value += _metalGainPerInput.Value;
     }
 
     public override void OnQTEWin()
@@ -24,15 +29,18 @@ public class InteractibleMetal : Interactible
         // metalValue.Value += 10;
         _gainMetal.Raise();
         // Destroy(gameObject);
-    }
+    } 
 
     private void Update()
     {
-        if (!_isGeneratorActivated) return;
+        base.Update();
         
+        if (!_isGeneratorActivated) return;
+
         _timer += Time.deltaTime;
         if (_timer >= _timerToGetRessource.Value)
         {
+            _timer = 0;
             GainRessource();
         }
     }
@@ -44,7 +52,7 @@ public class InteractibleMetal : Interactible
 
     private void GainRessource()
     {
-        _timer = 0;
+        //TODO faire un update dans l'update plutot qu'avec un game event
         _gainMetal.Raise();
     }
 }

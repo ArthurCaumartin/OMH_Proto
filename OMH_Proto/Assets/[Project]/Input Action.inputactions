@@ -51,33 +51,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PlacePlacable",
-                    "type": "Button",
-                    "id": "135c9909-eea3-43df-b8e9-3a5026f30c89",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "OpenRadialMenu",
-                    "type": "Value",
-                    "id": "60ddf3f0-ee60-47c9-9817-ec60e933c424",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Pannel",
-                    "type": "Button",
-                    "id": "dd223208-c415-4d4f-b459-be7953abc72c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "QTEDirection",
                     "type": "Value",
                     "id": "714c5697-8db4-4c9f-88e6-6e804fd20e20",
@@ -90,15 +63,6 @@
                     "name": "LeaveQTE",
                     "type": "Button",
                     "id": "2d392854-3416-4eb3-865b-2627df649bad",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "OpenPause",
-                    "type": "Button",
-                    "id": "37d72999-a59e-4cb7-af82-84de92079fa6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -185,45 +149,12 @@
                 },
                 {
                     "name": "",
-                    "id": "e5ff3854-d340-4044-8cfb-760357f0a5df",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PlacePlacable",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8bf3a9cb-c8b1-4869-9c41-2a9cd98e1874",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenRadialMenu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "32034504-68db-4d65-8191-f005c77e2957",
                     "path": "<Pointer>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a0e8b1f9-b95a-4054-872e-b0a110f6d84e",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pannel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -295,17 +226,6 @@
                 },
                 {
                     "name": "",
-                    "id": "798fc6e0-db63-4c57-98f2-6ae474fcb493",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenPause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3346e936-498c-4bad-9b87-35d4c5f47faa",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -318,74 +238,110 @@
             ]
         },
         {
-            "name": "QTEMap",
-            "id": "ffb24cae-e34c-4733-a24d-817b75a2f3e2",
+            "name": "UI",
+            "id": "7aa82db2-125b-4c4d-9aeb-7d4e06a18cc7",
             "actions": [
                 {
-                    "name": "InputDirection",
-                    "type": "Value",
-                    "id": "9e0f573a-7b1b-45c7-9409-12d4b4f6e6b2",
-                    "expectedControlType": "Vector2",
+                    "name": "PauseMenu",
+                    "type": "Button",
+                    "id": "1f18e3be-08ca-4715-8956-7ae728a3c898",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenRightMenu",
+                    "type": "Button",
+                    "id": "058e87f3-b836-427b-a827-776723481405",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenLeftMenu",
+                    "type": "Button",
+                    "id": "1f11ef3b-d8ba-46d4-928d-92b3cfcbdacb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PlacePlacable",
+                    "type": "Button",
+                    "id": "695343e5-a760-4334-a891-5737e8aa2397",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DeselectPlacable",
+                    "type": "Button",
+                    "id": "5f5ad1b6-27f8-4323-b1d3-d539ffd7321b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
-                    "id": "c569778e-986b-434a-b805-bd7d375480fe",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "31550600-214a-4aeb-83b8-67177d6f7f43",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "InputDirection",
-                    "isComposite": true,
+                    "action": "PauseMenu",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "3a94241c-dda4-4717-abf5-dfd0adf11bc6",
-                    "path": "<Keyboard>/w",
+                    "name": "",
+                    "id": "8028140d-edb1-4c1f-9435-20adba6cac74",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "InputDirection",
+                    "action": "OpenLeftMenu",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "down",
-                    "id": "a995587c-00a8-4bd2-b440-3ce208222ece",
-                    "path": "<Keyboard>/s",
+                    "name": "",
+                    "id": "5cbd1082-5412-407e-8916-f008b2125b9f",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "InputDirection",
+                    "action": "OpenRightMenu",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "left",
-                    "id": "59d29106-da18-4843-a5af-37fc9a3b3c16",
-                    "path": "<Keyboard>/a",
+                    "name": "",
+                    "id": "9fe30465-c3e2-44d2-927d-196cd92643c1",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "InputDirection",
+                    "action": "PlacePlacable",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "right",
-                    "id": "b463a642-e611-453a-893d-aa5bba7c2184",
-                    "path": "<Keyboard>/d",
+                    "name": "",
+                    "id": "301b0b73-0319-4118-9d16-eeadf2c2d81b",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "InputDirection",
+                    "action": "DeselectPlacable",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         }

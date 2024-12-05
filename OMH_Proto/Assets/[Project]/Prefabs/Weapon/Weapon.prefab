@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1713256877872310156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7417221729125736791}
+  - component: {fileID: 8499137468880705079}
+  - component: {fileID: 5988418152272521065}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7417221729125736791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713256877872310156}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.067, y: 1.04, z: 0.017}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8499137468880705079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713256877872310156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9218224d5651d72429294c37f1fb3308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerExteralMoveSpeed: {fileID: 11400000, guid: 791c7ddbd60f27b45b112ac380f58021,
+    type: 2}
+  _playerMoveSpeedModifier:
+    propertyType: 0
+    constantValue: 0.4
+    variable: {fileID: 0}
+  _projectile: {fileID: 6403736433643166296, guid: d49a1cea79879ec4d83dfedacc23edbf,
+    type: 3}
+  _stat:
+    damage:
+      propertyType: 0
+      constantValue: 2
+      variable: {fileID: 11400000, guid: 93800fa8bbbd2914c9506c2bba733a3a, type: 2}
+    attackPerSecond:
+      propertyType: 0
+      constantValue: 2
+      variable: {fileID: 11400000, guid: 87dec22a913d1754db68c85a1b1e0f0e, type: 2}
+    range:
+      propertyType: 0
+      constantValue: 10
+      variable: {fileID: 0}
+    projectileSpeed:
+      propertyType: 0
+      constantValue: 150
+      variable: {fileID: 0}
+  _secondaryProjectile: {fileID: 8350907008403827077, guid: 8397481d79980a74fa842572c2e66fa8,
+    type: 3}
+  _secondaryCooldown:
+    propertyType: 1
+    constantValue: 0
+    variable: {fileID: 0}
+  _secondaryDynamicCoolDown:
+    propertyType: 0
+    constantValue: 0
+    variable: {fileID: 0}
+  _secondaryStat:
+    damage:
+      propertyType: 0
+      constantValue: 0
+      variable: {fileID: 0}
+    attackPerSecond:
+      propertyType: 0
+      constantValue: 0
+      variable: {fileID: 0}
+    range:
+      propertyType: 0
+      constantValue: 10
+      variable: {fileID: 0}
+    projectileSpeed:
+      propertyType: 0
+      constantValue: 150
+      variable: {fileID: 0}
+  _bulletCount:
+    propertyType: 0
+    constantValue: 1
+    variable: {fileID: 0}
+  _spread:
+    propertyType: 0
+    constantValue: 0.13
+    variable: {fileID: 0}
+  _randomness:
+    propertyType: 0
+    constantValue: 0.18
+    variable: {fileID: 0}
+--- !u!114 &5988418152272521065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713256877872310156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 7e3f7cdc18d30694580c93e9d564106d, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8499137468880705079}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

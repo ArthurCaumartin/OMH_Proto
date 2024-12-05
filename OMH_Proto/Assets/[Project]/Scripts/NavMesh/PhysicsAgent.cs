@@ -130,4 +130,9 @@ public class PhysicsAgent : MonoBehaviour
         yield return new WaitForSeconds(duration);
         _slowMultiplier += strenght;
     }
+
+    private void OnDisable()
+    {
+        _rigidbody.velocity = Vector3.zero;
+    }
 }

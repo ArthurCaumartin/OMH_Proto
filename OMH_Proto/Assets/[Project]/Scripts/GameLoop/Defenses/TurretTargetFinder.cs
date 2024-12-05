@@ -19,15 +19,25 @@ public class TurretTargetFinder : MonoBehaviour
         float minDistance = Mathf.Infinity;
         foreach (var item in _mobInRangeList)
         {
-            if (!item) continue;
-            float currentDistance = (item.transform.position - transform.position).sqrMagnitude;
-            if (currentDistance < minDistance)
+            RaycastHit[] hit = Physics.RaycastAll(transform.position, item.transform.position - transform.position, _range);
+
+            if (hit[0].collider.gameObject.layer != 15)
             {
-                minDistance = currentDistance;
-                toReturn = item;
+                if (!item) continue;
+                float currentDistance = (item.transform.position - transform.position).sqrMagnitude;
+                if (currentDistance < minDistance)
+                {
+                    minDistance = currentDistance;
+                    toReturn = item;
+                }
             }
         }
         return toReturn;
+    }
+
+    private void DrawRay(Vector3 origin, Vector3 direction, float maxDistance)
+    {
+        Debug.DrawRay(origin, direction * maxDistance, Color.red);
     }
 
     private List<EnemyLife> GetAllMobInRange()
@@ -41,25 +51,6 @@ public class TurretTargetFinder : MonoBehaviour
         }
         return mobInRange;
     }
-
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     EnemyLife mob = other.GetComponent<EnemyLife>();
-    //     if (mob)
-    //     {
-    //         mob.OnDeathEvent.AddListener(RemoveMob);
-    //         _mobInRangeList.Add(mob);
-    //     }
-    // }
-
-    // private void OnTriggerExit(Collider other)
-    // {
-    //     EnemyLife mob = other.GetComponent<EnemyLife>();
-    //     if (mob && _mobInRangeList.Contains(mob))
-    //     {
-    //         _mobInRangeList.Remove(mob);
-    //     }
-    // }
 
     public void RemoveMob(EnemyLife toRemove)
     {

@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Health : MonoBehaviour, IDamageable
 {
-    [SerializeField] private FloatReference _value;
+    [SerializeField] private FloatReference _maxHealth;
+    [SerializeField] private FloatReference _currentHealth;
+
+    private void Start()
+    {
+        _currentHealth.Value = _maxHealth.Value;
+    }
 
     public void TakeDamages(float damageAmount)
     {
-        _value.Value -= damageAmount;
-        if (_value.Value <= 0) Destroy(gameObject);
+        _currentHealth.Value -= damageAmount;
+        if (_currentHealth.Value <= 0) Destroy(gameObject);
     }
 }

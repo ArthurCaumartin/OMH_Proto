@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8985578122966201057}
   - component: {fileID: 8609622750886463965}
   - component: {fileID: 6944716330613004350}
+  - component: {fileID: 6812450323627586235}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defenseStartEvent: {fileID: 11400000, guid: 1ef557f46f9b64d44a7451596034930f, type: 2}
+  _victoryGameEvent: {fileID: 11400000, guid: f71a17a6cc58d0f4f8fbd9f4cb7502c0, type: 2}
   _gameTime:
     propertyType: 1
     constantValue: 0
@@ -54,6 +56,11 @@ MonoBehaviour:
     propertyType: 1
     constantValue: 0
     variable: {fileID: 11400000, guid: 27024d8c2a5fb9e469a571e5ff933d0b, type: 2}
+  _defenseDuration:
+    propertyType: 0
+    constantValue: 0
+    variable: {fileID: 0}
+  _navMesh: {fileID: 0}
 --- !u!114 &6944716330613004350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,7 +74,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _infosManager: {fileID: 11400000, guid: 13b82694bb59d814f9665ca87983ffe7, type: 2}
-  _baseMetal: 0
-  _baseSyringe: 2
-  _baseKey: 2
-  _baseArtifact: 0
+--- !u!114 &6812450323627586235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7187046051254820072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 1dcaa1e86a0bff347898b56c25f9fafc, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8609622750886463965}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RebakeNavmesh
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

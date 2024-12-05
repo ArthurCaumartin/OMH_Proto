@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Placable : MonoBehaviour
 {
+    public bool placeOnCorridorRail = false;
     public FloatReference cost;
+
     [SerializeField] private GameObject _prefabToPlace;
+    private List<GameObject> _blockObject = new List<GameObject>();
+
     public GameObject PrefabToPlace { get => _prefabToPlace; }
     public bool CanBePlaced { get => _blockObject.Count == 0; }
-
-    private List<GameObject> _blockObject = new List<GameObject>();
 
     public void OnTriggerEnter(Collider other)
     {
