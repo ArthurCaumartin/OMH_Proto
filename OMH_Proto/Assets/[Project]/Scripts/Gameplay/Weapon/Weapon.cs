@@ -18,10 +18,10 @@ public class Weapon : MonoBehaviour
 
     [Header("Secondary Fire :")]
     [SerializeField] protected Projectile _secondaryProjectile;
-    [SerializeField] private float _secondaryCooldown = 4;
+    [SerializeField] private FloatReference _secondaryCooldown;
+    [SerializeField] private FloatReference _secondaryDynamicCoolDown;
     [SerializeField] protected StatContainer _secondaryStat;
     private float _attackTime;
-    private float _secondaryCDTime;
     private InputAction _attackInputAction;
     private InputAction _secondaryAttackInputAction;
 
@@ -29,7 +29,7 @@ public class Weapon : MonoBehaviour
     {
         _attackInputAction = GetComponentInParent<PlayerInput>().actions.FindAction("Attack");
         _secondaryAttackInputAction = GetComponentInParent<PlayerInput>().actions.FindAction("SecondaryAttack");
-        _secondaryCDTime = _secondaryCooldown;
+        _secondaryDynamicCoolDown.Value = _secondaryCooldown.Value;
     }
 
     public virtual void Attack()
@@ -50,7 +50,7 @@ public class Weapon : MonoBehaviour
         }
 
         _attackTime += Time.deltaTime;
-        _secondaryCDTime += Time.deltaTime;
+        _secondaryDynamicCoolDown.Value += Time.deltaTime;
 
         if (_attackTime > 1 / _stat.attackPerSecond.Value)
         {
@@ -61,9 +61,9 @@ public class Weapon : MonoBehaviour
             }
         }
 
-        if (_secondaryAttackInputAction.ReadValue<float>() > .5f && _secondaryCDTime > _secondaryCooldown)
+        if (_secondaryAttackInputAction.ReadValue<float>() > .5f && _secondaryDynamicCoolDown.Value > _secondaryCooldown.Value)
         {
-            _secondaryCDTime = 0;
+            _secondaryDynamicCoolDown.Value = 0;
             SecondaryAttack();
         }
     }
