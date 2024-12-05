@@ -14,11 +14,16 @@ public class ChangeText : MonoBehaviour
     
     private float _memoryValue;
     
+    private void Awake()
+    {
+        ChangeTextInCanvas();
+    }
+
     private void Start()
     {
-        _memoryValue = _valueToChange.Value;
-        
         ChangeTextInCanvas();
+        
+        _memoryValue = _valueToChange.Value;
     }
 
     public void ChangeTextInCanvas()
@@ -26,6 +31,10 @@ public class ChangeText : MonoBehaviour
         if (_valueToChange.Value != _memoryValue && _isColoredGreen)
         {
             _textToChange.color = new Color32(22, 184, 0, 255);
+        }
+        else if(_valueToChange.Value == _memoryValue && _isColoredGreen)
+        {
+            _textToChange.color = new Color32(1, 1, 1, 255);
         }
         _textToChange.text = _baseText + _valueToChange.Value;
     }
