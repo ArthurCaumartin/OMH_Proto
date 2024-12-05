@@ -10,6 +10,7 @@ public class FillImage : MonoBehaviour
     [SerializeField] private Image _targetImage;
     [SerializeField] private bool _canFill = true;
     [SerializeField] private FillType _fillType;
+    
 
     [Header("Inverse Lerp : ")]
     [SerializeField] private FloatReference _minValue;
@@ -27,6 +28,8 @@ public class FillImage : MonoBehaviour
 
     private void Update()
     {
+        if (!_canFill) return;
+        
         if (_fillType == FillType.InverseLerp)
         {
             _targetImage.fillAmount = Mathf.InverseLerp(_minValue.Value, _maxValue.Value, _compareValue.Value);

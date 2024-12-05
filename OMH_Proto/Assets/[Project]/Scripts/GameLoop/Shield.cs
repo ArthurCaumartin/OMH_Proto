@@ -42,6 +42,7 @@ public class Shield : MonoBehaviour, IDamageable
             if (_timerInvincibility >= _playerInvincibiltyDuration.Value)
             {
                 _isInvincible = false;
+                _timerInvincibility = 0;
             }
         }
     }
