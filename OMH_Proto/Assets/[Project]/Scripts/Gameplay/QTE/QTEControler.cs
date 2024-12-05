@@ -30,6 +30,11 @@ public class QTEControler : MonoBehaviour
         _onQTEStartEvent.Raise();
     }
 
+    public void KillQTE()
+    {
+        if (_currentQTE) OnQTEFinish();
+    }
+
     private void OnQTEFinish()
     {
         EnableControler(true);
