@@ -7,7 +7,7 @@ public class Placer : MonoBehaviour
     public bool DEBUG = true;
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private Grid _levelGrid;
-    [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private LayerMask _aimLayer;
     [SerializeField] private FloatReference _range;
     [Space]
     [SerializeField] private FloatVariable _ressourceCondition;
@@ -117,11 +117,11 @@ public class Placer : MonoBehaviour
         Vector2 pixelPos = Input.mousePosition;
         Ray camRay = _mainCamera.ScreenPointToRay(pixelPos);
 
-        if (DEBUG) Debug.DrawRay(camRay.origin, camRay.direction * 100, Color.green);
 
-        Physics.Raycast(camRay, out RaycastHit hit, Mathf.Infinity, _groundLayer);
+        Physics.Raycast(camRay, out RaycastHit hit, Mathf.Infinity, _aimLayer);
         if (!hit.collider) return currentPos;
 
+        if (DEBUG) Debug.DrawRay(camRay.origin, camRay.direction * 100, Color.green);
         if (DEBUG) Debug.DrawLine(new Vector3(hit.point.x, hit.point.y - 1, hit.point.z)
                                 , new Vector3(hit.point.x, hit.point.y + 1, hit.point.z)
                                 , Color.red);
