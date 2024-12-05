@@ -14,11 +14,9 @@ public class OverlapAttack : MonoBehaviour
             IDamageable overLapHealth = col[i].GetComponent<IDamageable>();
             if (overLapHealth != null)
             {
-                //? avoid self damage
+                //! avoid self damage
                 if(overLapHealth == transform.parent.GetComponent<IDamageable>()) continue;
                 overLapHealth.TakeDamages(_damage.Value);
-                // overLapHealth.health.Value -= _damage.Value;
-                break;
             }
         }
     }
