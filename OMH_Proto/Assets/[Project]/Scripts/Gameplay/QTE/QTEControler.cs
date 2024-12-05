@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 public class QTEControler : MonoBehaviour
 {
+    [SerializeField] private GameEvent _onQTEStartEvent;
+    [SerializeField] private GameEvent _onQTEEndEvent;
+
     private QTE _currentQTE;
     private PlayerMovement _playerMovement;
     private PlayerAim _playerAim;
@@ -23,6 +26,8 @@ public class QTEControler : MonoBehaviour
 
         _currentQTE.OnWin.AddListener(OnQTEFinish);
         _currentQTE.OnKill.AddListener(OnQTEFinish);
+
+        _onQTEStartEvent.Raise();
     }
 
     private void OnQTEFinish()
@@ -33,6 +38,8 @@ public class QTEControler : MonoBehaviour
         _currentQTE?.OnKill.RemoveListener(OnQTEFinish);
 
         _currentQTE = null;
+
+        _onQTEEndEvent.Raise();
     }
 
     public void EnableControler(bool value)
