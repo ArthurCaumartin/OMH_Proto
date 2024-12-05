@@ -50,19 +50,28 @@ public class AgentTargetFinder : MonoBehaviour
     private void DetectTarget()
     {
         _targetDetectionTime += Time.deltaTime;
-        if (_targetDetectionTime > 1 / _targetDetectionPerSecond)
+        if (_targetDetectionTime < 1 / _targetDetectionPerSecond) return;
+        _targetDetectionTime = 0;
+
+        Collider[] col = Physics.OverlapSphere(transform.position, _targetDetectionRange, _targetLayer);
+        if (col.Length == 0) return;
+
+        float minDistance = Mathf.Infinity;
+        MobTarget newTarget = null;
+        for (int i = 0; i < col.Length; i++)
         {
-            _targetDetectionTime = 0;
-            Collider[] col = Physics.OverlapSphere(transform.position, _targetDetectionRange, _targetLayer);
-            //TODO shuffle l'array
-            //TODO limite d'agro par target
-            for (int i = 0; i < col.Length; i++)
+            MobTarget currentTarget = col[i].GetComponent<MobTarget>();
+            if(!currentTarget) continue;
+            if (currentTarget == _ifLostTarget) continue;
+
+            float currentDistance = Vector3.Distance(transform.position, currentTarget.transform.position);
+            if (currentDistance < minDistance)
             {
-                MobTarget t = col[i].GetComponent<MobTarget>();
-                if (t == _ifLostTarget) continue;
-                if (t) SetAgentTarget(t);
+                newTarget = currentTarget;
+                minDistance = currentDistance;
             }
         }
+        if (newTarget) SetAgentTarget(newTarget);
     }
 
     private bool IsTargetToFar()
