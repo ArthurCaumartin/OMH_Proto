@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2129136055113815151}
   - component: {fileID: 4392866151147173864}
   - component: {fileID: 624134500123154451}
-  - component: {fileID: 7770206220566110790}
   m_Layer: 0
   m_Name: "Cerclage de m\xE9tal"
   m_TagString: Untagged
@@ -32,7 +31,7 @@ Transform:
   m_LocalScale: {x: 11, y: 1, z: 11}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3472573628027982120}
+  m_Father: {fileID: 5264649869957566912}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4392866151147173864
 MeshFilter:
@@ -84,29 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7770206220566110790
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2188802245448788155}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &3063671642469636741
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,8 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3472573628027982120}
-  - component: {fileID: 7659656769396221157}
-  m_Layer: 0
+  - component: {fileID: 3803559614301744402}
+  m_Layer: 10
   m_Name: Cuve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,26 +113,63 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1083036403936907526}
-  - {fileID: 2129136055113815151}
+  - {fileID: 5264649869957566912}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7659656769396221157
-MonoBehaviour:
+--- !u!135 &3803559614301744402
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3063671642469636741}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 002e28a139e44ed47b94b6c9d3b1b36b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _priotity:
-    propertyType: 0
-    constantValue: 0
-    variable: {fileID: 0}
+  serializedVersion: 3
+  m_Radius: 5.5516806
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8505642101346281910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5264649869957566912}
+  m_Layer: 10
+  m_Name: Meshs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5264649869957566912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8505642101346281910}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1083036403936907526}
+  - {fileID: 2129136055113815151}
+  m_Father: {fileID: 3472573628027982120}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8843480934913439214
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,9 +181,8 @@ GameObject:
   - component: {fileID: 1083036403936907526}
   - component: {fileID: 3401230148681089985}
   - component: {fileID: 718221053847905255}
-  - component: {fileID: 8325368775548506417}
   m_Layer: 0
-  m_Name: Cuve
+  m_Name: PurpuleBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,7 +201,7 @@ Transform:
   m_LocalScale: {x: 10, y: 8, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3472573628027982120}
+  m_Father: {fileID: 5264649869957566912}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3401230148681089985
 MeshFilter:
@@ -241,24 +253,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8325368775548506417
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8843480934913439214}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
