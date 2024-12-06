@@ -7,7 +7,7 @@ using UnityEngine;
 public class ItemScriptable : ScriptableObject
 {
     public string _itemName;
-    public string _itemDescription;
+    [TextArea (1, 5)] public string _itemDescription;
     public Sprite _itemSprite;
     public ItemStatsContainer _itemStats;
 }
