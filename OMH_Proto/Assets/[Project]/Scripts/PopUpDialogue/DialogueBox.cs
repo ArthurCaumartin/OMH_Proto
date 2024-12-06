@@ -16,7 +16,7 @@ public class DialogueBox : MonoBehaviour
     public void PrintNewDialogue(string dialogue)
     {
         if (!gameObject.activeSelf) return;
-        print("Dialogue Box set text");
+        // print("Dialogue Box set text");
         //! coroutine send warning if call while enable is false
         if (!_isPrinting)
             StartCoroutine(PrintText(dialogue));
