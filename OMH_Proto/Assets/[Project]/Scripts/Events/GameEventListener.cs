@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,7 +12,5 @@ public class GameEventListener : MonoBehaviour
     public void OnEventRaise(bool eventValue)
     {
         _response.Invoke(eventValue);
-
-
     }
 }
