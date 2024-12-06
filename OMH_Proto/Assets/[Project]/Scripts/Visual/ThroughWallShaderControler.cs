@@ -15,7 +15,9 @@ public class ThroughWallShaderControler : MonoBehaviour
     [SerializeField] private Material _mat;
     private Camera _mainCamera;
     private float _startSize;
+    private Vector3 _normaliseScreenPos;
     private float _cameraDistance;
+    private bool _isLockOpen;
 
     private void Start()
     {
@@ -26,19 +28,44 @@ public class ThroughWallShaderControler : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector2 normaliseScreenPos = _mainCamera.WorldToViewportPoint(transform.position);
-
+        _normaliseScreenPos = _mainCamera.WorldToViewportPoint(transform.position + Vector3.up);
         _cameraDistance = Vector3.Distance(transform.position, _mainCamera.transform.position);
-        if (DEBUG) Debug.DrawRay(_mainCamera.transform.position
-                                , (transform.position - _mainCamera.transform.position).normalized * _cameraDistance
-                                , Color.cyan);
 
         RaycastHit[] hits = Physics.RaycastAll(_mainCamera.transform.position
-                                        , (transform.position - _mainCamera.transform.position).normalized, _cameraDistance, _wallLayer);
+                                            , (transform.position - _mainCamera.transform.position).normalized
+                                            , _cameraDistance
+                                            , _wallLayer);
 
+        if (_isLockOpen)
+            SetShaderParametre(_normaliseScreenPos, true);
+        else
+            SetShaderParametre(_normaliseScreenPos, hits.Length != 0);
+
+        Debug();
+    }
+
+    private void Debug()
+    {
         // print(hits.Length == 0 ? "Nothing hit !" : "it wall");
-        float target = hits.Length != 0 ? _startSize : 0;
+        if (DEBUG) UnityEngine.Debug.DrawRay(_mainCamera.transform.position
+                                , (transform.position - _mainCamera.transform.position).normalized * _cameraDistance
+                                , Color.cyan);
+    }
+
+    private void SetShaderParametre(Vector2 normaliseScreenPos, bool isOpen)
+    {
+        float target = isOpen ? _startSize : 0;
         _mat.SetVector("_CutPosition", Vector2.Lerp(_mat.GetVector("_CutPosition"), normaliseScreenPos, Time.deltaTime * _followSpeed));
         _mat.SetFloat("_CutSize", Mathf.Lerp(_mat.GetFloat("_CutSize"), target, Time.deltaTime * _sizeSpeed));
+    }
+
+    public void LockShaderOpen()
+    {
+        _isLockOpen = true;
+    }
+
+    public void UnlockShader()
+    {
+        _isLockOpen = false;
     }
 }

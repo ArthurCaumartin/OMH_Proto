@@ -16,9 +16,5 @@ public class ObjectUI : MonoBehaviour
         _objectDescription.text = objectDescription;
         _objectImage.sprite = objectImage;
         _popupImage.sprite = objectImage;
-        if (!isPannelActivated)
-        {
-            _objectImage.enabled = false;
-        }
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TurretCannon : MonoBehaviour
 {
+    [SerializeField] protected Transform _projectileSpawnPivot;
     [SerializeField] protected Projectile _projectilePrefab;
     [SerializeField] protected TurretTargetFinder _finder;
     [SerializeField] protected StatContainer _stat;
@@ -22,7 +23,10 @@ public class TurretCannon : MonoBehaviour
 
     public virtual void Update()
     {
-        if(!_currentTarget) _currentTarget = _finder.GetNearsetMob()?.transform;
+        if (!_currentTarget)
+        {
+            if(_finder.GetNearsetMob() != null) _currentTarget = _finder.GetNearsetMob()?.transform;
+        }
         if(!_currentTarget) return;
 
         LookAtTarget();
@@ -41,7 +45,12 @@ public class TurretCannon : MonoBehaviour
 
     private void LookAtTarget()
     {
-        transform.LookAt(_currentTarget);
+        // transform.LookAt(_currentTarget);
+        // transform.forward = new Vector3(transform.forward.x, 0, transform.forward.y).normalized;
+
+        Vector3 lootAt = (_currentTarget.position - transform.position).normalized;
+        lootAt.y = 0;
+        transform.forward = lootAt;
     }
 
     public void SetTarget(Transform target)

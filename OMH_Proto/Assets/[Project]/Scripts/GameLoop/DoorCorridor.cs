@@ -54,6 +54,5 @@ public class DoorCorridor : MonoBehaviour, IMapClickable
             print("OpenDoor");
             // Bake le Navmesh
         }
-        
     }
 }

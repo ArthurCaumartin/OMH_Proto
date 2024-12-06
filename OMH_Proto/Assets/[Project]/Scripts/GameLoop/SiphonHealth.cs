@@ -10,8 +10,11 @@ public class SiphonHealth : MonoBehaviour
     public void LostHP()
     {
         _health.Value--;
-        if(_health.Value <= 0)
+        if (_health.Value <= 0)
+        {
             _destroyEvent.Raise();
+            gameObject.SetActive(false);
+        }
     }
 
     public void OnTriggerEnter(Collider other)

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TurretGatling : TurretCannon
 {
+    
     [Tooltip("How many bullets needed to go max charge")]
     [SerializeField] private int _bulletsMaxCharge = 10;
     
@@ -49,7 +50,7 @@ public class TurretGatling : TurretCannon
         newDirection = transform.rotation * newDirection.normalized;
         newDirection.y = 0;
         
-        Projectile newProjectile = Instantiate(_projectilePrefab, transform.position, Quaternion.LookRotation(newDirection, Vector3.up));
+        Projectile newProjectile = Instantiate(_projectilePrefab, _projectileSpawnPivot.position, Quaternion.LookRotation(newDirection, Vector3.up));
         newProjectile.Initialize(_stat.projectileSpeed.Value, _stat.damage.Value * _damagesMultiplier);
 
         _bulletCounter++;

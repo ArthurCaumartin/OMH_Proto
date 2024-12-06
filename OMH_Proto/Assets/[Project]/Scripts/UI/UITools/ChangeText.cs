@@ -13,12 +13,11 @@ public class ChangeText : MonoBehaviour
     [SerializeField] private bool _isColoredGreen;
     
     private float _memoryValue;
-    
-    private void Start()
+
+    public void Initialize()
     {
         _memoryValue = _valueToChange.Value;
-        
-        ChangeTextInCanvas();
+        ChangeTextInCanvas(); 
     }
 
     public void ChangeTextInCanvas()
@@ -26,6 +25,10 @@ public class ChangeText : MonoBehaviour
         if (_valueToChange.Value != _memoryValue && _isColoredGreen)
         {
             _textToChange.color = new Color32(22, 184, 0, 255);
+        }
+        else if(_valueToChange.Value == _memoryValue && _isColoredGreen)
+        {
+            _textToChange.color = new Color32(1, 1, 1, 255);
         }
         _textToChange.text = _baseText + _valueToChange.Value;
     }

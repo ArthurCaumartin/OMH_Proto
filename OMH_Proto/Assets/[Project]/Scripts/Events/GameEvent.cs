@@ -6,7 +6,7 @@ public class GameEvent : ScriptableObject
 {
     private List<GameEventListener> _listeners = new List<GameEventListener>();
     [Tooltip("A string to explain why this event is here")]
-    [SerializeField] private string _infosAboutEvent;
+    [SerializeField, TextArea] private string _infosAboutEvent;
 
     public void Raise(bool eventValue = true)
     {
