@@ -3,7 +3,7 @@ using UnityEngine;
 public class Interactible : MonoBehaviour
 {
     [SerializeField] private QTE _qte;
-    
+    // [SerializeField] private MeshRenderer _meshRenderer;
     protected bool _isPlayerInRange;
     protected Renderer _renderer;
     protected Material _outlineMaterial;
