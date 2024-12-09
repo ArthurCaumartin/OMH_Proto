@@ -11,32 +11,20 @@ public class CursorMovement : MonoBehaviour
     [SerializeField] private AnimationCurve _rotateCurve;
     [SerializeField] private FloatReference _explorationTime, _defenseTime;
 
+    float maxTime = 0;
+    float currentTime = 0;
+    
     private void Start()
     {
-        MoveCursor();
-    }
-
-    private void MoveCursor()
-    {
-        Sequence timerCursorSequence = DOTween.Sequence();
-
-        timerCursorSequence.Append(
-            _parentCursor.transform
-                .DORotate(new Vector3(transform.rotation.x, transform.rotation.y, 60), _explorationTime.Value 
-                + _defenseTime.Value)
-            .SetEase(_rotateCurve));
-
-        timerCursorSequence.Append(
-            _parentCursor.transform
-                .DORotate(new Vector3(transform.rotation.x, transform.rotation.y, 0), 0.01f));
-
-        float tempX = 283.2935f, tempY = 124.9183f;
-        Vector2 fillImageSize = new Vector2(tempX, tempY);
-        timerCursorSequence.Append(_fillImage.DOSizeDelta(fillImageSize, 10, false).SetEase(_rotateCurve));
+        maxTime = _explorationTime.Value + _defenseTime.Value;
     }
 
     private void Update()
     {
-        // _fillImage.sizeDelta = fillImageSize;
+        float degree = Mathf.Lerp(0, 360, Mathf.InverseLerp(0, maxTime, currentTime)) * Mathf.Deg2Rad;
+
+        _parentCursor.transform.up = new Vector3(Mathf.Sin(degree), Mathf.Cos(degree), 0);
+
+        currentTime += Time.deltaTime;
     }
 }
