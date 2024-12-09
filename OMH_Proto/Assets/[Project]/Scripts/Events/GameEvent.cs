@@ -27,7 +27,7 @@ public class GameEvent : ScriptableObject
     {
         if (Application.isPlaying && _dialogue.text != "")
         {
-            // Debug.Log("Try call dialogue");
+            // Debug.Log("Try call dialogue"); 
             DialogueBox.instance?.PrintNewDialogue(_dialogue.text);
         }
     }

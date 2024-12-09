@@ -12,7 +12,12 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameEvent _defenseStartEvent, _victoryGameEvent;
+    [SerializeField] private GameEvent _defenseStartEvent,
+        _victoryGameEvent,
+        _defenseAlmostEndEvent,
+        _explorationAlmostEndEvent,
+        _explorationMidEvent,
+        _explorationStartEvent;
     [Space]
     [SerializeField] private FloatReference _gameTime;
     [SerializeField] private FloatReference _explorationDuration, _defenseDuration;
@@ -22,6 +27,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SetGameState(GameState.Exploration);
+        _explorationStartEvent.Raise();
         _gameTime.Value = 0;
     }
 
@@ -36,6 +42,19 @@ public class GameManager : MonoBehaviour
         {
             SetGameState(GameState.Defense);
             _gameTime.Value = 0;
+        }
+        
+        if (_defenseDuration.Value - _gameTime.Value <= 10  && _currentGameState == GameState.Defense)
+        {
+            _defenseAlmostEndEvent.Raise();
+        }
+        if (_explorationDuration.Value - _gameTime.Value <= 30  && _currentGameState == GameState.Exploration)
+        {
+            _explorationAlmostEndEvent.Raise();
+        }
+        if (_gameTime.Value >= _explorationDuration.Value / 2 && _currentGameState == GameState.Exploration)
+        {
+            _explorationMidEvent.Raise();
         }
     }
 
