@@ -21,6 +21,8 @@ public class DialogueBox : MonoBehaviour
         if (!gameObject.activeSelf) return;
         // print("Dialogue Box set text");
         //! coroutine send warning if call while enable is false
+        if (dialogue == "") return;
+        
         foreach (var line in _dialogueLines)
         {
             if (dialogue == line)
