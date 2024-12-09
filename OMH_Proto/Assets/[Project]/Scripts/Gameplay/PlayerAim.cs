@@ -69,4 +69,9 @@ public class PlayerAim : MonoBehaviour
     //     _camControler.SetInputOffSet(_currentAimTarget);
     //     _aimContainer.forward = new Vector3(_currentAimTarget.x, 0, _currentAimTarget.y);
     // }
+
+    public Vector3 GetAimDirection()
+    {
+        return _aimContainer.forward;
+    }
 }
