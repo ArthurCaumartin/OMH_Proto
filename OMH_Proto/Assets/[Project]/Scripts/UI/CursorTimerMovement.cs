@@ -9,7 +9,7 @@ public class CursorMovement : MonoBehaviour
     [SerializeField] private GameObject _parentCursor;
     [SerializeField] private RectTransform _fillImage;
     [SerializeField] private AnimationCurve _rotateCurve;
-    [SerializeField] private FloatReference _rotationSpeed;
+    [SerializeField] private FloatReference _explorationTime, _defenseTime;
 
     private void Start()
     {
@@ -22,7 +22,8 @@ public class CursorMovement : MonoBehaviour
 
         timerCursorSequence.Append(
             _parentCursor.transform
-                .DORotate(new Vector3(transform.rotation.x, transform.rotation.y, 60), _rotationSpeed.Value)
+                .DORotate(new Vector3(transform.rotation.x, transform.rotation.y, 60), _explorationTime.Value 
+                + _defenseTime.Value)
             .SetEase(_rotateCurve));
 
         timerCursorSequence.Append(

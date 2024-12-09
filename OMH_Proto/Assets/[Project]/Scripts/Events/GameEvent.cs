@@ -25,8 +25,18 @@ public class GameEvent : ScriptableObject
 
     private void TryPrintDialogue()
     {
-        if (Application.isPlaying && _dialogue.text != "")
+        if (Application.isPlaying)
         {
+            int tempInt = 0;
+            for (int i = 0; i < _dialogue.text.Length; i++)
+            {
+                if(_dialogue.text[i] != ' ');
+                {
+                    tempInt++;
+                }
+            }
+            if(tempInt == 0) return;
+            
             // Debug.Log("Try call dialogue"); 
             DialogueBox.instance?.PrintNewDialogue(_dialogue.text);
         }
