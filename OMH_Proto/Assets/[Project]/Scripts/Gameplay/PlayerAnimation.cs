@@ -34,6 +34,12 @@ public class PlayerAnimation : MonoBehaviour
 
         SetState(DefineState());
         print("Anim State : " + _currentAnimationState);
+
+
+        _animator.SetLayerWeight(1, 0);
+        _animator.SetLayerWeight(2, 0);
+
+
         switch (_currentAnimationState)
         {
             case AnimationState.Idle:
@@ -63,7 +69,11 @@ public class PlayerAnimation : MonoBehaviour
 
     private void WalkingUpdate()
     {
+        _animator.SetLayerWeight(1, Mathf.Lerp(0, 1, Mathf.InverseLerp(-1, 1, _playerMovement.GetMovementDirection().x)));
+        _animator.SetLayerWeight(2, Mathf.Lerp(0, 1, Mathf.InverseLerp(-1, 1, _playerMovement.GetMovementDirection().z)));
 
+        _animator.SetFloat("MouseX", Mathf.Lerp(0, 1, Mathf.InverseLerp(-1, 1, _playerAim.GetAimDirection().x)));
+        _animator.SetFloat("MouseY", Mathf.Lerp(0, 1, Mathf.InverseLerp(-1, 1, _playerAim.GetAimDirection().z)));
     }
 
     private void RunningUpdate()
