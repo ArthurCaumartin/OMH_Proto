@@ -7,11 +7,11 @@ public class InteractibleMetal : Interactible
     [Space]
     [SerializeField] private FloatReference _metalGainPerInput;
     [SerializeField] private FloatVariable _metalCount;
-    [SerializeField] private GameEvent _gainMetal;
+    [SerializeField] private GameEvent _gainMetal, _onActivateMetalGenerator;
     [SerializeField] private FloatReference _timerToGetRessource;
     
-    [SerializeField] private MeshRenderer _meshRenderer;
-    [SerializeField] private Material _material;
+    // [SerializeField] private MeshRenderer _meshRenderer;
+    // [SerializeField] private Material _material;
     
     private float _timer;
     private bool _isGeneratorActivated;
@@ -30,10 +30,12 @@ public class InteractibleMetal : Interactible
     {
         _isGeneratorActivated = true;
         
-        _meshRenderer.material = _material;
+        // _meshRenderer.material = _material;
 
         // metalValue.Value += 10;
         _gainMetal.Raise();
+
+        _onActivateMetalGenerator.Raise();
         // Destroy(gameObject);
     } 
 
