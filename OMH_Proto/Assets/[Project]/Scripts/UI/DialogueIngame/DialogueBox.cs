@@ -23,6 +23,16 @@ public class DialogueBox : MonoBehaviour
         //! coroutine send warning if call while enable is false
         if (dialogue == "") return;
         
+        int tempInt = 0;
+        for (int i = 0; i < dialogue.Length; i++)
+        {
+            if(dialogue[i] != ' ');
+            {
+                tempInt++;
+            }
+        }
+        if(tempInt == 0) return;
+        
         foreach (var line in _dialogueLines)
         {
             if (dialogue == line)

@@ -46,15 +46,18 @@ public class GameManager : MonoBehaviour
         
         if (_defenseDuration.Value - _gameTime.Value <= 10  && _currentGameState == GameState.Defense)
         {
-            _defenseAlmostEndEvent.Raise();
+            _defenseAlmostEndEvent?.Raise();
+            _defenseAlmostEndEvent = null;
         }
         if (_explorationDuration.Value - _gameTime.Value <= 30  && _currentGameState == GameState.Exploration)
         {
-            _explorationAlmostEndEvent.Raise();
+            _explorationAlmostEndEvent?.Raise();
+            _explorationAlmostEndEvent = null;
         }
         if (_gameTime.Value >= _explorationDuration.Value / 2 && _currentGameState == GameState.Exploration)
         {
-            _explorationMidEvent.Raise();
+            _explorationMidEvent?.Raise();
+            _explorationMidEvent = null;
         }
     }
 
