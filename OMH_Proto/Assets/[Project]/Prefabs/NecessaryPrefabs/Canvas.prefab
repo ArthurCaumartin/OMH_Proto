@@ -842,7 +842,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 215}
-  m_SizeDelta: {x: 164, y: 164}
+  m_SizeDelta: {x: 123, y: 123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5234515152057341189
 CanvasRenderer:
@@ -1232,6 +1232,7 @@ GameObject:
   - component: {fileID: 7749997883756915480}
   - component: {fileID: 8046022433856986419}
   - component: {fileID: 2874627752237351354}
+  - component: {fileID: 5416392262752911328}
   m_Layer: 5
   m_Name: PV
   m_TagString: Untagged
@@ -1286,7 +1287,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20
+  m_text: 20 / 20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1372,6 +1373,34 @@ MonoBehaviour:
   _baseText: ' / 20'
   _isColoredGreen: 0
   _isReverse: 1
+--- !u!114 &5416392262752911328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123951569176798583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: ac1e879c1da2c2444916791d886226f8, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2874627752237351354}
+        m_TargetAssemblyTypeName: ChangeText, Assembly-CSharp
+        m_MethodName: ChangeTextInCanvas
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1143725698497835621
 GameObject:
   m_ObjectHideFlags: 0
@@ -4096,7 +4125,6 @@ GameObject:
   - component: {fileID: 8853155749772727699}
   - component: {fileID: 977165054345981837}
   - component: {fileID: 1163601156849445644}
-  - component: {fileID: 2005662458858542768}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4232,39 +4260,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5344175f6920d1d4a85c47e14f8cebd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _valueToChange: {fileID: 11400000, guid: 28d538c4736c2b64385136eb82c4267a, type: 2}
+  _valueToChange: {fileID: 11400000, guid: 9251047eb0ab4b241aca90ae13039e56, type: 2}
   _textToChange: {fileID: 977165054345981837}
   _baseText: 
   _isColoredGreen: 0
   _isReverse: 0
---- !u!114 &2005662458858542768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3562707789372823966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 9dbab37f3f59da945958abbea302af3b, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1163601156849445644}
-        m_TargetAssemblyTypeName: ChangeText, Assembly-CSharp
-        m_MethodName: ChangeTextInCanvas
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &3571667963063485146
 GameObject:
   m_ObjectHideFlags: 0
@@ -5825,7 +5825,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -87.400085}
-  m_SizeDelta: {x: 164, y: 164}
+  m_SizeDelta: {x: 123, y: 123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6349543041278510489
 CanvasRenderer:
@@ -6679,7 +6679,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 63.49994}
-  m_SizeDelta: {x: 164, y: 164}
+  m_SizeDelta: {x: 123, y: 123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7281759638811755247
 CanvasRenderer:
@@ -10352,7 +10352,6 @@ GameObject:
   - component: {fileID: 1995773391485077135}
   - component: {fileID: 6525931984682230326}
   - component: {fileID: 7469262309370807675}
-  - component: {fileID: 7309835960810905233}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -10493,34 +10492,6 @@ MonoBehaviour:
   _baseText: 
   _isColoredGreen: 0
   _isReverse: 0
---- !u!114 &7309835960810905233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8260062184194173705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 2f4546881cd8ab64b82e7864c3bc6ebe, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7469262309370807675}
-        m_TargetAssemblyTypeName: ChangeText, Assembly-CSharp
-        m_MethodName: ChangeTextInCanvas
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &8493798701920945209
 GameObject:
   m_ObjectHideFlags: 0
@@ -10749,7 +10720,7 @@ MonoBehaviour:
   _dialogueBox: {fileID: 185245922779721326}
   _printCharacterDelay:
     propertyType: 0
-    constantValue: 0.03
+    constantValue: 0.02
     variable: {fileID: 0}
   _printDelayAfterWritten:
     propertyType: 0

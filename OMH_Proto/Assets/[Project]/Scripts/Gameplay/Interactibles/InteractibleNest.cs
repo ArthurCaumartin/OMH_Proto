@@ -22,7 +22,7 @@ public class InteractibleNest : Interactible
     public override void Interact(out bool cancelInteraction)
     {
         cancelInteraction = _syringeValue.Value <= 0;
-        _notEnoughtSyringe.Raise();
+        if(_syringeValue.Value <= 0) _notEnoughtSyringe.Raise();
     }
 
     public override void OnQTEWin()
