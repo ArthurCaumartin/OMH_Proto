@@ -11,6 +11,8 @@ public class InteractibleSyringe : Interactible
         cancelInteraction = false;
         _syringeValue.Value += 1f;
         _getSyringe.Raise();
-        Destroy(gameObject);
+        // Destroy(gameObject);
+        BoxCollider boxCollider = GetComponent<BoxCollider>();
+        boxCollider.enabled = false;
     }
 }
