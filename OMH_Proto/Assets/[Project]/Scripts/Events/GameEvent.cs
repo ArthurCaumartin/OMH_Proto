@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "New_Event", menuName = "GameEvent")]
 public class GameEvent : ScriptableObject
@@ -25,9 +26,22 @@ public class GameEvent : ScriptableObject
 
     private void TryPrintDialogue()
     {
-        if (Application.isPlaying && _dialogue.text != "")
+        if (Application.isPlaying)
         {
-            // Debug.Log("Try call dialogue");
+            int tempInt = 0;
+            
+            if(_dialogue.text.Length == 0) return;
+            
+            for (int i = 0; i < _dialogue.text.Length; i++)
+            {
+                if(_dialogue.text[i] != ' ');
+                {
+                    tempInt++;
+                }
+            }
+            if(tempInt == 0) return;
+            
+            // Debug.Log("Try call dialogue"); 
             DialogueBox.instance?.PrintNewDialogue(_dialogue.text);
         }
     }

@@ -32,7 +32,7 @@ public class DoorCorridor : MonoBehaviour, IMapClickable
             _spriteRenderer.color = Color.white;
             
             _keyInfos.Value ++;
-            _updateKey.Raise();
+            // _updateKey.Raise();
             
             print("CloseDoor");
             // Bake le Navmesh
@@ -49,7 +49,7 @@ public class DoorCorridor : MonoBehaviour, IMapClickable
             _spriteRenderer.color = Color.black;
             
             _keyInfos.Value --;
-            _updateKey.Raise();
+            // _updateKey.Raise();
             
             print("OpenDoor");
             // Bake le Navmesh

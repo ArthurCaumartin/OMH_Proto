@@ -10,7 +10,7 @@ public class ChangeText : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textToChange;
 
     [SerializeField] private string _baseText;
-    [SerializeField] private bool _isColoredGreen;
+    [SerializeField] private bool _isColoredGreen, _isReverse;
     
     private float _memoryValue;
 
@@ -30,6 +30,19 @@ public class ChangeText : MonoBehaviour
         {
             _textToChange.color = new Color32(1, 1, 1, 255);
         }
-        _textToChange.text = _baseText + _valueToChange.Value;
+
+        if (!_isReverse)
+        {
+            _textToChange.text = _baseText + _valueToChange.Value;
+        }
+        else
+        {
+            _textToChange.text = _valueToChange.Value + _baseText;
+        }
+    }
+
+    public void Update()
+    {
+        ChangeTextInCanvas();
     }
 }
