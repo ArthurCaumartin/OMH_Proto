@@ -41,6 +41,8 @@ public class MapMouseOver : MonoBehaviour ,IPointerClickHandler
 
     Vector3 GetWorldPos(PointerEventData eventData)
     {
+        print(_rawImage.width + " " + _rawImage.height);
+        
         float tempFloatx = Mathf.InverseLerp(-_rawImage.width / 2, _rawImage.width / 2, transform.InverseTransformPoint(eventData.position).x);
         float tempFloaty = Mathf.InverseLerp(-_rawImage.height / 2, _rawImage.height / 2, transform.InverseTransformPoint(eventData.position).y);
         
