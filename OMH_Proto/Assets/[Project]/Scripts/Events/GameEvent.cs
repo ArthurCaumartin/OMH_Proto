@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "New_Event", menuName = "GameEvent")]
 public class GameEvent : ScriptableObject
@@ -28,6 +29,9 @@ public class GameEvent : ScriptableObject
         if (Application.isPlaying)
         {
             int tempInt = 0;
+            
+            if(_dialogue.text.Length == 0) return;
+            
             for (int i = 0; i < _dialogue.text.Length; i++)
             {
                 if(_dialogue.text[i] != ' ');
