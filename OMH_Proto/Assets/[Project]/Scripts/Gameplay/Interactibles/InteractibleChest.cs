@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class InteractibleChest : Interactible
 {
@@ -12,6 +13,8 @@ public class InteractibleChest : Interactible
     {
         _openChest.Raise();
         Destroy(_closeChest);
+        BoxCollider boxCollider = GetComponent<BoxCollider>();
+        boxCollider.enabled = false;
     }
 
     public override void Update()
