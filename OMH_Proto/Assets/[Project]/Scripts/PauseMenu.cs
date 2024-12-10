@@ -8,8 +8,13 @@ public class PauseMenu : MonoBehaviour
     
     public void OnPauseMenu()
     {
-        _pauseMenu.SetActive(!_pauseMenu.activeSelf);
-        if(Time.timeScale == 1) Time.timeScale = 0;
-        else if(Time.timeScale == 0) Time.timeScale = 1;
+        _pauseMenu.SetActive(true);
+        Time.timeScale = 0;
     }
+    
+    public void OnResumeMenu()
+    {
+        _pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+    } 
 }

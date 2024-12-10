@@ -42,6 +42,7 @@ public class Shield : MonoBehaviour, IDamageable
             if (_timerInvincibility >= _playerInvincibiltyDuration.Value)
             {
                 _isInvincible = false;
+                _timerInvincibility = 0;
             }
         }
     }
@@ -92,6 +93,9 @@ public class Shield : MonoBehaviour, IDamageable
 
         if (_shieldMeshRenderer) _shieldMeshRenderer.material = _shieldUpMaterial;
         if (_playerMovementSpeed) _playerMovementSpeed.Value = 1;
+
+        //! quick fix for stuck in QTE after death :)
+        GetComponent<QTEControler>()?.KillQTE();
     }
 
     public void SetRespawnPos(Vector3 position)

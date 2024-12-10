@@ -58,7 +58,7 @@ public class QTEUI : MonoBehaviour
 
     public void SetGoodInputFeedBack(int index)
     {
-        print("index : " + index + " / " + "Image count " + _imageList.Count);
+        // print("index : " + index + " / " + "Image count " + _imageList.Count);
         Color startColor = _imageList[index].color;
         DOTween.To((time) =>
         {

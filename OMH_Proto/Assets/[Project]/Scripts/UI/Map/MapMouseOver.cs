@@ -24,7 +24,7 @@ public class MapMouseOver : MonoBehaviour ,IPointerClickHandler
     {
         Vector3 mousePos = GetWorldPos(eventData);
         
-        Physics.Raycast(worldPos, Vector3.down, out RaycastHit ray, 100, _layerMask);
+        Physics.Raycast(mousePos, Vector3.down, out RaycastHit ray, 100, _layerMask);
         if (!ray.collider) return;
 
         IMapClickable mapClickable = ray.collider.GetComponent<IMapClickable>();

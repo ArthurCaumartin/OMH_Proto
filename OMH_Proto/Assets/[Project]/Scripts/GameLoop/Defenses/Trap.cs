@@ -10,6 +10,11 @@ public class Trap : MonoBehaviour
     [SerializeField] private GameObject _visualTrap;
     
     private float _timer;
+
+    private void Start()
+    {
+        _timer = _trapActivationTimer.Value;
+    }
     
     private void Update()
     {
