@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 
 /// <summary>
@@ -8,7 +7,6 @@ using UnityEngine.UI;
 /// </summary>
 public class Weapon : MonoBehaviour
 {
-    //TODO debug le fait de tirer quand on place un Placable, avec OnEnable/Disable et check si on arreter de shoot avant de pouvoir shoot
     [SerializeField] private FloatVariable _playerExteralMoveSpeed;
     [Tooltip("Multiplie PlayerMoveSpeed by indicate facotr.")]
     [SerializeField] private FloatReference _playerMoveSpeedModifier;
@@ -24,6 +22,8 @@ public class Weapon : MonoBehaviour
     private float _attackTime;
     private InputAction _attackInputAction;
     private InputAction _secondaryAttackInputAction;
+    private bool _isAttacking;
+    private bool _isSecondaryAttacking;
 
     private void Start()
     {
@@ -44,6 +44,9 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
+        _isAttacking = _attackInputAction.ReadValue<float>() > .5f;
+        _isSecondaryAttacking = _secondaryAttackInputAction.ReadValue<float>() > .5f;
+
         if (_playerExteralMoveSpeed)
         {
             SetPlayerMoveSpeedMult();
@@ -54,14 +57,14 @@ public class Weapon : MonoBehaviour
 
         if (_attackTime > 1 / _stat.attackPerSecond.Value)
         {
-            if (_attackInputAction.ReadValue<float>() > .5f)
+            if (_isAttacking)
             {
                 _attackTime = 0;
                 Attack();
             }
         }
 
-        if (_secondaryAttackInputAction.ReadValue<float>() > .5f && _secondaryDynamicCoolDown.Value > _secondaryCooldown.Value)
+        if (_isSecondaryAttacking && _secondaryDynamicCoolDown.Value > _secondaryCooldown.Value)
         {
             _secondaryDynamicCoolDown.Value = 0;
             SecondaryAttack();
@@ -71,5 +74,10 @@ public class Weapon : MonoBehaviour
     private void SetPlayerMoveSpeedMult()
     {
         _playerExteralMoveSpeed.Value = _attackInputAction.ReadValue<float>() > .5f ? _playerMoveSpeedModifier.Value : 1;
+    }
+
+    public bool IsPlayerShooting()
+    {
+        return _isAttacking || _isSecondaryAttacking;
     }
 }
