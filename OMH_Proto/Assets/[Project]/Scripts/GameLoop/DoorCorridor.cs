@@ -29,7 +29,7 @@ public class DoorCorridor : MonoBehaviour, IMapClickable
             
             _navMeshUpdate.Raise();
             
-            _spriteRenderer.color = Color.white;
+            _spriteRenderer.color = new Color(255, 138, 19, 255) ;
             
             _keyInfos.Value ++;
             // _updateKey.Raise();
