@@ -25,12 +25,10 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
+        _meshPivot.transform.localPosition = Vector3.zero; //! le mesh bouge tout seul /:
         _mouseDirection = _playerAim.GetAimDirection();
         Debug.DrawRay(transform.position, _mouseDirection * 3f, Color.red);
-        Vector3 directionTarget = _playerMovement.GetMovementDirection();
-        _meshPivot.forward = Vector3.Lerp(_meshPivot.forward
-                                        , directionTarget == Vector3.zero ? _meshPivot.forward : directionTarget
-                                        , Time.deltaTime * _speed);
+
 
         SetState(DefineState());
         print("Anim State : " + _currentAnimationState);
@@ -58,27 +56,39 @@ public class PlayerAnimation : MonoBehaviour
 
     private void IdleUpdate()
     {
-        float maxTime = 0;
-        float currentTime = 0;
-        float degree = Mathf.Lerp(0, 360, Mathf.InverseLerp(0, maxTime, currentTime)) * Mathf.Deg2Rad;
 
-        new Vector3(Mathf.Sin(degree), Mathf.Cos(degree), 0);
 
-        currentTime += Time.deltaTime;
     }
 
     private void WalkingUpdate()
     {
-        _animator.SetLayerWeight(1, Mathf.Lerp(0, 1, Mathf.InverseLerp(-1, 1, _playerMovement.GetMovementDirection().x)));
-        _animator.SetLayerWeight(2, Mathf.Lerp(0, 1, Mathf.InverseLerp(-1, 1, _playerMovement.GetMovementDirection().z)));
+        float mouseDotForward = Vector3.Dot(transform.forward, _playerAim.GetAimDirection());
+        float mouseDotRight = Vector3.Dot(transform.right, _playerAim.GetAimDirection());
+        print("Forward : " + mouseDotForward + " // Right : " + mouseDotRight);
 
-        _animator.SetFloat("MouseX", Mathf.Lerp(0, 1, Mathf.InverseLerp(-1, 1, _playerAim.GetAimDirection().x)));
-        _animator.SetFloat("MouseY", Mathf.Lerp(0, 1, Mathf.InverseLerp(-1, 1, _playerAim.GetAimDirection().z)));
+        Vector3 directionTarget = _playerAim.GetAimDirection();
+        _meshPivot.forward = Vector3.Lerp(_meshPivot.forward
+                                        , directionTarget
+                                        , Time.deltaTime * _speed);
+
+        if (_playerMovement.GetMovementDirection() != Vector3.zero)
+        {
+            //! dois definire les layer avec la direction 'absolue' des inputs
+            //! dois definire les weight en fonction de l'orientation des 
+            _animator.SetLayerWeight(1, Mathf.Lerp(0, 1, Mathf.InverseLerp(-1, 1, _meshPivot.forward.x)));
+            _animator.SetLayerWeight(2, Mathf.Lerp(0, 1, Mathf.InverseLerp(-1, 1, _meshPivot.forward.z)));
+
+            _animator.SetFloat("MouseX", Mathf.Lerp(0, 1, Mathf.InverseLerp(-1, 1, _meshPivot.forward.x)));
+            _animator.SetFloat("MouseY", Mathf.Lerp(0, 1, Mathf.InverseLerp(-1, 1, _meshPivot.forward.z)));
+        }
     }
 
     private void RunningUpdate()
     {
-
+        Vector3 directionTarget = _playerMovement.GetMovementDirection();
+        _meshPivot.forward = Vector3.Lerp(_meshPivot.forward
+                                        , directionTarget == Vector3.zero ? _meshPivot.forward : directionTarget
+                                        , Time.deltaTime * _speed);
     }
 
     private AnimationState DefineState()
