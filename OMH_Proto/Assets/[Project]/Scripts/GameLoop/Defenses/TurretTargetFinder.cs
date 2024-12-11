@@ -20,7 +20,7 @@ public class TurretTargetFinder : MonoBehaviour
         foreach (var item in _mobInRangeList)
         {
             RaycastHit[] hit = Physics.RaycastAll(transform.position, item.transform.position - transform.position, _range);
-
+            
             if (hit[0].collider.gameObject.layer != 15)
             {
                 if (!item) continue;

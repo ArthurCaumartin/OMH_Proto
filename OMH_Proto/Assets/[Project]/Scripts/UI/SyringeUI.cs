@@ -23,7 +23,8 @@ public class SyringeUI : MonoBehaviour
     {
         if (_tempFloat != _syringeValue.Value && _syringeValue.Value > 0)
         {
-            _syringeText.text = "Charged " + _syringeValue.Value + " charges";
+            if(_syringeValue.Value == 1)_syringeText.text = "Charged\n" + _syringeValue.Value + " charge";
+            else _syringeText.text = "Charged\n" + _syringeValue.Value + " charges";
             _syringeImage.sprite = _syringeFilledIcon;
             _tempFloat = _syringeValue.Value;
         }
