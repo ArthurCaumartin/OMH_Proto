@@ -9,6 +9,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private LayerMask _interactibleLayer;
     [SerializeField] private float _detectionRange = 5;
     [SerializeField] private float _detectionPerSecond = 2;
+    [SerializeField] private GameEvent _inRangeEvent, _notInRangeEvent;
     private float _detectionTime;
     private Interactible _nearestInteractible;
 
@@ -41,6 +42,18 @@ public class PlayerInteract : MonoBehaviour
             {
                 minDist = (inter.transform.position - transform.position).sqrMagnitude;
                 nearest = inter;
+            }
+        }
+        if(nearest == null) _notInRangeEvent.Raise();
+        else
+        {
+            if (nearest is InteractibleMetal)
+            {
+                if (!((InteractibleMetal)nearest)._isGeneratorActivated) _inRangeEvent.Raise();
+            }
+            else
+            {
+                _inRangeEvent.Raise();
             }
         }
         return nearest;
