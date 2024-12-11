@@ -3,8 +3,8 @@ using UnityEngine.Rendering.Universal;
 
 public class DecalControler : MonoBehaviour
 {
-    [SerializeField] private float _lifeTime;
     [SerializeField] private AnimationCurve _fadeOnLife;
+    private float _lifeTime;
     private float _currentTime;
     private DecalProjector _projector;
 
