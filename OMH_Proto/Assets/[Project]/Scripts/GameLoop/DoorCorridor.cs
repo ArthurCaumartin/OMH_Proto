@@ -7,16 +7,14 @@ using UnityEngine.AI;
 
 public class DoorCorridor : MonoBehaviour, IMapClickable
 {
-    [SerializeField] private GameObject _doorGameobject;
+    [SerializeField] private GameObject _doorGameobject, _mapPinLock;
     [SerializeField] private FloatReference _keyInfos;
     [SerializeField] private GameEvent _updateKey, _navMeshUpdate;
-    private SpriteRenderer _spriteRenderer;
 
     private bool _isOpen;
 
     public void Start()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _doorGameobject.SetActive(false);
     }
 
@@ -29,13 +27,9 @@ public class DoorCorridor : MonoBehaviour, IMapClickable
             
             _navMeshUpdate.Raise();
             
-            _spriteRenderer.color = new Color(255, 138, 19, 255) ;
+            _mapPinLock.SetActive(false);
             
             _keyInfos.Value ++;
-            // _updateKey.Raise();
-            
-            print("CloseDoor");
-            // Bake le Navmesh
         }
         else
         {
@@ -46,13 +40,9 @@ public class DoorCorridor : MonoBehaviour, IMapClickable
             
             _navMeshUpdate.Raise();
             
-            _spriteRenderer.color = Color.black;
+            _mapPinLock.SetActive(true);
             
             _keyInfos.Value --;
-            // _updateKey.Raise();
-            
-            print("OpenDoor");
-            // Bake le Navmesh
         }
     }
 }
