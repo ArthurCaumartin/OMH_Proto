@@ -13,6 +13,8 @@ public class DecalControler : MonoBehaviour
         _projector = GetComponent<DecalProjector>();
     }
 
+    public void SetLifeTime(float value) => _lifeTime = value;
+
     private void Update()
     {
         _currentTime += Time.deltaTime;
