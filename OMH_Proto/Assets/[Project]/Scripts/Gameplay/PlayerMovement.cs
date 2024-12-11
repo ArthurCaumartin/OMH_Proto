@@ -53,6 +53,6 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 GetMovementDirection()
     {
-        return _velocityTarget.normalized;
+        return _rb.velocity.normalized;
     }
 }
