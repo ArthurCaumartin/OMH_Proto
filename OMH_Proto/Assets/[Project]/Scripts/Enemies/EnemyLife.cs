@@ -23,10 +23,10 @@ public class EnemyLife : MonoBehaviour, IDamageable
         // print("Hitted");
         if (value > 0)
         {
-            if(_renderer)StartCoroutine(Hit());
+            if (_renderer) StartCoroutine(Hit());
             _onDamageEvent.Invoke();
         }
-        
+
         _health -= value;
         if (_health <= 0)
         {
@@ -36,6 +36,7 @@ public class EnemyLife : MonoBehaviour, IDamageable
 
     private void Death()
     {
+        _onDeathEvent.Invoke(this);
         Destroy(gameObject);
     }
 
