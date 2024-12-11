@@ -26,7 +26,7 @@ public class GameEvent : ScriptableObject
 
     private void TryPrintDialogue()
     {
-        if (Application.isPlaying)
+        if (Application.isPlaying && _dialogue.text != null)
         {
             int tempInt = 0;
             
