@@ -14,7 +14,7 @@ public class InteractibleMetal : Interactible
     // [SerializeField] private Material _material;
     
     private float _timer;
-    private bool _isGeneratorActivated;
+    public bool _isGeneratorActivated;
 
     public override void Interact(out bool cancelIteraction)
     {
