@@ -74,9 +74,9 @@ public class PlayerAnimation : MonoBehaviour
         Vector3 moveInPivot = _meshPivot.transform.rotation * new Vector3(absolutInput.x, 0, absolutInput.z);
         if (Mathf.Abs(absolutInput.x) > .2f) moveInPivot.z *= -1; //! rearange orientation moveInPivot is inverted on X ?!
 
-        print($"Input = {_playerMovement.GetMovementDirection()} // Localise Input = {moveInPivot}");
-        Debug.DrawRay(transform.position + Vector3.up, _playerMovement.GetMovementDirection() * 10, Color.red);
-        Debug.DrawRay(transform.position + Vector3.up, moveInPivot * 5, Color.cyan);
+        // print($"Input = {_playerMovement.GetMovementDirection()} // Localise Input = {moveInPivot}");
+        // Debug.DrawRay(transform.position + Vector3.up, _playerMovement.GetMovementDirection() * 10, Color.red);
+        // Debug.DrawRay(transform.position + Vector3.up, moveInPivot * 5, Color.cyan);
 
         _animator.SetLayerWeight(1, absolutInput.magnitude);
 
