@@ -10,7 +10,7 @@ public class TurretTargetFinder : MonoBehaviour
     public EnemyLife GetNearsetMob(float range)
     {
         _mobInRangeList = GetAllMobInRange(range);
-        print(_mobInRangeList.Count + " mob in range");
+        // print(_mobInRangeList.Count + " mob in range");
         if (_mobInRangeList.Count == 0) return null;
 
         EnemyLife toReturn = null;
@@ -31,7 +31,7 @@ public class TurretTargetFinder : MonoBehaviour
                 toReturn = item;
             }
         }
-        print(toReturn ? "Return target" : "Nothing to return");
+        // print(toReturn ? "Return target" : "Nothing to return");
         return toReturn;
     }
 
