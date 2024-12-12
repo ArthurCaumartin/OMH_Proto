@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     //TODO set la durée du destroy avec la range et la speed
     //TODO changer TazerEffect ref par un truc plus generique pour avoir plusieur effet possible ?
     [SerializeField] private GameObject _tasEffect;
+    [SerializeField] private FloatReference _taserRange;
     [SerializeField] private LayerMask _mobLayer;
     private float _speed;
     private float _damage;
@@ -35,10 +36,19 @@ public class Projectile : MonoBehaviour
             if (enemyLife)
             {
                 enemyLife.TakeDamages(_damage);
-                if (_tasEffect) Instantiate(_tasEffect, enemyLife.transform);
+                if (_tasEffect) AddTaserEffect();
             }
 
             Destroy(gameObject);
         }
+    }
+
+
+    public void AddTaserEffect()
+    {
+        Collider[] colls = Physics.OverlapSphere(transform.position, _taserRange.Value, _mobLayer);
+        if (colls.Length == 0) return;
+        for (int i = 0; i < colls.Length; i++)
+            Instantiate(_tasEffect, colls[i].transform).GetComponent<TaserEffect>().Initialize(_taserRange.Value, transform.position);
     }
 }

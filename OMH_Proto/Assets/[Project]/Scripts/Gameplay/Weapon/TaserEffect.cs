@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class TaserEffect : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class TaserEffect : MonoBehaviour
     private float _visualRefreshTime;
     private SpriteRenderer _spriteRenderer;
     private MobAttack _attack;
+    private float _range; //! use for debug only
+    private Vector3 _effectHitPos;
 
     public void Start()
     {
@@ -20,10 +24,16 @@ public class TaserEffect : MonoBehaviour
         _attack.enabled = false;
     }
 
+    public void Initialize(float effectRange, Vector3 pos)
+    {
+        _range = effectRange;
+        _effectHitPos = pos;
+    }
+
     private void Update()
     {
         _visualRefreshTime += Time.deltaTime;
-        if(_visualRefreshTime > 1 / _visualRefreshPerSecond)
+        if (_visualRefreshTime > 1 / _visualRefreshPerSecond)
         {
             _visualRefreshTime = 0;
             RefreshVisual();
@@ -42,5 +52,12 @@ public class TaserEffect : MonoBehaviour
         // _spriteRenderer.transform.forward = (transform.position - Camera.main.transform.position).normalized;
         _spriteRenderer.transform.localEulerAngles = new Vector3(0, Random.Range(0, 360), 0);
         _spriteRenderer.transform.localScale = Vector3.one * Random.Range(1, 1.5f);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Color c = Color.yellow;
+        Gizmos.color = new Color(c.r, c.g, c.b, .1f);
+        Gizmos.DrawSphere(_effectHitPos, _range);
     }
 }
