@@ -48,8 +48,6 @@ public class PlayerMovement : MonoBehaviour
         // _rb.velocity = Vector3.SmoothDamp(_rb.velocity, _velocityTarget, ref _targetVelocitySmoothDamp, 1 / _acceleration.Value, 1000, Time.fixedDeltaTime);
         
         _rb.velocity = _velocityTarget;
-        print("Player target velocity : " + _velocityTarget);
-        print("Player velocity : " + _rb.velocity);
     }
 
     private void OnDisable()
