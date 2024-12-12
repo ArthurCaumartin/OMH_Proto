@@ -33,7 +33,6 @@ public class PlayerAnimation : MonoBehaviour
 
 
         _animator.SetLayerWeight(1, 0);
-        _animator.SetLayerWeight(2, 0);
 
 
         switch (_currentAnimationState)

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TurretCannon : MonoBehaviour
 {
+    private bool DEBUG = true;
     [SerializeField] protected Transform _projectileSpawnPivot;
     [SerializeField] protected Projectile _projectilePrefab;
     [SerializeField] protected TurretTargetFinder _finder;
@@ -23,14 +24,21 @@ public class TurretCannon : MonoBehaviour
 
     public virtual void Update()
     {
-        if (!_currentTarget)
+        FindTarget();
+        if (_currentTarget)
         {
-            if(_finder.GetNearsetMob() != null) _currentTarget = _finder.GetNearsetMob()?.transform;
+            LookAtTarget();
+            ComputeShootTime();
         }
-        if(!_currentTarget) return;
+    }
 
-        LookAtTarget();
-        ComputeShootTime();
+    private void FindTarget()
+    {
+        if (!_currentTarget || Vector3.Distance(transform.position, _currentTarget.transform.position) > _stat.range.Value)
+        {
+            _currentTarget = _finder.GetNearsetMob(_stat.range.Value)?.transform;
+        }
+        if (!_currentTarget) return;
     }
 
     protected virtual void ComputeShootTime()
@@ -45,9 +53,7 @@ public class TurretCannon : MonoBehaviour
 
     private void LookAtTarget()
     {
-        // transform.LookAt(_currentTarget);
-        // transform.forward = new Vector3(transform.forward.x, 0, transform.forward.y).normalized;
-
+        if (!_currentTarget) return;
         Vector3 lootAt = (_currentTarget.position - transform.position).normalized;
         lootAt.y = 0;
         transform.forward = lootAt;
@@ -56,5 +62,13 @@ public class TurretCannon : MonoBehaviour
     public void SetTarget(Transform target)
     {
         _currentTarget = target;
+    }
+
+
+    public void OnDrawGizmos()
+    {
+        if (!DEBUG) return;
+        Gizmos.color = new Color(0, 0, 1, .2f);
+        if (_stat.range != null) Gizmos.DrawSphere(transform.position, _stat.range.Value);
     }
 }
