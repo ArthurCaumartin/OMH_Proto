@@ -35,14 +35,21 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
+    private Vector3 _targetVelocitySmoothDamp;
+
     private void Move()
     {
         _inputVector = _moveInputAction.ReadValue<Vector2>();
         _velocityTarget = new Vector3(_inputVector.x, 0, _inputVector.y)
-                         * (_currentWeapon.IsPlayerShooting() ? _walkMoveSpeed.Value : _runMoveSpeed.Value)
-                         * 100 * Time.fixedDeltaTime;
+                         * (_currentWeapon.IsPlayerShooting() ? _walkMoveSpeed.Value : _runMoveSpeed.Value);
 
-        _rb.velocity = Vector3.Lerp(_rb.velocity, _velocityTarget, Time.deltaTime * _acceleration.Value);
+        //! reach la target c en putain d'option ?
+        // _rb.velocity = Vector3.Lerp(_rb.velocity, _velocityTarget, Time.fixedDeltaTime * _acceleration.Value);
+        // _rb.velocity = Vector3.SmoothDamp(_rb.velocity, _velocityTarget, ref _targetVelocitySmoothDamp, 1 / _acceleration.Value, 1000, Time.fixedDeltaTime);
+        
+        _rb.velocity = _velocityTarget;
+        print("Player target velocity : " + _velocityTarget);
+        print("Player velocity : " + _rb.velocity);
     }
 
     private void OnDisable()

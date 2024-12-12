@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -24,8 +23,6 @@ public class PhysicsAgent : MonoBehaviour
 
     private void Start()
     {
-        // _interneSpeedMult = _enemySpeed.Value;
-
         _rigidbody = GetComponent<Rigidbody>();
         if (_target) GetNewPath();
     }
@@ -51,7 +48,7 @@ public class PhysicsAgent : MonoBehaviour
                                             
         _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity
                                             , direction * Mathf.Clamp01(_slowMultiplier) * _enemySpeed.Value
-                                            , Time.deltaTime * _acceleration);
+                                            , Time.fixedDeltaTime * _acceleration);
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _fallingVelocity, _rigidbody.velocity.z);
         // print(name  + " velocity : " + _rigidbody.velocity);
     }
