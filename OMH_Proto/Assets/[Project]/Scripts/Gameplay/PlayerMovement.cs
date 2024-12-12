@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private FloatReference _acceleration;
 
     [Header("Dash :")]
+    [SerializeField] private FloatReference _dashCooldown;
     [SerializeField] private FloatReference _dashLenght;
     [SerializeField] private FloatReference _dashDuration;
     private InputAction _moveInputAction;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _inputVector;
     private Vector3 _velocityTarget;
     private Vector3 _targetVelocitySmoothDamp;
+    private float _dashCDTime;
 
     private bool _isDashing = false;
     private bool _canDash = true;
@@ -42,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        _dashCDTime += Time.fixedDeltaTime;
         Move();
     }
 
@@ -62,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Dash()
     {
+        _dashCDTime = 0;
         _isDashing = true;
         Vector3 dashDirection = new Vector3(_inputVector.x, 0, _inputVector.y);
         DOTween.To((time) =>
@@ -85,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDash(InputValue value)
     {
+        if (_inputVector == Vector2.zero || _dashCDTime < _dashCooldown.Value) return;
         Dash();
     }
 
