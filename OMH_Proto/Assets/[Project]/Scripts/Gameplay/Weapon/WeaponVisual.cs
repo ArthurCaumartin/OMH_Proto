@@ -8,6 +8,7 @@ public class WeaponVisual : MonoBehaviour
     [SerializeField] private GameObject _visual;
     [SerializeField] private float _duration;
     [SerializeField] private Material _material;
+    [SerializeField] private List<Texture> _textures;
 
     void Start()
     {
