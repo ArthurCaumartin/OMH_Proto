@@ -24,22 +24,24 @@ public class Weapon : MonoBehaviour
     private InputAction _secondaryAttackInputAction;
     private bool _isAttacking;
     private bool _isSecondaryAttacking;
+    private WeaponVisual _weaponVisual;
 
     private void Start()
     {
         _attackInputAction = GetComponentInParent<PlayerInput>().actions.FindAction("Attack");
         _secondaryAttackInputAction = GetComponentInParent<PlayerInput>().actions.FindAction("SecondaryAttack");
+        _weaponVisual = GetComponent<WeaponVisual>();
         _secondaryDynamicCoolDown.Value = _secondaryCooldown.Value;
     }
 
     public virtual void Attack()
     {
-        print("Piou piou");
+        _weaponVisual.PlayVisual(Vector3.one * .5f);
     }
 
     public virtual void SecondaryAttack()
     {
-        print("Secondary piou secondary piou");
+        _weaponVisual.PlayVisual(Vector3.one * .8f); 
     }
 
     private void Update()
