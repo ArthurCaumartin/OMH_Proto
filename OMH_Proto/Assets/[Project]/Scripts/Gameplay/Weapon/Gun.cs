@@ -9,6 +9,7 @@ public class Gun : Weapon
 
     public override void Attack()
     {
+        base.Attack();
         for (int i = 0; i < (int)_bulletCount.Value; i++)
         {
             Projectile newProj = Instantiate(_projectile, transform.position, transform.rotation);
@@ -31,6 +32,7 @@ public class Gun : Weapon
 
     public override void SecondaryAttack()
     {
+        base.SecondaryAttack();
         Projectile newProj = Instantiate(_secondaryProjectile, transform.position, transform.rotation);
         newProj.Initialize(_secondaryStat.projectileSpeed.Value, _secondaryStat.damage.Value);
     }
