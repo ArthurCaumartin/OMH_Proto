@@ -19,11 +19,11 @@ public class WeaponVisual : MonoBehaviour
     {
         _visual.transform.localScale = scale;
         _visual.transform.localEulerAngles = new Vector3(0, 0, Random.Range(0, 360));
+        _visual.SetActive(true);
         DOTween.To((time) =>
         {
-            _visual.SetActive(true);
-            _material.GetTexture("");
+            _material.SetTexture("_BaseMap", _textures[(int)Mathf.Lerp(0, _textures.Count - 1, time)]);
         }, 0, 1, _duration)
-        .OnComplete(() => _visual.SetActive(false));
+        .OnComplete(() => {_visual.SetActive(false); print("YAAAAA");});
     }
 }
