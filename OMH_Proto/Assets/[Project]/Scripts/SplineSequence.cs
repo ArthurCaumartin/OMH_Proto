@@ -65,7 +65,6 @@ public class SplineSequence : MonoBehaviour
 
     private void HideScreen(float time)
     {
-        print(time);
         if (!_hideImage) return;
         Color c = _hideImage.color;
         c = new Color(c.r, c.g, c.b, _alphaCurve.Evaluate(time));
