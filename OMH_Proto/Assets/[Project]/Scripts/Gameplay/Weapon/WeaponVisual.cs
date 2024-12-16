@@ -24,6 +24,6 @@ public class WeaponVisual : MonoBehaviour
         {
             _material.SetTexture("_BaseMap", _textures[(int)Mathf.Lerp(0, _textures.Count - 1, time)]);
         }, 0, 1, _duration)
-        .OnComplete(() => {_visual.SetActive(false); print("YAAAAA");});
+        .OnComplete(() => {_visual.SetActive(false);});
     }
 }
