@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyLife : MonoBehaviour, IDamageable
+public class MobLife : MonoBehaviour, IDamageable
 {
     [SerializeField] private FloatReference _mobHealth;
     [SerializeField] private Renderer _renderer;
     private float _health;
-    [SerializeField] private UnityEvent<EnemyLife> _onDeathEvent;
+    [SerializeField] private UnityEvent<MobLife> _onDeathEvent;
     [SerializeField] private UnityEvent _onDamageEvent;
     public UnityEvent OnDamageEvent { get => _onDamageEvent; }
-    public UnityEvent<EnemyLife> OnDeathEvent { get => _onDeathEvent; }
+    public UnityEvent<MobLife> OnDeathEvent { get => _onDeathEvent; }
 
     private void Start()
     {

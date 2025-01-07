@@ -5,15 +5,15 @@ public class TurretTargetFinder : MonoBehaviour
 {
     public bool DEBUG = true;
     [SerializeField] private LayerMask _mobLayer;
-    private List<EnemyLife> _mobInRangeList = new List<EnemyLife>();
+    private List<MobLife> _mobInRangeList = new List<MobLife>();
 
-    public EnemyLife GetNearsetMob(float range)
+    public MobLife GetNearsetMob(float range)
     {
         _mobInRangeList = GetAllMobInRange(range);
         // print(_mobInRangeList.Count + " mob in range");
         if (_mobInRangeList.Count == 0) return null;
 
-        EnemyLife toReturn = null;
+        MobLife toReturn = null;
         float minDistance = Mathf.Infinity;
 
         foreach (var item in _mobInRangeList)
@@ -40,19 +40,19 @@ public class TurretTargetFinder : MonoBehaviour
         Debug.DrawRay(origin, direction * maxDistance, Color.red);
     }
 
-    private List<EnemyLife> GetAllMobInRange(float range)
+    private List<MobLife> GetAllMobInRange(float range)
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, range, _mobLayer);
-        List<EnemyLife> mobInRange = new List<EnemyLife>();
+        List<MobLife> mobInRange = new List<MobLife>();
         for (int i = 0; i < hits.Length; i++)
         {
-            EnemyLife e = hits[i].GetComponent<EnemyLife>();
+            MobLife e = hits[i].GetComponent<MobLife>();
             if (e) mobInRange.Add(e);
         }
         return mobInRange;
     }
 
-    public void RemoveMob(EnemyLife toRemove)
+    public void RemoveMob(MobLife toRemove)
     {
         if (_mobInRangeList.Contains(toRemove))
             _mobInRangeList.Remove(toRemove);

@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
         {
             // print("Hit " + hit.collider.gameObject.name);
 
-            EnemyLife enemyLife = hit.collider.gameObject.GetComponent<EnemyLife>();
+            MobLife enemyLife = hit.collider.gameObject.GetComponent<MobLife>();
             if (enemyLife)
             {
                 enemyLife.TakeDamages(_damage);
