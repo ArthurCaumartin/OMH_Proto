@@ -264,7 +264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7587352e8fe59a4fb75546cdaf22b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DEBUG: 1
   _projectileSpawnPivot: {fileID: 3810013126276675980}
   _projectilePrefab: {fileID: 6403736433643166296, guid: d49a1cea79879ec4d83dfedacc23edbf,
     type: 3}
@@ -376,7 +375,7 @@ GameObject:
   - component: {fileID: 5570653266944172006}
   - component: {fileID: 8421120685687426312}
   - component: {fileID: 3683390807749516614}
-  - component: {fileID: 9158769085676268802}
+  - component: {fileID: 5143254621603635265}
   m_Layer: 16
   m_Name: Turret
   m_TagString: Defenses
@@ -466,7 +465,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &9158769085676268802
+--- !u!114 &5143254621603635265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -475,11 +474,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8819192095676879814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8456de1bd1222d5478dd615381ea0105, type: 3}
+  m_Script: {fileID: 11500000, guid: 4649d2c2215bd374c8966de7e202be65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _turretHealth:
+  _maxHealth:
     propertyType: 1
     constantValue: 0
     variable: {fileID: 11400000, guid: 50357f8ddb38eb644911e18ffda52a74, type: 2}
-  _objectToDestroy: {fileID: 8819192095676879814}
+  _currentHealth:
+    propertyType: 0
+    constantValue: 0
+    variable: {fileID: 0}
