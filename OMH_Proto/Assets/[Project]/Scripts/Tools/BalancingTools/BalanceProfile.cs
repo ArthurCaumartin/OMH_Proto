@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Profile", menuName = "BalanceProfile")]
 public class BalanceProfile : ScriptableObject
 {
+    [SerializeField] private BalanceProfile _templateToCopy;
     public List<SetterContainer> containerList = new List<SetterContainer>();
 
     private void Reset()
@@ -21,7 +22,6 @@ public class BalanceProfile : ScriptableObject
     {
         SetConstantName();
     }
-
 
     private void SetConstantName()
     {
@@ -45,6 +45,13 @@ public class BalanceProfile : ScriptableObject
                     containerList[i].setterList[j].variable.Value = containerList[i].setterList[j].constant;
             }
         }
+    }
+
+    public void CopyTemplate()
+    {
+        if (!_templateToCopy) return;
+        containerList = _templateToCopy.containerList;
+        _templateToCopy = null;
     }
 }
 
