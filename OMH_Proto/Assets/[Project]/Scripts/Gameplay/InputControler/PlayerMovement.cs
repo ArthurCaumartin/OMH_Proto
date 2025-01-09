@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     private float _dashCDTime;
 
     private bool _isDashing = false;
-    private bool _canDash = true;
 
 
     private void Start()
