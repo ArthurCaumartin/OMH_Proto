@@ -19,6 +19,10 @@ public class TimeEvent : MonoBehaviour
     [SerializeField] private FloatReference _gameTime;
     [SerializeField] private List<TimedEvent> _timedEventList = new List<TimedEvent>();
 
+    private void Start()
+    {
+        _gameTime.Value = 0;
+    }
 
     private void Update()
     {
