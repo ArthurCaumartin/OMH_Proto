@@ -5,7 +5,18 @@ public class PlacerRail : MonoBehaviour
     public bool DEBUG = true;
     [SerializeField] private Transform _startPoint;
     [SerializeField] private Transform _endPoint;
+    [SerializeField] private LineRenderer _lineRenderer;
     private Vector3 _lastPosReturn = Vector3.zero;
+
+    void Start()
+    {
+        if (!_lineRenderer) return;
+
+        for (int i = 0; i < 50; i++)
+        {
+            _lineRenderer.SetPosition(i, Vector3.Lerp(_startPoint.position + new Vector3(0, .3f, 0), _endPoint.position + new Vector3(0, .3f, 0), Mathf.InverseLerp(0, 50, i)));
+        }
+    }
 
     public Vector3 GetNearestPosition(Vector3 position)
     {
