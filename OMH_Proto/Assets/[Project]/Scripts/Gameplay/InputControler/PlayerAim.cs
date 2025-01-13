@@ -10,7 +10,7 @@ public class PlayerAim : MonoBehaviour
     private Vector3 _mouseWorldPos;
     private CameraControler _camControler;
     private InputAction _aimInputAction;
-    private Vector3 _aimVelocity;
+    private Vector3 _aimVelocity; 
     private Camera _mainCamera;
 
     private void Start()

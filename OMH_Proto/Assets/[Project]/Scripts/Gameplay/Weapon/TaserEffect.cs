@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class TaserEffect : MonoBehaviour
+public class TaserEffect : MonoBehaviour, IEffectable
 {
     [SerializeField, Range(0, 100)] float _slowEffectSrenght = 100;
     [SerializeField] private float _duration = 3;
@@ -24,7 +24,7 @@ public class TaserEffect : MonoBehaviour
         _attack.enabled = false;
     }
 
-    public void Initialize(float effectRange, Vector3 pos)
+    public void InitializeEffect(float effectRange, Vector3 pos)
     {
         _range = effectRange;
         _effectHitPos = pos;
