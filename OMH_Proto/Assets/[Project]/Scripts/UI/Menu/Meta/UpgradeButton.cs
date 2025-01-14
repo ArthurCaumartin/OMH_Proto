@@ -4,31 +4,38 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradeMetaButton : MonoBehaviour
+public class UpgradeButton : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _buttonText;
     private int _upgradeCost;
     private Image _buttonSprite;
     private UpgradeMetaManager _upgradeMetaManager;
+    private PrepGameMenu _prepGameMenu;
     public UpgradeMeta _upgradeMeta;
     
     void Start()
     {
         _buttonSprite = GetComponent<Image>();
+        _upgradeMetaManager = GetComponentInParent<UpgradeMetaManager>();
+        _prepGameMenu = GetComponentInParent<PrepGameMenu>();
     }
     
-    public void Initialize(UpgradeMeta meta, UpgradeMetaManager upgradeMetaManager)
+    public void Initialize(UpgradeMeta meta)
     {
-        _upgradeCost = meta._upgradeCost;
-        _buttonText.text = meta._upgradeDescription;
-        if(meta._upgradeIcon != null) _buttonSprite.sprite = meta._upgradeIcon;
-        _upgradeMetaManager = upgradeMetaManager;
         _upgradeMeta = meta;
+        _upgradeCost = _upgradeMeta._upgradeCost;
+        _buttonText.text = _upgradeMeta._upgradeDescription;
+        if(_upgradeMeta._upgradeIcon != null) _buttonSprite.sprite = _upgradeMeta._upgradeIcon;
     }
 
-    public void Clicked()
+    public void ClickedMeta()
     {
         _upgradeMetaManager.ClickUpgradeButton(this);
+    }
+
+    public void ClickedPrepGame()
+    {
+        _prepGameMenu.ClickSelectButton(this);
     }
 
     public void Confirmed()
