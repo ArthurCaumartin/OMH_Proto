@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Shield : MonoBehaviour, IDamageable
 {
@@ -12,6 +13,8 @@ public class Shield : MonoBehaviour, IDamageable
     [SerializeField] private FloatReference _shieldBoostMoveSpeed;
 
     [SerializeField] private AnimatorBoolSetter _shieldAnim;
+
+    public UnityEvent _onShieldDown, _onShieldUp;
 
     private Vector3 _respawnPos;
 
@@ -61,10 +64,12 @@ public class Shield : MonoBehaviour, IDamageable
         }
     }
 
-    private void ShieldDown()
+    public void ShieldDown()
     {
         _isShieldDown = true;
         _isInvincible = true;
+
+        _onShieldDown.Invoke();
 
         _shieldAnim.SetParametre(true);
 
@@ -72,10 +77,12 @@ public class Shield : MonoBehaviour, IDamageable
         if (_playerMovementSpeed) _playerMovementSpeed.Value = _shieldBoostMoveSpeed.Value;
     }
 
-    private void ShieldUp()
+    public void ShieldUp()
     {
         _timerRegenShield = 0;
         _isShieldDown = false;
+        
+        _onShieldUp.Invoke();
 
         _shieldAnim.SetParametre(false);
 
