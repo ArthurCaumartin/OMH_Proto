@@ -12,7 +12,7 @@ public class UpgradeMetaManager : MonoBehaviour
     [SerializeField] private GameObject _upgradeButtonPrefab;
     [SerializeField] private GameObject _confirmMenu, _notEnoughPopup;
 
-    private UpgradeButton _tempUpgrade;
+    private UpgradeMetaButton _tempUpgrade;
     public bool _isUpgradesReset;
     void Start()
     {
@@ -22,11 +22,11 @@ public class UpgradeMetaManager : MonoBehaviour
         for (int i = 0; i < _upgradesList.upgrades.Count; i++)
         {
             GameObject instantiatedObject = Instantiate(_upgradeButtonPrefab, _upgradeButtonsParent.transform);
-            instantiatedObject.GetComponent<UpgradeButton>().Initialize(_upgradesList.upgrades[i]);
+            instantiatedObject.GetComponent<UpgradeMetaButton>().Initialize(_upgradesList.upgrades[i]);
         }
     }
 
-    public void ClickUpgradeButton(UpgradeButton upgradeMetaButton)
+    public void ClickUpgradeButton(UpgradeMetaButton upgradeMetaButton)
     {
         if (upgradeMetaButton._upgradeMeta._upgradeCost <= _pcen.Value)
         {

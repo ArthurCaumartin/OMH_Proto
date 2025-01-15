@@ -6,6 +6,7 @@ using UnityEngine;
 public class UpgradeMeta : ScriptableObject
 {
     public int _upgradeCost;
-    [TextArea] public string _upgradeDescription;
+    [TextArea] public string _upgradeDescription, _upgradeName;
     public Sprite _upgradeIcon;
 }
+ 

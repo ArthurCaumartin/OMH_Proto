@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradeButton : MonoBehaviour
+public class UpgradeMetaButton : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _buttonText;
     private int _upgradeCost;
@@ -35,7 +35,19 @@ public class UpgradeButton : MonoBehaviour
 
     public void ClickedPrepGame()
     {
-        _prepGameMenu.ClickSelectButton(this);
+        if (_prepGameMenu.ClickSelectButton(this)) DeactivateButton();
+    }
+
+    public void DeactivateButton()
+    {
+        GetComponent<Button>().interactable = false;
+        GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
+    }
+
+    public void ActivateButton()
+    {
+        GetComponent<Button>().interactable = true;
+        GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
     }
 
     public void Confirmed()
