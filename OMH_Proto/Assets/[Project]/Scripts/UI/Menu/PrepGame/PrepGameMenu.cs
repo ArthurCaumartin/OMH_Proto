@@ -20,18 +20,18 @@ public class PrepGameMenu : MonoBehaviour
     
     public void Awake()
     {
-        _upgradesList.upgradesChooseGame = new List<UpgradeMeta>();
+        _upgradesList._upgradesChooseGame = new List<UpgradeMeta>();
         if (_upgradeMetaManager._isUpgradesReset) return;
-        _upgradesList.upgradesUnlocked = new List<UpgradeMeta>();
+        _upgradesList._upgradesUnlocked = new List<UpgradeMeta>();
     }
     
     public void OnEnable()
     {
-        for (int i = 0; i < _upgradesList.upgradesUnlocked.Count; i++)
+        for (int i = 0; i < _upgradesList._upgradesUnlocked.Count; i++)
         {
             GameObject instantiatedObject = Instantiate(_buttonPrefab, _buttonParent.transform);
             _instantiatedButtons.Add(instantiatedObject);
-            instantiatedObject.GetComponent<UpgradeMetaButton>().Initialize(_upgradesList.upgrades[i]);
+            instantiatedObject.GetComponent<UpgradeMetaButton>().Initialize(_upgradesList._upgrades[i]);
         }
     }
 
@@ -56,7 +56,7 @@ public class PrepGameMenu : MonoBehaviour
         GameObject instantiatedObject = Instantiate(_buttonChoosePrefab, _pointHolder[_upgradeSelectedIndex].transform);
         instantiatedObject.GetComponent<UpgradeChooseButton>().Initialize(tempUpgradeMeta, this); 
         
-        _upgradesList.upgradesChooseGame.Add(tempUpgradeMeta);
+        _upgradesList._upgradesChooseGame.Add(tempUpgradeMeta);
         _upgradeSelectedIndex ++;
 
         _infoImage.sprite = tempUpgradeMeta._upgradeIcon;
@@ -67,7 +67,7 @@ public class PrepGameMenu : MonoBehaviour
 
     public void ClickCancelSelect(UpgradeMeta upgradeMetaButton)
     {
-        _upgradesList.upgradesChooseGame.Remove(upgradeMetaButton);
+        _upgradesList._upgradesChooseGame.Remove(upgradeMetaButton);
         _upgradeSelectedIndex --;
 
         for (int i = 0; i < _instantiatedButtons.Count; i++)

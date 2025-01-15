@@ -16,13 +16,13 @@ public class UpgradeMetaManager : MonoBehaviour
     public bool _isUpgradesReset;
     void Start()
     {
-        _upgradesList.upgradesUnlocked = new List<UpgradeMeta>();
+        _upgradesList._upgradesUnlocked = new List<UpgradeMeta>();
         _isUpgradesReset = true;
         
-        for (int i = 0; i < _upgradesList.upgrades.Count; i++)
+        for (int i = 0; i < _upgradesList._upgrades.Count; i++)
         {
             GameObject instantiatedObject = Instantiate(_upgradeButtonPrefab, _upgradeButtonsParent.transform);
-            instantiatedObject.GetComponent<UpgradeMetaButton>().Initialize(_upgradesList.upgrades[i]);
+            instantiatedObject.GetComponent<UpgradeMetaButton>().Initialize(_upgradesList._upgrades[i]);
         }
     }
 
@@ -43,7 +43,7 @@ public class UpgradeMetaManager : MonoBehaviour
     {
         _tempUpgrade.Confirmed();
         _pcen.Value -= _tempUpgrade._upgradeMeta._upgradeCost;
-        _upgradesList.upgradesUnlocked.Add(_tempUpgrade._upgradeMeta);
+        _upgradesList._upgradesUnlocked.Add(_tempUpgrade._upgradeMeta);
     }
 
     public IEnumerator CancelUpgradeButton()
