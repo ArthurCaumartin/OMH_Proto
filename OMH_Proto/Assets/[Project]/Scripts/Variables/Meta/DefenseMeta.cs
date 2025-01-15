@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DefenseMeta : MonoBehaviour
+[CreateAssetMenu(fileName = "Defense", menuName = "Defense Meta")]
+public class DefenseMeta : ScriptableObject
 {
-    [SerializeField] private Sprite _defenseSprite;
-    [SerializeField] private TextMeshProUGUI _defenseName;
-    [SerializeField, TextArea] private TextMeshProUGUI _defenseDescription;
-    [SerializeField] private GameObject _defensePrefab;
+    public Sprite _defenseIcon;
+    public string _defenseName;
+    [TextArea] public string _defenseDescription;
+    public GameObject _defensePrefab;
+    public int _defenseCost;
 }

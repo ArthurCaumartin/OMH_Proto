@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class PrepGameMenu : MonoBehaviour
 {
-    [SerializeField] private UpgradeMetaManager _upgradeMetaManager;
-    [SerializeField] private UpgradesList _upgradesList;
+    [SerializeField] private MetaManager _upgradeMetaManager;
+    [SerializeField] private GameChooseMeta _gameChooseMeta;
+    [SerializeField] private UpgradesMetaList _upgradesMetaList;
     [SerializeField] private GameObject _buttonPrefab, _buttonParent, _buttonChoosePrefab;
     [SerializeField] private List<GameObject> _pointHolder = new List<GameObject>();
     [Space]
@@ -20,18 +21,18 @@ public class PrepGameMenu : MonoBehaviour
     
     public void Awake()
     {
-        _upgradesList._upgradesChooseGame = new List<UpgradeMeta>();
+        _gameChooseMeta._upgradesChooseGame = new List<UpgradeMeta>();
         if (_upgradeMetaManager._isUpgradesReset) return;
-        _upgradesList._upgradesUnlocked = new List<UpgradeMeta>();
+        _upgradesMetaList._upgradesUnlocked = new List<UpgradeMeta>();
     }
     
     public void OnEnable()
     {
-        for (int i = 0; i < _upgradesList._upgradesUnlocked.Count; i++)
+        for (int i = 0; i < _upgradesMetaList._upgradesUnlocked.Count; i++)
         {
             GameObject instantiatedObject = Instantiate(_buttonPrefab, _buttonParent.transform);
             _instantiatedButtons.Add(instantiatedObject);
-            instantiatedObject.GetComponent<UpgradeMetaButton>().Initialize(_upgradesList._upgrades[i]);
+            // instantiatedObject.GetComponent<MetaButton>().Initialize(_upgradesMetaList._upgrades[i]);
         }
     }
 
@@ -45,39 +46,39 @@ public class PrepGameMenu : MonoBehaviour
         }
     }
     
-    public bool ClickSelectButton(UpgradeMetaButton upgradeMetaButton)
+    public bool ClickSelectButton(MetaButton metaButton)
     {
-        if (_upgradeSelectedIndex > 2)
-        {
-            return false;
-        }
-        
-        UpgradeMeta tempUpgradeMeta = upgradeMetaButton._upgradeMeta;
-        GameObject instantiatedObject = Instantiate(_buttonChoosePrefab, _pointHolder[_upgradeSelectedIndex].transform);
-        instantiatedObject.GetComponent<UpgradeChooseButton>().Initialize(tempUpgradeMeta, this); 
-        
-        _upgradesList._upgradesChooseGame.Add(tempUpgradeMeta);
-        _upgradeSelectedIndex ++;
-
-        _infoImage.sprite = tempUpgradeMeta._upgradeIcon;
-        _infoName.text = tempUpgradeMeta._upgradeName;
-        _infoText.text = tempUpgradeMeta._upgradeDescription;
-        return true;
+        return false;
+        // if (_upgradeSelectedIndex > 2)
+        // {
+        //     return false;
+        // }
+        //
+        // UpgradeMeta tempUpgradeMeta = metaButton._upgradeMeta;
+        // GameObject instantiatedObject = Instantiate(_buttonChoosePrefab, _pointHolder[_upgradeSelectedIndex].transform);
+        // instantiatedObject.GetComponent<UpgradeChooseButton>().Initialize(tempUpgradeMeta, this); 
+        //
+        // _gameChooseMeta._upgradesChooseGame.Add(tempUpgradeMeta);
+        // _upgradeSelectedIndex ++;
+        //
+        // _infoImage.sprite = tempUpgradeMeta._upgradeIcon;
+        // _infoName.text = tempUpgradeMeta._upgradeName;
+        // _infoText.text = tempUpgradeMeta._upgradeDescription;
+        // return true;
     }
 
-    public void ClickCancelSelect(UpgradeMeta upgradeMetaButton)
+    public void ClickCancelSelect(UpgradeMeta metaButton)
     {
-        _upgradesList._upgradesChooseGame.Remove(upgradeMetaButton);
+        _gameChooseMeta._upgradesChooseGame.Remove(metaButton);
         _upgradeSelectedIndex --;
 
         for (int i = 0; i < _instantiatedButtons.Count; i++)
         {
-            if(_instantiatedButtons[i].GetComponent<UpgradeMetaButton>()._upgradeMeta == upgradeMetaButton)
-            {
-                _instantiatedButtons[i].GetComponent<UpgradeMetaButton>().ActivateButton();
-            }
+            // if(_instantiatedButtons[i].GetComponent<MetaButton>()._upgradeMeta == metaButton)
+            // {
+            //     _instantiatedButtons[i].GetComponent<MetaButton>().ActivateButton();
+            // }
         }
-        
         
         _infoImage.sprite = null;
         _infoName.text = "";

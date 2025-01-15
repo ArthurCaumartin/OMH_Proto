@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class WeaponMeta : MonoBehaviour
+[CreateAssetMenu(fileName = "Weapon", menuName = "Weapon Meta")]
+public class WeaponMeta : ScriptableObject
 {
-    [SerializeField] private Sprite _weaponSprite;
-    [SerializeField] private TextMeshProUGUI _weaponName;
-    [SerializeField, TextArea] private TextMeshProUGUI _weaponDescription;
-    [SerializeField] private GameObject _weaponPrefab;
+    public Sprite _weaponIcon;
+    public string _weaponName;
+    [TextArea] public string _weaponDescription; 
+    public GameObject _weaponPrefab;
+    public int _weaponCost;
 }
