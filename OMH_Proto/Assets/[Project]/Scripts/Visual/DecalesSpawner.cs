@@ -22,11 +22,11 @@ public class DecalesSpawner : MonoBehaviour
     [SerializeField] private DecalProjector _decalePrefab;
     [SerializeField] private SpawnParameter _damageParametre;
     [SerializeField] private SpawnParameter _killParametre;
-    private EnemyLife _mobLife;
+    private MobLife _mobLife;
 
     private void Start()
     {
-        _mobLife = GetComponent<EnemyLife>();
+        _mobLife = GetComponent<MobLife>();
         _mobLife.OnDamageEvent.AddListener(() => SpawnDecals(_damageParametre));
         _mobLife.OnDeathEvent.AddListener((mobLife) => SpawnDecals(_killParametre));
     }

@@ -23,7 +23,7 @@ public class Trap : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        EnemyLife mob = other.GetComponent<EnemyLife>();
+        MobLife mob = other.GetComponent<MobLife>();
         if (mob)
         {
             // print("EnemyInRange");
@@ -43,7 +43,7 @@ public class Trap : MonoBehaviour
         Collider[] col = Physics.OverlapSphere(transform.position, _trapHitRange.Value, _targetLayer);
         for (int i = 0; i < col.Length; i++)
         {
-            EnemyLife t = col[i].GetComponent<EnemyLife>();
+            MobLife t = col[i].GetComponent<MobLife>();
             if (t)
             {
                 t.TakeDamages(_trapDamages.Value);
