@@ -1,26 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.IO.Compression;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShieldBreaking : MonoBehaviour
 {
-    [SerializeField] private string _fadeValue = "_fadeOutValue";
-    [SerializeField] private float _fadeSpeed = .2f;
-    [SerializeField] private Shield _playerShield;
+    [SerializeField] private Shield playerShield;
     [SerializeField] private Material _shieldMaterial;
 
-    private void Start()
+    public Color UpColor;
+    public Color BreakColor;
+    public float UpBlinkingSpeed;
+    public float BreakBlinkingSpeed;
+    
+    public void Start()
     {
-        _playerShield._onShieldDown.AddListener(DestroyShield);
-    }
+        playerShield._onShieldDown.AddListener(DestroyShield);
+        playerShield._onShieldUp.AddListener(ShieldIsUp);
+        ShieldIsUp();
+        // playerShield.ShieldDown += () => DestroyShield();
+        // playerShield.ShieldUp += () => ShieldIsUp();
 
-    void Update()
-    {
-        if (_shieldMaterial.GetFloat(_fadeValue) == 0) return;
-        _shieldMaterial.SetFloat(_fadeValue, Mathf.Clamp(_shieldMaterial.GetFloat(_fadeValue) - Time.deltaTime, 0, 1));
+        // playerShield.ShieldDown.AddListener(DestroyShield);
+        // playerShield.ShieldUp.AddListener(DestroyShield);
     }
 
     public void DestroyShield()
     {
-        _shieldMaterial.SetFloat(_fadeValue, 1);
+        print("DestroyShield");
+        _shieldMaterial.SetColor("_FlashingColor", BreakColor);
+        _shieldMaterial.SetFloat("_BlinkingSpeed", BreakBlinkingSpeed);
+        //FlashingColor.SetColor("_FlashingColor", 1);
+    }
+
+    public void ShieldIsUp()
+    {
+        print("ShieldUp");
+        _shieldMaterial.SetColor("_FlashingColor", UpColor);
+        _shieldMaterial.SetFloat("_BlinkingSpeed", UpBlinkingSpeed);
+        //_FlashingColor = AlarmFlashingColor; 
     }
 }
 
