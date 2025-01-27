@@ -7,7 +7,7 @@ public class GameChooseMeta : ScriptableObject
 {
     public WeaponMeta _weaponChoose;
     
-    public List<UpgradeMeta> _upgradesChooseGame = new List<UpgradeMeta>();
+    public List<buttonInfos> _upgradesChooseGame = new List<buttonInfos>();
     
     // [SerializeField] private WeaponMeta _defenseChoose;
 }

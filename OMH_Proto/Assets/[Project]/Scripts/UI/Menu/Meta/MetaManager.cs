@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public struct buttonInfos
 {
@@ -17,8 +18,13 @@ public class MetaManager : MonoBehaviour
     [SerializeField] private UpgradesMetaList _upgradesList;
     [Space]
     [SerializeField] private GameObject _buttonPrefab;
-    [SerializeField] private GameObject _upgradesParent, _weaponsParent, _defensesParent;
-    [SerializeField] private GameObject _confirmMenu, _notEnoughPopup;
+    [SerializeField] private GameObject _upgradesParent, _weaponsParent, _defensesParent, _notEnoughPopup;
+    [Space]
+    [SerializeField] private Image _image;
+    [SerializeField] private TextMeshProUGUI _nameText;
+    [SerializeField] private TextMeshProUGUI _descriptionText;
+    [SerializeField] private TextMeshProUGUI _costText;
+    [SerializeField] private GameObject _confirmButton;
 
     private MetaButton _tempUpgrade;
     public bool _isUpgradesReset;
@@ -76,7 +82,8 @@ public class MetaManager : MonoBehaviour
            if (upgradeMetaButton._infos._cost <= _technolith.Value)
             {
                 _tempUpgrade = upgradeMetaButton;
-                _confirmMenu.SetActive(true);
+                ChangeTextInfos(upgradeMetaButton._infos);
+                _confirmButton.SetActive(true);
             }
             else
             {
@@ -88,7 +95,8 @@ public class MetaManager : MonoBehaviour
             if (upgradeMetaButton._infos._cost <= _pcen.Value)
             {
                 _tempUpgrade = upgradeMetaButton;
-                _confirmMenu.SetActive(true);
+                ChangeTextInfos(upgradeMetaButton._infos);
+                _confirmButton.SetActive(true);
             }
             else
             {
@@ -96,6 +104,14 @@ public class MetaManager : MonoBehaviour
             }
         }
         
+    }
+
+    private void ChangeTextInfos(buttonInfos infos)
+    {
+        if(infos._icon) _image.sprite = infos._icon;
+        _nameText.text = infos._name;
+        _descriptionText.text = infos._text;
+        _costText.text = $"Cost : {infos._cost}";
     }
 
     public void ConfirmBuy()

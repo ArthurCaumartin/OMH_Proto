@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8247430380187247173}
   - component: {fileID: 5570661199532942753}
   - component: {fileID: 9117273313934412569}
-  - component: {fileID: 1616709655073383957}
+  - component: {fileID: -7068481661165074895}
   - component: {fileID: -6733062275855746478}
   m_Layer: 5
   m_Name: UpgradePrepButton
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1616709655073383957
+--- !u!114 &-7068481661165074895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,11 +88,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3256385338799664597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0231c85300e4cd740b3603cbdb03ecb0, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aa951bcfdaaf734a838d05adffb35f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _buttonText: {fileID: 3589566411637411616}
-  _upgradeMeta: {fileID: 0}
 --- !u!114 &-6733062275855746478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,8 +136,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1616709655073383957}
-        m_TargetAssemblyTypeName: UpgradeMetaButton, Assembly-CSharp
+      - m_Target: {fileID: -7068481661165074895}
+        m_TargetAssemblyTypeName: PrepButton, Assembly-CSharp
         m_MethodName: ClickedPrepGame
         m_Mode: 1
         m_Arguments:

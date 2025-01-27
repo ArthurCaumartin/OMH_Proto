@@ -21,7 +21,7 @@ public class PrepGameMenu : MonoBehaviour
     
     public void Awake()
     {
-        _gameChooseMeta._upgradesChooseGame = new List<UpgradeMeta>();
+        _gameChooseMeta._upgradesChooseGame = new List<buttonInfos>();
         if (_upgradeMetaManager._isUpgradesReset) return;
         _upgradesMetaList._upgradesUnlocked = new List<UpgradeMeta>();
     }
@@ -46,30 +46,29 @@ public class PrepGameMenu : MonoBehaviour
         }
     }
     
-    public bool ClickSelectButton(MetaButton metaButton)
+    public bool ClickSelectButton(buttonInfos buttonInfos)
     {
-        return false;
-        // if (_upgradeSelectedIndex > 2)
-        // {
-        //     return false;
-        // }
-        //
-        // UpgradeMeta tempUpgradeMeta = metaButton._upgradeMeta;
-        // GameObject instantiatedObject = Instantiate(_buttonChoosePrefab, _pointHolder[_upgradeSelectedIndex].transform);
-        // instantiatedObject.GetComponent<UpgradeChooseButton>().Initialize(tempUpgradeMeta, this); 
-        //
-        // _gameChooseMeta._upgradesChooseGame.Add(tempUpgradeMeta);
-        // _upgradeSelectedIndex ++;
-        //
-        // _infoImage.sprite = tempUpgradeMeta._upgradeIcon;
-        // _infoName.text = tempUpgradeMeta._upgradeName;
-        // _infoText.text = tempUpgradeMeta._upgradeDescription;
-        // return true;
+        if (_upgradeSelectedIndex >= _pointHolder.Count)
+        {
+            return false;
+        }
+        
+        buttonInfos tempUpgradeMeta = buttonInfos;
+        GameObject instantiatedObject = Instantiate(_buttonChoosePrefab, _pointHolder[_upgradeSelectedIndex].transform);
+        instantiatedObject.GetComponent<UpgradeChooseButton>().Initialize(tempUpgradeMeta, this); 
+        
+        _gameChooseMeta._upgradesChooseGame.Add(tempUpgradeMeta);
+        _upgradeSelectedIndex ++;
+        
+        _infoImage.sprite = tempUpgradeMeta._icon;
+        _infoName.text = tempUpgradeMeta._name;
+        _infoText.text = tempUpgradeMeta._text;
+        return true;
     }
 
-    public void ClickCancelSelect(UpgradeMeta metaButton)
+    public void ClickCancelSelect(buttonInfos buttonInfos)
     {
-        _gameChooseMeta._upgradesChooseGame.Remove(metaButton);
+        _gameChooseMeta._upgradesChooseGame.Remove(buttonInfos);
         _upgradeSelectedIndex --;
 
         for (int i = 0; i < _instantiatedButtons.Count; i++)

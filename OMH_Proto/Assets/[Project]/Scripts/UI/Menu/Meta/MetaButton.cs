@@ -9,14 +9,12 @@ public class MetaButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buttonText;
     private Image _buttonSprite;
     private MetaManager _metaManager;
-    private PrepGameMenu _prepGameMenu;
     public buttonInfos _infos;
     
     void Start()
     {
         _buttonSprite = GetComponent<Image>();
         _metaManager = GetComponentInParent<MetaManager>();
-        _prepGameMenu = GetComponentInParent<PrepGameMenu>();
     }
     
     public void Initialize(buttonInfos buttonInfos)
@@ -30,24 +28,7 @@ public class MetaButton : MonoBehaviour
     {
         _metaManager.TryBuy(this);
     }
-
-    public void ClickedPrepGame()
-    {
-        if (_prepGameMenu.ClickSelectButton(this)) DeactivateButton();
-    }
-
-    public void DeactivateButton()
-    {
-        GetComponent<Button>().interactable = false;
-        GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
-    }
-
-    public void ActivateButton()
-    {
-        GetComponent<Button>().interactable = true;
-        GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-    }
-
+    
     public void Confirmed()
     {
         GetComponent<Button>().interactable = false;

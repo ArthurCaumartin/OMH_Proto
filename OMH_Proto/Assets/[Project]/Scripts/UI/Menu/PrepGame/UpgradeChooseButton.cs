@@ -8,13 +8,13 @@ public class UpgradeChooseButton : MonoBehaviour
 {
     private Image _buttonSprite;
     private PrepGameMenu _prepGameMenu;
-    public UpgradeMeta _upgradeMeta;
+    public buttonInfos _upgradeMeta;
     
-    public void Initialize(UpgradeMeta meta, PrepGameMenu prepGameMenu)
+    public void Initialize(buttonInfos meta, PrepGameMenu prepGameMenu)
     {
         _prepGameMenu = prepGameMenu;
         _upgradeMeta = meta;
-        if(_upgradeMeta._upgradeIcon != null) _buttonSprite.sprite = _upgradeMeta._upgradeIcon;
+        if(_upgradeMeta._icon != null) _buttonSprite.sprite = _upgradeMeta._icon;
     }
 
     public void Clicked()
