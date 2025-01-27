@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class PrepButton : MonoBehaviour
 {
@@ -11,15 +12,20 @@ public class PrepButton : MonoBehaviour
     private PrepGameMenu _prepGameMenu;
     public buttonInfos _infos;
     
-    void Start()
+    void Awake()
     {
         _buttonSprite = GetComponent<Image>();
         _prepGameMenu = GetComponentInParent<PrepGameMenu>();
     }
     
-    public void Initialize(buttonInfos buttonInfos)
+    public void Initialize(Sprite sprite, string name, string description, int cost)
     {
-        _infos = buttonInfos;
+        _infos = new buttonInfos();
+        _infos._icon = sprite;
+        _infos._name = name;
+        _infos._text = description;
+        _infos._cost = cost;
+        
         _buttonText.text = _infos._text;
         if(_infos._icon != null) _buttonSprite.sprite = _infos._icon;
     }

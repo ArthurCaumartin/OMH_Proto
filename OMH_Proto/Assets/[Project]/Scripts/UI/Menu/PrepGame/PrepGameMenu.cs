@@ -9,7 +9,7 @@ public class PrepGameMenu : MonoBehaviour
     [SerializeField] private MetaManager _upgradeMetaManager;
     [SerializeField] private GameChooseMeta _gameChooseMeta;
     [SerializeField] private UpgradesMetaList _upgradesMetaList;
-    [SerializeField] private GameObject _buttonPrefab, _buttonParent, _buttonChoosePrefab;
+    [SerializeField] private GameObject _buttonPrefab, _buttonParent, _buttonChoosePrefab, _buttonChooseParent;
     [SerializeField] private List<GameObject> _pointHolder = new List<GameObject>();
     [Space]
     [SerializeField] private TextMeshProUGUI _infoText;
@@ -32,7 +32,12 @@ public class PrepGameMenu : MonoBehaviour
         {
             GameObject instantiatedObject = Instantiate(_buttonPrefab, _buttonParent.transform);
             _instantiatedButtons.Add(instantiatedObject);
-            // instantiatedObject.GetComponent<MetaButton>().Initialize(_upgradesMetaList._upgrades[i]);
+            instantiatedObject.GetComponent<PrepButton>().Initialize(
+                _upgradesMetaList._upgrades[i]._upgradeIcon,
+                _upgradesMetaList._upgrades[i].name,
+                _upgradesMetaList._upgrades[i]._upgradeDescription,
+                _upgradesMetaList._upgrades[i]._upgradeCost
+                );
         }
     }
 
@@ -53,16 +58,17 @@ public class PrepGameMenu : MonoBehaviour
             return false;
         }
         
-        buttonInfos tempUpgradeMeta = buttonInfos;
-        GameObject instantiatedObject = Instantiate(_buttonChoosePrefab, _pointHolder[_upgradeSelectedIndex].transform);
-        instantiatedObject.GetComponent<UpgradeChooseButton>().Initialize(tempUpgradeMeta, this); 
+        buttonInfos tempInfos = buttonInfos;
+        GameObject instantiatedObject = Instantiate(_buttonChoosePrefab, _buttonChooseParent.transform);
+        instantiatedObject.GetComponent<UpgradeChooseButton>().Initialize(tempInfos, this); 
         
-        _gameChooseMeta._upgradesChooseGame.Add(tempUpgradeMeta);
+        _gameChooseMeta._upgradesChooseGame.Add(tempInfos);
         _upgradeSelectedIndex ++;
         
-        _infoImage.sprite = tempUpgradeMeta._icon;
-        _infoName.text = tempUpgradeMeta._name;
-        _infoText.text = tempUpgradeMeta._text;
+        _infoImage.sprite = tempInfos._icon;
+        _infoImage.color = Color.white;
+        _infoName.text = tempInfos._name;
+        _infoText.text = tempInfos._text;
         return true;
     }
 
@@ -73,13 +79,14 @@ public class PrepGameMenu : MonoBehaviour
 
         for (int i = 0; i < _instantiatedButtons.Count; i++)
         {
-            // if(_instantiatedButtons[i].GetComponent<MetaButton>()._upgradeMeta == metaButton)
-            // {
-            //     _instantiatedButtons[i].GetComponent<MetaButton>().ActivateButton();
-            // }
+            if(_instantiatedButtons[i].GetComponent<PrepButton>()._infos._name == buttonInfos._name)
+            {
+                _instantiatedButtons[i].GetComponent<PrepButton>().ActivateButton();
+            }
         }
         
         _infoImage.sprite = null;
+        _infoImage.color = new Color(0, 0, 0, 0);
         _infoName.text = "";
         _infoText.text = "";
     }

@@ -116,7 +116,8 @@ public class MetaManager : MonoBehaviour
 
     public void ConfirmBuy()
     {
-        _tempUpgrade.Confirmed();
+        if(!_tempUpgrade.Confirmed()) return;
+        
         if (_tempUpgrade._infos.index == 0)
         {
             _pcen.Value -= _tempUpgrade._infos._cost;
@@ -156,6 +157,7 @@ public class MetaManager : MonoBehaviour
             }
         }
     }
+    
     public IEnumerator CancelUpgradeButton()
     {
         _notEnoughPopup.SetActive(true);

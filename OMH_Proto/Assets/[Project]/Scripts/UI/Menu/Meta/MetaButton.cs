@@ -10,8 +10,10 @@ public class MetaButton : MonoBehaviour
     private Image _buttonSprite;
     private MetaManager _metaManager;
     public buttonInfos _infos;
+
+    private bool _isBought;
     
-    void Start()
+    void Awake()
     {
         _buttonSprite = GetComponent<Image>();
         _metaManager = GetComponentInParent<MetaManager>();
@@ -29,9 +31,16 @@ public class MetaButton : MonoBehaviour
         _metaManager.TryBuy(this);
     }
     
-    public void Confirmed()
+    public bool Confirmed()
     {
+        if (_isBought)
+        {
+            return false;
+        }
+        
         GetComponent<Button>().interactable = false;
         _buttonSprite.color = new Color32(0, 255, 0, 255);
+        _isBought = true;
+        return true;
     }
 }
