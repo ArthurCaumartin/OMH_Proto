@@ -202,6 +202,12 @@ MonoBehaviour:
     constantValue: 1.4
     variable: {fileID: 0}
   _shieldAnim: {fileID: 7865150130668958481}
+  _onShieldDown:
+    m_PersistentCalls:
+      m_Calls: []
+  _onShieldUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1117903476229774747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,6 +654,7 @@ GameObject:
   - component: {fileID: 8590342391537774277}
   - component: {fileID: 7756979337922080230}
   - component: {fileID: 4732380478429176974}
+  - component: {fileID: 1977460596419325538}
   m_Layer: 17
   m_Name: ShaderControler
   m_TagString: Untagged
@@ -746,6 +753,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1977460596419325538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8278881932918141469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4228ef8a58935af49a11f5d83f7c8c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerShield: {fileID: 202381475407420642}
+  _shieldMaterial: {fileID: 2100000, guid: 886cf9a34179e394aa8277e184daa79a, type: 2}
 --- !u!1001 &1809401411086616154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -859,8 +880,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -876546973899608171, guid: 3684e4b897e6c3c4e80b0ee3171987d6,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: 886cf9a34179e394aa8277e184daa79a, type: 2}
     - target: {fileID: 8186490185494886435, guid: febef853d3a94ab4b9f0602c8c3b2107,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
