@@ -22,7 +22,7 @@ public class PrepGameMenu : MonoBehaviour
     public void Awake()
     {
         _gameChooseMeta._upgradesChooseGame = new List<buttonInfos>();
-        if (_upgradeMetaManager._isUpgradesReset) return;
+        if (_upgradeMetaManager._isReset) return;
         _upgradesMetaList._upgradesUnlocked = new List<UpgradeMeta>();
     }
     

@@ -27,13 +27,13 @@ public class MetaManager : MonoBehaviour
     [SerializeField] private GameObject _confirmButton;
 
     private MetaButton _tempUpgrade;
-    public bool _isUpgradesReset;
+    public bool _isReset;
     void Start()
     {
         _upgradesList._upgradesUnlocked = new List<UpgradeMeta>();
         _upgradesList._weaponsUnlocked = new List<WeaponMeta>();
         _upgradesList._defensesUnlocked = new List<DefenseMeta>();
-        _isUpgradesReset = true;
+        _isReset = true;
         
         buttonInfos infos = new buttonInfos();
         
