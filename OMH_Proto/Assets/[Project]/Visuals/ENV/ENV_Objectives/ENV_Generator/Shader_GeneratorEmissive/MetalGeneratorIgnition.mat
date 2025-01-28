@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3010894311839055632
+--- !u!114 &-7853347116168326550
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: armordamage
-  m_Shader: {fileID: -6465566751694194690, guid: 71d909f7d7c6b9e47b87891e01e40951,
+  m_Name: MetalGeneratorIgnition
+  m_Shader: {fileID: -6465566751694194690, guid: 0496f0fe052bed240b65dfb0955a4a34,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -77,22 +77,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_3082f5695bd84fa5adac3fde17c8d08b_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 81c6eea57befa7b4596894f533e3ba3c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_a97b8f5bc35e4eac9f1af32e020b24bc_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: f556338f359a0344a91dec7d238a9396, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_c74512f301bf4774bf1f57921fbb4122_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 205d07c196cb00f4c9146bef71cfff4b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_e1bc41271480415caf3c7c1b54765b67_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 56027f278f41d584a97c0810510ccdad, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -115,7 +99,8 @@ Material:
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _BlinkingSpeed: 3
+    - _BlinkingSize: 3
+    - _BlinkingSpeed: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -125,6 +110,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _EmissivePower: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -132,8 +118,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _PuissanceEmission: 10
-    - _PuissanceEmissionJaune: 5
+    - _ParticleSpeed: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -145,12 +130,10 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _isShieldDown: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlashingColor: {r: 0.9803922, g: 0.7294118, b: 0.050980397, a: 1}
-    - _RedFlash: {r: 1, g: 0.80729437, b: 0, a: 0}
+    - _EmissionColor: {r: 0.074509785, g: 0.85490197, b: 0.7441414, a: 1}
+    - _EmissionColor2: {r: 0.9333333, g: 0.7852487, b: 0.050980344, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
