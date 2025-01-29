@@ -6,6 +6,7 @@ public class GeneratorBodyEmissionb : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    [SerializeField] private float _transitionSpeed = 1;
     [SerializeField] private InteractibleMetal MetalGenerator;
 
     public float EmissivePower;
@@ -20,12 +21,17 @@ public class GeneratorBodyEmissionb : MonoBehaviour
     public void Update()
     {
         // SetMaterialValue(MetalGenerator._isGeneratorActivated);
-        SetOverlayValue(MetalGenerator._isGeneratorActivated);
+        if (MetalGenerator._isGeneratorActivated)
+        {
+            transitionTime += Time.deltaTime * _transitionSpeed;
+            if (transitionTime > 1) return;
+            SetOverlayValue(transitionTime);
+        }
     }
 
-    public void SetOverlayValue(bool isOn)
+    public void SetOverlayValue(float value)
     {
-        _CorpsGenerateur.SetFloat("_OverlayValue", isOn ? 1 : 0);
+        _CorpsGenerateur.SetFloat("_OverlayValue", value);
     }
     // public void SetMaterialValue(bool isOn)
     // {

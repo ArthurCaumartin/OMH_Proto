@@ -2,37 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// public class GridLayout : MonoBehaviour
-// {
-//     // Start is called before the first frame update
+public class GridLayout : MonoBehaviour
+{
+    [SerializeField] private LayerMask _aimLayer;
+    [SerializeField] private FloatReference _range;
+    public Camera _mainCamera;
+    private Transform _playerTransform;
+    private Vector3 _currentMousePos;
 
-//     public GameObject _mainCamera; 
-//     private Vector
-//     void Start()
-//     {
-        
-//     }
+    public Material _GridMaterial;
 
-//     // Update is called once per frame
-//     private Vector3 MouseAimPosition(Vector3 currentPos)
-//     {
-//         Vector2 pixelPos = Input.mousePosition;
-//         Ray camRay = _mainCamera.ScreenPointToRay(pixelPos);
+    private void Start()
+    {
+        _playerTransform = FindAnyObjectByType<PlayerMovement>()?.transform;
+        if (!_playerTransform) enabled = false;
+    }
 
+    private void Update()
+    {
+        _currentMousePos = MouseAimPosition(_currentMousePos);
+        Vector2 mousePos = new Vector2(_currentMousePos.x, _currentMousePos.z);
 
-//         Physics.Raycast(camRay, out RaycastHit hit, Mathf.Infinity, _aimLayer);
-//         if (!hit.collider) return currentPos;
+        _GridMaterial.SetVector("_CursorLocation", mousePos);
+    }
 
-//         if (DEBUG) Debug.DrawRay(camRay.origin, camRay.direction * 100, Color.green);
-//         if (DEBUG) Debug.DrawLine(new Vector3(hit.point.x, hit.point.y - 1, hit.point.z)
-//                                 , new Vector3(hit.point.x, hit.point.y + 1, hit.point.z)
-//                                 , Color.red);
+    private Vector3 MouseAimPosition(Vector3 currentPos)
+    {
+        Vector2 pixelPos = Input.mousePosition;
+        Ray camRay = _mainCamera.ScreenPointToRay(pixelPos);
 
-//         return Vector3.Distance(_playerTransform.position, hit.point) > _range.Value ?
-//         _playerTransform.position + (hit.point - _playerTransform.position).normalized * _range.Value : hit.point;
-//     }
-//     void Update()
-//     {
-        
-//     }
-// }
+        Physics.Raycast(camRay, out RaycastHit hit, Mathf.Infinity, _aimLayer);
+        if (!hit.collider) return currentPos;
+
+        // if (DEBUG) Debug.DrawRay(camRay.origin, camRay.direction * 100, Color.green);
+        // if (DEBUG) Debug.DrawLine(new Vector3(hit.point.x, hit.point.y - 1, hit.point.z)
+        //                         , new Vector3(hit.point.x, hit.point.y + 1, hit.point.z)
+        //                         , Color.red);
+
+        // Vector3 normalizePos = new Vector3(Mathf.Lerp(transform.localScale.x))
+
+        if (Vector3.Distance(_playerTransform.position, hit.point) > _range.Value)
+        {
+            return _playerTransform.position + (hit.point - _playerTransform.position).normalized * _range.Value;
+        }
+        else
+        {
+            return hit.point;
+        }
+    }
+}
