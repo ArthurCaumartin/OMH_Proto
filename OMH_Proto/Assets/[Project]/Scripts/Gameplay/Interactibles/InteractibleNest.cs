@@ -78,7 +78,8 @@ public class InteractibleNest : Interactible
     {
         for (int i = 0; i < _numberOfEnemiesToSpawn; i++)
         { 
-            Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
+             StateMachine_MobBase mobStateMachine = Instantiate(_enemyPrefab, transform.position, Quaternion.identity).GetComponent<StateMachine_MobBase>();
+             mobStateMachine.SetState(mobStateMachine.RoamState);
         }
     }
 }
