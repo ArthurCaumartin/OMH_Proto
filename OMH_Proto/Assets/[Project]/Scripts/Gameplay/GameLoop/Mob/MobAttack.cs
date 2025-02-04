@@ -5,7 +5,8 @@ using UnityEngine.Serialization;
 
 public class MobAttack : MonoBehaviour
 {
-    [FormerlySerializedAs("_targetFinder")][SerializeField] private AgentTargetFinder agentTargetFinder;
+    //TODO passer la logique de ce script dans State_Mob_Chase ou State_Mob_Attack ?
+    [FormerlySerializedAs("_targetFinder")][SerializeField] private MobTargetFinder agentTargetFinder;
     [SerializeField] private MobAnimationControler _animationControler;
     [Space]
     [SerializeField] private FloatReference _distanceTrigger;
