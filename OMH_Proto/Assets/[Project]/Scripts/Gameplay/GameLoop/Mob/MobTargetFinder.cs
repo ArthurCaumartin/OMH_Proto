@@ -1,32 +1,32 @@
-using DG.Tweening;
-using UnityEngine;
-using UnityEngine.Events;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MobTargetFinder : MonoBehaviour
 {
-    //TODO prendre l'agro quand on prend un degat, sauf si on target le siphon
-
-    //TODO KNOW ISSUE : If agro taken on a object behind a other the mob will be stuck on without the capability to deal damage to it
     public bool DEBUG = true;
     [SerializeField] private LayerMask _targetLayer;
     [SerializeField] private float _targetDetectionPerSecond;
-    [SerializeField] private float _targetDetectionRange;
+    [SerializeField] private FloatReference _targetDetectionRange;
     [SerializeField] private FloatReference _maxFollowDistance;
     [Space]
     [SerializeField] private MobTarget _ifLostTarget;
     [SerializeField] private MobTarget _currentTarget;
     private float _distanceWithTarget;
     private float _targetDetectionTime;
-
-    //TODO to remove and pass attack activation to State Machine 
-    public float TargetDistance { get => _currentTarget ? _distanceWithTarget : Mathf.Infinity; }
     public Transform Target { get => _currentTarget ? _currentTarget.transform : null; }
+    private bool _canDropAgro = true;
 
     private void Start()
     {
+        GetComponent<MobLife>().OnDamageTakenEvent.AddListener((damageDealer) =>
+        {
+            MobTarget t = damageDealer.GetComponent<MobTarget>();
+            if (t)
+            {
+                _canDropAgro = false;
+                SetNewTarget(t);
+            }
+        });
+
         if (_ifLostTarget) SetNewTarget(_ifLostTarget);
     }
 
@@ -41,6 +41,8 @@ public class MobTargetFinder : MonoBehaviour
         DetectTarget();
 
         if (_currentTarget) _distanceWithTarget = Vector3.Distance(transform.position, _currentTarget.transform.position);
+        if (_distanceWithTarget < _maxFollowDistance.Value) _canDropAgro = true;
+
         if (!_currentTarget || IsTargetToFar())
         {
             _currentTarget = _ifLostTarget ? _ifLostTarget : null;
@@ -54,7 +56,7 @@ public class MobTargetFinder : MonoBehaviour
         if (_targetDetectionTime < 1 / _targetDetectionPerSecond) return;
         _targetDetectionTime = 0;
 
-        Collider[] col = Physics.OverlapSphere(transform.position, _targetDetectionRange, _targetLayer);
+        Collider[] col = Physics.OverlapSphere(transform.position, _targetDetectionRange.Value, _targetLayer);
         if (col.Length == 0) return;
 
         float minDistance = Mathf.Infinity;
@@ -78,13 +80,15 @@ public class MobTargetFinder : MonoBehaviour
     private bool IsTargetToFar()
     {
         if (_currentTarget == _ifLostTarget) return false;
+        if (!_canDropAgro) return false;
 
-        print(_distanceWithTarget > _maxFollowDistance.Value ? "target to far" : "target in follow range");
+        // print(_distanceWithTarget > _maxFollowDistance.Value ? "target to far" : "target in follow range");
         return _distanceWithTarget > _maxFollowDistance.Value;
     }
 
     private void SetNewTarget(MobTarget toSet)
     {
+        print("Set New target : " + toSet?.name);
         //? si on a une target et que la nouvelle prio est plus grande
         if (_currentTarget && toSet.Priority > _currentTarget.Priority)
         {
@@ -98,6 +102,8 @@ public class MobTargetFinder : MonoBehaviour
     {
         if (!DEBUG) return;
         Gizmos.color = new Color(1, 0, 0, .2f);
+        Gizmos.DrawSphere(transform.position, _targetDetectionRange.Value);
+        Gizmos.color = new Color(0, 0, 1, .2f);
         Gizmos.DrawSphere(transform.position, _maxFollowDistance.Value);
     }
 }
