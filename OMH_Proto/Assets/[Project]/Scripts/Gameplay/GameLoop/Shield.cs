@@ -50,7 +50,7 @@ public class Shield : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDamages(float damageAmount)
+    public void TakeDamages(GameObject damageDealer, float damageAmount)
     {
         if (_isInvincible) return;
 
