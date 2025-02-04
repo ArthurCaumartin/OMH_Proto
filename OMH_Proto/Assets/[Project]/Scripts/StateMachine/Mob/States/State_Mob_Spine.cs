@@ -37,27 +37,3 @@ public class State_Mob_Spine : IEntityState
 
     }
 }
-
-
-public class State_Mob_Attack : IEntityState
-{
-    public void DoState(StateMachine behavior)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void EnterState(StateMachine behavior)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void ExitState(StateMachine behavior)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Initialize(StateMachine behavior)
-    {
-        throw new NotImplementedException();
-    }
-}
