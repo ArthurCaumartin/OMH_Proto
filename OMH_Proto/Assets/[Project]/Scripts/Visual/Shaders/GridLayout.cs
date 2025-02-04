@@ -9,6 +9,7 @@ public class GridLayout : MonoBehaviour
     public Camera _mainCamera;
     private Transform _playerTransform;
     private Vector3 _currentMousePos;
+    private Vector2 _currentMousePos2D;
 
     public Material _GridMaterial;
 
@@ -21,9 +22,9 @@ public class GridLayout : MonoBehaviour
     private void Update()
     {
         _currentMousePos = MouseAimPosition(_currentMousePos);
-        Vector2 mousePos = new Vector2(_currentMousePos.x, _currentMousePos.z);
+        _currentMousePos2D = new Vector2(_currentMousePos.x, _currentMousePos.z);
 
-        _GridMaterial.SetVector("_CursorLocation", mousePos);
+        _GridMaterial.SetVector("_CursorLocation", _currentMousePos2D);
     }
 
     private Vector3 MouseAimPosition(Vector3 currentPos)
@@ -32,6 +33,8 @@ public class GridLayout : MonoBehaviour
         Ray camRay = _mainCamera.ScreenPointToRay(pixelPos);
 
         Physics.Raycast(camRay, out RaycastHit hit, Mathf.Infinity, _aimLayer);
+
+        Debug.Log($"Hit: {hit.collider.name}");
         if (!hit.collider) return currentPos;
 
         // if (DEBUG) Debug.DrawRay(camRay.origin, camRay.direction * 100, Color.green);
