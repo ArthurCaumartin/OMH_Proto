@@ -203,7 +203,7 @@ PrefabInstance:
     - target: {fileID: 6852756309002608138, guid: 79b0b90dd5ecea8418eb1d6890915a97,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0001001358
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6852756309002608138, guid: 79b0b90dd5ecea8418eb1d6890915a97,
         type: 3}
@@ -283,18 +283,14 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7191879917368600816, guid: 79b0b90dd5ecea8418eb1d6890915a97,
         type: 3}
       insertIndex: 2
-      addedObject: {fileID: 3236258382451846035}
-    - targetCorrespondingSourceObject: {fileID: 7191879917368600816, guid: 79b0b90dd5ecea8418eb1d6890915a97,
-        type: 3}
-      insertIndex: 3
       addedObject: {fileID: 3042697620327133910}
     - targetCorrespondingSourceObject: {fileID: 7191879917368600816, guid: 79b0b90dd5ecea8418eb1d6890915a97,
         type: 3}
-      insertIndex: 4
+      insertIndex: 3
       addedObject: {fileID: 1692695725699198323}
     - targetCorrespondingSourceObject: {fileID: 7191879917368600816, guid: 79b0b90dd5ecea8418eb1d6890915a97,
         type: 3}
-      insertIndex: 5
+      insertIndex: 4
       addedObject: {fileID: 8495946310215847825}
   m_SourcePrefab: {fileID: 100100000, guid: 79b0b90dd5ecea8418eb1d6890915a97, type: 3}
 --- !u!54 &3534787374573192709 stripped
@@ -350,28 +346,6 @@ MonoBehaviour:
     _speed: 10
   _chaseState:
     _distanceToTriggerAttack: 0
---- !u!114 &3236258382451846035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8873736450507444681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d864905e509a354782411158b9e0f07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentTargetFinder: {fileID: 8495946310215847825}
-  _animationControler: {fileID: 733992056999582796}
-  _distanceTrigger:
-    propertyType: 0
-    constantValue: 2
-    variable: {fileID: 0}
-  _attackPerSecond:
-    propertyType: 1
-    constantValue: 1
-    variable: {fileID: 11400000, guid: a2918642451133e4c8b76143978e7b0e, type: 2}
 --- !u!114 &3042697620327133910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,10 +451,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   _targetDetectionPerSecond: 1
-  _targetDetectionRange: 10
-  _maxFollowDistance:
+  _targetDetectionRange:
     propertyType: 0
     constantValue: 10
+    variable: {fileID: 0}
+  _maxFollowDistance:
+    propertyType: 0
+    constantValue: 15
     variable: {fileID: 0}
   _ifLostTarget: {fileID: 0}
   _currentTarget: {fileID: 0}
@@ -1063,7 +1040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _velocityParametre: {fileID: 4155036484312944191}
   _attackParametre: {fileID: 2148344306798630721}
-  _mobAttack: {fileID: 3236258382451846035}
+  _mobAttack: {fileID: 0}
   _rigidbody: {fileID: 3534787374573192709}
 --- !u!114 &7303554290357137336
 MonoBehaviour:
