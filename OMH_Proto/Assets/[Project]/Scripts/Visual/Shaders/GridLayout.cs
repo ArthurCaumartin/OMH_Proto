@@ -8,8 +8,9 @@ public class GridLayout : MonoBehaviour
     [SerializeField] private FloatReference _range;
     public Camera _mainCamera;
     private Transform _playerTransform;
-    private Vector3 _currentMousePos;
-    private Vector2 _currentMousePos2D;
+    private Vector3 _currentMousePos = Vector3.zero;
+    private Vector3 _localMousePos = Vector3.zero;
+    private Vector2 _normalizePos= Vector2.zero;
 
     public Material _GridMaterial;
 
@@ -22,9 +23,14 @@ public class GridLayout : MonoBehaviour
     private void Update()
     {
         _currentMousePos = MouseAimPosition(_currentMousePos);
-        _currentMousePos2D = new Vector2(_currentMousePos.x, _currentMousePos.z);
+        
+        _localMousePos = transform.InverseTransformPoint(_currentMousePos);
 
-        _GridMaterial.SetVector("_CursorLocation", _currentMousePos2D);
+        float scale = transform.localScale.x;
+        _normalizePos.x = Mathf.InverseLerp(-5, 5, _localMousePos.x) - (.5f);
+        _normalizePos.y = Mathf.InverseLerp(-5, 5, _localMousePos.z) - (.5f);
+
+        _GridMaterial.SetVector("_CursorLocation", _normalizePos);
     }
 
     private Vector3 MouseAimPosition(Vector3 currentPos)
@@ -34,13 +40,12 @@ public class GridLayout : MonoBehaviour
 
         Physics.Raycast(camRay, out RaycastHit hit, Mathf.Infinity, _aimLayer);
 
-        Debug.Log($"Hit: {hit.collider.name}");
         if (!hit.collider) return currentPos;
 
-        // if (DEBUG) Debug.DrawRay(camRay.origin, camRay.direction * 100, Color.green);
-        // if (DEBUG) Debug.DrawLine(new Vector3(hit.point.x, hit.point.y - 1, hit.point.z)
-        //                         , new Vector3(hit.point.x, hit.point.y + 1, hit.point.z)
-        //                         , Color.red);
+        Debug.DrawRay(camRay.origin, camRay.direction, Color.green);
+        Debug.DrawLine(new Vector3(hit.point.x, hit.point.y - 1, hit.point.z)
+                                , new Vector3(hit.point.x, hit.point.y + 1, hit.point.z)
+                                , Color.red);
 
         // Vector3 normalizePos = new Vector3(Mathf.Lerp(transform.localScale.x))
 
