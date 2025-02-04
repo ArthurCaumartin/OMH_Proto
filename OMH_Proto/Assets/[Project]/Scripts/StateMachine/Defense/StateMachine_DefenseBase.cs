@@ -1,0 +1,1 @@
+public class StateMachine_DefenseBase : StateMachine { }

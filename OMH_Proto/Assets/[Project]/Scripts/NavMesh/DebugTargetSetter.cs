@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class TargetSetter : MonoBehaviour
+public class DebugTargetSetter : MonoBehaviour
 {
     public Transform _target;
     private NavMeshAgent _agent;

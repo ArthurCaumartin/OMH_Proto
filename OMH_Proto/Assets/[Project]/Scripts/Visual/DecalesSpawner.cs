@@ -27,7 +27,7 @@ public class DecalesSpawner : MonoBehaviour
     private void Start()
     {
         _mobLife = GetComponent<MobLife>();
-        _mobLife.OnDamageEvent.AddListener(() => SpawnDecals(_damageParametre));
+        _mobLife.OnDamageTakenEvent.AddListener((damageDealer) => SpawnDecals(_damageParametre));
         _mobLife.OnDeathEvent.AddListener((mobLife) => SpawnDecals(_killParametre));
     }
 

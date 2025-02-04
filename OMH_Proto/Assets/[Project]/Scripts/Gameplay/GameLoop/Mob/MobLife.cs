@@ -9,8 +9,8 @@ public class MobLife : MonoBehaviour, IDamageable
     [SerializeField] private Renderer _renderer;
     private float _health;
     [SerializeField] private UnityEvent<MobLife> _onDeathEvent;
-    [SerializeField] private UnityEvent _onDamageEvent;
-    public UnityEvent OnDamageEvent { get => _onDamageEvent; }
+    [SerializeField] private UnityEvent<GameObject> _onDamageTakenEvent;
+    public UnityEvent<GameObject> OnDamageTakenEvent { get => _onDamageTakenEvent; }
     public UnityEvent<MobLife> OnDeathEvent { get => _onDeathEvent; }
 
     private void Start()
@@ -18,13 +18,13 @@ public class MobLife : MonoBehaviour, IDamageable
         _health = _mobHealth.Value;
     }
 
-    public void TakeDamages(float value)
+    public void TakeDamages(GameObject damageDealer, float value)
     {
         // print("Hitted");
         if (value > 0)
         {
             if (_renderer) StartCoroutine(Hit());
-            _onDamageEvent.Invoke();
+            _onDamageTakenEvent.Invoke(damageDealer);
         }
 
         _health -= value;
