@@ -5,7 +5,6 @@ public class MobAnimationControler : MonoBehaviour
     [SerializeField] private AnimatorFloatSetter _velocityParametre;
     [SerializeField] private AnimatorTriggerSetter _attackParametre;
     [Space]
-    [SerializeField] private MobAttack _mobAttack;
     [SerializeField] private Rigidbody _rigidbody;
 
     private void Update()
