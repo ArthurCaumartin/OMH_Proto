@@ -10,9 +10,7 @@ public class GameEventEditor : Editor
 
         GameEvent e = target as GameEvent;
 
-        GUILayout.Space(5);
-        if (GUILayout.Button("Raise")) e.Raise();
-        GUILayout.Space(5);
+        GUILayout.Space(10);
         if (GUILayout.Button("Raise True")) e.Raise(true);
         if (GUILayout.Button("Raise False")) e.Raise(false);
     }

@@ -34,7 +34,7 @@ public class GameEvent : ScriptableObject
             
             for (int i = 0; i < _dialogue.text.Length; i++)
             {
-                if(_dialogue.text[i] != ' ');
+                if(_dialogue.text[i] != ' ')
                 {
                     tempInt++;
                 }
