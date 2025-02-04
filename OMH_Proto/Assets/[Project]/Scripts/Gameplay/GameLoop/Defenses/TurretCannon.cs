@@ -19,7 +19,7 @@ public class TurretCannon : MonoBehaviour
     public virtual void Shoot()
     {
         Projectile newProjectile = Instantiate(_projectilePrefab, transform.position, Quaternion.LookRotation(transform.forward, Vector3.up));
-        newProjectile.Initialize(_stat.projectileSpeed.Value, _stat.damage.Value);
+        newProjectile.Initialize(transform.parent.gameObject, _stat.projectileSpeed.Value, _stat.damage.Value);
     }
 
     public virtual void Update()

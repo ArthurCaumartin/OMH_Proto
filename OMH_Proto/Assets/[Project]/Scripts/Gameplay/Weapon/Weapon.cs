@@ -25,9 +25,11 @@ public class Weapon : MonoBehaviour
     private bool _isAttacking;
     private bool _isSecondaryAttacking;
     private WeaponVisual _weaponVisual;
+    protected GameObject _parentShooter;
 
     private void Start()
     {
+        _parentShooter = GetComponentInParent<PlayerAim>().gameObject;
         _attackInputAction = GetComponentInParent<PlayerInput>().actions.FindAction("Attack");
         _secondaryAttackInputAction = GetComponentInParent<PlayerInput>().actions.FindAction("SecondaryAttack");
         _weaponVisual = GetComponent<WeaponVisual>();

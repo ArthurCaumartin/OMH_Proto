@@ -12,14 +12,16 @@ public class Projectile : MonoBehaviour
     [SerializeField] private LayerMask _projectileLayer;
     private float _speed;
     private float _damage;
+    private GameObject _shooter;
 
     private void Start()
     {
         Destroy(gameObject, 1f);
     }
 
-    public Projectile Initialize(float speed, float damage)
+    public Projectile Initialize(GameObject shooter, float speed, float damage)
     {
+        _shooter = shooter;
         _speed = speed;
         _damage = damage;
         return this;
@@ -36,7 +38,7 @@ public class Projectile : MonoBehaviour
             MobLife enemyLife = hit.collider.gameObject.GetComponent<MobLife>();
             if (enemyLife)
             {
-                enemyLife.TakeDamages(_damage);
+                enemyLife.TakeDamages(_shooter, _damage);
                 if (_shootEffect) AddShootEffect();
             }
 
