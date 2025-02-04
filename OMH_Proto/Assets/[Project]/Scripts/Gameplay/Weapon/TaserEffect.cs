@@ -11,17 +11,17 @@ public class TaserEffect : MonoBehaviour, IEffectable
     private float _lifeTime;
     private float _visualRefreshTime;
     private SpriteRenderer _spriteRenderer;
-    private MobAttack _attack;
     private float _range; //! use for debug only
     private Vector3 _effectHitPos;
+    private StateMachine_MobBase _mobStateMachine;
 
     public void Start()
     {
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         RefreshVisual();
         transform.parent.GetComponent<PhysicsAgent>().SlowAgent(_slowEffectSrenght / 100, _duration);
-        _attack = transform.parent.GetComponent<MobAttack>();
-        _attack.enabled = false;
+        _mobStateMachine = transform.parent.GetComponent<StateMachine_MobBase>();
+        _mobStateMachine.enabled = false;
     }
 
     public void InitializeEffect(float effectRange, Vector3 pos)
@@ -42,7 +42,7 @@ public class TaserEffect : MonoBehaviour, IEffectable
         _lifeTime += Time.deltaTime;
         if (_lifeTime > _duration)
         {
-            _attack.enabled = true;
+            _mobStateMachine.enabled = true;
             Destroy(gameObject);
         }
     }
