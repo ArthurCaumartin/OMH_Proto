@@ -10,6 +10,7 @@ public class StateMachine_MobBase : StateMachine
     private MobTargetFinder _targetFinder;
 
     public Transform Target { get => _target; }
+
     public State_Mob_Roam RoamState { get => _roamState; }
     public State_Mob_Spine SpineState { get => _spineState; }
     public State_Mob_Chase ChaseState { get => _chaseState; }
@@ -26,18 +27,18 @@ public class StateMachine_MobBase : StateMachine
         _chaseState.Initialize(this);
         _attackState.Initialize(this);
 
-        _currentState = _roamState;
+        SetState(RoamState);
     }
 
     private void Update()
     {
         _target = _targetFinder.Target;
-        if (_target) SetState(_chaseState);
         PlayCurrentState();
     }
 
     private void PlayCurrentState()
     {
+        print("Current State : " + _currentState?.ToString());
         if (_currentState == null) return;
         _currentState.DoState(this);
     }

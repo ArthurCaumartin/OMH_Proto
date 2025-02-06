@@ -1,6 +1,8 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
+[Serializable]
 public class State_Mob_Attack : IEntityState
 {
     [SerializeField] private FloatReference _attackAnimationSpeed;
@@ -15,15 +17,22 @@ public class State_Mob_Attack : IEntityState
 
     public void EnterState(StateMachine behavior)
     {
+        Debug.Log("ENTER ATTACK STATE");
         _timeDelay = _attackDelais.Value;
     }
 
     public void DoState(StateMachine behavior)
     {
+        StateMachine_MobBase mobMachine = behavior as StateMachine_MobBase;
+
+        if(!mobMachine.Target) mobMachine.SetState(mobMachine.RoamState);
+
+        Debug.Log("Attack DoState");
         _timeDelay += Time.deltaTime;
         if(_timeDelay > _attackDelais.Value)
         {
-            _mobAnimationControler.PlayAttackAnimation();
+            Debug.Log("Attack");
+            _mobAnimationControler.PlayAttackAnimation(_attackAnimationSpeed.Value);
             _timeDelay = 0;
         }
     }
