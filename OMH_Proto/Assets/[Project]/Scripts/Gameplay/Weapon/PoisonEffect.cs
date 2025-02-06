@@ -45,7 +45,7 @@ public class PoisonEffect : MonoBehaviour, IEffectable
 
     public void DoDamages()
     {
-        _mobLife.TakeDamages(_damagesPerSeconds);
+        _mobLife.TakeDamages(gameObject, _damagesPerSeconds);
     }
 
     private void OnDrawGizmos()

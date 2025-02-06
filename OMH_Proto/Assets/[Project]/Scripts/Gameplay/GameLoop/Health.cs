@@ -16,7 +16,7 @@ public class Health : MonoBehaviour, IDamageable
         _currentHealth.Value = _maxHealth.Value;
     }
 
-    public void TakeDamages(float damageAmount)
+    public void TakeDamages(GameObject damageDealer, float damageAmount)
     {
         _onDamageTaken.Invoke(damageAmount);
         _currentHealth.Value -= damageAmount;
