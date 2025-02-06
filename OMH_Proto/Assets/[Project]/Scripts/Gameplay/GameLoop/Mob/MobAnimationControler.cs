@@ -16,6 +16,7 @@ public class MobAnimationControler : MonoBehaviour
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        OnValidate();
     }
 
     private void OnValidate()

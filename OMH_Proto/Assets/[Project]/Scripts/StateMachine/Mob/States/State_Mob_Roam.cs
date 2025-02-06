@@ -49,7 +49,7 @@ public class State_Mob_Roam : IEntityState
         if (_count > _maxCount)
         {
             _count = 0;
-            mobMachine.SetState(mobMachine.SpineState);
+            mobMachine.SetState(mobMachine.RoamState);
         }
     }
 
