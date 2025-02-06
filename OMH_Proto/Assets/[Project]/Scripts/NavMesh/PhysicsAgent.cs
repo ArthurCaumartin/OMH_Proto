@@ -160,4 +160,9 @@ public class PhysicsAgent : MonoBehaviour
             Debug.DrawLine(_path[i], _path[i + 1], Color.red);
         }
     }
+
+    public void SetRigidbodyMass(float value)
+    {
+        _rigidbody.mass = value;
+    }
 }
