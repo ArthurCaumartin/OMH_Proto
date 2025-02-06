@@ -47,7 +47,7 @@ public class Traptest : MonoBehaviour
             MobLife t = col[i].GetComponent<MobLife>();
             if (t)
             {
-                t.TakeDamages(_trapDamages.Value);
+                t.TakeDamages(gameObject, _trapDamages.Value);
             }
             PhysicsAgent y = col[i].GetComponent<PhysicsAgent>();
             if (y)
