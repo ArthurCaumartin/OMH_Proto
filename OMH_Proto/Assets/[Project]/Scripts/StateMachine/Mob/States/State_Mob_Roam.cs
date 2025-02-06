@@ -24,13 +24,18 @@ public class State_Mob_Roam : IEntityState
 
     public void EnterState(StateMachine behavior)
     {
-        
+
     }
 
     public void DoState(StateMachine behavior)
     {
-        // Debug.Log("Roam DoState");
         StateMachine_MobBase mobMachine = behavior as StateMachine_MobBase;
+
+        if (mobMachine.Target)
+        {
+            mobMachine.SetState(mobMachine.ChaseState);
+            return;
+        }
 
         _timer += Time.deltaTime;
         if (_timer > _delay)
@@ -44,7 +49,7 @@ public class State_Mob_Roam : IEntityState
         if (_count > _maxCount)
         {
             _count = 0;
-            mobMachine.SetState(mobMachine.SpineState);
+            mobMachine.SetState(mobMachine.RoamState);
         }
     }
 

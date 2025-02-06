@@ -136,6 +136,7 @@ MonoBehaviour:
     propertyType: 1
     constantValue: 0
     variable: {fileID: 11400000, guid: 38352aa442437d74fb3ccdceacd29f56, type: 2}
+  _isGeneratorActivated: 0
 --- !u!1001 &214846308998230922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -201,6 +202,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3092228338590212789, guid: 7db9d75f37da8c844b128b51612ce989,
         type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 90a340cc136348f4084de12b26352fb5, type: 2}
+    - target: {fileID: -3092228338590212789, guid: 7db9d75f37da8c844b128b51612ce989,
+        type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: bd469f14c60c381468a4b02e1279f714, type: 2}
@@ -216,13 +222,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2424088773907775423, guid: 7db9d75f37da8c844b128b51612ce989,
         type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 639877a37bcd1554da4279db707fd209, type: 2}
+    - target: {fileID: 2424088773907775423, guid: 7db9d75f37da8c844b128b51612ce989,
+        type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: bd469f14c60c381468a4b02e1279f714, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -4181425025574123922, guid: 7db9d75f37da8c844b128b51612ce989,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2469283209973034007}
+    - targetCorrespondingSourceObject: {fileID: -4391001618862281687, guid: 7db9d75f37da8c844b128b51612ce989,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5912251763378293204}
+    - targetCorrespondingSourceObject: {fileID: -4391001618862281687, guid: 7db9d75f37da8c844b128b51612ce989,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7034420793264069205}
   m_SourcePrefab: {fileID: 100100000, guid: 7db9d75f37da8c844b128b51612ce989, type: 3}
 --- !u!4 &392359526471947361 stripped
 Transform:
@@ -230,6 +253,71 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 214846308998230922}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4749976950111002531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4391001618862281687, guid: 7db9d75f37da8c844b128b51612ce989,
+    type: 3}
+  m_PrefabInstance: {fileID: 214846308998230922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5912251763378293204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4749976950111002531}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1350fc1da737c46bb44facb4f9638a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MetalGenerator: {fileID: 941015427276077013}
+  off: 0
+  on: 3
+  EmissiveValue: 5
+  ParticleSpeed: 0.5
+--- !u!114 &7034420793264069205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4749976950111002531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5228717d3235154493c7cb20471d882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MetalGenerator: {fileID: 941015427276077013}
+  off: 0.25
+  on: 0.5
+  EmissiveValue: 20
+  ColorShaderOn: {r: 0.5372549, g: 0.9176471, b: 0.9843138, a: 1}
+  ColorShaderOff: {r: 0.85098046, g: 0.43529415, b: 0.43529415, a: 1}
+--- !u!1 &5117163964586620388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4181425025574123922, guid: 7db9d75f37da8c844b128b51612ce989,
+    type: 3}
+  m_PrefabInstance: {fileID: 214846308998230922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2469283209973034007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5117163964586620388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4239c0c52bd17844a8d07695455f575f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MetalGenerator: {fileID: 941015427276077013}
+  BaseColorEteint: {fileID: 2800000, guid: 18b0107e1d736404c84d39a733e8e9cd, type: 3}
+  BaseColorAllume: {fileID: 2800000, guid: 733d0238d1bf5c24cbb7cafaf5159d70, type: 3}
+  EmissiveEteint: {fileID: 2800000, guid: 32d61063dda92274dadbd592ebe3c725, type: 3}
+  EmissiveAllume: {fileID: 2800000, guid: ef8bdd7460147cf46baace674f4f28b2, type: 3}
+  EmissivePower: 1
 --- !u!1001 &893948241556674904
 PrefabInstance:
   m_ObjectHideFlags: 0

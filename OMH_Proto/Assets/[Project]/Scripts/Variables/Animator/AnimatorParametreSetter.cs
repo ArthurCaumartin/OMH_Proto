@@ -11,7 +11,7 @@ public class AnimatorParametreSetter : MonoBehaviour
         _parametreHash = Animator.StringToHash(_parametreName);
     }
 
-    public virtual void SetParametre()
+    public virtual void SetParametre() //TODO faut delete l'heritage useless wow la dingz
     {
 
     }

@@ -14,19 +14,24 @@ public class State_Mob_Chase : IEntityState
 
     public void EnterState(StateMachine behavior)
     {
-        
+
     }
 
     public void DoState(StateMachine behavior)
     {
         StateMachine_MobBase mobMachine = behavior as StateMachine_MobBase;
+        if (!mobMachine.Target) mobMachine.SetState(mobMachine.RoamState);
 
-        if (!mobMachine.Target) mobMachine.SetState(mobMachine.SpineState   );
         _agent.SetTarget(mobMachine.Target);
+
+        if (Vector3.Distance(mobMachine.transform.position, mobMachine.Target.transform.position) <= _distanceToTriggerAttack)
+        {
+            mobMachine.SetState(mobMachine.AttackState);
+        }
     }
 
     public void ExitState(StateMachine behavior)
     {
-        
+
     }
 }

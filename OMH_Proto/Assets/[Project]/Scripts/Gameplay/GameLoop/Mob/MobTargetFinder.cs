@@ -88,7 +88,7 @@ public class MobTargetFinder : MonoBehaviour
 
     private void SetNewTarget(MobTarget toSet)
     {
-        print("Set New target : " + toSet?.name);
+        // print("Set New target : " + toSet?.name);
         //? si on a une target et que la nouvelle prio est plus grande
         if (_currentTarget && toSet.Priority > _currentTarget.Priority)
         {

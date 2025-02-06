@@ -345,7 +345,16 @@ MonoBehaviour:
     _timer: 5
     _speed: 10
   _chaseState:
-    _distanceToTriggerAttack: 0
+    _distanceToTriggerAttack: 2
+  _attackState:
+    _attackAnimationSpeed:
+      propertyType: 0
+      constantValue: 1
+      variable: {fileID: 0}
+    _attackDelais:
+      propertyType: 0
+      constantValue: 1.5
+      variable: {fileID: 0}
 --- !u!114 &3042697620327133910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,14 +997,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bb10f2b981f775d42bdaecb9979a569a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2148344306798630721}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bb10f2b981f775d42bdaecb9979a569a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4155036484312944191}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bb10f2b981f775d42bdaecb9979a569a,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5157507290693399040}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bb10f2b981f775d42bdaecb9979a569a,
         type: 3}
@@ -1038,9 +1039,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a60dc640f2d22ef46b4ee7f8d21972a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _velocityParametre: {fileID: 4155036484312944191}
-  _attackParametre: {fileID: 2148344306798630721}
-  _mobAttack: {fileID: 0}
+  _velocityParameter: Velocity
+  _attackParameter: Attack
+  _attackAnimationSpeedParameter: 
   _rigidbody: {fileID: 3534787374573192709}
 --- !u!114 &7303554290357137336
 MonoBehaviour:
@@ -1062,40 +1063,6 @@ MonoBehaviour:
   _raduis:
     propertyType: 0
     constantValue: 0.5
-    variable: {fileID: 0}
---- !u!114 &2148344306798630721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7715279692973080572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f61825d7fd546c4286ff5954389fcd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 1103261839510987717}
-  _parametreName: Attack
-  _parametreHash: 1080829965
---- !u!114 &4155036484312944191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7715279692973080572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a9fdbbe02c1e614b8ee7a11b6b5e47a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 1103261839510987717}
-  _parametreName: Velocity
-  _parametreHash: 1202631935
-  _value:
-    propertyType: 0
-    constantValue: 0
     variable: {fileID: 0}
 --- !u!114 &5157507290693399040
 MonoBehaviour:

@@ -11,6 +11,7 @@ public class StateMachine : MonoBehaviour
         if (_currentState == null)
         {
             _currentState = toSet;
+            _debugStateName = _currentState.ToString();
             _currentState.EnterState(this);
             return;
         }
@@ -18,6 +19,7 @@ public class StateMachine : MonoBehaviour
         if (toSet == _currentState) return;
         _currentState.ExitState(this);
         _currentState = toSet;
+        _debugStateName = _currentState.ToString();
         _currentState.EnterState(this);
     }
 }
