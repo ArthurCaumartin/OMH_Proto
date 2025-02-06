@@ -341,19 +341,20 @@ MonoBehaviour:
     _delay: 2
     _maxCount: 2
     _precision: 10
-  _spineState:
-    _timer: 5
-    _speed: 10
   _chaseState:
     _distanceToTriggerAttack: 2
   _attackState:
+    _distanceToTriggerAttack:
+      propertyType: 0
+      constantValue: 1.5
+      variable: {fileID: 0}
     _attackAnimationSpeed:
       propertyType: 0
-      constantValue: 1
+      constantValue: 2
       variable: {fileID: 0}
     _attackDelais:
       propertyType: 0
-      constantValue: 1.5
+      constantValue: 1
       variable: {fileID: 0}
 --- !u!114 &3042697620327133910
 MonoBehaviour:
@@ -1041,7 +1042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _velocityParameter: Velocity
   _attackParameter: Attack
-  _attackAnimationSpeedParameter: 
+  _attackAnimationSpeedParameter: AttackAnimationSpeed
   _rigidbody: {fileID: 3534787374573192709}
 --- !u!114 &7303554290357137336
 MonoBehaviour:
