@@ -17,14 +17,12 @@ public class State_Mob_Roam : IEntityState
     public void Initialize(StateMachine behavior)
     {
         _agent = behavior.GetComponent<PhysicsAgent>();
-
-        _startPos = behavior.transform.position;
-        _randomPos = GetRandomPos();
     }
 
     public void EnterState(StateMachine behavior)
     {
-
+        _startPos = behavior.transform.position;
+        _randomPos = GetRandomPos();
     }
 
     public void DoState(StateMachine behavior)
