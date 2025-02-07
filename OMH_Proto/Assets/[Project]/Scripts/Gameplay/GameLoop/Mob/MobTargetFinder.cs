@@ -17,7 +17,7 @@ public class MobTargetFinder : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<MobLife>().OnDamageTakenEvent.AddListener((damageDealer) =>
+        GetComponent<MobLife>().OnDamageTakenEvent.AddListener((damageDealer, damageType) =>
         {
             MobTarget t = damageDealer.GetComponent<MobTarget>();
             if (t)
