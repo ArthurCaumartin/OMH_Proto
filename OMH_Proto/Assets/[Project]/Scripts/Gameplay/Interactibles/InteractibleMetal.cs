@@ -9,6 +9,8 @@ public class InteractibleMetal : Interactible
     [SerializeField] private FloatVariable _metalCount;
     [SerializeField] private GameEvent _gainMetal, _onActivateMetalGenerator;
     [SerializeField] private FloatReference _timerToGetRessource;
+
+    [SerializeField] private Sprite _activatedSprite;
     
     // [SerializeField] private MeshRenderer _meshRenderer;
     // [SerializeField] private Material _material;
@@ -55,6 +57,8 @@ public class InteractibleMetal : Interactible
 
     public void ActivateGenerator()
     {
+        GetComponentInChildren<MapPin>()._tallMapPin = _activatedSprite;
+        
         _isGeneratorActivated = true;
     }
 

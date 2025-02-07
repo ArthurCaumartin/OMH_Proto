@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MapPin : MonoBehaviour
 {
-    [SerializeField] private Sprite _littleMapPin, _tallMapPin;
+    [SerializeField] public Sprite _littleMapPin, _tallMapPin;
 
     private SpriteRenderer _spriteRenderer;
     
