@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridLayout : MonoBehaviour
+public class DefensePlacement_Controller : MonoBehaviour
 {
     [SerializeField] private LayerMask _aimLayer;
     [SerializeField] private FloatReference _range;

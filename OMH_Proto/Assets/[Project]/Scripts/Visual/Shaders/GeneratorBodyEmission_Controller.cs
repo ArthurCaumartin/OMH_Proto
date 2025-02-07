@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-public class GeneratorBodyEmissionb : MonoBehaviour
+public class GeneratorBodyEmission_Controller : MonoBehaviour
 {
     // Start is called before the first frame update
 
