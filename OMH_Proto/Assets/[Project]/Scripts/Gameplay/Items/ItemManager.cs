@@ -14,7 +14,7 @@ public class ItemManager : MonoBehaviour
     [SerializeField] private ObjectUIManager _objectUIManager;
     [SerializeField] private GameEvent _gainItem;
 
-    public List<ItemScriptable> _playerItemsList = new List<ItemScriptable>();
+    public PlayerItemList _playerItemsList;
 
     private void Awake()
     {
@@ -53,7 +53,7 @@ public class ItemManager : MonoBehaviour
             itemToGain = _epicList._itemsList[randomNumber];
         }
 
-        _playerItemsList.Add(itemToGain);
+        _playerItemsList._items.Add(itemToGain);
         
         AddItem(_multplierStatsContainer, itemToGain);
         
