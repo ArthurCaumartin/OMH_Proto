@@ -46,7 +46,7 @@ public class Trap : MonoBehaviour
             MobLife t = col[i].GetComponent<MobLife>();
             if (t)
             {
-                t.TakeDamages(gameObject, _trapDamages.Value);
+                t.TakeDamages(gameObject, _trapDamages.Value, DamageType.Unassigned);
             }
             PhysicsAgent y = col[i].GetComponent<PhysicsAgent>();
             if (y)
