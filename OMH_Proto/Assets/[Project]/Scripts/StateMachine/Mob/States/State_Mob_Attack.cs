@@ -4,6 +4,7 @@ using UnityEngine;
 [Serializable]
 public class State_Mob_Attack : IEntityState
 {
+    [SerializeField] private FloatReference _distanceToTriggerAttack;
     [SerializeField] private FloatReference _attackAnimationSpeed;
     [SerializeField] private FloatReference _attackDelais;
     private MobAnimationControler _mobAnimationControler;
@@ -24,11 +25,16 @@ public class State_Mob_Attack : IEntityState
     {
         StateMachine_MobBase mobMachine = behavior as StateMachine_MobBase;
 
-        if(!mobMachine.Target) mobMachine.SetState(mobMachine.RoamState);
+        if (!mobMachine.Target)
+        {
+            mobMachine.SetState(mobMachine.RoamState);
+            return;
+        }
 
         Debug.Log("Attack DoState");
         _timeDelay += Time.deltaTime;
-        if(_timeDelay > _attackDelais.Value)
+        float _targetDistance = Vector3.Distance(mobMachine.transform.position, mobMachine.Target.position);
+        if (_timeDelay > _attackDelais.Value && _targetDistance < _distanceToTriggerAttack.Value)
         {
             Debug.Log("Attack");
             _mobAnimationControler.PlayAttackAnimation(_attackAnimationSpeed.Value);
