@@ -20,7 +20,11 @@ public class State_Mob_Chase : IEntityState
     public void DoState(StateMachine behavior)
     {
         StateMachine_MobBase mobMachine = behavior as StateMachine_MobBase;
-        if (!mobMachine.Target) mobMachine.SetState(mobMachine.RoamState);
+        if (!mobMachine.Target) 
+        {
+            mobMachine.SetState(mobMachine.RoamState);
+            return;
+        }
 
         _agent.SetTarget(mobMachine.Target);
 
