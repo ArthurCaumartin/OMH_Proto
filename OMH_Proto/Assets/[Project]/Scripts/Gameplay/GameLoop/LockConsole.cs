@@ -10,6 +10,8 @@ public class LockConsole : Interactible
     [SerializeField] private GameObject _doorGameobject, _mapPinLock;
     [SerializeField] private FloatReference _keyInfos;
     [SerializeField] private GameEvent _updateKey, _navMeshUpdate;
+    
+    [SerializeField] private Sprite _closedLockSprite;
 
     public void Awake()
     {
@@ -28,7 +30,9 @@ public class LockConsole : Interactible
         _navMeshUpdate.Raise();
         
         _keyInfos.Value --;
+
+        _mapPinLock.GetComponent<MapPin>()._tallMapPin = _closedLockSprite;
         
-        Destroy(gameObject);
+        Destroy(gameObject); 
     }
 }
