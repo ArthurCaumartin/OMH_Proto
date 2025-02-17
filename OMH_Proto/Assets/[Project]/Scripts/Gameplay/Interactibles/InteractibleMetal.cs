@@ -16,7 +16,7 @@ public class InteractibleMetal : Interactible
     private float _timer;
     public bool _isGeneratorActivated;
 
-    public override void Interact(out bool cancelIteraction)
+    public override void Interact(PlayerInteract playerInteract, out bool cancelIteraction)
     {
         cancelIteraction = _isGeneratorActivated;
     }

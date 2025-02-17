@@ -8,7 +8,7 @@ public class InteractibleKey : Interactible
     [SerializeField] private GameEvent _getKey;
     [SerializeField] private FloatVariable keyValue;
 
-    public override void Interact(out bool cancelInteraction)
+    public override void Interact(PlayerInteract playerInteract, out bool cancelInteraction)
     {
         cancelInteraction = false;
         

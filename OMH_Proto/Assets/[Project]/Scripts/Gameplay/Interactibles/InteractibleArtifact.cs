@@ -8,7 +8,7 @@ public class InteractibleArtifact : Interactible
     [SerializeField] private FloatVariable _artifactValue;
     [SerializeField] private GameEvent _getArtifact;
 
-    public override void Interact(out bool canelInteraction)
+    public override void Interact(PlayerInteract playerInteract, out bool canelInteraction)
     {
         canelInteraction = false;
         

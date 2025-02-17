@@ -24,7 +24,7 @@ public class InteractibleNest : Interactible
         _isPlayerInRangeForEncounter = false;
     }
 
-    public override void Interact(out bool cancelInteraction)
+    public override void Interact(PlayerInteract playerInteract, out bool cancelInteraction)
     {
         cancelInteraction = _syringeValue.Value <= 0;
         if(_syringeValue.Value <= 0) _notEnoughtSyringe.Raise();

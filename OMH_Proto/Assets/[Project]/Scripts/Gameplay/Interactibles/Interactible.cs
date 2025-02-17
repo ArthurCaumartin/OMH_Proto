@@ -29,7 +29,7 @@ public class Interactible : MonoBehaviour
         _outlineMaterial.SetFloat("_OutlineThickness", 1f);
     }
 
-    public virtual void Interact(out bool cancelIteraction)
+    public virtual void Interact(PlayerInteract playerInteract, out bool cancelIteraction)
     {
         cancelIteraction = false;
         print("Interact");

@@ -135,8 +135,9 @@ public class PhysicsAgent : MonoBehaviour
         return pathArray;
     }
 
-    public void SlowAgent(float strenght, float duration)
+    public void SlowAgent(float strenght, float duration, bool freezeAgent = false)
     {
+        if(freezeAgent) _rigidbody.velocity = Vector3.zero;
         _slowMultiplier -= strenght;
         StartCoroutine(ResetSpeed(strenght, duration));
     }
