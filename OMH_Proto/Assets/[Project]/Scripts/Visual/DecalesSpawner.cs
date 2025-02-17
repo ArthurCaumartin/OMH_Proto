@@ -16,22 +16,23 @@ public class DecalesSpawner : MonoBehaviour
         public FloatReference maxLifeTime;
         [Space]
         public FloatReference spawnPosOffsetMax;
-        [SerializeField] public List<Material> materialList;
     }
 
     [SerializeField] private DecalProjector _decalePrefab;
     [SerializeField] private SpawnParameter _damageParametre;
     [SerializeField] private SpawnParameter _killParametre;
+    [Space]
+    [SerializeField] public List<Texture2D> _textureList;
     private MobLife _mobLife;
 
     private void Start()
     {
         _mobLife = GetComponent<MobLife>();
-        _mobLife.OnDamageEvent.AddListener(() => SpawnDecals(_damageParametre));
-        _mobLife.OnDeathEvent.AddListener((mobLife) => SpawnDecals(_killParametre));
+        _mobLife.OnDamageTakenEvent.AddListener((damageDealer, damageType) => SpawnDecals(_damageParametre, damageType));
+        _mobLife.OnDeathEvent.AddListener((mobLife, damageType) => SpawnDecals(_killParametre, damageType));
     }
 
-    private void SpawnDecals(SpawnParameter parameter)
+    private void SpawnDecals(SpawnParameter parameter, DamageType type)
     {
         Vector3 offset = Random.insideUnitSphere * parameter.spawnPosOffsetMax.Value;
         offset.y = 0.01f;
@@ -39,7 +40,11 @@ public class DecalesSpawner : MonoBehaviour
         d.GetComponent<DecalControler>().SetLifeTime(Random.Range(parameter.minLifeTime.Value, parameter.maxLifeTime.Value));
         d.transform.localScale = Vector3.one * Random.Range(parameter.minSize.Value, parameter.maxSize.Value);
 
-        if (parameter.materialList.Count != 0)
-            d.material = parameter.materialList[Random.Range(0, parameter.materialList.Count)];
+        if (_textureList.Count != 0)
+        {
+            d.material = new Material(d.material);
+            d.material.SetTexture("_Decal", _textureList[Random.Range(0, _textureList.Count)]);
+            d.material.SetFloat("_Mix", type == DamageType.Poison ? 0 : 1);
+        }
     }
 }

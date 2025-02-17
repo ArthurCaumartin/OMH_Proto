@@ -71,7 +71,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject tempObject = Instantiate(_enemyPrefab, posToSpawnEnemy, Quaternion.identity, transform);
         
         // tempObject.BroadcastMessage("Initialize", gasTankTarget);
-        AgentTargetFinder agentTargetFinder = tempObject.GetComponentInChildren<AgentTargetFinder>();
+        MobTargetFinder agentTargetFinder = tempObject.GetComponentInChildren<MobTargetFinder>();
         agentTargetFinder.Initialize(_mobTarget);
     }
 
