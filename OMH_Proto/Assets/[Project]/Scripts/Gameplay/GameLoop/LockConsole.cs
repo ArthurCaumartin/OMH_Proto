@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.AI.Navigation;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class LockConsole : Interactible
 {
@@ -16,7 +11,7 @@ public class LockConsole : Interactible
         _doorGameobject.SetActive(false);
     }
     
-    public override void Interact(out bool canelInteraction)
+    public override void Interact(PlayerInteract playerInteract, out bool canelInteraction)
     {
         canelInteraction = false;
         
