@@ -20,8 +20,6 @@ public class PlayerInteract : MonoBehaviour
         {
             _detectionTime = 0;
             _nearestInteractible = GetNearestInteractible();
-            if (_nearestInteractible != null)
-                _nearestInteractible.GetComponent<Interactible>().OnPlayerInRange();
         }
     }
 

@@ -41,8 +41,6 @@ public class InteractibleMetal : Interactible
 
     private void Update()
     {
-        base.Update();
-        
         if (!_isGeneratorActivated) return;
 
         _timer += Time.deltaTime;
