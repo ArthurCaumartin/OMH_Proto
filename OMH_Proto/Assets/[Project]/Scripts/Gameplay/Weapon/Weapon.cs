@@ -7,9 +7,7 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private FloatVariable _playerExteralMoveSpeed;
-    [Tooltip("Multiplie PlayerMoveSpeed by indicate facotr.")]
-    [SerializeField] private FloatReference _playerMoveSpeedModifier;
+    [Tooltip("Multiplie PlayerMoveSpeed by indicate factor.")]
     [Header("Main Fire : ")]
     [SerializeField] protected Projectile _projectile;
     [SerializeField] protected StatContainer _stat;
@@ -20,20 +18,27 @@ public class Weapon : MonoBehaviour
     [SerializeField] private FloatReference _secondaryDynamicCoolDown;
     [SerializeField] protected StatContainer _secondaryStat;
     private float _attackTime;
-    private InputAction _attackInputAction;
-    private InputAction _secondaryAttackInputAction;
-    private bool _isAttacking;
-    private bool _isSecondaryAttacking;
+
+
     private WeaponVisual _weaponVisual;
     protected GameObject _parentShooter;
+    private WeaponControler _weaponControler;
 
     private void Start()
     {
         _parentShooter = GetComponentInParent<PlayerAim>().gameObject;
-        _attackInputAction = GetComponentInParent<PlayerInput>().actions.FindAction("Attack");
-        _secondaryAttackInputAction = GetComponentInParent<PlayerInput>().actions.FindAction("SecondaryAttack");
         _weaponVisual = GetComponent<WeaponVisual>();
         _secondaryDynamicCoolDown.Value = _secondaryCooldown.Value;
+    }
+
+    private void OnEnable()
+    {
+        _attackTime = 0;
+    }
+
+    public void Initialize(WeaponControler controler)
+    {
+        _weaponControler = controler;
     }
 
     public virtual void Attack()
@@ -43,45 +48,28 @@ public class Weapon : MonoBehaviour
 
     public virtual void SecondaryAttack()
     {
-        _weaponVisual.PlayVisual(Vector3.one * .8f); 
+        _weaponVisual.PlayVisual(Vector3.one * .8f);
     }
 
     private void Update()
     {
-        _isAttacking = _attackInputAction.ReadValue<float>() > .5f;
-        _isSecondaryAttacking = _secondaryAttackInputAction.ReadValue<float>() > .5f;
-
-        if (_playerExteralMoveSpeed)
-        {
-            SetPlayerMoveSpeedMult();
-        }
-
         _attackTime += Time.deltaTime;
         _secondaryDynamicCoolDown.Value += Time.deltaTime;
 
         if (_attackTime > 1 / _stat.attackPerSecond.Value)
         {
-            if (_isAttacking)
+            if (_weaponControler.IsPrimaryAttacking)
             {
                 _attackTime = 0;
                 Attack();
             }
         }
 
-        if (_isSecondaryAttacking && _secondaryDynamicCoolDown.Value > _secondaryCooldown.Value)
+        if (_weaponControler.IsSecondaryAttacking && _secondaryDynamicCoolDown.Value > _secondaryCooldown.Value)
         {
             _secondaryDynamicCoolDown.Value = 0;
             SecondaryAttack();
         }
     }
 
-    private void SetPlayerMoveSpeedMult()
-    {
-        _playerExteralMoveSpeed.Value = _attackInputAction.ReadValue<float>() > .5f ? _playerMoveSpeedModifier.Value : 1;
-    }
-
-    public bool IsPlayerShooting()
-    {
-        return _isAttacking || _isSecondaryAttacking;
-    }
 }

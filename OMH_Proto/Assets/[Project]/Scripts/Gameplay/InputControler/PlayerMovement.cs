@@ -7,7 +7,7 @@ using DG.Tweening;
 public class PlayerMovement : MonoBehaviour
 {
     public bool DEBUG = false;
-    [SerializeField] private Weapon _currentWeapon;
+    [SerializeField] private WeaponControler _weaponControler;
     [Header("Movement :")]
     [SerializeField] private FloatReference _runMoveSpeed;
     [SerializeField] private FloatReference _walkMoveSpeed;
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         if (_isDashing) return;
         _inputVector = _moveInputAction.ReadValue<Vector2>();
         _velocityTarget = new Vector3(_inputVector.x, 0, _inputVector.y)
-                         * (_currentWeapon.IsPlayerShooting() ? _walkMoveSpeed.Value : _runMoveSpeed.Value);
+                         * (_weaponControler.IsPlayerShooting() ? _walkMoveSpeed.Value : _runMoveSpeed.Value);
 
         //! reach la target c en putain d'option ?
         // _rb.velocity = Vector3.Lerp(_rb.velocity, _velocityTarget, Time.fixedDeltaTime * _acceleration.Value);
