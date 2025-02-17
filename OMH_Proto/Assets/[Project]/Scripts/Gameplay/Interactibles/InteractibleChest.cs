@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class InteractibleChest : Interactible
+public class Chest_Shader_Controller : Interactible
 {
     [Space]
     [SerializeField] private GameEvent _openChest;
