@@ -17,7 +17,7 @@ public class State_Mob_Attack : IEntityState
 
     public void EnterState(StateMachine behavior)
     {
-        Debug.Log("ENTER ATTACK STATE");
+        // Debug.Log("ENTER ATTACK STATE");
         _timeDelay = _attackDelais.Value;
     }
 
@@ -31,12 +31,12 @@ public class State_Mob_Attack : IEntityState
             return;
         }
 
-        Debug.Log("Attack DoState");
+        // Debug.Log("Attack DoState");
         _timeDelay += Time.deltaTime;
         float _targetDistance = Vector3.Distance(mobMachine.transform.position, mobMachine.Target.position);
         if (_timeDelay > _attackDelais.Value && _targetDistance < _distanceToTriggerAttack.Value)
         {
-            Debug.Log("Attack");
+            // Debug.Log("Attack");
             _mobAnimationControler.PlayAttackAnimation(_attackAnimationSpeed.Value);
             _timeDelay = 0;
         }
