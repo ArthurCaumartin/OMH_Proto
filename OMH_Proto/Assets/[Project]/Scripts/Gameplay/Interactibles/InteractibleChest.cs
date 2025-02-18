@@ -18,9 +18,4 @@ public class InteractibleChest : Interactible
         BoxCollider boxCollider = GetComponent<BoxCollider>();
         boxCollider.enabled = false;
     }
-
-    public override void Update()
-    {
-        base.Update();
-    } 
 }
