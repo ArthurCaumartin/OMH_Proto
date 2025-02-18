@@ -37,6 +37,6 @@ public class StateMachine_MobBase : StateMachine
     {
         // print("Current State : " + _currentState?.ToString());
         if (_currentState == null) return;
-        _currentState.DoState(this);
+        _currentState.UpdateState(this);
     }
 }

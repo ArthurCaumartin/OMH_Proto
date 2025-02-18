@@ -21,7 +21,7 @@ public class State_Mob_Attack : IEntityState
         _timeDelay = _attackDelais.Value;
     }
 
-    public void DoState(StateMachine behavior)
+    public void UpdateState(StateMachine behavior)
     {
         StateMachine_MobBase mobMachine = behavior as StateMachine_MobBase;
 

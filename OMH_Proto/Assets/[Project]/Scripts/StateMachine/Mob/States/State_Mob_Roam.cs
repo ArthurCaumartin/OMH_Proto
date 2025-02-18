@@ -25,7 +25,7 @@ public class State_Mob_Roam : IEntityState
         _randomPos = GetRandomPos();
     }
 
-    public void DoState(StateMachine behavior)
+    public void UpdateState(StateMachine behavior)
     {
         StateMachine_MobBase mobMachine = behavior as StateMachine_MobBase;
 
