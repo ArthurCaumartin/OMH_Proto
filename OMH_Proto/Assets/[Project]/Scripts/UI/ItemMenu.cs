@@ -16,7 +16,7 @@ public class ItemMenu : MonoBehaviour
         Time.timeScale = 0;
         _itemMenu.SetActive(true);
         
-        ItemScriptable itemToShow = _itemManager._playerItemsList[_itemManager._playerItemsList.Count - 1];
+        ItemScriptable itemToShow = _itemManager._playerItemsList._items[_itemManager._playerItemsList._items.Count - 1];
 
         _itemSprite.sprite = itemToShow._itemSprite;
         _itemName.text = itemToShow._itemName;

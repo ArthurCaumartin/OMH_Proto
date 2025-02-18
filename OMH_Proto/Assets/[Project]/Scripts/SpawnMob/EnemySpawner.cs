@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private GameObject _mapPin;
 
     private MobTarget _mobTarget;
     private List<float> timerSpawnEnemies = new List<float>();
