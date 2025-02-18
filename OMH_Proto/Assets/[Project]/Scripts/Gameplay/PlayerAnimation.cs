@@ -51,17 +51,14 @@ public class PlayerAnimation : MonoBehaviour
 
     private void IdleUpdate()
     {
-
-
+        Vector3 directionTarget = _playerAim.GetAimDirection();
+        _meshPivot.forward = Vector3.Lerp(_meshPivot.forward
+                                        , directionTarget == Vector3.zero ? _meshPivot.forward : directionTarget
+                                        , Time.deltaTime * _speed);
     }
 
     private void WalkingUpdate()
     {
-        //!AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        //!AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        //!AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        //!AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAled
-
         Vector3 directionTarget = _playerAim.GetAimDirection();
         _meshPivot.forward = Vector3.Lerp(_meshPivot.forward
                                         , directionTarget
