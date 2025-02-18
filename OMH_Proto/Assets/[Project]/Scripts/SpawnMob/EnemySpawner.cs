@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private GameObject _mapPin;
 
     private MobTarget _mobTarget;
     private List<float> timerSpawnEnemies = new List<float>();
@@ -71,7 +72,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject tempObject = Instantiate(_enemyPrefab, posToSpawnEnemy, Quaternion.identity, transform);
         
         // tempObject.BroadcastMessage("Initialize", gasTankTarget);
-        AgentTargetFinder agentTargetFinder = tempObject.GetComponentInChildren<AgentTargetFinder>();
+        MobTargetFinder agentTargetFinder = tempObject.GetComponentInChildren<MobTargetFinder>();
         agentTargetFinder.Initialize(_mobTarget);
     }
 
