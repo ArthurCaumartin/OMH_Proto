@@ -7,7 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class UpdateTextAnimation : MonoBehaviour
 {
-    [SerializeField] private int _countFPS = 30;
+    [SerializeField] private float _countFPS = 30;
     [SerializeField] private float _duration = 1;
     
     private int _valueTest;
@@ -17,6 +17,7 @@ public class UpdateTextAnimation : MonoBehaviour
 
     private void Awake()
     {
+        _valueTest = 0;
         _text = GetComponent<TextMeshProUGUI>();
     }
 
@@ -34,14 +35,37 @@ public class UpdateTextAnimation : MonoBehaviour
         yield return new WaitForSeconds(1f / _countFPS);
         int previousValue = _valueTest;
         int stepAmount;
+
+        // if (value - previousValue >= 1000)
+        // {
+        //     _countFPS = 100;
+        //     _duration = 1;
+        // }
+        // else if (value - previousValue >= 10)
+        // {
+        //     _countFPS = 10;
+        //     _duration = 10;
+        // }
+        // else
+        // {
+        //     _countFPS = value - previousValue;
+        //     _duration = 20;
+        // }
+        
+        // float tempValue = value - previousValue;
+        // if(tempValue > 1000) tempValue = 1000;
+        // float invLerpValue = Mathf.InverseLerp(1, 1000, tempValue);
+        //
+        // _countFPS = Mathf.Lerp(100, value - previousValue, invLerpValue);
+        // _duration = Mathf.Lerp(1, 10, invLerpValue);
         
         if(value - previousValue < 0)
         {
-            stepAmount = Mathf.FloorToInt((value - previousValue) / (_countFPS * _duration));
+            stepAmount = Mathf.FloorToInt((value - previousValue) / _countFPS);
         }
         else
         {
-            stepAmount = Mathf.CeilToInt((value - previousValue) / (_countFPS * _duration));
+            stepAmount = Mathf.CeilToInt((value - previousValue) / _countFPS);
         }
 
         if (previousValue < value)
@@ -56,7 +80,7 @@ public class UpdateTextAnimation : MonoBehaviour
                 
                 _text.SetText(previousValue.ToString(NumberFormat));
                 
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(0.01f * _duration);
             }
         }
         else
@@ -71,7 +95,7 @@ public class UpdateTextAnimation : MonoBehaviour
                 
                 _text.SetText(previousValue.ToString(NumberFormat));
                 
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(0.01f * _duration);
             }
         }
 
