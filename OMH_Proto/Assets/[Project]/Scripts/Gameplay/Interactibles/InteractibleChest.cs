@@ -1,21 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using DG.Tweening;
 
 public class Chest_Shader_Controller : Interactible
 {
     [Space]
-    [SerializeField] private GameEvent _openChest;
-    [SerializeField] private GameObject _closeChest;
+    [SerializeField] private ParticleSystem _openParticle;
+    [SerializeField] private GameEvent _onOpenChestEvent;
+    [SerializeField] private Transform _topPart;
     [SerializeField] private GameObject _mapPin;
-    
+
     public override void OnQTEWin()
     {
-        _openChest.Raise();
-        Destroy(_closeChest);
+        _onOpenChestEvent.Raise();
+        
+        _topPart.DOLocalRotate(new Vector3(-195, 0, 0), .7f);
+        if(_openParticle)
+        {
+            ParticleSystem p = Instantiate(_openParticle, transform);
+            Destroy(p.gameObject, p.main.duration + 1);
+        }
+
         _mapPin.SetActive(false);
-        BoxCollider boxCollider = GetComponent<BoxCollider>();
-        boxCollider.enabled = false;
+
+        Destroy(this);
+        // BoxCollider boxCollider = GetComponent<BoxCollider>();
+        // boxCollider.enabled = false;
     }
 }
