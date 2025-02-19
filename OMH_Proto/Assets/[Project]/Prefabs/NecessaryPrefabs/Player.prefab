@@ -45,7 +45,6 @@ Transform:
   - {fileID: 8778281330849690049}
   - {fileID: 1407436545226527820}
   - {fileID: 520191775792748122}
-  - {fileID: 2105884794448014093}
   - {fileID: 2204214609724170673}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -92,7 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61fa2b0ee043ca4cb53c6cf02d00f8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DEBUG: 0
   _weaponControler: {fileID: 5814535803370766827}
   _runMoveSpeed:
     propertyType: 1
@@ -105,18 +103,6 @@ MonoBehaviour:
   _acceleration:
     propertyType: 0
     constantValue: 10
-    variable: {fileID: 0}
-  _dashCooldown:
-    propertyType: 0
-    constantValue: 2
-    variable: {fileID: 0}
-  _dashLenght:
-    propertyType: 0
-    constantValue: 2.5
-    variable: {fileID: 0}
-  _dashDuration:
-    propertyType: 0
-    constantValue: 0.1
     variable: {fileID: 0}
 --- !u!114 &-6959715634536104708
 MonoBehaviour:
@@ -776,116 +762,6 @@ Transform:
   - {fileID: 5255594684100820464}
   m_Father: {fileID: 3559937780372564217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8278881932918141469
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2105884794448014093}
-  - component: {fileID: 8590342391537774277}
-  - component: {fileID: 7756979337922080230}
-  - component: {fileID: 4732380478429176974}
-  m_Layer: 17
-  m_Name: ShaderControler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2105884794448014093
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8278881932918141469}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3559937780372564217}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8590342391537774277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8278881932918141469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50aa472c8678c0c40b4426468f94a7c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DEBUG: 1
-  _startCutSize: 0.2
-  _followSpeed: 15
-  _sizeSpeed: 5
-  _wallLayer:
-    serializedVersion: 2
-    m_Bits: 32768
-  _mat: {fileID: -876546973899608171, guid: 221bdd7c451a2d14d8c0521928b42749, type: 3}
---- !u!114 &7756979337922080230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8278881932918141469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 68bdcc32833c35f43a99698ae7ad7df3, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8590342391537774277}
-        m_TargetAssemblyTypeName: ThroughWallShaderControler, Assembly-CSharp
-        m_MethodName: LockShaderOpen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &4732380478429176974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8278881932918141469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 56c9334d72eb8ee42b0c6e7a1bcd0be2, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8590342391537774277}
-        m_TargetAssemblyTypeName: ThroughWallShaderControler, Assembly-CSharp
-        m_MethodName: UnlockShader
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &1809401411086616154
 PrefabInstance:
   m_ObjectHideFlags: 0
