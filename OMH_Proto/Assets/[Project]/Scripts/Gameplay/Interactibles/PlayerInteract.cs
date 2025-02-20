@@ -25,7 +25,6 @@ public class PlayerInteract : MonoBehaviour
 
     public Interactible GetNearestInteractible()
     {
-        //TODO Add orientation thresold ???
         Collider[] col = Physics.OverlapSphere(transform.position, _detectionRange, _interactibleLayer);
         float minDist = Mathf.Infinity;
         Interactible nearest = null;

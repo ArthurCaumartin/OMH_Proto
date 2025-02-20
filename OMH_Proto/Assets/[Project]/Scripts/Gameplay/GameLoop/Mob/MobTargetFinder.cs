@@ -37,7 +37,6 @@ public class MobTargetFinder : MonoBehaviour
 
     private void Update()
     {
-        //TODO delay pour le detect
         DetectTarget();
 
         if (_currentTarget) _distanceWithTarget = Vector3.Distance(transform.position, _currentTarget.transform.position);
