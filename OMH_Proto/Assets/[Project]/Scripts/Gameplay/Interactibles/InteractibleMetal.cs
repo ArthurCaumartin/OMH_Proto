@@ -18,7 +18,7 @@ public class InteractibleMetal : Interactible
     private float _timer;
     public bool _isGeneratorActivated;
 
-    public override void Interact(out bool cancelIteraction)
+    public override void Interact(PlayerInteract playerInteract, out bool cancelIteraction)
     {
         cancelIteraction = _isGeneratorActivated;
     }
@@ -43,8 +43,6 @@ public class InteractibleMetal : Interactible
 
     private void Update()
     {
-        base.Update();
-        
         if (!_isGeneratorActivated) return;
 
         _timer += Time.deltaTime;
@@ -64,7 +62,6 @@ public class InteractibleMetal : Interactible
 
     private void GainRessource()
     {
-        //TODO faire un update dans l'update plutot qu'avec un game event
         _gainMetal.Raise();
     }
 }

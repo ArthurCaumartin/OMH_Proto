@@ -9,12 +9,12 @@ public class InteractibleNest : Interactible
 {
     [Space]
     [SerializeField] private FloatVariable _syringeValue;
-    
+
     [SerializeField] private GameEvent _destroyNest, _encounterNest, _notEnoughtSyringe;
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private float _timeMinSpawn, _timeMaxSpawn;
     [SerializeField] private int _numberOfEnemiesToSpawn;
-    
+
     public static bool _isPlayerInRangeForEncounter;
     private float _timer, _timerSpawnMob, _timeToSpawn;
 
@@ -24,10 +24,10 @@ public class InteractibleNest : Interactible
         _isPlayerInRangeForEncounter = false;
     }
 
-    public override void Interact(out bool cancelInteraction)
+    public override void Interact(PlayerInteract playerInteract, out bool cancelInteraction)
     {
         cancelInteraction = _syringeValue.Value <= 0;
-        if(_syringeValue.Value <= 0) _notEnoughtSyringe.Raise();
+        if (_syringeValue.Value <= 0) _notEnoughtSyringe.Raise();
     }
 
     public override void OnQTEWin()
@@ -37,11 +37,9 @@ public class InteractibleNest : Interactible
 
         Destroy(gameObject);
     }
-    
+
     public virtual void Update()
     {
-        base.Update();
-        
         _timerSpawnMob += Time.deltaTime;
         if (_timerSpawnMob >= _timeToSpawn)
         {
@@ -49,18 +47,17 @@ public class InteractibleNest : Interactible
             _timerSpawnMob = 0;
             SpawnEnemies();
         }
-        
+
         if (_isPlayerInRangeForEncounter) return;
-        
+
         _timer += Time.deltaTime;
         if (_timer > 0.5f)
         {
             _timer = 0;
-            _detectionTime = 0;
             VerifyPlayerInRangeForText();
         }
     }
-    
+
     private void VerifyPlayerInRangeForText()
     {
         Collider[] col = Physics.OverlapSphere(transform.position, 5);
@@ -77,9 +74,9 @@ public class InteractibleNest : Interactible
     private void SpawnEnemies()
     {
         for (int i = 0; i < _numberOfEnemiesToSpawn; i++)
-        { 
-             StateMachine_MobBase mobStateMachine = Instantiate(_enemyPrefab, transform.position, Quaternion.identity).GetComponent<StateMachine_MobBase>();
-             mobStateMachine.SetState(mobStateMachine.RoamState);
+        {
+            StateMachine_MobBase mobStateMachine = Instantiate(_enemyPrefab, transform.position, Quaternion.identity).GetComponent<StateMachine_MobBase>();
+            mobStateMachine.SetState(mobStateMachine.RoamState);
         }
     }
 }

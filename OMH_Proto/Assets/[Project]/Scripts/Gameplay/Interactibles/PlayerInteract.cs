@@ -13,21 +13,18 @@ public class PlayerInteract : MonoBehaviour
     private float _detectionTime;
     private Interactible _nearestInteractible;
 
-    private void Update() 
+    private void Update()
     {
         _detectionTime += Time.deltaTime;
         if (_detectionTime > 1 / _detectionPerSecond)
         {
             _detectionTime = 0;
             _nearestInteractible = GetNearestInteractible();
-            if(_nearestInteractible != null)
-            _nearestInteractible.GetComponent<Interactible>().OnPlayerInRange();
         }
     }
 
     public Interactible GetNearestInteractible()
     {
-        //TODO Add orientation thresold ???
         Collider[] col = Physics.OverlapSphere(transform.position, _detectionRange, _interactibleLayer);
         float minDist = Mathf.Infinity;
         Interactible nearest = null;
@@ -44,7 +41,7 @@ public class PlayerInteract : MonoBehaviour
                 nearest = inter;
             }
         }
-        if(nearest == null) _notInRangeEvent.Raise();
+        if (nearest == null) _notInRangeEvent.Raise();
         else
         {
             if (nearest is InteractibleMetal)
@@ -67,13 +64,13 @@ public class PlayerInteract : MonoBehaviour
         {
             if (_nearestInteractible.QTE.IsRuning) return;
 
-            _nearestInteractible.Interact(out bool cancelInteraction);
-            if(cancelInteraction) return;
+            _nearestInteractible.Interact(this, out bool cancelInteraction);
+            if (cancelInteraction) return;
             _qteControler.PlayQTE(_nearestInteractible.QTE);
             return;
         }
 
-        _nearestInteractible.Interact(out bool notUse);
+        _nearestInteractible.Interact(this, out bool notUse);
     }
 
     public void OnDrawGizmos()
