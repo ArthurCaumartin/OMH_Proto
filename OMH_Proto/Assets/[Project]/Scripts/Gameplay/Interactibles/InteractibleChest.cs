@@ -15,9 +15,10 @@ public class Chest_Shader_Controller : Interactible
 
     public override void OnQTEWin()
     {
-        _onOpenChestEvent.Raise();
+        // _onOpenChestEvent.Raise();
 
-        _topPart.DOLocalRotate(new Vector3(-195, 0, 0), _animationDuration);
+        _topPart.DOLocalRotate(new Vector3(-195, 0, 0), _animationDuration)
+        .OnComplete(() => _onOpenChestEvent.Raise());
         // _light.DOIntensity(_lightIntensity, _animationDuration / 2)
         // .OnComplete(() => _light.DOIntensity(0, _animationDuration / 2));
 
