@@ -5,7 +5,6 @@ using UnityEngine.AI;
 public class PhysicsAgent : MonoBehaviour
 {
     public bool DEBUG = true;
-    //TODO add un delais pour la recalculation du path
     [SerializeField] private float _reComputePathPerSecond = .5f;
     [Space]
     [SerializeField] private FloatReference _enemySpeed;
@@ -39,7 +38,7 @@ public class PhysicsAgent : MonoBehaviour
         _posToGoIfNoTarget = posToGo;
     }
 
-    public void ClearTarget() //TODO swap with SetTarget(null) ?
+    public void ClearTarget()
     {
         _currentTarget = null;
         _path = new[] { Vector3.zero };
@@ -85,7 +84,6 @@ public class PhysicsAgent : MonoBehaviour
             return GetNewPath(targetPosition);
         }
 
-        //TODO OPTI nerf le refresh en fonction du nombre de phys agent
         _reComputePathTime += Time.deltaTime;
         if (_reComputePathTime > 1 / _reComputePathPerSecond)
         {

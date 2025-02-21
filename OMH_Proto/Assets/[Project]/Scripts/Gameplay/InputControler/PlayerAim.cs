@@ -54,7 +54,6 @@ public class PlayerAim : MonoBehaviour
         Vector3 worldMouseDirection = (_mouseWorldPos - transform.position).normalized;
         worldMouseDirection.y = 0;
 
-        //TODO integrer la distance joueur / _mouseWorldPos 
         _camControler?.SetInputOffSet(worldMouseDirection);
         _aimContainer.forward = worldMouseDirection;
     }
