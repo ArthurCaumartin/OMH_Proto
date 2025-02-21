@@ -60,6 +60,12 @@ public class WeaponControler : MonoBehaviour
         SwapWeapon((int)value.Get<float>());
     }
 
+    public void AddGatling(GameObject tempObject)
+    {
+        Weapon tempWeapon = tempObject.GetComponent<Weapon>();
+        AddWeapon(tempWeapon);
+    }
+
     public void AddWeapon(Weapon weaponToAdd)
     {
         // if (!weaponToAdd || !_weaponList.Contains(weaponToAdd)) return;
