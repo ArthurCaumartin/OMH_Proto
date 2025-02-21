@@ -9,14 +9,12 @@ public class PoisonEffect : MonoBehaviour, IEffectable
     [Space]
     private float _lifeTime;
     private float _poisonEffectTime;
-    private SpriteRenderer _spriteRenderer;
     private MobLife _mobLife;
     private float _range; //! use for debug only
     private Vector3 _effectHitPos;
 
     public void Start()
     {
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _mobLife = transform.parent.GetComponent<MobLife>();
         DoDamages();
     }
@@ -45,7 +43,7 @@ public class PoisonEffect : MonoBehaviour, IEffectable
 
     public void DoDamages()
     {
-        _mobLife.TakeDamages(gameObject, _damagesPerSeconds);
+        _mobLife.TakeDamages(gameObject, _damagesPerSeconds, DamageType.Poison);
     }
 
     private void OnDrawGizmos()

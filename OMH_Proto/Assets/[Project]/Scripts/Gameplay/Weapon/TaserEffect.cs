@@ -19,7 +19,7 @@ public class TaserEffect : MonoBehaviour, IEffectable
     {
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         RefreshVisual();
-        transform.parent.GetComponent<PhysicsAgent>().SlowAgent(_slowEffectSrenght / 100, _duration);
+        transform.parent.GetComponent<PhysicsAgent>().SlowAgent(_slowEffectSrenght / 100, _duration, true);
         _mobStateMachine = transform.parent.GetComponent<StateMachine_MobBase>();
         _mobStateMachine.enabled = false;
     }

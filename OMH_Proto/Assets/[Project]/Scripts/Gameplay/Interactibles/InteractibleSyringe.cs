@@ -6,7 +6,7 @@ public class InteractibleSyringe : Interactible
     [SerializeField] private FloatVariable _syringeValue;
     [SerializeField] private GameEvent _getSyringe;
 
-    public override void Interact(out bool cancelInteraction)
+    public override void Interact(PlayerInteract playerInteract, out bool cancelInteraction)
     {
         cancelInteraction = false;
         _syringeValue.Value += 1f;

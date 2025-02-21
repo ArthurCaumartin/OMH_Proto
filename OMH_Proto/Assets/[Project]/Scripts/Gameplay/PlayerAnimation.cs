@@ -9,11 +9,10 @@ public class PlayerAnimation : MonoBehaviour
     [Space]
     [SerializeField] private AnimationState _currentAnimationState;
     [SerializeField] private Transform _meshPivot;
-    [SerializeField] private Weapon _weapon;
+    [SerializeField] private WeaponControler _weaponControler;
     [SerializeField] private float _speed = 5;
     private PlayerMovement _playerMovement;
     private PlayerAim _playerAim;
-    private Vector3 _mouseDirection;
 
 
     private void Start()
@@ -26,7 +25,6 @@ public class PlayerAnimation : MonoBehaviour
     private void Update()
     {
         _meshPivot.transform.localPosition = Vector3.zero; //! le mesh bouge tout seul /:
-        _mouseDirection = _playerAim.GetAimDirection();
 
         SetState(DefineState());
         // print("Anim State : " + _currentAnimationState);
@@ -53,17 +51,14 @@ public class PlayerAnimation : MonoBehaviour
 
     private void IdleUpdate()
     {
-
-
+        Vector3 directionTarget = _playerAim.GetAimDirection();
+        _meshPivot.forward = Vector3.Lerp(_meshPivot.forward
+                                        , directionTarget == Vector3.zero ? _meshPivot.forward : directionTarget
+                                        , Time.deltaTime * _speed);
     }
 
     private void WalkingUpdate()
     {
-        //!AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        //!AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        //!AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        //!AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAled
-
         Vector3 directionTarget = _playerAim.GetAimDirection();
         _meshPivot.forward = Vector3.Lerp(_meshPivot.forward
                                         , directionTarget
@@ -95,8 +90,8 @@ public class PlayerAnimation : MonoBehaviour
 
     private AnimationState DefineState()
     {
-        if (_weapon.IsPlayerShooting()) return AnimationState.Walking;
-        if (_playerMovement.GetMovementDirection() != Vector3.zero && !_weapon.IsPlayerShooting()) return AnimationState.Runing;
+        if (_weaponControler.IsPlayerShooting()) return AnimationState.Walking;
+        if (_playerMovement.GetMovementDirection() != Vector3.zero && !_weaponControler.IsPlayerShooting()) return AnimationState.Runing;
         return AnimationState.Idle;
     }
 

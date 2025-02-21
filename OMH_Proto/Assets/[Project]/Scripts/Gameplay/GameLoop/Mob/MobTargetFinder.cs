@@ -17,7 +17,7 @@ public class MobTargetFinder : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<MobLife>().OnDamageTakenEvent.AddListener((damageDealer) =>
+        GetComponent<MobLife>().OnDamageTakenEvent.AddListener((damageDealer, damageType) =>
         {
             MobTarget t = damageDealer.GetComponent<MobTarget>();
             if (t)
@@ -37,7 +37,6 @@ public class MobTargetFinder : MonoBehaviour
 
     private void Update()
     {
-        //TODO delay pour le detect
         DetectTarget();
 
         if (_currentTarget) _distanceWithTarget = Vector3.Distance(transform.position, _currentTarget.transform.position);
@@ -101,9 +100,9 @@ public class MobTargetFinder : MonoBehaviour
     public void OnDrawGizmos()
     {
         if (!DEBUG) return;
-        Gizmos.color = new Color(1, 0, 0, .2f);
+        Gizmos.color = new Color(1, 0, 0, .1f);
         Gizmos.DrawSphere(transform.position, _targetDetectionRange.Value);
-        Gizmos.color = new Color(0, 0, 1, .2f);
+        Gizmos.color = new Color(0, 0, 1, .05f);
         Gizmos.DrawSphere(transform.position, _maxFollowDistance.Value);
     }
 }

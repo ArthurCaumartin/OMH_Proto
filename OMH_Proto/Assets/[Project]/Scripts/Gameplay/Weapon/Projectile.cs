@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    //TODO set la durée du destroy avec la range et la speed
-    //TODO changer TazerEffect ref par un truc plus generique pour avoir plusieur effet possible ?
     [SerializeField] private GameObject _shootEffect;
     [SerializeField] private FloatReference _shootRange;
     [SerializeField] private LayerMask _effectLayer;
@@ -38,7 +36,7 @@ public class Projectile : MonoBehaviour
             MobLife enemyLife = hit.collider.gameObject.GetComponent<MobLife>();
             if (enemyLife)
             {
-                enemyLife.TakeDamages(_shooter, _damage);
+                enemyLife.TakeDamages(_shooter, _damage, DamageType.Unassigned);
                 if (_shootEffect) AddShootEffect();
             }
 
