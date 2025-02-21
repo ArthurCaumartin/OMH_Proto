@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Gun : Weapon
 {
@@ -7,8 +6,6 @@ public class Gun : Weapon
     [SerializeField] private FloatReference _bulletCount;
     [SerializeField] private FloatReference _spread;
     [SerializeField] private FloatReference _randomness;
-    [Space]
-    [SerializeField] private UnityEvent _playOnShot = new UnityEvent();
 
     public override void Attack()
     {
@@ -17,9 +14,7 @@ public class Gun : Weapon
         {
             Projectile newProj = Instantiate(_projectile, transform.position, transform.rotation);
             newProj.Initialize(_parentShooter, _stat.projectileSpeed.Value, _stat.damage.Value);
-            // if (_bulletCount.Value == 1) return;
-
-            _playOnShot.Invoke();
+            if (_bulletCount.Value == 1) return;
             
             float countTime = Mathf.InverseLerp(0, _bulletCount.Value - 1, i);
             Vector3 newOrientation = new Vector3(Mathf.Lerp(-_spread.Value, _spread.Value, countTime), 0, 1);
@@ -39,8 +34,6 @@ public class Gun : Weapon
 
     public override void SecondaryAttack()
     {
-        if (_secondaryProjectile == null) return;
-            
         base.SecondaryAttack();
         Projectile newProj = Instantiate(_secondaryProjectile, transform.position, transform.rotation);
         newProj.Initialize(_parentShooter, _secondaryStat.projectileSpeed.Value, _secondaryStat.damage.Value);

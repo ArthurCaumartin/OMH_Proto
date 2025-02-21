@@ -347,11 +347,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3862015726808877793}
-  - component: {fileID: 6455023652649088655}
+  - component: {fileID: 3072439453871916282}
   - component: {fileID: 2889685188999926782}
   - component: {fileID: 8982914279158327589}
   - component: {fileID: 8695642267393658842}
-  - component: {fileID: 3072439453871916282}
   m_Layer: 17
   m_Name: GatlingGun
   m_TagString: Untagged
@@ -376,7 +375,7 @@ Transform:
   - {fileID: 8398852853435818476}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6455023652649088655
+--- !u!114 &3072439453871916282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -385,87 +384,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4795289348232621543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9218224d5651d72429294c37f1fb3308, type: 3}
+  m_Script: {fileID: 11500000, guid: 20fab25f882370549b0c3f4d8cca263c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerExteralMoveSpeed: {fileID: 11400000, guid: 38b137607967f7841af44462cb17e7b8,
-    type: 2}
-  _playerMoveSpeedModifier:
-    propertyType: 0
-    constantValue: 0.4
-    variable: {fileID: 0}
-  _projectile: {fileID: 6403736433643166296, guid: d49a1cea79879ec4d83dfedacc23edbf,
-    type: 3}
-  _stat:
-    damage:
-      propertyType: 1
-      constantValue: 2
-      variable: {fileID: 11400000, guid: fa5f06a9935f3f848bb3f636d286f827, type: 2}
-    attackPerSecond:
-      propertyType: 1
-      constantValue: 4
-      variable: {fileID: 11400000, guid: 88ea731d2c8166540b7331810ddc7a97, type: 2}
-    range:
-      propertyType: 0
-      constantValue: 10
-      variable: {fileID: 0}
-    projectileSpeed:
-      propertyType: 0
-      constantValue: 200
-      variable: {fileID: 0}
-  _secondaryProjectile: {fileID: 0}
-  _secondaryCooldown:
-    propertyType: 0
-    constantValue: 0.1
-    variable: {fileID: 0}
-  _secondaryDynamicCoolDown:
-    propertyType: 0
-    constantValue: 0.1
-    variable: {fileID: 0}
-  _secondaryStat:
-    damage:
-      propertyType: 0
-      constantValue: 0
-      variable: {fileID: 0}
-    attackPerSecond:
-      propertyType: 0
-      constantValue: 0
-      variable: {fileID: 0}
-    range:
-      propertyType: 0
-      constantValue: 10
-      variable: {fileID: 0}
-    projectileSpeed:
-      propertyType: 0
-      constantValue: 150
-      variable: {fileID: 0}
-  _bulletCount:
-    propertyType: 0
-    constantValue: 1
-    variable: {fileID: 0}
-  _spread:
-    propertyType: 0
-    constantValue: 0.05
-    variable: {fileID: 0}
-  _randomness:
-    propertyType: 0
-    constantValue: 0.05
-    variable: {fileID: 0}
-  _playOnShot:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3072439453871916282}
-        m_TargetAssemblyTypeName: GatlingGun, Assembly-CSharp
-        m_MethodName: GatlingShot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _gatlingMunitions:
+    propertyType: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: f92b0eb48ad2a694a95c447690d6c6a3, type: 2}
+  _gatlingMunitionsText: {fileID: 2153564791326878620}
+  _gunScript: {fileID: 0}
 --- !u!114 &2889685188999926782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,7 +445,7 @@ MonoBehaviour:
   _response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6455023652649088655}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 0
@@ -530,24 +457,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3072439453871916282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4795289348232621543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20fab25f882370549b0c3f4d8cca263c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gatlingMunitions:
-    propertyType: 1
-    constantValue: 0
-    variable: {fileID: 11400000, guid: f92b0eb48ad2a694a95c447690d6c6a3, type: 2}
-  _gatlingMunitionsText: {fileID: 2153564791326878620}
-  _gunScript: {fileID: 6455023652649088655}
 --- !u!1 &5921725965963830926
 GameObject:
   m_ObjectHideFlags: 0

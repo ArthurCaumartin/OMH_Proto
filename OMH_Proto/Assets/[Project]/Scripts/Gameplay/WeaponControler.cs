@@ -70,6 +70,12 @@ public class WeaponControler : MonoBehaviour
         // print("weapon grab and select");
     }
 
+    public void RemoveWeapon(Weapon weaponToRemove)
+    {
+        _weaponList.Remove(weaponToRemove);
+        EnableWeapon(0);
+    }
+
     private void GetAllChildWeapon()
     {
         _weaponList.Clear();
@@ -78,5 +84,6 @@ public class WeaponControler : MonoBehaviour
             item.Initialize(this);
             _weaponList.Add(item);
         }
+        EnableWeapon(0);
     }
 }
