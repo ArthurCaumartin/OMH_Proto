@@ -19,12 +19,11 @@ public class Chest_Shader_Controller : Interactible
     public override void Interact(PlayerInteract playerInteract, out bool cancelIteraction)
     {
         cancelIteraction = _isOpen;
-        base.Interact(playerInteract, out cancelIteraction);
     }
 
     public override void OnQTEWin()
     {
-
+        _isOpen = true;
         _topPart.DOLocalRotate(new Vector3(-195, 0, 0), _animationDuration);
         StartCoroutine(GetLoot(_delayToGetLoot));
         // _light.DOIntensity(_lightIntensity, _animationDuration / 2)
