@@ -5,12 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Upgrade", menuName = "Upgrade Meta")]
 public class UpgradeMeta : ScriptableObject
 {
-    public string _upgradeName;
     public int _upgradeCost;
+
+    [Header("UI Data :")]
+    public string _upgradeName;
     [TextArea] public string _upgradeDescription;
     public Sprite _upgradeIcon;
     [Space]
+
+    [Header("Level Data :")]
     public int currentLevel;
+    [TextArea] public string levelScaleDescription;
     public List<FloatReference> levelValue;
 
     public float GetUpgradeValue()
