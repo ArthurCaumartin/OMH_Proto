@@ -42,10 +42,6 @@ public class PlayerMovement : Upgradable
                          * (_weaponControler.IsPlayerShooting() ? _walkMoveSpeed.Value : _runMoveSpeed.Value)
                          * _upgradeMoveSpeedMult;
 
-        //! reach la target c en putain d'option ?
-        // _rb.velocity = Vector3.Lerp(_rb.velocity, _velocityTarget, Time.fixedDeltaTime * _acceleration.Value);
-        // _rb.velocity = Vector3.SmoothDamp(_rb.velocity, _velocityTarget, ref _targetVelocitySmoothDamp, 1 / _acceleration.Value, 1000, Time.fixedDeltaTime);
-
         _rb.velocity = _velocityTarget;
     }
 
