@@ -5,22 +5,24 @@ using UnityEngine.Events;
 
 public class Shield : MonoBehaviour, IDamageable
 {
-    [SerializeField] private Material _shieldUpMaterial, _shieldDownMaterial;
-    [SerializeField] private Renderer _shieldMeshRenderer;
+    [Header("Shield Stat")]
     [SerializeField] private FloatReference _timeShieldRegen;
     [SerializeField] private FloatReference _playerInvincibiltyDuration;
     [SerializeField] private FloatVariable _playerMovementSpeed;
     [SerializeField] private FloatReference _shieldBoostMoveSpeed;
 
+    [Header("Visual")]
+    [SerializeField] private Material _shieldDownMaterial;
+    [SerializeField] private Material _shieldUpMaterial;
+    [SerializeField] private Renderer _shieldMeshRenderer;
     [SerializeField] private AnimatorBoolSetter _shieldAnim;
-
+    [Space]
     public UnityEvent _onShieldDown, _onShieldUp;
 
     private Vector3 _respawnPos;
-
-
     private bool _isShieldDown, _isInvincible;
     private float _timerRegenShield, _timerInvincibility;
+
 
     public void Awake()
     {
