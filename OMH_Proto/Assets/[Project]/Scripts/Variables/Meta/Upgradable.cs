@@ -7,6 +7,7 @@ public class Upgradable : MonoBehaviour
     protected virtual void Awake() => upgradables.Add(this);
     private void OnApplicationQuit() => upgradables.Clear();
 
+    //* This start need to be call ba child class to SetUpgrade on start of the scene
     public virtual void Start()
     {
         SetUpgradeValue();
