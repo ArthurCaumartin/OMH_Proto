@@ -6,7 +6,7 @@ public class Interactible : MonoBehaviour
     public QTE QTE { get => _qte; }
     public bool HaveQTE { get => _qte; }
 
-    protected void Start()
+    public void Start()
     {
         if (_qte)
         {
