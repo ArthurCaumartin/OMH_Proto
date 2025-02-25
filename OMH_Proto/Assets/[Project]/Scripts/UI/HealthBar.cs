@@ -9,6 +9,11 @@ public class HealthBar : MonoBehaviour
     public void SetFillAmount(float toSet, bool enableImage = true)
     {
         _canvas.gameObject.SetActive(enableImage);
-        _healthBarImage.fillAmount = toSet;
+        // _healthBarImage.fillAmount = toSet;
+        print(toSet);
+        RectTransform rt = _healthBarImage.transform as RectTransform;
+
+        rt.offsetMin = new Vector2(-toSet, rt.offsetMin.y);
+        rt.offsetMax = new Vector2(toSet, rt.offsetMax.y);
     }
 }
