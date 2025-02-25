@@ -16,16 +16,8 @@ public class PlayerMovement : Upgradable
     private Vector3 _velocityTarget;
     public float _upgradeMoveSpeedMult = 1;
 
-    public override void Start()
+    private void Start()
     {
-        base.Start();
-        if (!GetComponent<PlayerInput>() || !GetComponent<PlayerInput>().actions)
-        {
-            print("NOT PLAYER INPUT ON PLAYER OBJECT");
-            enabled = false;
-            return;
-        }
-
         _moveInputAction = GetComponent<PlayerInput>().actions.FindAction("GroundMove");
         _rb = GetComponent<Rigidbody>();
     }
