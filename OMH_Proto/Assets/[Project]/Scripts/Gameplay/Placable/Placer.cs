@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Placer : MonoBehaviour
@@ -17,6 +18,8 @@ public class Placer : MonoBehaviour
     private Placable _gostPlacable;
     private Camera _mainCamera;
     private PlacerRail _railUnderMouse;
+    private UnityEvent<GameObject> _onPlacePrefab = new UnityEvent<GameObject>();
+    public UnityEvent<GameObject> OnPlacePrefab { get => _onPlacePrefab; }
 
     private void Start()
     {
@@ -50,7 +53,7 @@ public class Placer : MonoBehaviour
 
     private void UnSelect()
     {
-        if(!_gostPlacable) return;
+        if (!_gostPlacable) return;
         Destroy(_gostPlacable.gameObject);
         _gostPlacable = null;
         _onPlacableSelect.Raise(true);
@@ -71,16 +74,17 @@ public class Placer : MonoBehaviour
 
     private void InstantiatePlaceblePrefab()
     {
-
+        GameObject newPrefab;
         if (_gostPlacable.placeOnCorridorRail && _railUnderMouse)
         {
-            Instantiate(_gostPlacable.PrefabToPlace //! l'enchainement de converstion (dsl le moi du future)
+            newPrefab = Instantiate(_gostPlacable.PrefabToPlace //! l'enchainement de converstion (dsl le moi du future)
                         , _railUnderMouse.GetNearestPosition(MouseAimPosition(_gostPlacable.transform.position))
                         , _gostPlacable.transform.rotation);
             return;
         }
 
-        Instantiate(_gostPlacable.PrefabToPlace, WorldToCellConvert(MouseAimPosition(_gostPlacable.transform.position)), _gostPlacable.transform.rotation);
+        newPrefab = Instantiate(_gostPlacable.PrefabToPlace, WorldToCellConvert(MouseAimPosition(_gostPlacable.transform.position)), _gostPlacable.transform.rotation);
+        _onPlacePrefab.Invoke(newPrefab);
     }
 
     private void Update()
