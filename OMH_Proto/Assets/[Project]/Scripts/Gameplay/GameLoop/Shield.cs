@@ -36,6 +36,7 @@ public class Shield : Upgradable, IDamageable
     private void Start()
     {
         _respawnPos = transform.position;
+        _stunCooldownTime = _stunCooldown.Value;
     }
 
     private void Update()
