@@ -62,7 +62,6 @@ public class TurretGatling : TurretCannon
         float fullShootSpeedMultiplier = Mathf.Lerp(_attackSpeedAtMinCharge, _attackSpeedAtMaxCharge, Mathf.InverseLerp(0, _bulletsMaxCharge, _bulletCounter));
 
         _shootTime += Time.deltaTime;
-        // print( 1 / (_stat.attackPerSecond.Value * (_attackSpeedMultiplier * fullShootSpeedMultiplier)));
         if (_shootTime > 1 / (_stat.attackPerSecond.Value * (_attackSpeedMultiplier * fullShootSpeedMultiplier)))
         {
             _shootTime = 0;
