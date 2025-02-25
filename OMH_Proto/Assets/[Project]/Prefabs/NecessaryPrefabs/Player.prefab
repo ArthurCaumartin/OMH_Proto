@@ -349,6 +349,7 @@ GameObject:
   - component: {fileID: 189696282705253643}
   - component: {fileID: 2616250935684777752}
   - component: {fileID: 1412340254095580087}
+  - component: {fileID: 9098403937901913363}
   m_Layer: 16
   m_Name: Defense Area Effect
   m_TagString: Untagged
@@ -385,7 +386,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DEBUG: 0
   _raduis: 5
-  _defensesTag: Defense
+  _defensesTag: Defenses
+  OnDefenseAdd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDefenseRemove:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!135 &1412340254095580087
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -401,12 +408,26 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9098403937901913363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2684623747496799196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504b2b2c20b6d174da9f1775d693a476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healPerSecondUpgrade: {fileID: 0}
+  _healPerSecond: 11.3
 --- !u!1 &2684624460115422364
 GameObject:
   m_ObjectHideFlags: 0
