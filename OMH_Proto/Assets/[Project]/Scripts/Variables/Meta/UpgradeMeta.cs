@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Upgrade", menuName = "Upgrade Meta")]
@@ -22,6 +23,10 @@ public class UpgradeMeta : ScriptableObject
     {
         if (currentLevel > levelValue.Count - 1)
             return levelValue[levelValue.Count - 1].Value;
+
+        if (currentLevel < 0)
+            return levelValue[0].Value;
+
         return levelValue[currentLevel].Value;
     }
 
