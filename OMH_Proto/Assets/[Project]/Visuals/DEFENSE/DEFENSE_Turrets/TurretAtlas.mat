@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3010894311839055632
+--- !u!114 &-3244619076259099812
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: armordamage
-  m_Shader: {fileID: -6465566751694194690, guid: 71d909f7d7c6b9e47b87891e01e40951,
+  m_Name: TurretAtlas
+  m_Shader: {fileID: -6465566751694194690, guid: 6a7d4bdf55adda14dbb81f526f905a5d,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -42,10 +42,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _CalcAdditionalDiffuse_0d0da2c9847441fc8fc9a4d1c80b83ee_NormalMap_3516721052_Texture2D:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -81,28 +77,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_3082f5695bd84fa5adac3fde17c8d08b_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 81c6eea57befa7b4596894f533e3ba3c, type: 3}
+    - _SampleTexture2D_c1d83e05c0f74079b2822eeb82b23bc9_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 6e562885e145bf1489bacfadfc9fbe59, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_570c4652757247549fde1ba9c33265e0_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 56027f278f41d584a97c0810510ccdad, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_68e1c0e4d1e8413b89ff7f5650eaa84a_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 4440cf8cbbcc2924595423099fe67b63, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_a97b8f5bc35e4eac9f1af32e020b24bc_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: f556338f359a0344a91dec7d238a9396, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_c74512f301bf4774bf1f57921fbb4122_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 205d07c196cb00f4c9146bef71cfff4b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_e1bc41271480415caf3c7c1b54765b67_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 56027f278f41d584a97c0810510ccdad, type: 3}
+    - _SampleTexture2D_ce856979357940839b2bf1e5b9d42f2e_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 03d3730352178fa45a4411e14d6e9626, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -128,7 +108,6 @@ Material:
     - _AmbientStrength: 0.25
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _BlinkingSpeed: 3
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -148,8 +127,6 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _PuissanceEmission: 10
-    - _PuissanceEmissionJaune: 5
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -161,15 +138,12 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _isShieldDown: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffuseColor: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlashingColor: {r: 0.9803922, g: 0.7294118, b: 0.050980397, a: 0}
     - _FresnelColor: {r: 0.7254902, g: 0.7254902, b: 0.7254902, a: 0}
-    - _RedFlash: {r: 1, g: 0.80729437, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 0}
   m_BuildTextureStacks: []
