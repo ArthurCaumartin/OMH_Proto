@@ -1,8 +1,9 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
-
+[CanEditMultipleObjects]
 public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private FloatReference _maxHealth;
@@ -16,7 +17,7 @@ public class Health : MonoBehaviour, IDamageable
     {
         _currentHealth.Value = _maxHealth.Value;
         _healthBar = GetComponentInChildren<HealthBar>();
-        _healthBar?.SetFillAmount(1, false);
+        _healthBar?.SetFillAmount(Mathf.InverseLerp(0, _maxHealth.Value, _currentHealth.Value), _currentHealth.Value != _maxHealth.Value);
     }
 
     public void TakeDamages(GameObject damageDealer, float damageAmount, DamageType type = DamageType.Unassigned)
@@ -25,5 +26,12 @@ public class Health : MonoBehaviour, IDamageable
         _currentHealth.Value -= damageAmount;
         _healthBar?.SetFillAmount(Mathf.InverseLerp(0, _maxHealth.Value, _currentHealth.Value));
         if (_currentHealth.Value <= 0) Destroy(gameObject);
+    }
+
+    public void Heal(GameObject healer, float healAmount)
+    {
+        _currentHealth.Value += healAmount;
+        _currentHealth.Value = Mathf.Clamp(_currentHealth.Value, -1000, _maxHealth.Value);
+        _healthBar?.SetFillAmount(Mathf.InverseLerp(0, _maxHealth.Value, _currentHealth.Value));
     }
 }

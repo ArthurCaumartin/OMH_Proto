@@ -133,9 +133,9 @@ public class PhysicsAgent : MonoBehaviour
         return pathArray;
     }
 
-    public void SlowAgent(float strenght, float duration, bool freezeAgent = false)
+    public void SlowAgent(float strenght, float duration, bool freezeAgentOnSlow = false)
     {
-        if(freezeAgent) _rigidbody.velocity = Vector3.zero;
+        if(freezeAgentOnSlow) _rigidbody.velocity = Vector3.zero;
         _slowMultiplier -= strenght;
         StartCoroutine(ResetSpeed(strenght, duration));
     }
@@ -158,10 +158,5 @@ public class PhysicsAgent : MonoBehaviour
         {
             Debug.DrawLine(_path[i], _path[i + 1], Color.red);
         }
-    }
-
-    public void SetRigidbodyMass(float value)
-    {
-        _rigidbody.mass = value;
     }
 }

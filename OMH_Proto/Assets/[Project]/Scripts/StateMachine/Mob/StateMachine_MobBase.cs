@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class StateMachine_MobBase : StateMachine
@@ -16,10 +17,14 @@ public class StateMachine_MobBase : StateMachine
     public State_Mob_Attack AttackState { get => _attackState; }
     public State_Mob_Patrol PatrolState { get => _patrolState; }
 
+    private bool _isOn = true;
+    private PhysicsAgent _agent;
+
     private void Start()
     {
         // print("MobBase Start : Sub to targer Event");
         _targetFinder = GetComponent<MobTargetFinder>();
+        _agent = GetComponent<PhysicsAgent>();
 
         // print("MobBase Start : Initialize State");
         _roamState.Initialize(this);
@@ -32,6 +37,7 @@ public class StateMachine_MobBase : StateMachine
 
     private void Update()
     {
+        if (!_isOn) return;
         _target = _targetFinder.Target;
         PlayCurrentState();
     }
@@ -41,5 +47,19 @@ public class StateMachine_MobBase : StateMachine
         // print("Current State : " + _currentState?.ToString());
         if (_currentState == null) return;
         _currentState.UpdateState(this);
+    }
+
+    public void StunMob(float duration)
+    {
+        print("Mob Stun");
+        _isOn = false;
+        _agent.SlowAgent(1, duration, true);
+        StartCoroutine(ResetIsOn(duration));
+    }
+
+    private IEnumerator ResetIsOn(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        _isOn = true;
     }
 }

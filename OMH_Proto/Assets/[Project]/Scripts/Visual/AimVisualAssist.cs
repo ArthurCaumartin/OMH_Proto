@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class AimVisualAssist : MonoBehaviour
 {
     [SerializeField] private float _lenght = 5;
@@ -13,26 +14,14 @@ public class AimVisualAssist : MonoBehaviour
 
     private void Update()
     {
-        //! fonctione pas comme je voudrait je sais pas pourquoi... aled :/
-
-        if (!_line) Start();
-
-        Vector3[] posArray = new Vector3[_pointCount];
-
-        Vector3 startPoint = transform.position;
-        Vector3 endPoint = transform.position + (transform.forward * _lenght);
-
-        // print(transform.forward);
-        // Debug.DrawLine(startPoint, endPoint, Color.red);
-        Debug.DrawRay(transform.position, transform.forward * _lenght, Color.red);
-
+        Vector3[] pointsArray = new Vector3[_pointCount];
         for (int i = 0; i < _pointCount; i++)
         {
-            posArray[i] = Vector3.Lerp(startPoint, endPoint, Mathf.InverseLerp(0, _pointCount, i));
+            float loopTime = Mathf.InverseLerp(1, _pointCount, i + 1);
+            pointsArray[i] = Vector3.Lerp(Vector3.zero, Vector3.forward * _lenght, loopTime);
         }
 
-        // print(Vector3.Distance(posArray[0], posArray[posArray.Length - 1]));
-
-        _line.SetPositions(posArray);
+        _line.positionCount = _pointCount;
+        _line.SetPositions(pointsArray);
     }
 }
