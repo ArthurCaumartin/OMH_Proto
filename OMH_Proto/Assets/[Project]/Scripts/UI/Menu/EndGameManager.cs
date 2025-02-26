@@ -8,7 +8,8 @@ public class EndGameManager : MonoBehaviour
     [SerializeField] private FloatReference _syphonHealth, _pcen, _scrapMetal;
     [SerializeField] private FloatReference _gameTime, _defenseDuration, explorationDuration;
     [Space] [SerializeField] private PlayerItemList _playerItemList;
-    [Space] [SerializeField] private TextMeshProUGUI _titleText;
+    [SerializeField] private ObjectUIManager _objectUIManager;
+    [Space] [SerializeField] private TextMeshProUGUI _titleText, _lostHpText;
     [SerializeField] private GameObject _pcenFromTime, _pcenFromMetal, _pcenLost, _pcenText;
 
     [Space]
@@ -16,11 +17,17 @@ public class EndGameManager : MonoBehaviour
     [SerializeField, Tooltip("pcen lost each hp lost")] private float _costEachHealthLost = 2;
     [SerializeField, Tooltip("pcen gain each defend second")] private float _valueEachSecond = 10;
     [SerializeField, Tooltip("NumberMetals / x pcen to gain")] private float _valueDivisionMetal = 10;
-
-
+    
     void Start()
     {
-        _pcenText.GetComponent<TextMeshProUGUI>().text = _pcen.Value.ToString();
+        // _pcenText.GetComponent<TextMeshProUGUI>().text = _pcen.Value.ToString();
+        for (int i = 0; i < _playerItemList._items.Count; i++)
+        {
+            ItemScriptable tempItem = _playerItemList._items[i];
+            _objectUIManager.AddObjectUI(tempItem._itemName, tempItem._itemDescription, tempItem._itemSprite);
+        }
+
+        _lostHpText.text = 20 - _syphonHealth.Value + " HP Lost :";
         
         if (_syphonHealth.Value <= 0)
         {
@@ -35,6 +42,7 @@ public class EndGameManager : MonoBehaviour
     public void LostGame()
     {
         _titleText.text = "You lost !";
+        
 
         float defenseTimeBeforeLost = _defenseDuration.Value - (_gameTime.Value - explorationDuration.Value);
         int pcenGainFromTime = Mathf.RoundToInt(defenseTimeBeforeLost * _valueEachSecond);
@@ -53,12 +61,7 @@ public class EndGameManager : MonoBehaviour
 
     private void SetupValues(int pcenTime)
     {
-        int pcenGainFromMetal = Mathf.RoundToInt(_scrapMetal.Value / _valueDivisionMetal);
-        int pcenLostFromSyphonHealth = (int)((20 - _syphonHealth.Value) * _costEachHealthLost);
-        ChangeText(_pcenFromTime, pcenTime);
-        ChangeText(_pcenFromMetal, pcenGainFromMetal);
-        ChangeText(_pcenLost, pcenLostFromSyphonHealth);
-        StartCoroutine(AddPcen(pcenTime, pcenGainFromMetal, pcenLostFromSyphonHealth));
+        StartCoroutine(AddPcen(pcenTime));
     }
 
     private void ChangeText(GameObject textObject, int value)
@@ -66,13 +69,35 @@ public class EndGameManager : MonoBehaviour
         textObject.GetComponent<UpdateTextAnimation>().ChangeTextAnimation(value);
     }
 
-    private IEnumerator AddPcen(int pcenTime, int pcenMetal, int pcenLost)
+    private IEnumerator AddPcen(int pcenTime)
     {
-        int pcenGainFromTime = pcenTime + pcenMetal + pcenLost;
+        int pcenGainFromMetal = Mathf.RoundToInt(_scrapMetal.Value / _valueDivisionMetal);
+        int pcenLostFromSyphonHealth = (int)((20 - _syphonHealth.Value) * _costEachHealthLost);
+        
         yield return new WaitForSeconds(2);
-        ChangeText(_pcenText, pcenGainFromTime);
+        
+        ChangeText(_pcenFromTime, pcenTime);
+        yield return new WaitForSeconds(2);
+        
+        ChangeText(_pcenFromMetal, pcenGainFromMetal);
+
+        if (pcenLostFromSyphonHealth != 0)
+        {
+            yield return new WaitForSeconds(2);
+            ChangeText(_pcenLost, pcenLostFromSyphonHealth);
+        }
+        
+        yield return new WaitForSeconds(2);
+        
         ChangeText(_pcenFromTime, 0);
+        ChangeText(_pcenText, pcenTime);
+        yield return new WaitForSeconds(2);
+        
         ChangeText(_pcenFromMetal, 0);
+        ChangeText(_pcenText, pcenGainFromMetal + pcenTime);
+        yield return new WaitForSeconds(2);
+        
+        ChangeText(_pcenText, pcenTime + pcenGainFromMetal - pcenLostFromSyphonHealth);
         ChangeText(_pcenLost, 0);
     }
 }

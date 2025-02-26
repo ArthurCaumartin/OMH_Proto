@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class MapMouseOver : MonoBehaviour
+public class MapFogOfWar : MonoBehaviour
 {
     [SerializeField] private Camera _mapCamera;
     [SerializeField] private LayerMask _layerMask;

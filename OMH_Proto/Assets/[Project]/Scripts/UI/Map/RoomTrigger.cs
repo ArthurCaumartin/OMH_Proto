@@ -19,7 +19,7 @@ public class RoomTrigger : MonoBehaviour
     {
         if (_isObjRoom)
         {
-            room.GetComponent<MapMouseOver>().TracePixelRoom(transform, _radius);
+            room.GetComponent<MapFogOfWar>().TracePixelRoom(transform, _radius);
             Destroy(this);
         }
     }
@@ -29,7 +29,7 @@ public class RoomTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             print(_centerRoom);
-            room.GetComponent<MapMouseOver>().TracePixelRoom(_centerRoom.transform, _radius);
+            room.GetComponent<MapFogOfWar>().TracePixelRoom(_centerRoom.transform, _radius);
         }
     }
 
