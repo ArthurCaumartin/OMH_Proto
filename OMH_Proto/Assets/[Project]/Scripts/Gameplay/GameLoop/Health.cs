@@ -31,6 +31,7 @@ public class Health : MonoBehaviour, IDamageable
     public void Heal(GameObject healer, float healAmount)
     {
         _currentHealth.Value += healAmount;
+        _currentHealth.Value = Mathf.Clamp(_currentHealth.Value, -1000, _maxHealth.Value);
         _healthBar?.SetFillAmount(Mathf.InverseLerp(0, _maxHealth.Value, _currentHealth.Value));
     }
 }
