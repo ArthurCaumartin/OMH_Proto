@@ -21,6 +21,7 @@ public class State_Mob_Roam : IEntityState
 
     public void EnterState(StateMachine behavior)
     {
+        _agent.ClearTarget();
         _startPos = behavior.transform.position;
         _randomPos = GetRandomPos();
     }
