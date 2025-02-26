@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
             MobLife enemyLife = hit.collider.gameObject.GetComponent<MobLife>();
             if (enemyLife)
             {
-                enemyLife.TakeDamages(_shooter, _damage, DamageType.Unassigned);
+                enemyLife?.TakeDamages(_shooter, _damage, DamageType.Unassigned);
                 if (_shootEffect) AddShootEffect();
             }
 

@@ -14,20 +14,27 @@ public class MobTargetFinder : MonoBehaviour
     private float _targetDetectionTime;
     public Transform Target { get => _currentTarget ? _currentTarget.transform : null; }
     private bool _canDropAgro = true;
+    // TODO faire un timer pour reset la perte d'agro
+    // TODO change de target si la nouvelle target par dgt est plus proche ?
+    // TODO la prio est prise en compte dans tout les cas
 
     private void Start()
     {
-        GetComponent<MobLife>().OnDamageTakenEvent.AddListener((damageDealer, damageType) =>
-        {
-            MobTarget t = damageDealer.GetComponent<MobTarget>();
-            if (t)
-            {
-                _canDropAgro = false;
-                SetNewTarget(t);
-            }
-        });
-
+        GetComponent<MobLife>().OnDamageTakenEvent.AddListener(OnDamageTaken);
         if (_ifLostTarget) SetNewTarget(_ifLostTarget);
+    }
+
+    private void OnDamageTaken(GameObject damageDealer, DamageType damageType)
+    {
+        MobTarget t = damageDealer.GetComponent<MobTarget>();
+        if (!t) return;
+
+        float distWithDealer = Vector3.Distance(transform.position, damageDealer.transform.position);
+        if (_currentTarget && (_currentTarget && distWithDealer < _distanceWithTarget))
+        {
+            _canDropAgro = false;
+            SetNewTarget(t);
+        }
     }
 
     public void Initialize(MobTarget ifLostTarget)
@@ -38,7 +45,7 @@ public class MobTargetFinder : MonoBehaviour
     private void Update()
     {
         //TODO delay pour le detect
-        DetectTarget();
+        DetectNearestTarget();
 
         if (_currentTarget) _distanceWithTarget = Vector3.Distance(transform.position, _currentTarget.transform.position);
         if (_distanceWithTarget < _maxFollowDistance.Value) _canDropAgro = true;
@@ -50,7 +57,7 @@ public class MobTargetFinder : MonoBehaviour
         }
     }
 
-    private void DetectTarget()
+    private void DetectNearestTarget()
     {
         _targetDetectionTime += Time.deltaTime;
         if (_targetDetectionTime < 1 / _targetDetectionPerSecond) return;
