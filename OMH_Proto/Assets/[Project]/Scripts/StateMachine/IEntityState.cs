@@ -4,7 +4,7 @@ public interface IEntityState
 
     public void EnterState(StateMachine behavior);
 
-    public void UpdateState(StateMachine behavior);
+    public void DoState(StateMachine behavior);
 
     public void ExitState(StateMachine behavior);
 }

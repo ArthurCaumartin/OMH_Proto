@@ -19,21 +19,21 @@ public class Interactible : MonoBehaviour
     public virtual void Interact(PlayerInteract playerInteract, out bool cancelIteraction)
     {
         cancelIteraction = false;
-        // print("Interact");
+        print("Interact");
     }
 
     public virtual void OnQTEInput(bool isInputValide)
     {
-        // print("INTERACTIBLE : QTE input : " + isInputValide);
+        print("INTERACTIBLE : QTE input : " + isInputValide);
     }
 
     public virtual void OnQTEWin()
     {
-        // print("INTERACTIBLE : QTE win !");
+        print("INTERACTIBLE : QTE win !");
     }
 
     public virtual void OnQTEKill()
     {
-        // print("INTERACTIBLE : QTE kill !");
+        print("INTERACTIBLE : QTE kill !");
     }
 }

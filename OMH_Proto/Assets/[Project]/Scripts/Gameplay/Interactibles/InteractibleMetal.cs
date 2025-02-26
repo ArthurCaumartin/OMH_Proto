@@ -62,6 +62,7 @@ public class InteractibleMetal : Interactible
 
     private void GainRessource()
     {
+        //TODO faire un update dans l'update plutot qu'avec un game event
         _gainMetal.Raise();
     }
 }

@@ -5,7 +5,6 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class State_Mob_Roam : IEntityState
 {
-    [SerializeField, Range(0, 1)] private float _chanceToTriggerPatrol = 1;
     [SerializeField] private float _delay = 5;
     [SerializeField] private float _maxCount = 5;
     [SerializeField] private float _precision = 3;
@@ -26,7 +25,7 @@ public class State_Mob_Roam : IEntityState
         _randomPos = GetRandomPos();
     }
 
-    public void UpdateState(StateMachine behavior)
+    public void DoState(StateMachine behavior)
     {
         StateMachine_MobBase mobMachine = behavior as StateMachine_MobBase;
 
@@ -43,11 +42,6 @@ public class State_Mob_Roam : IEntityState
             _randomPos = GetRandomPos();
             _agent.SetTarget(_randomPos);
             _count++;
-
-            if (Random.value <= _chanceToTriggerPatrol)
-            {
-                ((StateMachine_MobBase)behavior).SetState(((StateMachine_MobBase)behavior).PatrolState);
-            }
         }
 
         if (_count > _maxCount)
