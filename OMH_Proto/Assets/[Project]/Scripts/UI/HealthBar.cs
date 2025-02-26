@@ -8,6 +8,12 @@ public class HealthBar : MonoBehaviour
 
     public void SetFillAmount(float toSet, bool enableImage = true)
     {
+        if (toSet > .99)
+        {
+            _canvas.gameObject.SetActive(false);
+            return;
+        }
+        
         _canvas.gameObject.SetActive(enableImage);
         // _healthBarImage.fillAmount = toSet;
         print(toSet);

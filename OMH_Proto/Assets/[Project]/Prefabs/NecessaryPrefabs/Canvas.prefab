@@ -10163,7 +10163,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _littleMap: {fileID: 3312820649896727023}
   _tallMap: {fileID: 8493798701920945209}
-  _switchMapEvent: {fileID: 11400000, guid: 47d1b7ff339c1d147b0ac911d7fedb46, type: 2}
+  _switchTallMapEvent: {fileID: 11400000, guid: 47d1b7ff339c1d147b0ac911d7fedb46,
+    type: 2}
+  _switchLittleMapEvent: {fileID: 11400000, guid: 31dd53a5ed548164a9f3f9dc652f1e7d,
+    type: 2}
 --- !u!1 &6760520966741863491
 GameObject:
   m_ObjectHideFlags: 0
@@ -10969,6 +10972,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8777727615618910054}
   - component: {fileID: 8600086760506929667}
+  - component: {fileID: 2423430589586581165}
   m_Layer: 5
   m_Name: WinMenu
   m_TagString: Untagged
@@ -11012,18 +11016,31 @@ MonoBehaviour:
   _response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1344088782353612197}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2423430589586581165}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2423430589586581165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7638567477180013819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e660cec5676e443a75501809cf0cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneToLoadName: EndGame
 --- !u!1 &7773958482271624312
 GameObject:
   m_ObjectHideFlags: 0
@@ -11115,7 +11132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4632218789563735961
 RectTransform:
   m_ObjectHideFlags: 0

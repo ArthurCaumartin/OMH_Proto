@@ -39,9 +39,8 @@ public class QTEControler : MonoBehaviour
     {
         EnableControler(true);
 
-        _currentQTE.OnWin.RemoveListener(OnQTEFinish);
-        _currentQTE.OnKill.RemoveListener(OnQTEFinish);
-        _currentQTE.KillQTE();
+        _currentQTE?.OnWin.RemoveListener(OnQTEFinish);
+        _currentQTE?.OnKill.RemoveListener(OnQTEFinish);
 
         _currentQTE = null;
 

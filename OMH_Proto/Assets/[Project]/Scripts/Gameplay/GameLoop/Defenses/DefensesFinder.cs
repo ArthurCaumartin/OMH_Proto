@@ -22,7 +22,7 @@ public class DefensesFinder : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        print("Trigger with : " + other.name);
+        // print("Trigger with : " + other.name);
         if (other.tag == _defensesTag)
             AddDefense(other.gameObject);
     }
@@ -40,7 +40,6 @@ public class DefensesFinder : MonoBehaviour
             _defenseList.Add(objToAdd);
             OnDefenseAdd.Invoke(objToAdd);
         }
-        
     }
 
     private void RemoveDefense(GameObject objToAdd)
