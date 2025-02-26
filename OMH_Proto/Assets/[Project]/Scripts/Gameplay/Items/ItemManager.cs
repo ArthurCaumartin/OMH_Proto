@@ -26,6 +26,8 @@ public class ItemManager : MonoBehaviour
         _baseStatsContainer.trapDamages.Value = _refsStatsContainer.trapDamages.Value;
         _baseStatsContainer.trapEffectDuration.Value = _refsStatsContainer.trapEffectDuration.Value;
         _baseStatsContainer.trapEffectStrenght.Value = _refsStatsContainer.trapEffectStrenght.Value;
+        
+        _playerItemsList._items.Clear();
     }
 
     public void GainItem()

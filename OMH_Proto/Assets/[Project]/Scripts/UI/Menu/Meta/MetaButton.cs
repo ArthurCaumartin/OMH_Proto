@@ -22,7 +22,7 @@ public class MetaButton : MonoBehaviour
     public void Initialize(buttonInfos buttonInfos)
     {
         _infos = buttonInfos;
-        _buttonText.text = _infos._text;
+        // _buttonText.text = _infos._text;
         if(_infos._icon != null) _buttonSprite.sprite = _infos._icon;
     }
     

@@ -60,6 +60,12 @@ public class WeaponControler : MonoBehaviour
         SwapWeapon((int)value.Get<float>());
     }
 
+    public void AddGatling(GameObject tempObject)
+    {
+        Weapon tempWeapon = tempObject.GetComponent<Weapon>();
+        AddWeapon(tempWeapon);
+    }
+
     public void AddWeapon(Weapon weaponToAdd)
     {
         // if (!weaponToAdd || !_weaponList.Contains(weaponToAdd)) return;
@@ -70,6 +76,12 @@ public class WeaponControler : MonoBehaviour
         // print("weapon grab and select");
     }
 
+    public void RemoveWeapon(Weapon weaponToRemove)
+    {
+        _weaponList.Remove(weaponToRemove);
+        EnableWeapon(0);
+    }
+
     private void GetAllChildWeapon()
     {
         _weaponList.Clear();
@@ -78,5 +90,6 @@ public class WeaponControler : MonoBehaviour
             item.Initialize(this);
             _weaponList.Add(item);
         }
+        EnableWeapon(0);
     }
 }
