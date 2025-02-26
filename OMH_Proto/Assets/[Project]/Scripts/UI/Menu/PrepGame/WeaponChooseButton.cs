@@ -37,7 +37,7 @@ public class WeaponChooseButton : MonoBehaviour
         _button.interactable = false;
         _lockObject.SetActive(true);
         _weaponMeta = weaponMeta;
-        _text.text = _weaponMeta._weaponName;
+        // _text.text = _weaponMeta._weaponName;
     }
     
     public void Click()
