@@ -19,7 +19,7 @@ public class TurretCannon : MonoBehaviour
     public virtual void Shoot()
     {
         Projectile newProjectile = Instantiate(_projectilePrefab, transform.position, Quaternion.LookRotation(transform.forward, Vector3.up));
-        newProjectile.Initialize(transform.parent.gameObject, _stat.projectileSpeed.Value, _stat.damage.Value);
+        newProjectile.Initialize(transform.parent.gameObject, _stat.projectileSpeed.Value, _stat.damage.Value * _damagesMultiplier);
     }
 
     public virtual void Update()
@@ -44,7 +44,7 @@ public class TurretCannon : MonoBehaviour
     protected virtual void ComputeShootTime()
     {
         _shootTime += Time.deltaTime;
-        if (_shootTime > 1 / _stat.attackPerSecond.Value)
+        if (_shootTime > 1 / (_stat.attackPerSecond.Value * _attackSpeedMultiplier))
         {
             _shootTime = 0;
             Shoot();

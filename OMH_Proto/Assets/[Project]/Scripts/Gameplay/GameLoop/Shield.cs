@@ -1,34 +1,47 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 
-public class Shield : MonoBehaviour, IDamageable
+public class Shield : Upgradable, IDamageable
 {
-    [SerializeField] private Material _shieldUpMaterial, _shieldDownMaterial;
-    [SerializeField] private Renderer _shieldMeshRenderer;
+    public bool DEBUG = false;
+    [Header("Shield Stat")]
     [SerializeField] private FloatReference _timeShieldRegen;
     [SerializeField] private FloatReference _playerInvincibiltyDuration;
     [SerializeField] private FloatVariable _playerMovementSpeed;
     [SerializeField] private FloatReference _shieldBoostMoveSpeed;
+    [Space]
+    [SerializeField] private FloatReference _stunDuration;
+    [SerializeField] private FloatReference _stunCooldown;
+    [SerializeField] private UpgradeMeta _shildExplodeUpgrade;
+    [SerializeField] private LayerMask _mobLayer;
 
+    [Header("Visual")]
+    [SerializeField] private Material _shieldDownMaterial;
+    [SerializeField] private Material _shieldUpMaterial;
+    [SerializeField] private Renderer _shieldMeshRenderer;
     [SerializeField] private AnimatorBoolSetter _shieldAnim;
-
+    [Space]
     public UnityEvent _onShieldDown, _onShieldUp;
 
     private Vector3 _respawnPos;
-
-
     private bool _isShieldDown, _isInvincible;
     private float _timerRegenShield, _timerInvincibility;
+    private float _shieldExplodRange;
+    private float _stunCooldownTime;
 
-    public void Awake()
+
+    private void Start()
     {
         _respawnPos = transform.position;
+        _stunCooldownTime = _stunCooldown.Value;
     }
 
     private void Update()
     {
+        _stunCooldownTime += Time.deltaTime;
         if (_isShieldDown)
         {
             _timerRegenShield += Time.deltaTime;
@@ -66,6 +79,8 @@ public class Shield : MonoBehaviour, IDamageable
 
     public void ShieldDown()
     {
+        ExplodeStun();
+
         _isShieldDown = true;
         _isInvincible = true;
 
@@ -108,5 +123,32 @@ public class Shield : MonoBehaviour, IDamageable
     public void SetRespawnPos(Vector3 position)
     {
         _respawnPos = position;
+    }
+
+    public void ExplodeStun()
+    {
+        if (_stunCooldownTime < _stunCooldown.Value) return;
+        _stunCooldownTime = 0;
+        print("ExplodeStun");
+        Collider[] cols = Physics.OverlapSphere(transform.position, _shieldExplodRange, _mobLayer);
+        if (cols.Length == 0) return;
+        for (int i = 0; i < cols.Length; i++)
+        {
+            StateMachine_MobBase mob = cols[i].GetComponent<StateMachine_MobBase>();
+            mob?.StunMob(_stunDuration.Value);
+        }
+    }
+
+    public override void UpdateUpgrade()
+    {
+        base.UpdateUpgrade();
+        _shieldExplodRange = _shildExplodeUpgrade.GetUpgradeValue();
+    }
+
+    public void OnDrawGizmos()
+    {
+        if (!DEBUG) return;
+        Gizmos.color = new Color(0, 1, 0, 0.5f);
+        Gizmos.DrawSphere(transform.position, _shieldExplodRange);
     }
 }

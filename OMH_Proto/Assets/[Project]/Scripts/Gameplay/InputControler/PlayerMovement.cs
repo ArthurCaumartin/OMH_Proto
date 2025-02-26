@@ -1,78 +1,40 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using DG.Tweening;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Upgradable
 {
-    public bool DEBUG = false;
+    [SerializeField] private UpgradeMeta _moveSpeedUpgrade;
+    [Space]
     [SerializeField] private WeaponControler _weaponControler;
     [Header("Movement :")]
     [SerializeField] private FloatReference _runMoveSpeed;
     [SerializeField] private FloatReference _walkMoveSpeed;
     [SerializeField] private FloatReference _acceleration;
-
-    [Header("Dash :")]
-    [SerializeField] private FloatReference _dashCooldown;
-    [SerializeField] private FloatReference _dashLenght;
-    [SerializeField] private FloatReference _dashDuration;
     private InputAction _moveInputAction;
     private Rigidbody _rb;
     private Vector2 _inputVector;
     private Vector3 _velocityTarget;
-    private Vector3 _targetVelocitySmoothDamp;
-    private float _dashCDTime;
-
-    private bool _isDashing = false;
-
+    public float _upgradeMoveSpeedMult = 1;
 
     private void Start()
     {
-        if (!GetComponent<PlayerInput>() || !GetComponent<PlayerInput>().actions)
-        {
-            print("NOT PLAYER INPUT ON PLAYER OBJECT");
-            enabled = false;
-            return;
-        }
-
         _moveInputAction = GetComponent<PlayerInput>().actions.FindAction("GroundMove");
         _rb = GetComponent<Rigidbody>();
     }
 
-
     private void FixedUpdate()
     {
-        _dashCDTime += Time.fixedDeltaTime;
         Move();
     }
 
-
     private void Move()
     {
-        if (_isDashing) return;
         _inputVector = _moveInputAction.ReadValue<Vector2>();
         _velocityTarget = new Vector3(_inputVector.x, 0, _inputVector.y)
-                         * (_weaponControler.IsPlayerShooting() ? _walkMoveSpeed.Value : _runMoveSpeed.Value);
-
-        //! reach la target c en putain d'option ?
-        // _rb.velocity = Vector3.Lerp(_rb.velocity, _velocityTarget, Time.fixedDeltaTime * _acceleration.Value);
-        // _rb.velocity = Vector3.SmoothDamp(_rb.velocity, _velocityTarget, ref _targetVelocitySmoothDamp, 1 / _acceleration.Value, 1000, Time.fixedDeltaTime);
+                         * (_weaponControler.IsPlayerShooting() ? _walkMoveSpeed.Value : _runMoveSpeed.Value)
+                         * _upgradeMoveSpeedMult;
 
         _rb.velocity = _velocityTarget;
-    }
-
-    private void Dash()
-    {
-        _dashCDTime = 0;
-        _isDashing = true;
-        Vector3 dashDirection = new Vector3(_inputVector.x, 0, _inputVector.y);
-        DOTween.To((time) =>
-        {
-            _rb.velocity = dashDirection * (_dashLenght.Value / _dashDuration.Value);
-        }, 0, 1, _dashDuration.Value)
-        .SetUpdate(UpdateType.Fixed)
-        .OnComplete(() => _isDashing = false);
     }
 
     private void OnDisable()
@@ -86,16 +48,9 @@ public class PlayerMovement : MonoBehaviour
         return _velocityTarget.normalized;
     }
 
-    private void OnDash(InputValue value)
+    public override void UpdateUpgrade()
     {
-        if (_inputVector == Vector2.zero || _dashCDTime < _dashCooldown.Value) return;
-        Dash();
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (DEBUG) return;
-        Gizmos.color = Color.blue;
-        Gizmos.DrawRay(transform.position, new Vector3(_inputVector.x, 0, _inputVector.y) * _dashLenght.Value);
+        base.UpdateUpgrade();
+        _upgradeMoveSpeedMult = _moveSpeedUpgrade.GetUpgradeValue();
     }
 }
