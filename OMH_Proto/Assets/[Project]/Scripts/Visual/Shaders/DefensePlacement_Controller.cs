@@ -18,6 +18,7 @@ public class DefensePlacement_Controller : MonoBehaviour
     {
         _playerTransform = FindAnyObjectByType<PlayerMovement>()?.transform;
         if (!_playerTransform) enabled = false;
+        _mainCamera = Camera.main;
     }
 
     private void Update()

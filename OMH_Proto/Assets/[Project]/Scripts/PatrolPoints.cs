@@ -6,7 +6,7 @@ using UnityEngine;
 public class PatrolPoints : MonoBehaviour
 {
     public static PatrolPoints instance;
-    public bool DEBUG = true;
+    public bool DEBUG = true; 
     private List<Transform> _transformList = new List<Transform>();
 
     private void Awake()

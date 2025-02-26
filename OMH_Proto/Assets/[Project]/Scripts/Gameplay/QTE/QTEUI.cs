@@ -21,9 +21,11 @@ public class QTEUI : MonoBehaviour
     [SerializeField] private Sprite _rightSprite;
     [SerializeField] private Sprite _leftSprite;
     [SerializeField] private List<Image> _imageList;
+    private Camera _mainCam;
 
     private void Start()
     {
+        _mainCam = Camera.main;
         _canvas.enabled = false;
     }
 
@@ -48,9 +50,11 @@ public class QTEUI : MonoBehaviour
 
         _imageBackground.sizeDelta = new Vector2(inputList.Count + 1, 1.2f);
 
-
+        //? look at camera
+        Vector3 newOrientation = (transform.position - _mainCam.transform.position).normalized;
+        newOrientation.x = 0; //? for good alignement
+        _canvas.transform.forward = newOrientation;
     }
-
 
     public void SetGoodInputFeedBack(int index)
     {
