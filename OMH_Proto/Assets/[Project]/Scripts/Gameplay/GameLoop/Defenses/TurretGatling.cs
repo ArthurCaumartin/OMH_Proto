@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TurretGatling : TurretCannon
 {
-
+    [Header("Gatling : ")]
     [Tooltip("How many bullets needed to go max charge")]
     [SerializeField] private int _bulletsMaxCharge = 10;
 
