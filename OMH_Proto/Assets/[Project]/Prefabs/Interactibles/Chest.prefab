@@ -280,10 +280,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _qte: {fileID: 1342833640387322381}
-  _detectionRange: 1
-  _openChest: {fileID: 11400000, guid: 63259763118de154d99fce1ec99d89d6, type: 2}
-  _closeChest: {fileID: 8752367643557856963}
+  _onOpenChestEvent: {fileID: 0}
   _mapPin: {fileID: 712116481311124284}
+  _delayToGetLoot: 1
+  _animationDuration: 1
+  _topPart: {fileID: 0}
+  _openParticle: {fileID: 0}
 --- !u!1001 &3283590573496421957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -370,12 +372,6 @@ PrefabInstance:
 --- !u!4 &3034037773954591150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e00a4d9b15f6c994aa1811fd73a21284,
-    type: 3}
-  m_PrefabInstance: {fileID: 3283590573496421957}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8752367643557856963 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6117875958812821638, guid: e00a4d9b15f6c994aa1811fd73a21284,
     type: 3}
   m_PrefabInstance: {fileID: 3283590573496421957}
   m_PrefabAsset: {fileID: 0}
