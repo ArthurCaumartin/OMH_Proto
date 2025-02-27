@@ -11,13 +11,14 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private float _colorSwapSpeed = 5;
     [SerializeField] private List<Image> _imageToRecolor;
     [SerializeField] private Gradient _colorgradient;
-    [SerializeField] private Color _poinsonColor;
-
-    float _delayBeforeFade;
+    [SerializeField] private Color _poisonColor;
+    private RectTransform _barRectTransform;
+    private float _delayBeforeFade;
     private float _ratioTarget;
 
     private void Start()
     {
+        RectTransform _barRectTransform = _healthBarImage.transform as RectTransform;
         _ratioTarget = 1;
         Enable(false);
     }
@@ -41,11 +42,10 @@ public class HealthBar : MonoBehaviour
 
     public void SetFillAmount(float toSet)
     {
-        RectTransform rt = _healthBarImage.transform as RectTransform;
         _ratioTarget = toSet;
 
-        rt.offsetMin = new Vector2(-_ratioTarget, rt.offsetMin.y);
-        rt.offsetMax = new Vector2(_ratioTarget, rt.offsetMax.y);
+        _barRectTransform.offsetMin = new Vector2(-_ratioTarget, _barRectTransform.offsetMin.y);
+        _barRectTransform.offsetMax = new Vector2(_ratioTarget, _barRectTransform.offsetMax.y);
     }
 
     private void SetColor()
@@ -54,10 +54,10 @@ public class HealthBar : MonoBehaviour
         {
             if (TryGetPoison())
             {
-                item.color = Color.Lerp(item.color, _poinsonColor, Time.deltaTime * _colorSwapSpeed);
+                item.color = Color.Lerp(item.color, _poisonColor, Time.deltaTime * _colorSwapSpeed);
                 continue;
             }
-            item.color = _colorgradient.Evaluate(_ratioTarget);
+            item.color = Color.Lerp(item.color, _colorgradient.Evaluate(_ratioTarget), Time.deltaTime * _colorSwapSpeed);
         }
     }
 
