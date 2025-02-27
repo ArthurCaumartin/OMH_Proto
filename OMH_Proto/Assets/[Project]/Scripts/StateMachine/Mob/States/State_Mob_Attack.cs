@@ -4,6 +4,7 @@ using UnityEngine;
 [Serializable]
 public class State_Mob_Attack : IEntityState
 {
+    [SerializeField] private float _lookSpeed;
     [SerializeField] private FloatReference _distanceToTriggerAttack;
     [SerializeField] private FloatReference _attackAnimationSpeed;
     [SerializeField] private FloatReference _attackDelais;
@@ -31,15 +32,40 @@ public class State_Mob_Attack : IEntityState
             return;
         }
 
+        float _targetDistance = Vector3.Distance(mobMachine.transform.position, mobMachine.Target.position);
+        if (_targetDistance > _distanceToTriggerAttack.Value)
+        {
+            mobMachine.SetState(mobMachine.RoamState);
+            return;
+        }
+
+        bool canAttack = CheckTargetAlignement(mobMachine);
+        if (!canAttack)
+            return;
+
+
         // Debug.Log("Attack DoState");
         _timeDelay += Time.deltaTime;
-        float _targetDistance = Vector3.Distance(mobMachine.transform.position, mobMachine.Target.position);
         if (_timeDelay > _attackDelais.Value && _targetDistance < _distanceToTriggerAttack.Value)
         {
             // Debug.Log("Attack");
             _mobAnimationControler.PlayAttackAnimation(_attackAnimationSpeed.Value);
             _timeDelay = 0;
         }
+    }
+
+    private bool CheckTargetAlignement(StateMachine_MobBase mobMachine)
+    {
+        Vector3 targetDir = (mobMachine.Target.transform.position - mobMachine.transform.position).normalized;
+        float dotDir = Vector3.Dot(mobMachine.transform.right, targetDir);
+        if (dotDir < .95f)
+        {
+            mobMachine.transform.right = Vector3.Lerp(mobMachine.transform.right, targetDir, Time.deltaTime * _lookSpeed);
+            _timeDelay = 0;
+            return false;
+        }
+
+        return true;
     }
 
     public void ExitState(StateMachine behavior)

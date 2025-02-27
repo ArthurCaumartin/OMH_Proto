@@ -97,6 +97,7 @@ public class Placer : MonoBehaviour
 
     private void MoveGostPlacableToMouse()
     {
+        _gostPlacable.IsOnRail = _railUnderMouse;
         if (_gostPlacable.placeOnCorridorRail)
         {
             if (_railUnderMouse)

@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 2616250935684777752}
   - component: {fileID: 1412340254095580087}
   - component: {fileID: 9098403937901913363}
-  - component: {fileID: 6839980626196723772}
+  - component: {fileID: 4990162139949828541}
   m_Layer: 16
   m_Name: Defense Area Effect
   m_TagString: Untagged
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healPerSecondUpgrade: {fileID: 0}
   _healPerSecond: 11.3
---- !u!114 &6839980626196723772
+--- !u!114 &4990162139949828541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -836,8 +836,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: febef853d3a94ab4b9f0602c8c3b2107,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3840786543749122827}
   m_SourcePrefab: {fileID: 100100000, guid: febef853d3a94ab4b9f0602c8c3b2107, type: 3}
+--- !u!1 &1575451929589693195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: febef853d3a94ab4b9f0602c8c3b2107,
+    type: 3}
+  m_PrefabInstance: {fileID: 1809401411086616154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3840786543749122827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575451929589693195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26bf7e2cd953b943a5f837292a5dd53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obj: {fileID: 5221604182911892427}
 --- !u!4 &2204214609724170673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: febef853d3a94ab4b9f0602c8c3b2107,
@@ -917,6 +940,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gun_Starter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954251608494401972, guid: 63ca90345939c484d9c9c49ae5f74574,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8140322397186796343, guid: 63ca90345939c484d9c9c49ae5f74574,
         type: 3}

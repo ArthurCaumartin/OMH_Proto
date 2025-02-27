@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RoomTrigger : MonoBehaviour
 {
-    [SerializeField] private GameObject _centerRoom;
+    [SerializeField] private GameObject _centerRoom, _lightParent;
     [SerializeField] private int _radius;
     [SerializeField] private bool _isObjRoom;
 
@@ -30,6 +30,7 @@ public class RoomTrigger : MonoBehaviour
         {
             print(_centerRoom);
             room.GetComponent<MapFogOfWar>().TracePixelRoom(_centerRoom.transform, _radius);
+            _lightParent.SetActive(true);
         }
     }
 

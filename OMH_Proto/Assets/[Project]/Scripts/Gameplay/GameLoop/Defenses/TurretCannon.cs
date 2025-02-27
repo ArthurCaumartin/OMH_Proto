@@ -2,19 +2,22 @@ using UnityEngine;
 
 public class TurretCannon : MonoBehaviour
 {
-    private bool DEBUG = true;
+    public bool DEBUG = true;
+    [SerializeField] protected Transform _canonMeshPivot;
     [SerializeField] protected Transform _projectileSpawnPivot;
     [SerializeField] protected Projectile _projectilePrefab;
     [SerializeField] protected TurretTargetFinder _finder;
+
+    [Header("Stat : ")]
     [SerializeField] protected StatContainer _stat;
-    protected Transform _currentTarget;
-    protected float _shootTime = 0;
 
     [Tooltip("Modify turret attackSpeed")]
     [SerializeField, Range(0.1f, 10)] public float _attackSpeedMultiplier = 1;
 
     [Tooltip("Modify turret damages per bullet")]
     [SerializeField, Range(0.1f, 10)] public float _damagesMultiplier = 1;
+    protected Transform _currentTarget;
+    protected float _shootTime = 0;
 
     public virtual void Shoot()
     {
@@ -57,6 +60,7 @@ public class TurretCannon : MonoBehaviour
         Vector3 lootAt = (_currentTarget.position - transform.position).normalized;
         lootAt.y = 0;
         transform.forward = lootAt;
+        if (_canonMeshPivot) _canonMeshPivot.forward = lootAt;
     }
 
     public void SetTarget(Transform target)
