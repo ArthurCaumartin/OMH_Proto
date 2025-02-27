@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TurretCannon : MonoBehaviour
 {
-    private bool DEBUG = true;
+    public bool DEBUG = true;
     [SerializeField] protected Transform _projectileSpawnPivot;
     [SerializeField] protected Projectile _projectilePrefab;
     [SerializeField] protected TurretTargetFinder _finder;

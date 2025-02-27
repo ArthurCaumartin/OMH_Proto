@@ -137,7 +137,7 @@ public class PhysicsAgent : MonoBehaviour
 
     public void SlowAgent(float strenght, float duration, bool freezeAgentOnSlow = false)
     {
-        if(freezeAgentOnSlow) _rigidbody.velocity = Vector3.zero;
+        if (freezeAgentOnSlow) _rigidbody.velocity = Vector3.zero;
         _slowMultiplier -= strenght;
         StartCoroutine(ResetSpeed(strenght, duration));
     }

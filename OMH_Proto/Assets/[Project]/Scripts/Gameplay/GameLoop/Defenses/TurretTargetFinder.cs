@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class TurretTargetFinder : MonoBehaviour
 {
-    public bool DEBUG = true;
     [SerializeField] private LayerMask _mobLayer;
     private List<MobLife> _mobInRangeList = new List<MobLife>();
 

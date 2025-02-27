@@ -16,7 +16,7 @@ public class HealthBar : MonoBehaviour
         
         _canvas.gameObject.SetActive(enableImage);
         // _healthBarImage.fillAmount = toSet;
-        print(toSet);
+        // print(toSet);
         RectTransform rt = _healthBarImage.transform as RectTransform;
 
         rt.offsetMin = new Vector2(-toSet, rt.offsetMin.y);
