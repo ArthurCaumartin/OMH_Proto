@@ -19,7 +19,7 @@ public class Health : MonoBehaviour, IDamageable
     {
         _currentHealth.Value = _maxHealth.Value;
         _healthBar = GetComponentInChildren<HealthBar>();
-        _healthBar?.SetFillAmount(GetHealtRatio(), _currentHealth.Value != _maxHealth.Value);
+        _healthBar?.SetFillAmount(GetHealtRatio());
     }
 
     public void TakeDamages(GameObject damageDealer, float damageAmount, DamageType type = DamageType.Unassigned)
