@@ -6,19 +6,18 @@ using UnityEngine.Rendering;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _pauseMenu;
-    [SerializeField] private Volume _volume;
     
     public void Pause()
     {
         _pauseMenu.SetActive(true);
         Time.timeScale = 0;
-        _volume.weight = 1;
+        Camera.main.gameObject.GetComponent<Volume>().weight = 1;
     }
     
     public void ResumeMenu()
     {
         _pauseMenu.SetActive(false);
         Time.timeScale = 1;
-        _volume.weight = 0;
+        Camera.main.gameObject.GetComponent<Volume>().weight = 0;
     } 
 }
