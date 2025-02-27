@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1273255557225295727}
+  - component: {fileID: 195836820061509647}
   - component: {fileID: 6424327195160078022}
-  - component: {fileID: 5850239179661565586}
   - component: {fileID: 2621062441787320657}
   m_Layer: 17
-  m_Name: Gun_Submachine
+  m_Name: Gun_Fugitive
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -33,9 +33,79 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1431101975326854435}
-  - {fileID: 4586906713353442046}
+  - {fileID: 2633406157032180961}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &195836820061509647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954251608494401972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9218224d5651d72429294c37f1fb3308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectile: {fileID: 6403736433643166296, guid: d49a1cea79879ec4d83dfedacc23edbf,
+    type: 3}
+  _stat:
+    damage:
+      propertyType: 1
+      constantValue: 2
+      variable: {fileID: 11400000, guid: 93800fa8bbbd2914c9506c2bba733a3a, type: 2}
+    attackPerSecond:
+      propertyType: 1
+      constantValue: 4
+      variable: {fileID: 11400000, guid: 87dec22a913d1754db68c85a1b1e0f0e, type: 2}
+    range:
+      propertyType: 0
+      constantValue: 10
+      variable: {fileID: 0}
+    projectileSpeed:
+      propertyType: 0
+      constantValue: 150
+      variable: {fileID: 0}
+  _secondaryProjectile: {fileID: 8350907008403827077, guid: 8397481d79980a74fa842572c2e66fa8,
+    type: 3}
+  _secondaryCooldown:
+    propertyType: 1
+    constantValue: 0.5
+    variable: {fileID: 11400000, guid: ec1d7faf1f2f7384b9e24f06ad298f48, type: 2}
+  _secondaryDynamicCoolDown:
+    propertyType: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: c6da85949e12a72408191f225c46f030, type: 2}
+  _secondaryStat:
+    damage:
+      propertyType: 0
+      constantValue: 0
+      variable: {fileID: 0}
+    attackPerSecond:
+      propertyType: 0
+      constantValue: 0
+      variable: {fileID: 0}
+    range:
+      propertyType: 0
+      constantValue: 10
+      variable: {fileID: 0}
+    projectileSpeed:
+      propertyType: 0
+      constantValue: 150
+      variable: {fileID: 0}
+  _bulletCount:
+    propertyType: 0
+    constantValue: 1
+    variable: {fileID: 0}
+  _spread:
+    propertyType: 0
+    constantValue: 0
+    variable: {fileID: 0}
+  _randomness:
+    propertyType: 0
+    constantValue: 0
+    variable: {fileID: 0}
 --- !u!114 &6424327195160078022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,22 +126,6 @@ MonoBehaviour:
   - {fileID: 2800000, guid: f86cca1a60ebb494cb946d40228762d7, type: 3}
   - {fileID: 2800000, guid: 9ec4803d8cb5f3747b6b34d789da98d1, type: 3}
   - {fileID: 0}
---- !u!114 &5850239179661565586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6954251608494401972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bfbb9a4cf3d48f48ab5bdef8cd7d5fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _visual: {fileID: 8140322397186796343}
-  _duration: 0.1
-  _material: {fileID: 0}
-  _textures: []
 --- !u!114 &2621062441787320657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +142,7 @@ MonoBehaviour:
   _response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 195836820061509647}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 0
@@ -100,7 +154,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1001 &2412544519934619544
+--- !u!1001 &4203934182448509319
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -168,11 +222,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d24b61041910e8a4e9866709d5043839, type: 3}
---- !u!4 &4586906713353442046 stripped
+--- !u!4 &2633406157032180961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2223902107433303398, guid: d24b61041910e8a4e9866709d5043839,
     type: 3}
-  m_PrefabInstance: {fileID: 2412544519934619544}
+  m_PrefabInstance: {fileID: 4203934182448509319}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8839879131876179382
 PrefabInstance:
