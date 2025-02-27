@@ -18,7 +18,7 @@ public class AeraStatBuff : Upgradable
 
     public void BuffStat(TurretCannon cannon)
     {
-        print("Try buff : " + cannon?.name);
+        // print("Try buff : " + cannon?.name);
         if (!cannon) return;
         buffValueBackup.Add(cannon, _buffValue);
 
@@ -28,7 +28,7 @@ public class AeraStatBuff : Upgradable
 
     public void RemoveBuff(TurretCannon cannon)
     {
-        print("Try Remove buff : " + cannon?.name);
+        // print("Try Remove buff : " + cannon?.name);
         if (!cannon || !buffValueBackup.ContainsKey(cannon)) return;
 
         float toRemove;
