@@ -1,11 +1,14 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Placable : MonoBehaviour
 {
     [SerializeField] public FloatReference cost;
     [SerializeField] private GameObject _prefabToPlace;
-    [Space]
+    [SerializeField] private float _meshMoveSpeed = 10;
+    [Header("Visual : ")]
+    [SerializeField] private Transform _meshPivot;
     [SerializeField] private bool _needRailToPlace = false;
     [SerializeField] private string _colorParameterName = "_ObjectColor";
     [SerializeField] private float _transitionSpeed = 5;
@@ -25,11 +28,21 @@ public class Placable : MonoBehaviour
     private void Start()
     {
         _rendererArray = GetComponentsInChildren<Renderer>();
+        if (_meshPivot) _meshPivot.parent = null;
     }
 
     private void Update()
     {
         SetMeshsColor();
+        MoveRenderer();
+    }
+
+    public void MoveRenderer()
+    {
+        if (!_meshPivot) return;
+        _meshPivot.position = Vector3.Lerp(_meshPivot.position
+                                         , transform.position, Time.deltaTime * _meshMoveSpeed);
+        _meshPivot.right = Vector3.Lerp(_meshPivot.right, transform.forward, Time.deltaTime * _meshMoveSpeed);
     }
 
     private void SetMeshsColor()
@@ -58,5 +71,10 @@ public class Placable : MonoBehaviour
     {
         if (other.tag == "Defenses" || other.gameObject.layer == 15)
             if (_blockObject.Contains(other.gameObject)) _blockObject.Remove(other.gameObject);
+    }
+
+    public void ClearPlacable()
+    {
+        Destroy(_meshPivot.gameObject);
     }
 }

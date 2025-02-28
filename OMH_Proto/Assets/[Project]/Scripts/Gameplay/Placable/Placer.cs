@@ -54,6 +54,7 @@ public class Placer : MonoBehaviour
     private void UnSelect()
     {
         if (!_gostPlacable) return;
+        _gostPlacable.ClearPlacable();
         Destroy(_gostPlacable.gameObject);
         _gostPlacable = null;
         _onPlacableSelect.Raise(true);
@@ -104,16 +105,12 @@ public class Placer : MonoBehaviour
             {
                 Vector3 railPosition = _railUnderMouse.GetNearestPosition(MouseAimPosition(_gostPlacable.transform.position));
                 _gostPlacable.transform.forward = _railUnderMouse.GetDirection();
-                _gostPlacable.transform.position = Vector3.Lerp(_gostPlacable.transform.position
-                                                                , railPosition
-                                                                , Time.deltaTime * 10);
+                _gostPlacable.transform.position = railPosition;
                 return;
             }
         }
 
-        _gostPlacable.transform.position = Vector3.Lerp(_gostPlacable.transform.position
-                                                        , WorldToCellConvert(MouseAimPosition(_gostPlacable.transform.position))
-                                                        , Time.deltaTime * 10);
+        _gostPlacable.transform.position = WorldToCellConvert(MouseAimPosition(_gostPlacable.transform.position));
     }
 
 
@@ -121,7 +118,6 @@ public class Placer : MonoBehaviour
     {
         Vector2 pixelPos = Input.mousePosition;
         Ray camRay = _mainCamera.ScreenPointToRay(pixelPos);
-
 
         Physics.Raycast(camRay, out RaycastHit hit, Mathf.Infinity, _aimLayer);
         if (!hit.collider) return currentPos;
