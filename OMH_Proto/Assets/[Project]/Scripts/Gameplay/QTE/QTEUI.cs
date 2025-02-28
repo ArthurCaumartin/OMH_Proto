@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -8,7 +6,7 @@ using DG.Tweening;
 public class QTEUI : MonoBehaviour
 {
     [SerializeField] private Canvas _canvas;
-    [SerializeField] private Image _imagePrefab;
+    [SerializeField] private Image _directionImagePrefab;
     [SerializeField] private RectTransform _imageBackground;
     [SerializeField] private RectTransform _imageContainer;
     [Space]
@@ -16,10 +14,11 @@ public class QTEUI : MonoBehaviour
     [SerializeField] private AnimationCurve _inputScaleCurve;
     [SerializeField] private float _animDuration = .5f;
     [Space]
-    [SerializeField] private Sprite _upSprite;
-    [SerializeField] private Sprite _downSprite;
-    [SerializeField] private Sprite _rightSprite;
-    [SerializeField] private Sprite _leftSprite;
+    [SerializeField] private Sprite _directionSprite;
+    // [SerializeField] private Sprite _upSprite;
+    // [SerializeField] private Sprite _downSprite;
+    // [SerializeField] private Sprite _rightSprite;
+    // [SerializeField] private Sprite _leftSprite;
     [SerializeField] private List<Image> _imageList;
     private Camera _mainCam;
 
@@ -43,12 +42,16 @@ public class QTEUI : MonoBehaviour
         for (int i = 0; i < inputList.Count; i++)
         {
             // print("AIAI");
-            Image newImage = Instantiate(_imagePrefab, _imageContainer);
-            newImage.sprite = GetDirectionSprite(inputList[i]);
+            Image newImage = Instantiate(_directionImagePrefab, _imageContainer);
+            // newImage.sprite = GetDirectionSprite(inputList[i]);
+            newImage.sprite = _directionSprite;
+            newImage.transform.right = -inputList[i];
             _imageList.Add(newImage);
         }
 
-        _imageBackground.sizeDelta = new Vector2(inputList.Count + 1, 1.2f);
+        float inputImageSize = (_directionImagePrefab.transform as RectTransform).sizeDelta.x * 1.2f;
+        print("Size x : " + inputImageSize);
+        _imageBackground.sizeDelta = new Vector2(inputList.Count * inputImageSize, _imageBackground.sizeDelta.y);
 
         //? look at camera
         Vector3 newOrientation = (transform.position - _mainCam.transform.position).normalized;
@@ -89,12 +92,12 @@ public class QTEUI : MonoBehaviour
         _canvas.enabled = false;
     }
 
-    public Sprite GetDirectionSprite(Vector2 direction)
-    {
-        if (direction == Vector2.up) return _upSprite;
-        if (direction == Vector2.down) return _downSprite;
-        if (direction == Vector2.right) return _rightSprite;
-        if (direction == Vector2.left) return _leftSprite;
-        return null;
-    }
+    // public Sprite GetDirectionSprite(Vector2 direction)
+    // {
+    //     if (direction == Vector2.up) return _upSprite;
+    //     if (direction == Vector2.down) return _downSprite;
+    //     if (direction == Vector2.right) return _rightSprite;
+    //     if (direction == Vector2.left) return _leftSprite;
+    //     return null;
+    // }
 }
