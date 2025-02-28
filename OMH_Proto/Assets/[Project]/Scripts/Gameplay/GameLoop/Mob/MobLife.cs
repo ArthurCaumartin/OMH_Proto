@@ -14,12 +14,11 @@ public class MobLife : MonoBehaviour, IDamageable
     public UnityEvent<MobLife, DamageType> OnDeathEvent { get => _onDeathEvent; }
     private HealthBar _healthBar;
 
-
     private void Start()
     {
         _currentHealth = _mobMaxHealth.Value;
         _healthBar = GetComponentInChildren<HealthBar>();
-        _healthBar?.SetFillAmount(1, false);
+        _healthBar?.SetFillAmount(1);
     }
 
     public void TakeDamages(GameObject damageDealer, float value, DamageType type)
@@ -31,8 +30,7 @@ public class MobLife : MonoBehaviour, IDamageable
         }
 
         _currentHealth -= value;
-        _healthBar?.SetFillAmount(Mathf.InverseLerp(0, _mobMaxHealth.Value, _currentHealth));
-
+        _healthBar.SetFillAmount(Mathf.InverseLerp(0, _mobMaxHealth.Value, _currentHealth));
         if (_currentHealth <= 0)
         {
             _onDeathEvent.Invoke(this, type);

@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EndGameManager : MonoBehaviour
 {
+    [SerializeField] private GameChooseMeta _gameChooseMeta;
     [SerializeField] private FloatReference _syphonHealth, _pcen, _scrapMetal;
     [SerializeField] private FloatReference _gameTime, _defenseDuration, explorationDuration;
     [Space] [SerializeField] private PlayerItemList _playerItemList;
     [SerializeField] private ObjectUIManager _objectUIManager;
     [Space] [SerializeField] private TextMeshProUGUI _titleText, _lostHpText;
     [SerializeField] private GameObject _pcenFromTime, _pcenFromMetal, _pcenLost, _pcenText;
+    [SerializeField] private Image _weaponImage;
 
     [Space]
     
@@ -27,6 +30,7 @@ public class EndGameManager : MonoBehaviour
             _objectUIManager.AddObjectUI(tempItem._itemName, tempItem._itemDescription, tempItem._itemSprite);
         }
 
+        _weaponImage.sprite = _gameChooseMeta._weaponChoose._weaponIcon;
         _lostHpText.text = 20 - _syphonHealth.Value + " HP Lost :";
         
         if (_syphonHealth.Value <= 0)
@@ -73,6 +77,8 @@ public class EndGameManager : MonoBehaviour
     {
         int pcenGainFromMetal = Mathf.RoundToInt(_scrapMetal.Value / _valueDivisionMetal);
         int pcenLostFromSyphonHealth = (int)((20 - _syphonHealth.Value) * _costEachHealthLost);
+        
+        _pcen.Value = pcenTime + pcenGainFromMetal + pcenLostFromSyphonHealth;
         
         yield return new WaitForSeconds(2);
         

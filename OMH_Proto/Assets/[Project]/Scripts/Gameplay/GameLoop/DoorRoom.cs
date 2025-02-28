@@ -20,7 +20,7 @@ public class DoorRoom : MonoBehaviour
             _doors.Add(other.gameObject);
         }
     }
-    
+
     public void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player") || other.CompareTag("Mob"))
@@ -37,9 +37,16 @@ public class DoorRoom : MonoBehaviour
     private void OpenDoor()
     {
         _animator.SetParametre(true);
+        SpawnParticle();
     }
     private void CloseDoor()
     {
         _animator.SetParametre(false);
+    }
+
+    private void SpawnParticle()
+    {
+        foreach (var item in GetComponentsInChildren<ParticleSpawner>())
+            item?.SpawnParticle();
     }
 }

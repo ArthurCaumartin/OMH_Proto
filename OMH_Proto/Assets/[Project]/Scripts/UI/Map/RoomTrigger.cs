@@ -30,7 +30,7 @@ public class RoomTrigger : MonoBehaviour
         {
             print(_centerRoom);
             room.GetComponent<MapFogOfWar>().TracePixelRoom(_centerRoom.transform, _radius);
-            _lightParent.SetActive(true);
+            if(_lightParent != null) _lightParent.SetActive(true);
         }
     }
 

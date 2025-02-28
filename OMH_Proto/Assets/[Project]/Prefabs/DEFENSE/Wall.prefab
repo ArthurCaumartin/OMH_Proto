@@ -336,6 +336,7 @@ GameObject:
   - component: {fileID: -2665448160974275982}
   - component: {fileID: 7348904031174619586}
   - component: {fileID: -298088824183065046}
+  - component: {fileID: 7875581692600022012}
   m_Layer: 16
   m_Name: Wall
   m_TagString: Defenses
@@ -361,7 +362,7 @@ Transform:
   - {fileID: 8955922882905744060}
   - {fileID: 5666491191862419833}
   - {fileID: 4720880674881697393}
-  - {fileID: 5283490639304077010}
+  - {fileID: 943361661049264795}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-4931412764557826487
@@ -451,6 +452,32 @@ MonoBehaviour:
   _onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7875581692600022012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5634859916197907868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae3a72387992ab4dafbc2086bab60aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: -298088824183065046}
+  _emissiveParametreName: _EmissionIntensity
+  _planeRenderer:
+  - {fileID: 8598871681238920744}
+  - {fileID: 7724925166356761524}
+  _emissiveSpeed: 150
+  _emissiveTarget: 40
+  _emissiveMax: 120
+  _emissiveMin: 40
+  _emissiveToAddOnDamage: 120
+  _opacityParameterName: _Opacit_Shield
+  _opacityMax: 8
+  _opacityMin: 0
+  _opacitySpeed: 15
 --- !u!1 &7384989807344436644
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +561,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &3742743625114776196
+--- !u!1001 &8625837699754919629
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -630,7 +657,7 @@ PrefabInstance:
     - target: {fileID: 8836730701614210134, guid: 6ff986f9a727b6049a90acd31a9e9ea3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.15
+      value: 2.78
       objectReference: {fileID: 0}
     - target: {fileID: 8836730701614210134, guid: 6ff986f9a727b6049a90acd31a9e9ea3,
         type: 3}
@@ -652,11 +679,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ff986f9a727b6049a90acd31a9e9ea3, type: 3}
---- !u!224 &5283490639304077010 stripped
+--- !u!224 &943361661049264795 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8836730701614210134, guid: 6ff986f9a727b6049a90acd31a9e9ea3,
     type: 3}
-  m_PrefabInstance: {fileID: 3742743625114776196}
+  m_PrefabInstance: {fileID: 8625837699754919629}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9131163643306933412
 PrefabInstance:
@@ -716,11 +743,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: c66797057a77197449fec30386a67439,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d84999e563793a345981b6ada9d9d0c4, type: 2}
     - target: {fileID: -2844184714318712473, guid: c66797057a77197449fec30386a67439,
         type: 3}
       propertyPath: m_Layer

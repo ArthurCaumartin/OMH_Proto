@@ -11,7 +11,7 @@ public class State_Mob_Patrol : IEntityState
     private Vector3 _partolTarget;
 
     public void Initialize(StateMachine behavior)
-    {
+    {       
         _agent = behavior.GetComponent<PhysicsAgent>();
         _patrolPoints = PatrolPoints.instance;
     }

@@ -96,7 +96,7 @@ public class Shield : Upgradable, IDamageable
     {
         _timerRegenShield = 0;
         _isShieldDown = false;
-
+        
         _onShieldUp.Invoke();
 
         _shieldAnim.SetParametre(false);
@@ -107,8 +107,6 @@ public class Shield : Upgradable, IDamageable
 
     private void PlayerDeath()
     {
-        GetComponent<QTEControler>().KillQTE();
-
         Rigidbody playerRigidbody = GetComponent<Rigidbody>();
         playerRigidbody.MovePosition(_respawnPos);
 
@@ -117,6 +115,9 @@ public class Shield : Upgradable, IDamageable
 
         if (_shieldMeshRenderer) _shieldMeshRenderer.material = _shieldUpMaterial;
         if (_playerMovementSpeed) _playerMovementSpeed.Value = 1;
+
+        //! quick fix for stuck in QTE after death :)
+        GetComponent<QTEControler>()?.KillQTE();
     }
 
     public void SetRespawnPos(Vector3 position)
