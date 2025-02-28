@@ -18,7 +18,7 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
-        RectTransform _barRectTransform = _healthBarImage.transform as RectTransform;
+        _barRectTransform = _healthBarImage.transform as RectTransform;
         _ratioTarget = 1;
         Enable(false);
     }
