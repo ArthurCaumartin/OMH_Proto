@@ -44,6 +44,7 @@ public class HealthBar : MonoBehaviour
     {
         _ratioTarget = toSet;
 
+        if (_barRectTransform == null) return;
         _barRectTransform.offsetMin = new Vector2(-_ratioTarget, _barRectTransform.offsetMin.y);
         _barRectTransform.offsetMax = new Vector2(_ratioTarget, _barRectTransform.offsetMax.y);
     }
