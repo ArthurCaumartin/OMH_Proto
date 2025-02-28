@@ -30,7 +30,7 @@ public class MobLife : MonoBehaviour, IDamageable
         }
 
         _currentHealth -= value;
-        _healthBar.SetFillAmount(Mathf.InverseLerp(0, _mobMaxHealth.Value, _currentHealth), true);
+        _healthBar.SetFillAmount(Mathf.InverseLerp(0, _mobMaxHealth.Value, _currentHealth));
         if (_currentHealth <= 0)
         {
             _onDeathEvent.Invoke(this, type);

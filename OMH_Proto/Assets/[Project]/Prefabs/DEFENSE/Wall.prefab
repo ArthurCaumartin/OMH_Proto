@@ -336,6 +336,7 @@ GameObject:
   - component: {fileID: -2665448160974275982}
   - component: {fileID: 7348904031174619586}
   - component: {fileID: -298088824183065046}
+  - component: {fileID: 7875581692600022012}
   m_Layer: 16
   m_Name: Wall
   m_TagString: Defenses
@@ -451,6 +452,32 @@ MonoBehaviour:
   _onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7875581692600022012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5634859916197907868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae3a72387992ab4dafbc2086bab60aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: -298088824183065046}
+  _emissiveParametreName: _EmissionIntensity
+  _planeRenderer:
+  - {fileID: 8598871681238920744}
+  - {fileID: 7724925166356761524}
+  _emissiveSpeed: 150
+  _emissiveTarget: 40
+  _emissiveMax: 120
+  _emissiveMin: 40
+  _emissiveToAddOnDamage: 120
+  _opacityParameterName: _Opacit_Shield
+  _opacityMax: 8
+  _opacityMin: 0
+  _opacitySpeed: 15
 --- !u!1 &7384989807344436644
 GameObject:
   m_ObjectHideFlags: 0

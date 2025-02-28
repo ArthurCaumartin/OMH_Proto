@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SiphonHealth : MonoBehaviour
 {
-    [SerializeField] private GameEvent _destroyEvent, _winScreenEvent;
+    [SerializeField] private GameEvent _destroyEvent, _winScreenEvent, _lostHP;
     [SerializeField] private FloatReference _health;
     private bool _isVictory;
     private bool _canTakeDamage = false;
@@ -12,6 +12,8 @@ public class SiphonHealth : MonoBehaviour
     public void LostHP()
     {
         _health.Value--;
+        _lostHP.Raise();
+        
         if (_health.Value <= 0)
         {
             _destroyEvent.Raise();
