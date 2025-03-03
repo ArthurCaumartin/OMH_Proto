@@ -9,11 +9,13 @@ public class QTEControler : MonoBehaviour
     private QTE _currentQTE;
     private PlayerMovement _playerMovement;
     private PlayerAim _playerAim;
+    private WeaponControler _weaponControler;
 
     private void Start()
     {
         _playerMovement = GetComponent<PlayerMovement>();
         _playerAim = GetComponent<PlayerAim>();
+        _weaponControler = GetComponent<WeaponControler>();
     }
 
     public void PlayQTE(QTE qteToPlay)
@@ -51,6 +53,7 @@ public class QTEControler : MonoBehaviour
     {
         _playerMovement.enabled = value;
         _playerAim.enabled = value;
+        _weaponControler.enabled = value;
     }
 
     public void OnLeaveQTE(InputValue value)
