@@ -26,10 +26,11 @@ public class RoomTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.CompareTag("Player"))
         {
-            print(_centerRoom);
-            room.GetComponent<MapFogOfWar>().TracePixelRoom(_centerRoom.transform, _radius);
+            // print(_centerRoom);
+            if (_centerRoom != null) room.GetComponent<MapFogOfWar>().TracePixelRoom(_centerRoom.transform, _radius);
             if(_lightParent != null) _lightParent.SetActive(true);
         }
     }
