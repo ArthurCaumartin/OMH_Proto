@@ -84,7 +84,9 @@ public class Placer : MonoBehaviour
             return;
         }
 
-        newPrefab = Instantiate(_gostPlacable.PrefabToPlace, WorldToCellConvert(MouseAimPosition(_gostPlacable.transform.position)), _gostPlacable.transform.rotation);
+        newPrefab = Instantiate(_gostPlacable.PrefabToPlace
+                                , WorldToCellConvert(MouseAimPosition(_gostPlacable.transform.position))
+                                , _gostPlacable.transform.rotation);
         _onPlacePrefab.Invoke(newPrefab);
     }
 
@@ -110,6 +112,11 @@ public class Placer : MonoBehaviour
             }
         }
 
+        Vector3 invPlayerDir = _gostPlacable.transform.position - _playerTransform.position;
+        invPlayerDir.y = 0;
+
+        // print("cam dir : " + invPlayerDir);
+        _gostPlacable.transform.forward = invPlayerDir.normalized;
         _gostPlacable.transform.position = WorldToCellConvert(MouseAimPosition(_gostPlacable.transform.position));
     }
 

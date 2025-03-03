@@ -42,7 +42,7 @@ public class Placable : MonoBehaviour
         if (!_meshPivot) return;
         _meshPivot.position = Vector3.Lerp(_meshPivot.position
                                          , transform.position, Time.deltaTime * _meshMoveSpeed);
-        _meshPivot.right = Vector3.Lerp(_meshPivot.right, transform.forward, Time.deltaTime * _meshMoveSpeed);
+        _meshPivot.forward = Vector3.Lerp(_meshPivot.forward, transform.forward, Time.deltaTime * _meshMoveSpeed);
     }
 
     private void SetMeshsColor()
