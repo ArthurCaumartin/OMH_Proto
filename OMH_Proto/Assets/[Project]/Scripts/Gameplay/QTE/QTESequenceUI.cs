@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class QTEUI : MonoBehaviour
+public class QTESequenceUI : MonoBehaviour
 {
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Image _directionImagePrefab;
@@ -22,7 +22,7 @@ public class QTEUI : MonoBehaviour
     [SerializeField] private List<Image> _imageList;
     private Camera _mainCam;
 
-    private void Start()
+    private void Awake()
     {
         _mainCam = Camera.main;
         _canvas.enabled = false;

@@ -84,6 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2151939693956361395}
+  - component: {fileID: 5147344939614163291}
   - component: {fileID: 3133245423974995766}
   - component: {fileID: 4377856562284164607}
   m_Layer: 0
@@ -109,6 +110,37 @@ Transform:
   - {fileID: 8930944578604698470}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5147344939614163291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4969287227894701924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 330d65731f618ec4d8249d1a6245e82b,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: QTE
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!114 &3133245423974995766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21d32e45d3934d449230f6514a1dcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lenght: 6
   _onInputEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -129,6 +160,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _onQTEKill:
+    m_PersistentCalls:
+      m_Calls: []
+  StartQTEScript:
+    m_PersistentCalls:
+      m_Calls: []
+  ResetQTEScript:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &4377856562284164607

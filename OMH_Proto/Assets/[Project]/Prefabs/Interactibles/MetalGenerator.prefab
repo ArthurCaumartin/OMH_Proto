@@ -281,7 +281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _qte: {fileID: 7522939942511413595}
-  _detectionRange: 1
   _metalGainPerInput:
     propertyType: 0
     constantValue: 10
@@ -400,10 +399,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -4391001618862281687, guid: 7db9d75f37da8c844b128b51612ce989,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5912251763378293204}
-    - targetCorrespondingSourceObject: {fileID: -4391001618862281687, guid: 7db9d75f37da8c844b128b51612ce989,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7034420793264069205}
   m_SourcePrefab: {fileID: 100100000, guid: 7db9d75f37da8c844b128b51612ce989, type: 3}
 --- !u!4 &392359526471947361 stripped
@@ -418,23 +413,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 214846308998230922}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5912251763378293204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4749976950111002531}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c1350fc1da737c46bb44facb4f9638a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MetalGenerator: {fileID: 941015427276077013}
-  off: 0
-  on: 3
-  EmissiveValue: 5
-  ParticleSpeed: 0.5
 --- !u!114 &7034420793264069205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,6 +639,81 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: ResetQTEScript.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: StartQTEScript.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: ResetQTEScript.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: StartQTEScript.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: ResetQTEScript.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8530707736333429676}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: StartQTEScript.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8530707736333429676}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: ResetQTEScript.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: StartQTEScript.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: ResetQTEScript.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetQTE
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: StartQTEScript.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartQTE
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: ResetQTEScript.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QTESequence, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: StartQTEScript.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QTESequence, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: StartQTEScript.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 7522939942511413595}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: ResetQTEScript.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: StartQTEScript.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: QTE, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4969287227894701924, guid: 2a55ecedb7ab5134d8f43a778292388f,
         type: 3}
       propertyPath: m_Name
@@ -669,8 +722,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4969287227894701924, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 8530707736333429676}
   m_SourcePrefab: {fileID: 100100000, guid: 2a55ecedb7ab5134d8f43a778292388f, type: 3}
+--- !u!1 &570594307817652489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4969287227894701924, guid: 2a55ecedb7ab5134d8f43a778292388f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4836122833851014765}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8530707736333429676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570594307817652489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee5c7c656093b44888c87e51b5bc3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lenght: 5
 --- !u!4 &6827569014513644254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2151939693956361395, guid: 2a55ecedb7ab5134d8f43a778292388f,
@@ -683,7 +759,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4836122833851014765}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 570594307817652489}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b21d32e45d3934d449230f6514a1dcff, type: 3}
