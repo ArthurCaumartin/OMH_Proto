@@ -5,35 +5,50 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    [SerializeField] private FloatReference _trapHitRange, _trapActivationTimer, _trapDamages, _trapSlowStrenght, _trapSlowDuration;
+    public bool DEBUG = false;
+    [SerializeField] private FloatReference _trapHitRange;
+    [SerializeField] private FloatReference _activationDelay;
+    [SerializeField] private FloatReference _damages;
+    [SerializeField] private FloatReference _slowStrenght;
+    [SerializeField] private FloatReference _slowDuration;
     [SerializeField] private LayerMask _targetLayer;
-    [SerializeField] private GameObject _visualTrap;
-
-    private float _timer;
+    [SerializeField] private List<GameObject> _visualList;
+    private float _activationTime;
+    private bool _isActif = false;
+    private Renderer[] _rendererArray;
+    private Color _baseColorBackup;
 
     private void Start()
     {
-        _timer = _trapActivationTimer.Value;
+        EnableVisual(false);
+
+        _rendererArray = GetComponentsInChildren<Renderer>();
+        _baseColorBackup = _rendererArray[0].materials[1].GetColor("_EmissionColor");
     }
 
     private void Update()
     {
-        _timer += Time.deltaTime;
+        if (!_isActif)
+        {
+            _activationTime = 0;
+            LerpEmissive(0);
+            return;
+        }
+
+        _activationTime += Time.deltaTime;
+        LerpEmissive(_activationTime / _activationDelay.Value);
+        if (_activationTime > _activationDelay.Value)
+        {
+            _isActif = false;
+            _activationTime = 0;
+            Activate();
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         MobLife mob = other.GetComponent<MobLife>();
-        if (mob)
-        {
-            // print("EnemyInRange");
-            if (_timer >= _trapActivationTimer.Value)
-            {
-                _timer = 0;
-                Activate();
-                print("ActivateTrap");
-            }
-        }
+        if (mob) _isActif = true;
     }
 
     private void Activate()
@@ -44,22 +59,43 @@ public class Trap : MonoBehaviour
         for (int i = 0; i < col.Length; i++)
         {
             MobLife t = col[i].GetComponent<MobLife>();
-            if (t)
-            {
-                t.TakeDamages(gameObject, _trapDamages.Value, DamageType.Unassigned);
-            }
+            t?.TakeDamages(gameObject, _damages.Value, DamageType.Unassigned);
+
             PhysicsAgent y = col[i].GetComponent<PhysicsAgent>();
-            if (y)
-            {
-                y.SlowAgent(_trapSlowStrenght.Value / 100, _trapSlowDuration.Value);
-            }
+            y?.SlowAgent(_slowStrenght.Value / 100, _slowDuration.Value);
         }
     }
 
     IEnumerator VisualTrap()
     {
-        _visualTrap.SetActive(true);
+        EnableVisual(true);
         yield return new WaitForSeconds(0.3f);
-        _visualTrap.SetActive(false);
+        EnableVisual(false);
+    }
+
+    private void EnableVisual(bool value)
+    {
+        foreach (var item in _visualList)
+            item.SetActive(value);
+    }
+
+    private void LerpEmissive(float time)
+    {
+        print("l time : " + time);
+        foreach (var item in _rendererArray)
+        {
+            try
+            {
+                item.materials[1].SetColor("_EmissionColor", Color.Lerp(_baseColorBackup, Color.red, time));
+            }
+            catch { }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if(!DEBUG) return;
+        Gizmos.color = new Color(1, 0, 0, .1f);
+        Gizmos.DrawSphere(transform.position, _trapHitRange.Value);
     }
 }
