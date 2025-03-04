@@ -64,14 +64,5 @@ public class QTEControler : MonoBehaviour
             _currentQTE = null;
         }
     }
-
-    public void OnQTEDirection(InputValue value)
-    {
-        if (!_currentQTE) return;
-        // print("QTE Direction");
-        //! send direction to _currentQTE
-        Vector2 valueVector = value.Get<Vector2>();
-        if (valueVector == Vector2.zero) return;
-        _currentQTE.PlayInput(valueVector);
-    }
+    
 }
