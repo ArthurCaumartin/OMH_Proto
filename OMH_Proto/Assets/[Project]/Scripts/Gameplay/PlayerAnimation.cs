@@ -90,8 +90,8 @@ public class PlayerAnimation : MonoBehaviour
 
     private AnimationState DefineState()
     {
-        if (_weaponControler.IsPlayerShooting()) return AnimationState.Walking;
-        if (_playerMovement.GetMovementDirection() != Vector3.zero && !_weaponControler.IsPlayerShooting()) return AnimationState.Runing;
+        if (_weaponControler.IsShooting()) return AnimationState.Walking;
+        if (_playerMovement.GetMovementDirection() != Vector3.zero && !_weaponControler.IsShooting()) return AnimationState.Runing;
         return AnimationState.Idle;
     }
 

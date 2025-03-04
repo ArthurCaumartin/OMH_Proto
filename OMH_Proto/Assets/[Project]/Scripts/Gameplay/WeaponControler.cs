@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.ProBuilder;
 
 public class WeaponControler : MonoBehaviour
 {
-    [SerializeField] private Transform _weaponPivot;
+    [SerializeField] private Transform _weaponMeshPivotTarget;
+    [SerializeField] private Transform _weaponParent;
     [SerializeField] private List<Weapon> _weaponList;
     private int _currentWeaponIndex = 0;
 
@@ -14,6 +16,7 @@ public class WeaponControler : MonoBehaviour
     private bool _isSecondaryAttacking;
     public bool IsPrimaryAttacking { get => _isPrimaryAttacking; }
     public bool IsSecondaryAttacking { get => _isSecondaryAttacking; }
+    private Transform _currentWeaponMesh;
 
     private void Start()
     {
@@ -27,9 +30,15 @@ public class WeaponControler : MonoBehaviour
     {
         _isPrimaryAttacking = _primaryAttackInputAction.ReadValue<float>() > .5f;
         _isSecondaryAttacking = _secondaryAttackInputAction.ReadValue<float>() > .5f;
+
+        if(_currentWeaponMesh)
+        {
+            _currentWeaponMesh.position = _weaponMeshPivotTarget.position;
+            _currentWeaponMesh.forward = -_weaponMeshPivotTarget.forward;
+        }
     }
 
-    public bool IsPlayerShooting()
+    public bool IsShooting()
     {
         return _isPrimaryAttacking || _isSecondaryAttacking;
     }
@@ -68,12 +77,13 @@ public class WeaponControler : MonoBehaviour
 
     public void AddWeapon(Weapon weaponToAdd)
     {
-        // if (!weaponToAdd || !_weaponList.Contains(weaponToAdd)) return;
-        Weapon newWeapon = Instantiate(weaponToAdd, _weaponPivot);
-        newWeapon.Initialize(this);
+        Weapon newWeapon = Instantiate(weaponToAdd, _weaponParent);
+
+        newWeapon.Initialize(this, out Transform newWeaponMeshPivot);
+        _currentWeaponMesh = newWeaponMeshPivot;
+
         _weaponList.Add(newWeapon);
         EnableWeapon(_weaponList.Count - 1);
-        // print("weapon grab and select");
     }
 
     public void RemoveWeapon(Weapon weaponToRemove)
@@ -87,7 +97,9 @@ public class WeaponControler : MonoBehaviour
         _weaponList.Clear();
         foreach (var item in GetComponentsInChildren<Weapon>())
         {
-            item.Initialize(this);
+            item.Initialize(this, out Transform newWeaponMeshPivot);
+            _currentWeaponMesh = newWeaponMeshPivot;
+
             _weaponList.Add(item);
         }
         EnableWeapon(0);
