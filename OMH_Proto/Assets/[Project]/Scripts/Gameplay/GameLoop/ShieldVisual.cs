@@ -48,8 +48,6 @@ public class ShieldVisual : MonoBehaviour
     {
         _mat.SetFloat(_opacityParameterName, 1 - Mathf.Sin(time * Mathf.PI));
         _mat.SetFloat(_wavePosParameterName, time);
-
-        _shieldRenderer.enabled = time != 0;
     }
 
     private void OnDamageTaken()
