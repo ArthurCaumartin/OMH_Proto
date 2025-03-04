@@ -141,7 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8781ff0ba4627964ba854a3f7cc1be69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponPivot: {fileID: 1608668917954859811}
+  _weaponMeshPivotTarget: {fileID: 5615964716769141973}
+  _weaponParent: {fileID: 1608668917954859811}
   _weaponList: []
 --- !u!114 &8497644964651202182
 MonoBehaviour:
@@ -546,7 +547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1608668917954859811}
   m_Layer: 17
-  m_Name: WeaponPivot
+  m_Name: WeaponParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -882,6 +883,12 @@ Transform:
 --- !u!95 &5221604182911892427 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: febef853d3a94ab4b9f0602c8c3b2107,
+    type: 3}
+  m_PrefabInstance: {fileID: 1809401411086616154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5615964716769141973 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6121415369636602511, guid: febef853d3a94ab4b9f0602c8c3b2107,
     type: 3}
   m_PrefabInstance: {fileID: 1809401411086616154}
   m_PrefabAsset: {fileID: 0}
