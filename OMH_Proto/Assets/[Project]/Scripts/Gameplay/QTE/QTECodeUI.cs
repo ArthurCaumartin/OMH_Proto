@@ -11,10 +11,7 @@ public class QTECodeUI : MonoBehaviour
     [SerializeField] private Canvas _canvas;
     [SerializeField] private TextMeshProUGUI _codeText;
     [SerializeField] private Image _textContainerImage;
-    [Space]
-    [SerializeField] private AnimationCurve _inputAlphaCurve;
-    [SerializeField] private AnimationCurve _inputScaleCurve;
-    [SerializeField] private float _animDuration = .5f;
+    [Space] [SerializeField] private float _wrongRedDuration = 0.7f;
     
     private Camera _mainCam;
 
@@ -66,7 +63,7 @@ public class QTECodeUI : MonoBehaviour
     private IEnumerator WrongNumber()
     {
         _textContainerImage.color = new Color(1f, 0f, 0f, 1f);
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(_wrongRedDuration);
         _textContainerImage.color = new Color(1f, 1f, 1f, 1f);
     }
 }
