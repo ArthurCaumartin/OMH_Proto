@@ -36,6 +36,7 @@ public class Chest_Shader_Controller : Interactible
         }
 
         _mapPin.SetActive(false);
+        GetComponent<BoxCollider>().enabled = false;
     }
 
     private IEnumerator GetLoot(float delay)

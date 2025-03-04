@@ -39,6 +39,7 @@ public class InteractibleMetal : Interactible
 
         _onActivateMetalGenerator.Raise();
         // Destroy(gameObject);
+        GetComponent<BoxCollider>().enabled = false;
     } 
 
     private void Update()
