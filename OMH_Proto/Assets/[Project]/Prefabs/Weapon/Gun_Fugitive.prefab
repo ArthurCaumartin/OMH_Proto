@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6479633303855670742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3993987248070714212}
+  m_Layer: 17
+  m_Name: WeaponPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3993987248070714212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479633303855670742}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3550945894098813035}
+  m_Father: {fileID: 1273255557225295727}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6954251608494401972
 GameObject:
   m_ObjectHideFlags: 0
@@ -34,6 +66,7 @@ Transform:
   m_Children:
   - {fileID: 2633406157032180961}
   - {fileID: 8651325363903735265}
+  - {fileID: 3993987248070714212}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &195836820061509647
@@ -48,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9218224d5651d72429294c37f1fb3308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshPivot: {fileID: 3993987248070714212}
   _projectile: {fileID: 6403736433643166296, guid: d49a1cea79879ec4d83dfedacc23edbf,
     type: 3}
   _stat:
@@ -238,6 +272,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7598070195217346709, guid: f4188926028cd404e931623e6704da32,
     type: 3}
   m_PrefabInstance: {fileID: 1260561506754794868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3949031282844444544
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3993987248070714212}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 987cd5df4d9567e419fadc720e2d1f8d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 987cd5df4d9567e419fadc720e2d1f8d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 987cd5df4d9567e419fadc720e2d1f8d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 987cd5df4d9567e419fadc720e2d1f8d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710653
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 987cd5df4d9567e419fadc720e2d1f8d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 987cd5df4d9567e419fadc720e2d1f8d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710707
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 987cd5df4d9567e419fadc720e2d1f8d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 987cd5df4d9567e419fadc720e2d1f8d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 987cd5df4d9567e419fadc720e2d1f8d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 987cd5df4d9567e419fadc720e2d1f8d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 987cd5df4d9567e419fadc720e2d1f8d,
+        type: 3}
+      propertyPath: m_Name
+      value: CHARA_Weapon_Pistol_Blocking
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 987cd5df4d9567e419fadc720e2d1f8d, type: 3}
+--- !u!4 &3550945894098813035 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 987cd5df4d9567e419fadc720e2d1f8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3949031282844444544}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4203934182448509319
 PrefabInstance:
