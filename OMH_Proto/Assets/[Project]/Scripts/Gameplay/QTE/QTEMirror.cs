@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -30,7 +31,7 @@ public class QTEMirror : Upgradable
             
             for (int i = 0; i < lenght; i++)
             {
-                array[i] = Random.Range(0, lenght);
+                array[i] = Random.Range(0, 6);
             }
 
             for (int i = 0; i < array.Length; i++)
@@ -59,14 +60,16 @@ public class QTEMirror : Upgradable
     public void StartQTE(QTE qteManager)
     {
         _qte = qteManager;
+        _qteUi.InitializeUI(_numbersOfCode);
         NewCode();
     }
 
     private void NewCode()
     {
-        int[] tempArray = GetRandomArray(6);
+        _valuesDictionnary = new Dictionary<int, bool>();
+        int[] tempArray = GetRandomArray(3);
         
-        _qteUi.StartQTE(tempArray);
+        _qteUi.NewQTE(tempArray, _winIndex, _numbersOfCode);
         for (int i = 0; i < tempArray.Length; i++)
         {
             _valuesDictionnary[tempArray[i]] = false;
@@ -95,7 +98,12 @@ public class QTEMirror : Upgradable
                 }
             }
         }
+        
         _qteUi.SetBadInputFeedBack();
+        foreach (KeyValuePair<int, bool> kvp in _valuesDictionnary.ToList())
+        {
+            _valuesDictionnary[kvp.Key] = false;
+        }
     }
 
     private void VerifyCodeIsGood()
@@ -119,6 +127,6 @@ public class QTEMirror : Upgradable
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(1f);
-        _qte.KillQTE();
+        _qte.OnWin.Invoke();
     }
 }

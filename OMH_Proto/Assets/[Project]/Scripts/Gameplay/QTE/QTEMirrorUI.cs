@@ -1,18 +1,36 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class QTEMirrorUI : MonoBehaviour
 {
     [SerializeField] private Canvas _canvas;
-    [SerializeField] private Image _textContainerImage;
     [SerializeField] private GameObject _reproduceButtonsParent, _endText;
     
     [SerializeField] private List<GameObject> _reproduceObjects = new List<GameObject>();
     [SerializeField] private List<GameObject> _activateObjects = new List<GameObject>();
-    public void StartQTE(int[] intArray)
+    
+    [SerializeField] private TextMeshProUGUI _counterText;
+
+    public void InitializeUI(int numberWinsValue)
     {
+        _canvas.enabled = true;
+        _counterText.text = $"1 / {numberWinsValue}";
+    }
+    
+    public void NewQTE(int[] intArray, int winCounter, int numberWinsValue)
+    {
+        _counterText.text = $"{winCounter + 1} / {numberWinsValue}";
+        
+        for (int i = 0; i < _activateObjects.Count; i++)
+        {
+            _activateObjects[i].GetComponent<Image>().color = Color.red;
+            _reproduceObjects[i].GetComponent<Image>().color = Color.red;
+        }
+        
         for (int i = 0; i < intArray.Length; i++)
         {
             Image tempImage = _reproduceObjects[intArray[i]].GetComponent<Image>();
@@ -22,9 +40,12 @@ public class QTEMirrorUI : MonoBehaviour
 
     public void ResetQTE()
     {
+        _canvas.enabled = false;
+        
         for (int i = 0; i < _activateObjects.Count; i++)
         {
             _activateObjects[i].GetComponent<Image>().color = Color.red;
+            _reproduceObjects[i].GetComponent<Image>().color = Color.red;
         }
     }
     
