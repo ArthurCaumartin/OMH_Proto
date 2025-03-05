@@ -7,7 +7,9 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class Weapon : MonoBehaviour
 {
-    [Tooltip("Multiplie PlayerMoveSpeed by indicate factor.")]
+    [Header("Visual : ")]
+    [SerializeField] private Transform _meshPivot;
+
     [Header("Main Fire : ")]
     [SerializeField] protected Projectile _projectile;
     [SerializeField] protected StatContainer _stat;
@@ -36,8 +38,9 @@ public class Weapon : MonoBehaviour
         _attackTime = 0;
     }
 
-    public void Initialize(WeaponControler controler)
+    public void Initialize(WeaponControler controler, out Transform weaponMeshPivot)
     {
+        weaponMeshPivot = _meshPivot;
         _weaponControler = controler;
     }
 

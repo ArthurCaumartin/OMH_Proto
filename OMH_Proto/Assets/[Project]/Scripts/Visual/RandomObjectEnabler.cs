@@ -23,12 +23,12 @@ public class RandomObjectEnabler : MonoBehaviour
     {
         foreach (GameObjectList objList in _objectList)
             foreach (GameObject go in objList.list)
-                go.SetActive(false);
+                go?.SetActive(false);
 
         for (int i = 0; i < _objectList.Count; i++)
         {
             int randomIndex = Random.Range(0, _objectList[i].list.Count);
-            _objectList[i].list[randomIndex].SetActive(true);
+            _objectList[i].list[randomIndex]?.SetActive(true);
         }
     }
 }

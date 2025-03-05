@@ -13,14 +13,15 @@ public class DialogueBox : MonoBehaviour
     [SerializeField] private GameObject _dialogueBox;
     [SerializeField] private FloatReference _printCharacterDelay, _printDelayAfterWritten;
     private bool _isPrinting = false;
+    private float _printDelayTimer;
+    private int _characterIndex;
+    private string _dialogueText;
     
     private List<string> _dialogueLines = new List<string>();
 
     public void PrintNewDialogue(string dialogue)
     {
         if (!gameObject.activeSelf) return;
-        // print("Dialogue Box set text");
-        //! coroutine send warning if call while enable is false
         if (dialogue == "") return;
         
         foreach (var line in _dialogueLines)
@@ -31,12 +32,11 @@ public class DialogueBox : MonoBehaviour
             }
         }
         _dialogueLines.Add(dialogue);
-        
-        if (!_isPrinting)
-            StartCoroutine(PrintText(dialogue));
+
+        if (!_isPrinting) PrintText(dialogue);
     }
 
-    private IEnumerator PrintText(string toPrint)
+    private void PrintText(string toPrint)
     {
         _isPrinting = true;
         _textMesh.text = "";
@@ -45,16 +45,28 @@ public class DialogueBox : MonoBehaviour
         for (int i = 0; i < toPrint.Length; i++)
         {
             _textMesh.text += toPrint[i];
-            yield return new WaitForSeconds(_printCharacterDelay.Value);
         }
-        
-        yield return new WaitForSeconds(_printDelayAfterWritten.Value);
+    }
+
+    private void FinishPrintText()
+    {
         _dialogueLines.RemoveAt(0);
         
         _isPrinting = false;
         _dialogueBox.SetActive(false);
+        _printDelayTimer = 0;
+        _characterIndex = 0;
         
-        if(_dialogueLines.Count > 0) StartCoroutine(PrintText(_dialogueLines[0]));
-        
+        if(_dialogueLines.Count > 0) PrintText(_dialogueLines[0]);
+    }
+
+    private void Update()
+    {
+        if (_isPrinting)
+        {
+            _printDelayTimer += Time.deltaTime;
+            
+            if(_printDelayTimer >= _printDelayAfterWritten.Value) FinishPrintText();
+        }
     }
 }
