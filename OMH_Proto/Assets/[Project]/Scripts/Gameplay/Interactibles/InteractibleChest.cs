@@ -17,6 +17,7 @@ public class Chest_Shader_Controller : Interactible
     [SerializeField] private GameObject _goldenChestPrefab;
     
     private bool _isOpen = false;
+    private bool _isThisObjectGoldChest;
 
     public static bool _isGoldenChest; 
     private List<Chest_Shader_Controller> _chestControllers = new List<Chest_Shader_Controller>();
@@ -29,6 +30,9 @@ public class Chest_Shader_Controller : Interactible
     void Start()
     {
         base.Start();
+
+        if (_isThisObjectGoldChest) return;
+        
         Object[] chest = FindObjectsOfType(typeof(Chest_Shader_Controller));
         foreach (Chest_Shader_Controller chestShader in chest)
         {
@@ -69,13 +73,18 @@ public class Chest_Shader_Controller : Interactible
 
     public void TransformationGoldChest()
     {
-        Instantiate(_goldenChestPrefab, transform.position, Quaternion.identity);
+        GameObject tempObject = Instantiate(_goldenChestPrefab, transform.position, Quaternion.identity);
+        tempObject.GetComponent<Chest_Shader_Controller>()._isThisObjectGoldChest = true;
         Destroy(gameObject);
     }
 
     private IEnumerator GetLoot(float delay)
     {
         yield return new WaitForSeconds(delay);
-        _onOpenChestEvent.Raise();
+        if(!_isThisObjectGoldChest) _onOpenChestEvent.Raise();
+        else
+        {
+            _onOpenGoldenChestEvent.Raise();
+        }
     }
 }
