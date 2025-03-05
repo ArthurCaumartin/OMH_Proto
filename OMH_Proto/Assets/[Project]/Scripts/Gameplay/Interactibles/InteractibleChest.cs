@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Chest_Shader_Controller : Interactible
 {
@@ -14,6 +15,15 @@ public class Chest_Shader_Controller : Interactible
     [SerializeField] private ParticleSystem _openParticle;
     private bool _isOpen = false;
 
+    void Start()
+    {
+        Object[] chest = FindObjectsOfType(typeof(Chest_Shader_Controller));
+        for (int i = 0; i < chest.Length; i++)
+        {
+            
+        }
+    }
+    
     public override void Interact(PlayerInteract playerInteract, out bool cancelIteraction)
     {
         cancelIteraction = _isOpen;
