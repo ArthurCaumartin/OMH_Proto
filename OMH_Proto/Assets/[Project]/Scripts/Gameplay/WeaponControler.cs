@@ -38,7 +38,7 @@ public class WeaponControler : MonoBehaviour
         }
     }
 
-    public bool IsPlayerShooting()
+    public bool IsShooting()
     {
         return _isPrimaryAttacking || _isSecondaryAttacking;
     }
