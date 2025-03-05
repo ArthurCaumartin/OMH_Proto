@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 using TMPro;
-using Unity.VisualScripting;
+using UnityEngine.Rendering.Universal;
 
 public class QTECodeUI : MonoBehaviour
 {
@@ -19,6 +17,8 @@ public class QTECodeUI : MonoBehaviour
     {
         _mainCam = Camera.main;
         _canvas.enabled = false;
+        
+        _canvas.worldCamera = Camera.main.GetUniversalAdditionalCameraData().cameraStack[Camera.main.GetUniversalAdditionalCameraData().cameraStack.Count - 1];
     }
 
     public void ActivateUI()

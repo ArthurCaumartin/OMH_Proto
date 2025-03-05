@@ -24,7 +24,10 @@ public class InteractibleArmory : Interactible
     public override void OnQTEWin()
     {
         // _onCompleteArmory.Raise();
-        Destroy(gameObject);
+        
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        // Destroy(gameObject);
+        // GetComponent<BoxCollider>().enabled = false;
     } 
 
     public void OpenArmory()

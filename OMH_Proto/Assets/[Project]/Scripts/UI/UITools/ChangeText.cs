@@ -24,11 +24,11 @@ public class ChangeText : MonoBehaviour
     {
         if (_valueToChange.Value != _memoryValue && _isColoredGreen)
         {
-            _textToChange.color = new Color32(22, 184, 0, 255);
+            _textToChange.color = new Color32(100, 174, 50, 255);
         }
         else if(_valueToChange.Value == _memoryValue && _isColoredGreen)
         {
-            _textToChange.color = new Color32(1, 1, 1, 255);
+            _textToChange.color = new Color32(252, 217, 89, 255);
         }
 
         if (!_isReverse)

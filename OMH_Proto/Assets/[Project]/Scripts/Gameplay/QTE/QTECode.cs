@@ -65,6 +65,7 @@ public class QTECode : Upgradable
     {
         yield return new WaitForSeconds(1f);
         _qte.KillQTE();
+        _qte.OnWin.Invoke();
     }
     
     private IEnumerator WrongNumber()
