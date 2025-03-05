@@ -12,7 +12,7 @@ public class ItemList : ScriptableObject
 
 public enum Rarity
 {
-    common, rare, epic
+    common, rare
 }
 
 

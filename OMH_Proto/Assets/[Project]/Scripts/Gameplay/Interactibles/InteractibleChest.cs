@@ -12,8 +12,6 @@ public class Chest_Shader_Controller : Interactible
     [SerializeField] private float _animationDuration = 1;
     [SerializeField] private Transform _topPart;
     [SerializeField] private ParticleSystem _openParticle;
-    // [SerializeField] private Light _light;
-    // [SerializeField] private float _lightIntensity = 5;
     private bool _isOpen = false;
 
     public override void Interact(PlayerInteract playerInteract, out bool cancelIteraction)
@@ -26,8 +24,6 @@ public class Chest_Shader_Controller : Interactible
         _isOpen = true;
         _topPart.DOLocalRotate(new Vector3(-195, 0, 0), _animationDuration);
         StartCoroutine(GetLoot(_delayToGetLoot));
-        // _light.DOIntensity(_lightIntensity, _animationDuration / 2)
-        // .OnComplete(() => _light.DOIntensity(0, _animationDuration / 2));
 
         if (_openParticle)
         {
