@@ -16,6 +16,8 @@ public class PlayerMovement : Upgradable
     private Vector3 _velocityTarget;
     public float _upgradeMoveSpeedMult = 1;
 
+    public bool IsMoving { get => _inputVector.magnitude != 0; }
+
     private void Start()
     {
         _moveInputAction = GetComponent<PlayerInput>().actions.FindAction("GroundMove");
@@ -31,7 +33,7 @@ public class PlayerMovement : Upgradable
     {
         _inputVector = _moveInputAction.ReadValue<Vector2>();
         _velocityTarget = new Vector3(_inputVector.x, 0, _inputVector.y)
-                         * (_weaponControler.IsPlayerShooting() ? _walkMoveSpeed.Value : _runMoveSpeed.Value)
+                         * (_weaponControler.IsShooting() ? _walkMoveSpeed.Value : _runMoveSpeed.Value)
                          * _upgradeMoveSpeedMult;
 
         _rb.velocity = _velocityTarget;

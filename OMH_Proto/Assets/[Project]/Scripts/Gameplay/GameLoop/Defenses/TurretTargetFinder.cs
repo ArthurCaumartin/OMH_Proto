@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TurretTargetFinder : MonoBehaviour
 {
     [SerializeField] private LayerMask _mobLayer;
+    [SerializeField] private LayerMask _wallLayer;
     private List<MobLife> _mobInRangeList = new List<MobLife>();
 
     public MobLife GetNearsetMob(float range)
@@ -18,12 +20,9 @@ public class TurretTargetFinder : MonoBehaviour
         foreach (var item in _mobInRangeList)
         {
             if (!item) continue;
+            if (IsBehindWall(item.transform)) continue;
 
-            RaycastHit[] hits = Physics.RaycastAll(transform.position, item.transform.position - transform.position, range);
-            Debug.DrawRay(transform.position, item.transform.position - transform.position, Color.green);
-            if (hits.Length > 0 && hits[0].collider.gameObject.layer == 15) continue;
-
-            float currentDistance = (item.transform.position - transform.position).sqrMagnitude;
+            float currentDistance = Vector3.Distance(item.transform.position, transform.position);
             if (currentDistance < minDistance)
             {
                 minDistance = currentDistance;
@@ -55,5 +54,10 @@ public class TurretTargetFinder : MonoBehaviour
     {
         if (_mobInRangeList.Contains(toRemove))
             _mobInRangeList.Remove(toRemove);
+    }
+
+    private bool IsBehindWall(Transform obj)
+    {
+        return Physics.Linecast(transform.position, obj.position, _wallLayer);
     }
 }

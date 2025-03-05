@@ -7,13 +7,14 @@ public class MobTargetFinder : MonoBehaviour
     [SerializeField] private float _targetDetectionPerSecond;
     [SerializeField] private FloatReference _targetDetectionRange;
     [SerializeField] private FloatReference _maxFollowDistance;
+    [SerializeField] private FloatReference _timeBeforeCanDropAgro;
     [Space]
     [SerializeField] private MobTarget _ifLostTarget;
     [SerializeField] private MobTarget _currentTarget;
     private float _distanceWithTarget;
     private float _targetDetectionTime;
     public Transform Target { get => _currentTarget ? _currentTarget.transform : null; }
-    private bool _canDropAgro = true;
+    private float _canDropAgro = 1000;
     // TODO faire un timer pour reset la perte d'agro
     // TODO change de target si la nouvelle target par dgt est plus proche ?
     // TODO la prio est prise en compte dans tout les cas
@@ -28,11 +29,13 @@ public class MobTargetFinder : MonoBehaviour
     {
         MobTarget t = damageDealer.GetComponent<MobTarget>();
         if (!t) return;
+        print(damageDealer.name);
 
         float distWithDealer = Vector3.Distance(transform.position, damageDealer.transform.position);
-        if (_currentTarget && (_currentTarget && distWithDealer < _distanceWithTarget))
+        if (distWithDealer < _distanceWithTarget)
         {
-            _canDropAgro = false;
+            print("Set new target : " + t.name);
+            _canDropAgro = 0;
             SetNewTarget(t);
         }
     }
@@ -47,8 +50,13 @@ public class MobTargetFinder : MonoBehaviour
         //TODO delay pour le detect
         DetectNearestTarget();
 
-        if (_currentTarget) _distanceWithTarget = Vector3.Distance(transform.position, _currentTarget.transform.position);
-        if (_distanceWithTarget < _maxFollowDistance.Value) _canDropAgro = true;
+        if (_currentTarget) 
+            _distanceWithTarget = Vector3.Distance(transform.position, _currentTarget.transform.position);
+        else
+            _distanceWithTarget = Mathf.Infinity;
+
+        _canDropAgro += Time.deltaTime;
+        if (_distanceWithTarget < _maxFollowDistance.Value) _canDropAgro = _timeBeforeCanDropAgro.Value;
 
         if (!_currentTarget || IsTargetToFar())
         {
@@ -87,7 +95,7 @@ public class MobTargetFinder : MonoBehaviour
     private bool IsTargetToFar()
     {
         if (_currentTarget == _ifLostTarget) return false;
-        if (!_canDropAgro) return false;
+        if (_canDropAgro < _timeBeforeCanDropAgro.Value) return false;
 
         // print(_distanceWithTarget > _maxFollowDistance.Value ? "target to far" : "target in follow range");
         return _distanceWithTarget > _maxFollowDistance.Value;
@@ -95,7 +103,6 @@ public class MobTargetFinder : MonoBehaviour
 
     private void SetNewTarget(MobTarget toSet)
     {
-        // print("Set New target : " + toSet?.name);
         //? si on a une target et que la nouvelle prio est plus grande
         if (_currentTarget && toSet.Priority > _currentTarget.Priority)
         {

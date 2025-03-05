@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class ItemManager : MonoBehaviour
 {
-    [SerializeField] private ItemList _commonList, _rareList, _epicList;
+    [SerializeField] private ItemList _commonList, _rareList;
 
     [SerializeField] private ItemStatsContainer _refsStatsContainer, _baseStatsContainer;
     [SerializeField] private ItemStatsContainer _multplierStatsContainer;
@@ -14,7 +14,11 @@ public class ItemManager : MonoBehaviour
     [SerializeField] private ObjectUIManager _objectUIManager;
     [SerializeField] private GameEvent _gainItem;
 
+    [Space]
+    [SerializeField] private ItemMenu _itemMenu;
+
     public PlayerItemList _playerItemsList;
+    private List<ItemScriptable> itemsToSelect = new List<ItemScriptable>();
 
     private void Awake()
     {
@@ -30,36 +34,34 @@ public class ItemManager : MonoBehaviour
         _playerItemsList._items.Clear();
     }
 
-    public void GainItem()
+    public void OpenItemSelection()
     {
-        int randomNumber = Random.Range(0, 99);
-        // print(randomNumber);
-        ItemScriptable itemToGain;
-
-        if (randomNumber >= 0 && randomNumber <= 64)
-        {
-            randomNumber = Random.Range(0, _commonList._itemsList.Count);
-
-            itemToGain = _commonList._itemsList[randomNumber];
-        }
-        else if (randomNumber >= 65 && randomNumber < 90)
-        {
-            randomNumber = Random.Range(0, _rareList._itemsList.Count);
-
-            itemToGain = _rareList._itemsList[randomNumber];
-        }
-        else
-        {
-            randomNumber = Random.Range(0, _epicList._itemsList.Count);
-
-            itemToGain = _epicList._itemsList[randomNumber];
-        }
-
-        _playerItemsList._items.Add(itemToGain);
+        //Select Random items and add to a list
         
-        AddItem(_multplierStatsContainer, itemToGain);
+        int tempRandomInt = Random.Range(0, _commonList._itemsList.Count);
+        itemsToSelect.Add(_commonList._itemsList[tempRandomInt]);
+        int tempSecondRandomInt = tempRandomInt;
+        while (tempSecondRandomInt == tempRandomInt)
+        {
+            tempSecondRandomInt = Random.Range(0, _commonList._itemsList.Count);
+        }
+        itemsToSelect.Add(_commonList._itemsList[tempSecondRandomInt]);
         
-        _objectUIManager.AddObjectUI(itemToGain._itemName, itemToGain._itemDescription, itemToGain._itemSprite);
+        int tempThirdRandomInt = Random.Range(0, _rareList._itemsList.Count);
+        itemsToSelect.Add(_rareList._itemsList[tempThirdRandomInt]);
+        
+        //Activate UI
+        _itemMenu.OpenItemMenu(itemsToSelect, this);
+    }
+
+    public void SelectItem(int itemId)
+    {
+        //Take the "itemId" object in list and AddItem()
+        _playerItemsList._items.Add(itemsToSelect[itemId]);
+        
+        AddItem(_multplierStatsContainer, itemsToSelect[itemId]);
+        
+        _objectUIManager.AddObjectUI(itemsToSelect[itemId]._itemName, itemsToSelect[itemId]._itemDescription, itemsToSelect[itemId]._itemSprite);
         
         ModifyStats();
         
