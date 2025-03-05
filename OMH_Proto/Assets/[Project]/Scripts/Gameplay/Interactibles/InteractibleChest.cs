@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Chest_Shader_Controller : Interactible
 {
     [Space]
-    [SerializeField] private GameEvent _onOpenChestEvent;
+    [SerializeField] private GameEvent _onOpenChestEvent, _onOpenGoldenChestEvent;
     [SerializeField] private GameObject _mapPin;
     [Space]
     [SerializeField] private float _delayToGetLoot = 1;

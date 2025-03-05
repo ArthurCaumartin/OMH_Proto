@@ -40,15 +40,10 @@ public class PlayerMovement : Upgradable
                          * (_weaponControler.IsShooting() ? _walkMoveSpeed.Value : _runMoveSpeed.Value)
                          * _upgradeMoveSpeedMult;
 
-        if (_mainCam)
-        {
-            Vector3 dirCamToPlayer = (transform.position - _mainCam.transform.position).normalized;
-            dirCamToPlayer.y = 0;
-            _rb.velocity = Quaternion.LookRotation(dirCamToPlayer, Vector3.up) * _velocityTarget;
-        }
-        else
-            _rb.velocity = _velocityTarget;
-
+        Vector3 dirCamToPlayer = (transform.position - _mainCam.transform.position).normalized;
+        dirCamToPlayer.y = 0;
+        _velocityTarget = Quaternion.LookRotation(dirCamToPlayer, Vector3.up) * _velocityTarget;
+        _rb.velocity = _velocityTarget;
     }
 
     private void OnDisable()
@@ -59,7 +54,7 @@ public class PlayerMovement : Upgradable
 
     public Vector3 GetMovementDirection()
     {
-        return _velocityTarget.normalized;
+        return _velocityTarget;
     }
 
     public override void UpdateUpgrade()
