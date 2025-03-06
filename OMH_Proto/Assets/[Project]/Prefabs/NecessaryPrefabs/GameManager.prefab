@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8985578122966201057}
-  - component: {fileID: 8609622750886463965}
   - component: {fileID: 6944716330613004350}
   - component: {fileID: 6812450323627586235}
   m_Layer: 0
@@ -34,41 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8609622750886463965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7187046051254820072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e52b3eae5e18f947a85af66ee03b351, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _defenseStartEvent: {fileID: 11400000, guid: 1ef557f46f9b64d44a7451596034930f, type: 2}
-  _victoryGameEvent: {fileID: 11400000, guid: f71a17a6cc58d0f4f8fbd9f4cb7502c0, type: 2}
-  _defenseAlmostEndEvent: {fileID: 11400000, guid: 691f9c62695f2674dbbeb909c745e702,
-    type: 2}
-  _explorationAlmostEndEvent: {fileID: 11400000, guid: c5409ab0e10a4504abe2e0fa8dbdbc51,
-    type: 2}
-  _explorationMidEvent: {fileID: 11400000, guid: dc6a439494b625e48a58fa801889bba1,
-    type: 2}
-  _explorationStartEvent: {fileID: 11400000, guid: ad159d0d15aa4714e9841ba934b5f716,
-    type: 2}
-  _gameTime:
-    propertyType: 1
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 36503a46efb980e4dbfb28ad7de88cc2, type: 2}
-  _explorationDuration:
-    propertyType: 1
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 27024d8c2a5fb9e469a571e5ff933d0b, type: 2}
-  _defenseDuration:
-    propertyType: 1
-    constantValue: 0
-    variable: {fileID: 11400000, guid: d00ae9e5fabd5c14ab687b973666a9e6, type: 2}
-  _navMesh: {fileID: 0}
 --- !u!114 &6944716330613004350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +62,7 @@ MonoBehaviour:
   _response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8609622750886463965}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: RebakeNavmesh
         m_Mode: 1
