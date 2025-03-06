@@ -6,35 +6,36 @@ public class State_Mob_Chase : IEntityState
 {
     [SerializeField] private float _distanceToTriggerAttack;
     private PhysicsAgent _agent;
+    private StateMachine_MobBase _mobMachine;
 
     public void Initialize(StateMachine behavior)
     {
         _agent = behavior.GetComponent<PhysicsAgent>();
+        _mobMachine = behavior as StateMachine_MobBase;
     }
 
-    public void EnterState(StateMachine behavior)
+    public void EnterState()
     {
 
     }
 
-    public void UpdateState(StateMachine behavior)
+    public void UpdateState()
     {
-        StateMachine_MobBase mobMachine = behavior as StateMachine_MobBase;
-        if (!mobMachine.Target) 
+        if (!_mobMachine.Target) 
         {
-            mobMachine.SetState(mobMachine.RoamState);
+            _mobMachine.SetState(_mobMachine.RoamState);
             return;
         }
 
-        _agent.SetTarget(mobMachine.Target);
+        _agent.SetTarget(_mobMachine.Target);
 
-        if (Vector3.Distance(mobMachine.transform.position, mobMachine.Target.transform.position) <= _distanceToTriggerAttack)
+        if (Vector3.Distance(_mobMachine.transform.position, _mobMachine.Target.transform.position) <= _distanceToTriggerAttack)
         {
-            mobMachine.SetState(mobMachine.AttackState);
+            _mobMachine.SetState(_mobMachine.AttackState);
         }
     }
 
-    public void ExitState(StateMachine behavior)
+    public void ExitState()
     {
 
     }

@@ -43,7 +43,7 @@ public class StateMachine_MobBase : StateMachine
     {
         // print("Current State : " + _currentState?.ToString());
         if (_currentState == null) return;
-        _currentState.UpdateState(this);
+        _currentState.UpdateState();
     }
 
     public void StunMob(float duration)
