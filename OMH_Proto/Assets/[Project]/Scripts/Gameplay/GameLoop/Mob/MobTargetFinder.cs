@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MobTargetFinder : MonoBehaviour
@@ -11,13 +12,12 @@ public class MobTargetFinder : MonoBehaviour
     [Space]
     [SerializeField] private MobTarget _ifLostTarget;
     [SerializeField] private MobTarget _currentTarget;
+    [SerializeField] private List<string> _banTag;
     private float _distanceWithTarget;
     private float _targetDetectionTime;
-    public Transform Target { get => _currentTarget ? _currentTarget.transform : null; }
     private float _canDropAgro = 1000;
-    // TODO faire un timer pour reset la perte d'agro
-    // TODO change de target si la nouvelle target par dgt est plus proche ?
-    // TODO la prio est prise en compte dans tout les cas
+
+    public Transform Target { get => _currentTarget ? _currentTarget.transform : null; }
 
     private void Start()
     {
@@ -103,6 +103,7 @@ public class MobTargetFinder : MonoBehaviour
 
     private void SetNewTarget(MobTarget toSet)
     {
+        if(toSet && _banTag.Contains(toSet.tag)) return;
         //? si on a une target et que la nouvelle prio est plus grande
         if (_currentTarget && toSet.Priority > _currentTarget.Priority)
         {
