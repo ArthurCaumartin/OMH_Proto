@@ -12,14 +12,14 @@ public class StateMachine : MonoBehaviour
         {
             _currentState = toSet;
             _debugStateName = _currentState.ToString();
-            _currentState.EnterState(this);
+            _currentState.EnterState();
             return;
         }
 
         if (toSet == _currentState) return;
-        _currentState.ExitState(this);
+        _currentState.ExitState();
         _currentState = toSet;
         _debugStateName = _currentState.ToString();
-        _currentState.EnterState(this);
+        _currentState.EnterState();
     }
 }

@@ -12,6 +12,10 @@ public class AimVisualAssist : MonoBehaviour
 
     private void Start()
     {
+        //! dsl j'ai la flem de faire mieux
+        _playerMovement = transform.parent.parent.parent.parent.GetComponent<PlayerMovement>();
+        _weaponControler = transform.parent.parent.parent.parent.GetComponent<WeaponControler>();
+
         _line = GetComponent<LineRenderer>();
         _lenghtBackup = _lenght;
     }
