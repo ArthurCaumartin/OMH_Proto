@@ -2,9 +2,9 @@ public interface IEntityState
 {
     public void Initialize(StateMachine behavior);
 
-    public void EnterState(StateMachine behavior);
+    public void EnterState();
 
-    public void UpdateState(StateMachine behavior);
+    public void UpdateState();
 
-    public void ExitState(StateMachine behavior);
+    public void ExitState();
 }
