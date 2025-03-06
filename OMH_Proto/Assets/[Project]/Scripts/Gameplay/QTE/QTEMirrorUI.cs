@@ -19,7 +19,7 @@ public class QTEMirrorUI : MonoBehaviour
     public void InitializeUI(int numberWinsValue)
     {
         _canvas.enabled = true;
-        _canvas.worldCamera = Camera.main.GetUniversalAdditionalCameraData().cameraStack[Camera.main.GetUniversalAdditionalCameraData().cameraStack.Count - 1];
+        // _canvas.worldCamera = Camera.main.GetUniversalAdditionalCameraData().cameraStack[Camera.main.GetUniversalAdditionalCameraData().cameraStack.Count - 1];
         _counterText.text = $"1 / {numberWinsValue}";
     }
     

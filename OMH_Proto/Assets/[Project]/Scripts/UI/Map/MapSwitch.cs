@@ -34,6 +34,7 @@ public class MapSwitch : MonoBehaviour
 
     public void OnPauseMenu()
     {
-        _pauseMenu.Raise();
+        //TODO Nique sa mere
+        _pauseMenu.Raise(false);
     }
 }
