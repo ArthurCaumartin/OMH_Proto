@@ -13,26 +13,26 @@ public class State_Mob_Roam : IEntityState
     private PhysicsAgent _agent;
     private Vector3 _randomPos;
     private int _count;
-    StateMachine_MobBase _mobMachine;
+    StateMachine_Pteramyr _machinePteramyr;
 
     public void Initialize(StateMachine behavior)
     {
         _agent = behavior.GetComponent<PhysicsAgent>();
-        _mobMachine = behavior as StateMachine_MobBase;
+        _machinePteramyr = behavior as StateMachine_Pteramyr;
     }
 
     public void EnterState()
     {
         _agent.ClearTarget();
-        _startPos = _mobMachine.transform.position;
+        _startPos = _machinePteramyr.transform.position;
         _randomPos = GetRandomPos();
     }
 
     public void UpdateState()
     {
-        if (_mobMachine.Target)
+        if (_machinePteramyr.Target)
         {
-            _mobMachine.SetState(_mobMachine.ChaseState);
+            _machinePteramyr.SetState(_machinePteramyr.ChaseState);
             return;
         }
 
@@ -48,7 +48,7 @@ public class State_Mob_Roam : IEntityState
         if (_count > _maxCount)
         {
             _count = 0;
-            _mobMachine.SetState(_mobMachine.RoamState);
+            _machinePteramyr.SetState(_machinePteramyr.RoamState);
         }
     }
 

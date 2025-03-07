@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[ExecuteInEditMode]
 public class AimVisualAssist : MonoBehaviour
 {
     [SerializeField] private PlayerMovement _playerMovement;
@@ -9,6 +8,8 @@ public class AimVisualAssist : MonoBehaviour
     [SerializeField, Range(2, 100)] private int _pointCount = 5;
     private LineRenderer _line;
     private float _lenghtBackup;
+
+
 
     private void Start()
     {
