@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -18,12 +19,7 @@ public class Shield : Upgradable, IDamageable
     [SerializeField] private UpgradeMeta _shildExplodeUpgrade;
     [SerializeField] private LayerMask _mobLayer;
 
-    [Header("Visual")]
-    [SerializeField] private Material _shieldDownMaterial;
-    [SerializeField] private Material _shieldUpMaterial;
-    [SerializeField] private Renderer _shieldMeshRenderer;
-    [SerializeField] private AnimatorBoolSetter _shieldAnim;
-    [Space]
+
     public UnityEvent _onShieldDown, _onShieldUp;
 
     private Vector3 _respawnPos;
@@ -85,11 +81,6 @@ public class Shield : Upgradable, IDamageable
         _isInvincible = true;
 
         _onShieldDown.Invoke();
-
-        _shieldAnim.SetParametre(true);
-
-        if (_shieldMeshRenderer) _shieldMeshRenderer.material = _shieldDownMaterial;
-        if (_playerMovementSpeed) _playerMovementSpeed.Value = _shieldBoostMoveSpeed.Value;
     }
 
     public void ShieldUp()
@@ -98,25 +89,18 @@ public class Shield : Upgradable, IDamageable
         _isShieldDown = false;
 
         _onShieldUp.Invoke();
-
-        _shieldAnim.SetParametre(false);
-
-        if (_shieldMeshRenderer) _shieldMeshRenderer.material = _shieldUpMaterial;
-        if (_playerMovementSpeed) _playerMovementSpeed.Value = 1;
     }
 
     private void PlayerDeath()
     {
-        GetComponent<QTEControler>().KillQTE();
-
         Rigidbody playerRigidbody = GetComponent<Rigidbody>();
         playerRigidbody.MovePosition(_respawnPos);
 
         _timerRegenShield = 0;
         _isShieldDown = false;
 
-        if (_shieldMeshRenderer) _shieldMeshRenderer.material = _shieldUpMaterial;
-        if (_playerMovementSpeed) _playerMovementSpeed.Value = 1;
+        //! quick fix for stuck in QTE after death :)
+        GetComponent<QTEControler>()?.KillQTE();
     }
 
     public void SetRespawnPos(Vector3 position)
@@ -128,7 +112,6 @@ public class Shield : Upgradable, IDamageable
     {
         if (_stunCooldownTime < _stunCooldown.Value) return;
         _stunCooldownTime = 0;
-        print("ExplodeStun");
         Collider[] cols = Physics.OverlapSphere(transform.position, _shieldExplodRange, _mobLayer);
         if (cols.Length == 0) return;
         for (int i = 0; i < cols.Length; i++)

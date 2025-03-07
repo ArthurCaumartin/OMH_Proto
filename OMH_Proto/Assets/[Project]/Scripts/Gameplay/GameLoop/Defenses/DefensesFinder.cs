@@ -9,7 +9,14 @@ public class DefensesFinder : MonoBehaviour
     [SerializeField] private string _defensesTag = "Defenses";
     private List<GameObject> _defenseList = new List<GameObject>();
     private Placer _placer;
-    public List<GameObject> DefenseList { get => _defenseList; }
+    public List<GameObject> DefenseList
+    {
+        get
+        {
+            _defenseList.RemoveAll(d => d == null);
+            return _defenseList;
+        }
+    }
 
     public UnityEvent<GameObject> OnDefenseAdd;
     public UnityEvent<GameObject> OnDefenseRemove;
@@ -22,7 +29,7 @@ public class DefensesFinder : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        print("Trigger with : " + other.name);
+        // print("Trigger with : " + other.name);
         if (other.tag == _defensesTag)
             AddDefense(other.gameObject);
     }
@@ -40,7 +47,6 @@ public class DefensesFinder : MonoBehaviour
             _defenseList.Add(objToAdd);
             OnDefenseAdd.Invoke(objToAdd);
         }
-        
     }
 
     private void RemoveDefense(GameObject objToAdd)

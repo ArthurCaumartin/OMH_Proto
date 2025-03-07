@@ -9,11 +9,13 @@ public class QTEControler : MonoBehaviour
     private QTE _currentQTE;
     private PlayerMovement _playerMovement;
     private PlayerAim _playerAim;
+    private WeaponControler _weaponControler;
 
     private void Start()
     {
         _playerMovement = GetComponent<PlayerMovement>();
         _playerAim = GetComponent<PlayerAim>();
+        _weaponControler = GetComponent<WeaponControler>();
     }
 
     public void PlayQTE(QTE qteToPlay)
@@ -39,9 +41,8 @@ public class QTEControler : MonoBehaviour
     {
         EnableControler(true);
 
-        _currentQTE.OnWin.RemoveListener(OnQTEFinish);
-        _currentQTE.OnKill.RemoveListener(OnQTEFinish);
-        _currentQTE.KillQTE();
+        _currentQTE?.OnWin.RemoveListener(OnQTEFinish);
+        _currentQTE?.OnKill.RemoveListener(OnQTEFinish);
 
         _currentQTE = null;
 
@@ -52,6 +53,7 @@ public class QTEControler : MonoBehaviour
     {
         _playerMovement.enabled = value;
         _playerAim.enabled = value;
+        _weaponControler.enabled = value;
     }
 
     public void OnLeaveQTE(InputValue value)
@@ -62,14 +64,5 @@ public class QTEControler : MonoBehaviour
             _currentQTE = null;
         }
     }
-
-    public void OnQTEDirection(InputValue value)
-    {
-        if (!_currentQTE) return;
-        // print("QTE Direction");
-        //! send direction to _currentQTE
-        Vector2 valueVector = value.Get<Vector2>();
-        if (valueVector == Vector2.zero) return;
-        _currentQTE.PlayInput(valueVector);
-    }
+    
 }

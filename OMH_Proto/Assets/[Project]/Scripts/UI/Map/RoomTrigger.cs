@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RoomTrigger : MonoBehaviour
 {
-    [SerializeField] private GameObject _centerRoom;
+    [SerializeField] private GameObject _centerRoom, _lightParent;
     [SerializeField] private int _radius;
     [SerializeField] private bool _isObjRoom;
 
@@ -19,17 +19,19 @@ public class RoomTrigger : MonoBehaviour
     {
         if (_isObjRoom)
         {
-            room.GetComponent<MapMouseOver>().TracePixelRoom(transform, _radius);
+            room.GetComponent<MapFogOfWar>().TracePixelRoom(transform, _radius);
             Destroy(this);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.CompareTag("Player"))
         {
-            print(_centerRoom);
-            room.GetComponent<MapMouseOver>().TracePixelRoom(_centerRoom.transform, _radius);
+            // print(_centerRoom);
+            if (_centerRoom != null) room.GetComponent<MapFogOfWar>().TracePixelRoom(_centerRoom.transform, _radius);
+            if(_lightParent != null) _lightParent.SetActive(true);
         }
     }
 

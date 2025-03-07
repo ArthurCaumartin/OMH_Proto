@@ -3,39 +3,20 @@ using UnityEngine;
 
 public class StateMachine_MobBase : StateMachine
 {
-    [SerializeField] private Transform _target;
-    [SerializeField] private State_Mob_Roam _roamState = new State_Mob_Roam();
-    [SerializeField] private State_Mob_Patrol _patrolState = new State_Mob_Patrol();
-    [SerializeField] private State_Mob_Chase _chaseState = new State_Mob_Chase();
-    [SerializeField] private State_Mob_Attack _attackState = new State_Mob_Attack();
+    private Transform _target;
     private MobTargetFinder _targetFinder;
+    private PhysicsAgent _agent;
+    private bool _isOn = true;
 
     public Transform Target { get => _target; }
 
-    public State_Mob_Roam RoamState { get => _roamState; }
-    public State_Mob_Chase ChaseState { get => _chaseState; }
-    public State_Mob_Attack AttackState { get => _attackState; }
-    public State_Mob_Patrol PatrolState { get => _patrolState; }
-
-    private bool _isOn = true;
-    private PhysicsAgent _agent;
-
-    private void Start()
+    private void Awake()
     {
-        // print("MobBase Start : Sub to targer Event");
         _targetFinder = GetComponent<MobTargetFinder>();
         _agent = GetComponent<PhysicsAgent>();
-
-        // print("MobBase Start : Initialize State");
-        _roamState.Initialize(this);
-        _patrolState.Initialize(this);
-        _chaseState.Initialize(this);
-        _attackState.Initialize(this);
-
-        SetState(RoamState);
     }
 
-    private void Update()
+    public virtual void Update()
     {
         if (!_isOn) return;
         _target = _targetFinder.Target;
@@ -46,7 +27,7 @@ public class StateMachine_MobBase : StateMachine
     {
         // print("Current State : " + _currentState?.ToString());
         if (_currentState == null) return;
-        _currentState.UpdateState(this);
+        _currentState.UpdateState();
     }
 
     public void StunMob(float duration)

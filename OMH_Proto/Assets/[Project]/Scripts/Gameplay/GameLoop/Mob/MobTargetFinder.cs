@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MobTargetFinder : MonoBehaviour
@@ -7,27 +8,36 @@ public class MobTargetFinder : MonoBehaviour
     [SerializeField] private float _targetDetectionPerSecond;
     [SerializeField] private FloatReference _targetDetectionRange;
     [SerializeField] private FloatReference _maxFollowDistance;
+    [SerializeField] private FloatReference _timeBeforeCanDropAgro;
     [Space]
     [SerializeField] private MobTarget _ifLostTarget;
     [SerializeField] private MobTarget _currentTarget;
+    [SerializeField] private List<string> _banTag;
     private float _distanceWithTarget;
     private float _targetDetectionTime;
+    private float _canDropAgro = 1000;
+
     public Transform Target { get => _currentTarget ? _currentTarget.transform : null; }
-    private bool _canDropAgro = true;
 
     private void Start()
     {
-        GetComponent<MobLife>().OnDamageTakenEvent.AddListener((damageDealer, damageType) =>
-        {
-            MobTarget t = damageDealer.GetComponent<MobTarget>();
-            if (t)
-            {
-                _canDropAgro = false;
-                SetNewTarget(t);
-            }
-        });
-
+        GetComponent<MobLife>().OnDamageTakenEvent.AddListener(OnDamageTaken);
         if (_ifLostTarget) SetNewTarget(_ifLostTarget);
+    }
+
+    private void OnDamageTaken(GameObject damageDealer, DamageType damageType)
+    {
+        MobTarget t = damageDealer.GetComponent<MobTarget>();
+        if (!t) return;
+        print(damageDealer.name);
+
+        float distWithDealer = Vector3.Distance(transform.position, damageDealer.transform.position);
+        if (distWithDealer < _distanceWithTarget)
+        {
+            print("Set new target : " + t.name);
+            _canDropAgro = 0;
+            SetNewTarget(t);
+        }
     }
 
     public void Initialize(MobTarget ifLostTarget)
@@ -37,10 +47,16 @@ public class MobTargetFinder : MonoBehaviour
 
     private void Update()
     {
-        DetectTarget();
+        //TODO delay pour le detect
+        DetectNearestTarget();
 
-        if (_currentTarget) _distanceWithTarget = Vector3.Distance(transform.position, _currentTarget.transform.position);
-        if (_distanceWithTarget < _maxFollowDistance.Value) _canDropAgro = true;
+        if (_currentTarget) 
+            _distanceWithTarget = Vector3.Distance(transform.position, _currentTarget.transform.position);
+        else
+            _distanceWithTarget = Mathf.Infinity;
+
+        _canDropAgro += Time.deltaTime;
+        if (_distanceWithTarget < _maxFollowDistance.Value) _canDropAgro = _timeBeforeCanDropAgro.Value;
 
         if (!_currentTarget || IsTargetToFar())
         {
@@ -49,7 +65,7 @@ public class MobTargetFinder : MonoBehaviour
         }
     }
 
-    private void DetectTarget()
+    private void DetectNearestTarget()
     {
         _targetDetectionTime += Time.deltaTime;
         if (_targetDetectionTime < 1 / _targetDetectionPerSecond) return;
@@ -79,7 +95,7 @@ public class MobTargetFinder : MonoBehaviour
     private bool IsTargetToFar()
     {
         if (_currentTarget == _ifLostTarget) return false;
-        if (!_canDropAgro) return false;
+        if (_canDropAgro < _timeBeforeCanDropAgro.Value) return false;
 
         // print(_distanceWithTarget > _maxFollowDistance.Value ? "target to far" : "target in follow range");
         return _distanceWithTarget > _maxFollowDistance.Value;
@@ -87,7 +103,7 @@ public class MobTargetFinder : MonoBehaviour
 
     private void SetNewTarget(MobTarget toSet)
     {
-        // print("Set New target : " + toSet?.name);
+        if(toSet && _banTag.Contains(toSet.tag)) return;
         //? si on a une target et que la nouvelle prio est plus grande
         if (_currentTarget && toSet.Priority > _currentTarget.Priority)
         {
@@ -100,9 +116,9 @@ public class MobTargetFinder : MonoBehaviour
     public void OnDrawGizmos()
     {
         if (!DEBUG) return;
-        Gizmos.color = new Color(1, 0, 0, .1f);
+        Gizmos.color = new Color(1, 0, 0, .2f);
         Gizmos.DrawSphere(transform.position, _targetDetectionRange.Value);
-        Gizmos.color = new Color(0, 0, 1, .05f);
+        Gizmos.color = new Color(0, 0, 1, .2f);
         Gizmos.DrawSphere(transform.position, _maxFollowDistance.Value);
     }
 }

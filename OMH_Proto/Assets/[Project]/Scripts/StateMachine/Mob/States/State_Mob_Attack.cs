@@ -4,36 +4,47 @@ using UnityEngine;
 [Serializable]
 public class State_Mob_Attack : IEntityState
 {
+    [SerializeField] private float _lookSpeed;
     [SerializeField] private FloatReference _distanceToTriggerAttack;
     [SerializeField] private FloatReference _attackAnimationSpeed;
     [SerializeField] private FloatReference _attackDelais;
     private MobAnimationControler _mobAnimationControler;
+    private StateMachine_Pteramyr _machinePteramyr;
     private float _timeDelay = 0;
 
     public void Initialize(StateMachine behavior)
     {
         _mobAnimationControler = behavior.GetComponentInChildren<MobAnimationControler>();
+        _machinePteramyr = behavior as StateMachine_Pteramyr;
     }
 
-    public void EnterState(StateMachine behavior)
+    public void EnterState()
     {
         // Debug.Log("ENTER ATTACK STATE");
         _timeDelay = _attackDelais.Value;
     }
 
-    public void UpdateState(StateMachine behavior)
+    public void UpdateState()
     {
-        StateMachine_MobBase mobMachine = behavior as StateMachine_MobBase;
-
-        if (!mobMachine.Target)
+        if (!_machinePteramyr.Target)
         {
-            mobMachine.SetState(mobMachine.RoamState);
+            _machinePteramyr.SetState(_machinePteramyr.RoamState);
             return;
         }
 
+        float _targetDistance = Vector3.Distance(_machinePteramyr.transform.position, _machinePteramyr.Target.position);
+        if (_targetDistance > _distanceToTriggerAttack.Value)
+        {
+            _machinePteramyr.SetState(_machinePteramyr.RoamState);
+            return;
+        }
+
+        if (!CheckTargetAlignement())
+            return;
+
+
         // Debug.Log("Attack DoState");
         _timeDelay += Time.deltaTime;
-        float _targetDistance = Vector3.Distance(mobMachine.transform.position, mobMachine.Target.position);
         if (_timeDelay > _attackDelais.Value && _targetDistance < _distanceToTriggerAttack.Value)
         {
             // Debug.Log("Attack");
@@ -42,7 +53,21 @@ public class State_Mob_Attack : IEntityState
         }
     }
 
-    public void ExitState(StateMachine behavior)
+    private bool CheckTargetAlignement()
+    {
+        Vector3 targetDir = (_machinePteramyr.Target.transform.position - _machinePteramyr.transform.position).normalized;
+        float dotDir = Vector3.Dot(_machinePteramyr.transform.right, targetDir);
+        if (dotDir < .95f)
+        {
+            _machinePteramyr.transform.right = Vector3.Lerp(_machinePteramyr.transform.right, targetDir, Time.deltaTime * _lookSpeed);
+            _timeDelay = 0;
+            return false;
+        }
+
+        return true;
+    }
+
+    public void ExitState()
     {
 
     }
