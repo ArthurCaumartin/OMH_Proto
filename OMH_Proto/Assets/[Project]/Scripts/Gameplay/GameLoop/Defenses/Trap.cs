@@ -81,7 +81,6 @@ public class Trap : MonoBehaviour
 
     private void LerpEmissive(float time)
     {
-        print("l time : " + time);
         foreach (var item in _rendererArray)
         {
             try
