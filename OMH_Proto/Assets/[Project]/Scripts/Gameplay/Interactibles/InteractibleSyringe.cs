@@ -44,7 +44,7 @@ public class InteractibleSyringe : Interactible
     {
         if (!_isDomeOpen) return;
         
-        _rotatingObject.transform.Rotate(_axis * _speed * Time.deltaTime * _direction);
-        _flasksObject.transform.Rotate(_axis * _speed * Time.deltaTime * _direction);
+        _rotatingObject.transform.Rotate(_axis * (_direction * (Time.deltaTime * _speed)));
+        _flasksObject.transform.Rotate(_axis * (_direction * (Time.deltaTime * _speed)));
     }
 }
