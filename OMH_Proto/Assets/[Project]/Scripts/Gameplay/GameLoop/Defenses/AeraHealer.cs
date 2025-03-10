@@ -8,7 +8,7 @@ public class AeraHealer : Upgradable
 
     private void Start()
     {
-        _finder = GetComponent<DefensesFinder>();
+        _finder = GetComponentInParent<DefensesFinder>();
     }
 
     void Update()
