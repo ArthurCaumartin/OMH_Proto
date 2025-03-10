@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,9 +12,13 @@ public class Health : MonoBehaviour, IDamageable
     [Space]
     [Tooltip("Call when damage is taken, send damage amount as parameter.")]
     [SerializeField] private UnityEvent<float> _onDamageTaken;
+    [SerializeField] private UnityEvent _onDeathEvent;
     private HealthBar _healthBar;
-
     public UnityEvent<float> OnDamageTaken { get => _onDamageTaken; }
+    public UnityEvent OnDeathEvent { get => _onDeathEvent; }
+    private IEnumerator _toDoBeforDeath;
+
+    private float _delayBeforDestroy;
 
     private void Start()
     {
@@ -24,10 +29,16 @@ public class Health : MonoBehaviour, IDamageable
 
     public void TakeDamages(GameObject damageDealer, float damageAmount, DamageType type = DamageType.Unassigned)
     {
+        if(_currentHealth.Value <= 0) return;
+
         _onDamageTaken.Invoke(damageAmount);
         _currentHealth.Value -= damageAmount;
         _healthBar?.SetFillAmount(GetHealtRatio());
-        if (_currentHealth.Value <= 0) Destroy(gameObject);
+        if (_currentHealth.Value <= 0)
+        {
+            _onDeathEvent.Invoke();
+            StartCoroutine(DestoryDelais(_delayBeforDestroy));
+        }
     }
 
     public void Heal(GameObject healer, float healAmount)
@@ -40,5 +51,16 @@ public class Health : MonoBehaviour, IDamageable
     public float GetHealtRatio()
     {
         return Mathf.InverseLerp(0, _maxHealth.Value, _currentHealth.Value);
+    }
+
+    public void SetDelayBeforDestroy(float value)
+    {
+        _delayBeforDestroy = value;
+    }
+
+    private IEnumerator DestoryDelais(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
     }
 }

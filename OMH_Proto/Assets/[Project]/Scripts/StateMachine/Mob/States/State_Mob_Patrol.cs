@@ -9,34 +9,33 @@ public class State_Mob_Patrol : IEntityState
     private PhysicsAgent _agent;
     private PatrolPoints _patrolPoints;
     private Vector3 _partolTarget;
-    private StateMachine_MobBase _mobMachine;
+    private StateMachine_Pteramyr _machinePteramyr;
 
     public void Initialize(StateMachine behavior)
-    {       
+    {
         _agent = behavior.GetComponent<PhysicsAgent>();
         _patrolPoints = PatrolPoints.instance;
-        _mobMachine = behavior as StateMachine_MobBase;
+        _machinePteramyr = behavior as StateMachine_Pteramyr;
     }
 
     public void EnterState()
     {
         if (!_patrolPoints)
         {
-            _mobMachine.SetState(_mobMachine.RoamState);
+            _machinePteramyr.SetState(_machinePteramyr.RoamState);
             return;
         }
 
-        _partolTarget = _goOnFarestPoint ? _patrolPoints.GetFarsetPoint(_mobMachine.transform.position, _patrolPointPrecision)
+        _partolTarget = _goOnFarestPoint ? _patrolPoints.GetFarsetPoint(_machinePteramyr.transform.position, _patrolPointPrecision)
                                              : _patrolPoints.GetRandomPoint(_patrolPointPrecision);
         _agent.SetTarget(_partolTarget);
     }
 
     public void UpdateState()
     {
-        if (Vector3.Distance(_mobMachine.transform.position, _partolTarget) < 3)
+        if (Vector3.Distance(_machinePteramyr.transform.position, _partolTarget) < 3)
         {
-            StateMachine_MobBase mobMachine = _mobMachine as StateMachine_MobBase;
-            mobMachine.SetState(mobMachine.RoamState);
+            _machinePteramyr.SetState(_machinePteramyr.RoamState);
             return;
         }
     }
