@@ -9,13 +9,13 @@ public class State_Mob_Attack : IEntityState
     [SerializeField] private FloatReference _attackAnimationSpeed;
     [SerializeField] private FloatReference _attackDelais;
     private MobAnimationControler _mobAnimationControler;
+    private StateMachine_Pteramyr _machinePteramyr;
     private float _timeDelay = 0;
-    private StateMachine_MobBase _mobMachine;
 
     public void Initialize(StateMachine behavior)
     {
         _mobAnimationControler = behavior.GetComponentInChildren<MobAnimationControler>();
-        _mobMachine = behavior as StateMachine_MobBase;
+        _machinePteramyr = behavior as StateMachine_Pteramyr;
     }
 
     public void EnterState()
@@ -26,16 +26,16 @@ public class State_Mob_Attack : IEntityState
 
     public void UpdateState()
     {
-        if (!_mobMachine.Target)
+        if (!_machinePteramyr.Target)
         {
-            _mobMachine.SetState(_mobMachine.RoamState);
+            _machinePteramyr.SetState(_machinePteramyr.RoamState);
             return;
         }
 
-        float _targetDistance = Vector3.Distance(_mobMachine.transform.position, _mobMachine.Target.position);
+        float _targetDistance = Vector3.Distance(_machinePteramyr.transform.position, _machinePteramyr.Target.position);
         if (_targetDistance > _distanceToTriggerAttack.Value)
         {
-            _mobMachine.SetState(_mobMachine.RoamState);
+            _machinePteramyr.SetState(_machinePteramyr.RoamState);
             return;
         }
 
@@ -55,11 +55,11 @@ public class State_Mob_Attack : IEntityState
 
     private bool CheckTargetAlignement()
     {
-        Vector3 targetDir = (_mobMachine.Target.transform.position - _mobMachine.transform.position).normalized;
-        float dotDir = Vector3.Dot(_mobMachine.transform.right, targetDir);
+        Vector3 targetDir = (_machinePteramyr.Target.transform.position - _machinePteramyr.transform.position).normalized;
+        float dotDir = Vector3.Dot(_machinePteramyr.transform.right, targetDir);
         if (dotDir < .95f)
         {
-            _mobMachine.transform.right = Vector3.Lerp(_mobMachine.transform.right, targetDir, Time.deltaTime * _lookSpeed);
+            _machinePteramyr.transform.right = Vector3.Lerp(_machinePteramyr.transform.right, targetDir, Time.deltaTime * _lookSpeed);
             _timeDelay = 0;
             return false;
         }
