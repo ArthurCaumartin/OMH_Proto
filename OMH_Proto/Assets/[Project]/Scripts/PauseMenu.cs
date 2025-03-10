@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,13 +6,17 @@ using UnityEngine.Rendering;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject _pauseMenu;
-    
-    public void Pause()
+    [SerializeField] private GameObject _pauseMenu, _inGameUi, _inventoryUI;
+
+    public void Pause(bool boolean)
     {
-        _pauseMenu.SetActive(true);
-        Time.timeScale = 0;
-        Camera.main.gameObject.GetComponent<Volume>().weight = 1;
+        print("Pause : " + boolean);
+        _pauseMenu.SetActive(!boolean);
+        Time.timeScale = boolean ? 1 : 0;
+        Camera.main.gameObject.GetComponent<Volume>().weight = boolean ? 0 : 1;
+        
+        _inGameUi.SetActive(boolean);
+        _inventoryUI.SetActive(boolean);
     }
     
     public void ResumeMenu()

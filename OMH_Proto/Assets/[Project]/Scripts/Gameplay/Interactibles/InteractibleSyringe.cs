@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 public class InteractibleSyringe : Interactible
 {
@@ -6,13 +8,43 @@ public class InteractibleSyringe : Interactible
     [SerializeField] private FloatVariable _syringeValue;
     [SerializeField] private GameEvent _getSyringe;
 
+    [Space]
+    
+    [SerializeField] private GameObject _centriDome, _flasksObject, _rotatingObject;
+    [SerializeField] private Vector3 _axis = Vector3.up;
+    [SerializeField] private float _speed = 400;
+    [SerializeField] private int _direction = 1;
+    private bool _isDomeOpen;
+
     public override void Interact(PlayerInteract playerInteract, out bool cancelInteraction)
     {
-        cancelInteraction = false;
-        _syringeValue.Value += 1f;
-        _getSyringe.Raise();
-        // Destroy(gameObject);
-        BoxCollider boxCollider = GetComponent<BoxCollider>();
-        boxCollider.enabled = false;
+        if (!_isDomeOpen)
+        {
+            cancelInteraction = true;
+            _isDomeOpen = true;
+            
+            _centriDome.SetActive(false);
+            
+            DOTween.To(() => _speed, x => _speed = x, 0f, 3f);
+        }
+        else
+        {
+            cancelInteraction = false;
+            _syringeValue.Value += 1f;
+            _getSyringe.Raise();
+            
+            _flasksObject.SetActive(false);
+        
+            BoxCollider boxCollider = GetComponent<BoxCollider>();
+            boxCollider.enabled = false;
+        }
+    }
+
+    void Update()
+    {
+        if (!_isDomeOpen) return;
+        
+        _rotatingObject.transform.Rotate(_axis * _speed * Time.deltaTime * _direction);
+        _flasksObject.transform.Rotate(_axis * _speed * Time.deltaTime * _direction);
     }
 }
