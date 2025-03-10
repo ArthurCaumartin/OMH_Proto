@@ -431,6 +431,9 @@ MonoBehaviour:
   _onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
+  _onDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4403791811967871888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,7 +653,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 394302b8ac6cbfe4aa8156740409b7a7,
+        type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 2498240585374362667}
   m_SourcePrefab: {fileID: 100100000, guid: 394302b8ac6cbfe4aa8156740409b7a7, type: 3}
 --- !u!1 &1123682197660649634 stripped
 GameObject:
@@ -694,6 +701,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2654228254825314157}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2888178834893949500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 394302b8ac6cbfe4aa8156740409b7a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2654228254825314157}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2498240585374362667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2888178834893949500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fefd2e659d392e4d8d8e3261bdc0c85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parameterName: _alpha
+  _disolveDuration: 1
+  _health: {fileID: 5143254621603635265}
 --- !u!1 &4013317099629492497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1398257920096882300, guid: 394302b8ac6cbfe4aa8156740409b7a7,
@@ -744,6 +772,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2191420913363419583}
     m_Modifications:
+    - target: {fileID: 338026266586295783, guid: 6ff986f9a727b6049a90acd31a9e9ea3,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725155409231836155, guid: 6ff986f9a727b6049a90acd31a9e9ea3,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6549220244584289736, guid: 6ff986f9a727b6049a90acd31a9e9ea3,
         type: 3}
       propertyPath: m_Name

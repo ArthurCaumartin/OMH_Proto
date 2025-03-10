@@ -96,8 +96,8 @@ MonoBehaviour:
   _moveSpeedUpgrade: {fileID: 11400000, guid: 0e1ce54b36cdb164698cf850aecf8b2f, type: 2}
   _weaponControler: {fileID: 5814535803370766827}
   _runMoveSpeed:
-    propertyType: 1
-    constantValue: 40
+    propertyType: 0
+    constantValue: 5
     variable: {fileID: 11400000, guid: 59b675678d84cb04599436ed5ba52a6e, type: 2}
   _walkMoveSpeed:
     propertyType: 1
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec7232159335fc247b9a047a2bbc5aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DEBUG: 1
+  DEBUG: 0
   _timeShieldRegen:
     propertyType: 0
     constantValue: 4
@@ -800,7 +800,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 84c1e37ce9fdb144283bcb4ea573bcb0, type: 2}
+      objectReference: {fileID: 2100000, guid: 886cf9a34179e394aa8277e184daa79a, type: 2}
     - target: {fileID: -2627921380105592101, guid: febef853d3a94ab4b9f0602c8c3b2107,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -854,6 +854,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3840786543749122827}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: febef853d3a94ab4b9f0602c8c3b2107,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2564870293731895532}
   m_SourcePrefab: {fileID: 100100000, guid: febef853d3a94ab4b9f0602c8c3b2107, type: 3}
 --- !u!1 &1575451929589693195 stripped
 GameObject:
@@ -874,6 +878,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obj: {fileID: 5221604182911892427}
+--- !u!114 &2564870293731895532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575451929589693195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d03bdcde420dd4ca9c2176514a18bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerShield: {fileID: 202381475407420642}
+  _shieldMaterial: {fileID: 2100000, guid: 886cf9a34179e394aa8277e184daa79a, type: 2}
+  UpColor: {r: 1, g: 0.9048885, b: 0, a: 1}
+  BreakColor: {r: 1, g: 0.13054682, b: 0, a: 1}
+  UpBlinkingSpeed: 2
+  BreakBlinkingSpeed: 10
 --- !u!4 &2204214609724170673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: febef853d3a94ab4b9f0602c8c3b2107,
