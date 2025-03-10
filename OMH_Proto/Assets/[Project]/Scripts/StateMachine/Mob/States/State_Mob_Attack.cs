@@ -9,38 +9,37 @@ public class State_Mob_Attack : IEntityState
     [SerializeField] private FloatReference _attackAnimationSpeed;
     [SerializeField] private FloatReference _attackDelais;
     private MobAnimationControler _mobAnimationControler;
+    private StateMachine_Pteramyr _machinePteramyr;
     private float _timeDelay = 0;
 
     public void Initialize(StateMachine behavior)
     {
         _mobAnimationControler = behavior.GetComponentInChildren<MobAnimationControler>();
+        _machinePteramyr = behavior as StateMachine_Pteramyr;
     }
 
-    public void EnterState(StateMachine behavior)
+    public void EnterState()
     {
         // Debug.Log("ENTER ATTACK STATE");
         _timeDelay = _attackDelais.Value;
     }
 
-    public void UpdateState(StateMachine behavior)
+    public void UpdateState()
     {
-        StateMachine_MobBase mobMachine = behavior as StateMachine_MobBase;
-
-        if (!mobMachine.Target)
+        if (!_machinePteramyr.Target)
         {
-            mobMachine.SetState(mobMachine.RoamState);
+            _machinePteramyr.SetState(_machinePteramyr.RoamState);
             return;
         }
 
-        float _targetDistance = Vector3.Distance(mobMachine.transform.position, mobMachine.Target.position);
+        float _targetDistance = Vector3.Distance(_machinePteramyr.transform.position, _machinePteramyr.Target.position);
         if (_targetDistance > _distanceToTriggerAttack.Value)
         {
-            mobMachine.SetState(mobMachine.RoamState);
+            _machinePteramyr.SetState(_machinePteramyr.RoamState);
             return;
         }
 
-        bool canAttack = CheckTargetAlignement(mobMachine);
-        if (!canAttack)
+        if (!CheckTargetAlignement())
             return;
 
 
@@ -54,13 +53,13 @@ public class State_Mob_Attack : IEntityState
         }
     }
 
-    private bool CheckTargetAlignement(StateMachine_MobBase mobMachine)
+    private bool CheckTargetAlignement()
     {
-        Vector3 targetDir = (mobMachine.Target.transform.position - mobMachine.transform.position).normalized;
-        float dotDir = Vector3.Dot(mobMachine.transform.right, targetDir);
+        Vector3 targetDir = (_machinePteramyr.Target.transform.position - _machinePteramyr.transform.position).normalized;
+        float dotDir = Vector3.Dot(_machinePteramyr.transform.right, targetDir);
         if (dotDir < .95f)
         {
-            mobMachine.transform.right = Vector3.Lerp(mobMachine.transform.right, targetDir, Time.deltaTime * _lookSpeed);
+            _machinePteramyr.transform.right = Vector3.Lerp(_machinePteramyr.transform.right, targetDir, Time.deltaTime * _lookSpeed);
             _timeDelay = 0;
             return false;
         }
@@ -68,7 +67,7 @@ public class State_Mob_Attack : IEntityState
         return true;
     }
 
-    public void ExitState(StateMachine behavior)
+    public void ExitState()
     {
 
     }
