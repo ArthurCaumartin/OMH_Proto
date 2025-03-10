@@ -909,13 +909,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _qte: {fileID: 2877793370060600618}
   _onOpenChestEvent: {fileID: 11400000, guid: 63259763118de154d99fce1ec99d89d6, type: 2}
+  _onOpenGoldenChestEvent: {fileID: 11400000, guid: 2ec92b8b2bbce114e824ddfae07485c5,
+    type: 2}
   _mapPin: {fileID: 7658637034417495931}
   _delayToGetLoot: 1
   _animationDuration: 1
   _topPart: {fileID: 1104405370680511637}
   _openParticle: {fileID: 2789755284857232627, guid: 1bfc681b681a7584fbc42f7121d7e52c,
     type: 3}
-  _goldenChestPrefab: {fileID: 0}
+  _goldenChestPrefab: {fileID: 1877745887611730402}
 --- !u!114 &2022089244841448862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1382,7 +1384,8 @@ GameObject:
   - component: {fileID: 6262704090933980362}
   - component: {fileID: 1302805285218596390}
   - component: {fileID: 488224465498103486}
-  m_Layer: 0
+  - component: {fileID: 5700037805887442593}
+  m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1419,7 +1422,7 @@ Canvas:
   m_GameObject: {fileID: 3321103207546253670}
   m_Enabled: 0
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1473,6 +1476,34 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5700037805887442593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3321103207546253670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 3e16c649367f7df48b77333fddfcb21d, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3321103207546253670}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3455635964115696333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,7 +1714,7 @@ GameObject:
   - component: {fileID: 3953846933245002781}
   - component: {fileID: 831202144237779269}
   - component: {fileID: 9105262754137829633}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Image Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2995,7 +3026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6866982053420941529
 Transform:
   m_ObjectHideFlags: 0
@@ -3434,7 +3465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6985305926995234141}
   - component: {fileID: 741532378459222775}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Image Contrainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

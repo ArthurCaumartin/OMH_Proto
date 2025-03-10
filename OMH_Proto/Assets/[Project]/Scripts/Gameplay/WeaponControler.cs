@@ -34,7 +34,7 @@ public class WeaponControler : MonoBehaviour
         if(_currentWeaponMesh)
         {
             _currentWeaponMesh.position = _weaponMeshPivotTarget.position;
-            _currentWeaponMesh.forward = -_weaponMeshPivotTarget.forward;
+            _currentWeaponMesh.forward = _weaponMeshPivotTarget.forward;
         }
     }
 

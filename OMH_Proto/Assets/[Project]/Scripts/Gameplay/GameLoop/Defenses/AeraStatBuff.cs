@@ -11,7 +11,7 @@ public class AeraStatBuff : Upgradable
 
     private void Start()
     {
-        _finder = GetComponent<DefensesFinder>();
+        _finder = GetComponentInParent<DefensesFinder>();
         _finder.OnDefenseAdd.AddListener((defense) => BuffStat(defense.GetComponentInChildren<TurretCannon>()));
         _finder.OnDefenseRemove.AddListener((defense) => RemoveBuff(defense.GetComponentInChildren<TurretCannon>()));
     }
