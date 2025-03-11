@@ -5,15 +5,28 @@ using UnityEngine.UI;
 
 public class QTEDoorUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Image _circleImage;
+    [SerializeField] private Canvas _mainCanvas;
+    
+    public void BadInput()
     {
-        
+        StartCoroutine(BadInputCoroutine());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator BadInputCoroutine()
     {
-        
+        _circleImage.color = new Color32(255, 0, 0, 255);
+        yield return new WaitForSeconds(0.9f);
+        _circleImage.color = new Color32(255, 255, 255, 255);
+    }
+    
+    public void ActivateUI()
+    {
+        _mainCanvas.enabled = true;
+    }
+    
+    public void ResetUI()
+    {
+        _mainCanvas.enabled = false;
     }
 }

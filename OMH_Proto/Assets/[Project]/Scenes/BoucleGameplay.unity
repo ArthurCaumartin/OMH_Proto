@@ -7685,7 +7685,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -60, y: 0}
+  m_AnchoredPosition: {x: 60, y: 0}
   m_SizeDelta: {x: 33, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &202582584
@@ -23392,7 +23392,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468611852}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -35694,7 +35694,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -60}
+  m_AnchoredPosition: {x: 60, y: 0}
   m_SizeDelta: {x: 33, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &726854186
@@ -46006,7 +46006,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60, y: 0}
+  m_AnchoredPosition: {x: 0, y: 60}
   m_SizeDelta: {x: 33, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1017107183
@@ -87626,7 +87626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60, y: 0}
+  m_AnchoredPosition: {x: -60, y: 0}
   m_SizeDelta: {x: 33, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1864552485
@@ -90049,7 +90049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60, y: 0}
+  m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 33, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1932460302
@@ -95754,7 +95754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 60}
+  m_AnchoredPosition: {x: 60, y: 0}
   m_SizeDelta: {x: 33, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029577984
@@ -102089,27 +102089,15 @@ MonoBehaviour:
       m_Calls: []
   _onQTEWin:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: QTEMirror, Assembly-CSharp
-        m_MethodName: ResetCode
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _onQTEKill:
     m_PersistentCalls:
       m_Calls: []
   StartQTEScript:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: QTEMirror, Assembly-CSharp
+      - m_Target: {fileID: 8862923613338976077}
+        m_TargetAssemblyTypeName: QTEDoor, Assembly-CSharp
         m_MethodName: StartQTE
         m_Mode: 2
         m_Arguments:
@@ -102123,9 +102111,9 @@ MonoBehaviour:
   ResetQTEScript:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: QTEMirror, Assembly-CSharp
-        m_MethodName: ResetCode
+      - m_Target: {fileID: 8862923613338976077}
+        m_TargetAssemblyTypeName: QTEDoor, Assembly-CSharp
+        m_MethodName: ResetQTE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -105741,6 +105729,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239464febc1d20d478ae1c75aeb1000c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _circleImage: {fileID: 550731596}
+  _mainCanvas: {fileID: 468611856}
 --- !u!114 &8862923613338976077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105753,13 +105743,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86bba4e593a22a4db5b77a09ccd4ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 185
+  _rotationSpeed: 200
   _axis: {x: 0, y: 0, z: 1}
   _direction: -1
   _disk1: {fileID: 1213571987}
   _disk2: {fileID: 1734472345}
   _disk3: {fileID: 1653069320}
   _disk4: {fileID: 213549567}
+  _qteDoorUI: {fileID: 8862923613338976076}
 --- !u!1001 &8867304917646198868
 PrefabInstance:
   m_ObjectHideFlags: 0
