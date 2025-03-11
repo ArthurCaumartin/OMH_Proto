@@ -25,6 +25,15 @@ public class QTEDoor : Upgradable
 
     private void Start()
     {
+        InitializeDisks();
+        
+        _startSpeed = _rotationSpeed;
+    }
+
+    private void InitializeDisks()
+    {
+        _diskList.Clear();
+        
         _diskList.Add(_disk1);
         _diskList.Add(_disk2);
         _diskList.Add(_disk3);
@@ -35,8 +44,6 @@ public class QTEDoor : Upgradable
             float tempRandomZ = Random.Range(0f, 359f);
             disk.transform.localRotation = Quaternion.Euler(0, 0, tempRandomZ);
         }
-        
-        _startSpeed = _rotationSpeed;
     }
     
     public void StartQTE(QTE qteManager)
@@ -50,6 +57,8 @@ public class QTEDoor : Upgradable
     {
         _isQTEActive = false;
         _qteDoorUI.ResetUI();
+
+        InitializeDisks();
     }
 
     void Update()
@@ -92,6 +101,6 @@ public class QTEDoor : Upgradable
     {
         _rotationSpeed = 0;
         yield return new WaitForSecondsRealtime(1f);
-        _rotationSpeed = _startSpeed;
+        _qte.KillQTE();
     }
 }

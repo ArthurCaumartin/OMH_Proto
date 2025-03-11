@@ -4,49 +4,26 @@ using UnityEngine;
 
 public class InteractibleDoor : Interactible
 {
-    
-    [Space]
-    [SerializeField] private GameEvent _onOpenDoor, _onLockDoor;
-
-    [SerializeField] private Sprite _activatedSprite;
-    
-    private float _timer;
-    public bool _isDoorLocked;
-
-    public override void Interact(PlayerInteract playerInteract, out bool cancelIteraction)
-    {
-        cancelIteraction = _isDoorLocked;
-    }
-
-    public override void OnQTEInput(bool isInputValide)
-    {
-        
-    }
+    private DoorRoom _doorRoom;
 
     public override void OnQTEWin()
     {
-        _isDoorLocked = false;
-        _onOpenDoor.Raise();
-
+        _doorRoom.UnlockDoor();
         
         gameObject.layer = LayerMask.NameToLayer("Default");
     }
 
     public override void OnQTEKill()
     {
-        _isDoorLocked = true;
-        _onLockDoor.Raise();
+        _doorRoom.TempSealDoor();
+        
+        Destroy(gameObject);
     }
 
-    private void Update()
+    public void InitializeDoor(DoorRoom door)
     {
+        _doorRoom = door;
         
-    }
-
-    public void ActivateGenerator()
-    {
-        GetComponentInChildren<MapPin>()._tallMapPin = _activatedSprite;
-        
-        _isDoorLocked = true;
+        _doorRoom.LockDoor();
     }
 }

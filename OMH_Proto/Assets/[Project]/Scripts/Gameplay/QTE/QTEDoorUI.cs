@@ -10,14 +10,7 @@ public class QTEDoorUI : MonoBehaviour
     
     public void BadInput()
     {
-        StartCoroutine(BadInputCoroutine());
-    }
-
-    private IEnumerator BadInputCoroutine()
-    {
         _circleImage.color = new Color32(255, 0, 0, 255);
-        yield return new WaitForSeconds(0.9f);
-        _circleImage.color = new Color32(255, 255, 255, 255);
     }
     
     public void ActivateUI()
