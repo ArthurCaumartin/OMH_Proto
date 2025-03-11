@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Rendering;
 
 public class ItemMenu : MonoBehaviour
 {
@@ -19,7 +18,6 @@ public class ItemMenu : MonoBehaviour
         _itemMenu.SetActive(true);
         _itemManager = itemManager;
         Time.timeScale = 0;
-        Camera.main.gameObject.GetComponent<Volume>().weight = 1;
         
         _itemSprite1.sprite = itemsList[0]._itemSprite;
         _itemName1.text = itemsList[0]._itemName;
@@ -44,6 +42,5 @@ public class ItemMenu : MonoBehaviour
     {
         _itemMenu.SetActive(false);
         Time.timeScale = 1;
-        Camera.main.gameObject.GetComponent<Volume>().weight = 0;
     }
 }
