@@ -20,6 +20,8 @@ public class Health : MonoBehaviour, IDamageable
 
     private float _delayBeforDestroy;
 
+    public bool IsFullLife { get => _currentHealth.Value >= _maxHealth.Value; }
+
     private void Start()
     {
         _currentHealth.Value = _maxHealth.Value;
@@ -29,7 +31,7 @@ public class Health : MonoBehaviour, IDamageable
 
     public void TakeDamages(GameObject damageDealer, float damageAmount, DamageType type = DamageType.Unassigned)
     {
-        if(_currentHealth.Value <= 0) return;
+        if (_currentHealth.Value <= 0) return;
 
         _onDamageTaken.Invoke(damageAmount);
         _currentHealth.Value -= damageAmount;
