@@ -7826,6 +7826,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseMenu: {fileID: 3843943893147138900}
+  _inGameUi: {fileID: 0}
+  _inventoryUI: {fileID: 0}
 --- !u!1 &5106828195553379586
 GameObject:
   m_ObjectHideFlags: 0
@@ -8103,6 +8105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseMenu: {fileID: 5302921801858234953}
+  _inGameUi: {fileID: 0}
+  _inventoryUI: {fileID: 0}
 --- !u!114 &2255186541214228856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11666,8 +11670,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8777727615618910054}
-  - component: {fileID: 8600086760506929667}
-  - component: {fileID: 2423430589586581165}
   m_Layer: 5
   m_Name: WinMenu
   m_TagString: Untagged
@@ -11695,48 +11697,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8600086760506929667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7638567477180013819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 06de75cc74388754abeefe3d139ba838, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2423430589586581165}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2423430589586581165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7638567477180013819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9e660cec5676e443a75501809cf0cfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sceneToLoadName: EndGame
-  _image: {fileID: 0}
 --- !u!1 &7797978296616543466
 GameObject:
   m_ObjectHideFlags: 0
