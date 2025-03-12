@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8985578122966201057}
   - component: {fileID: 6944716330613004350}
-  - component: {fileID: 6812450323627586235}
+  - component: {fileID: 953595734127447210}
+  - component: {fileID: 6039923071370159}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _infosManager: {fileID: 11400000, guid: 13b82694bb59d814f9665ca87983ffe7, type: 2}
---- !u!114 &6812450323627586235
+--- !u!114 &953595734127447210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,13 +59,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 1dcaa1e86a0bff347898b56c25f9fafc, type: 2}
+  _event: {fileID: 11400000, guid: 06de75cc74388754abeefe3d139ba838, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RebakeNavmesh
+      - m_Target: {fileID: 6039923071370159}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -74,3 +75,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6039923071370159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7187046051254820072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e660cec5676e443a75501809cf0cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneToLoadName: EndGame
+  _image: {fileID: 0}
