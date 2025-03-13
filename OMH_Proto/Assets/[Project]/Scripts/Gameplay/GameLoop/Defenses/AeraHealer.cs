@@ -15,7 +15,7 @@ public class AeraHealer : Upgradable
 
     void Update()
     {
-        if(_finder.DefenseList.Count == 0)
+        if (_finder.DefenseList.Count == 0)
         {
             _visual.SetVisualVisibility(0);
             return;
@@ -26,7 +26,7 @@ public class AeraHealer : Upgradable
         {
             Health h = _finder.DefenseList[i].GetComponent<Health>();
             h?.Heal(gameObject, _healPerSecond * Time.deltaTime);
-
+            if (!h) continue;
             if (!h.IsFullLife) isAllFullLife = false;
         }
         _visual.SetVisualVisibility(isAllFullLife ? 0 : 1);
