@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LockConsole : Interactible
 {
@@ -27,6 +28,7 @@ public class LockConsole : Interactible
         _keyInfos.Value --;
 
         _mapPinLock.GetComponent<MapPin>()._tallMapPin = _closedLockSprite;
+        _mapPinLock.GetComponent<SpriteRenderer>().sprite = _closedLockSprite;
         
         Destroy(gameObject); 
     }
