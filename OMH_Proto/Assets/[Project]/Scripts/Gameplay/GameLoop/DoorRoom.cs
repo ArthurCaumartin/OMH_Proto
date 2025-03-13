@@ -2,14 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class DoorRoom : MonoBehaviour
 {
     [SerializeField] private AnimatorBoolSetter _animator;
+    [SerializeField] private NavMeshObstacle _doorNavMeshObstacle;
+    [SerializeField] private GameObject _lockedDoorVisual, _tempSealedDoorVisual;
+    [SerializeField] private float _doorLockTime = 60f;
+    [SerializeField] private GameEvent _navMeshUpdate;
+    
     private bool _objectInRange;
     private List<GameObject> _doors = new List<GameObject>();
+
+    private bool _isDoorLocked;
     public void OnTriggerEnter(Collider other)
     {
+        if(_isDoorLocked) return;
+        
         if (other.CompareTag("Player") || other.CompareTag("Mob"))
         {
             if (_doors.Count == 0)
@@ -23,6 +33,8 @@ public class DoorRoom : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
+        if(_isDoorLocked) return;
+        
         if (other.CompareTag("Player") || other.CompareTag("Mob"))
         {
             _doors.Remove(other.gameObject);
@@ -44,9 +56,44 @@ public class DoorRoom : MonoBehaviour
         _animator.SetParametre(false);
     }
 
+    public void LockDoor()
+    {
+        _isDoorLocked = true;
+        _lockedDoorVisual.SetActive(true);
+        
+        _doorNavMeshObstacle.carving = true;
+        _navMeshUpdate.Raise();
+    }
+
+    public void UnlockDoor()
+    {
+        _isDoorLocked = false;
+        _lockedDoorVisual.SetActive(false);
+        _tempSealedDoorVisual.SetActive(false);
+        
+        _doorNavMeshObstacle.carving = false;
+        _navMeshUpdate.Raise();
+
+        OpenDoor();
+    }
+
+    public void TempSealDoor()
+    {
+        _lockedDoorVisual.SetActive(false);
+        _tempSealedDoorVisual.SetActive(true);
+        
+        StartCoroutine(TempLockDoor());
+    }
+
     private void SpawnParticle()
     {
         foreach (var item in GetComponentsInChildren<ParticleSpawner>())
             item?.SpawnParticle();
+    }
+
+    private IEnumerator TempLockDoor()
+    {
+        yield return new WaitForSeconds(_doorLockTime);
+        UnlockDoor();
     }
 }
