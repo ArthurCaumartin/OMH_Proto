@@ -10,43 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4321c8099288684fb2f6638a8e0bfc0, type: 3}
-  m_Name: BoucleGameplayWave5
+  m_Name: Wave2Spawner 2
   m_EditorClassIdentifier: 
-  _waves:
-  - timeToSpawn: 130
-    numberOfEnemies: 25
-    durationOfSpawn: 5
-    hasBeenCalled: 0
-  - timeToSpawn: 150
-    numberOfEnemies: 30
-    durationOfSpawn: 15
-    hasBeenCalled: 0
+  _roomIDToSpawn: 2
+  timeToSpawn: 10
+  _enemiesType:
+  - _mobPrefab: {fileID: 8873736450507444681, guid: cd99ef29ec71bd4489abd4193ef01b23,
+      type: 3}
+    _mobNumber: 10
+  durationOfSpawn: 10
+  hasBeenCalled: 0
   testCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.1923077
-      outSlope: 0.1923077
+      inSlope: 1
+      outSlope: 1
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.3
-      value: 0.25
-      inSlope: 0.22115386
-      outSlope: 0.22115386
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1.5
-      value: 0.3
-      inSlope: 0.25
-      outSlope: 0.25
+      time: 0.1
+      value: 0.1
+      inSlope: 1
+      outSlope: 1
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334

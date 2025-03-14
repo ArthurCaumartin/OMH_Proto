@@ -23,4 +23,9 @@ public class CreditsMoving : MonoBehaviour
         
         _rectTransform.anchoredPosition = new Vector2(_rectTransform.anchoredPosition.x, _rectTransform.anchoredPosition.y + 1 * Time.deltaTime * _moveSpeed);
     }
+
+    public void ResetPos()
+    {
+        _rectTransform.anchoredPosition = _startPosition;
+    }
 }

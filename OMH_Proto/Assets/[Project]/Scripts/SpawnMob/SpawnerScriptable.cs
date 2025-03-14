@@ -1,14 +1,16 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 
 [CreateAssetMenu(menuName = "SpawnerInfos", fileName = "WaveSpawnTD", order = 4)]
 public class SpawnerScriptable : ScriptableObject
 {
-    public List<Wave> _waves = new List<Wave>();
+    public int _roomIDToSpawn;
+    public int timeToSpawn;
+    public List<TypesOfEnemies> _enemiesType = new List<TypesOfEnemies>();
+    public int durationOfSpawn;
+    public bool hasBeenCalled;
     
     public AnimationCurve testCurve;
     private void OnValidate()
@@ -16,21 +18,23 @@ public class SpawnerScriptable : ScriptableObject
         testCurve.ClearKeys();
         testCurve.AddKey(0, 0);
         
-        for (int i = 0; i < _waves.Count; i++)
+        float xfloat = (float) ((double) timeToSpawn / 100);
+
+        int tempInt = 0;
+        for (int i = 0; i < _enemiesType.Count; i++)
         {
-            float xfloat = (float) ((double) _waves[i].timeToSpawn / 100);
-            float yfloat = (float) ((double) _waves[i].numberOfEnemies / 100);
-            
-            testCurve.AddKey(xfloat, yfloat);
+            tempInt += _enemiesType[i]._mobNumber;
         }
+        
+        float yfloat = (float) ((double) tempInt / 100);
+        
+        testCurve.AddKey(xfloat, yfloat);
     }
 }
 
 [Serializable]
-public class Wave
+public class TypesOfEnemies
 {
-    public int timeToSpawn;
-    public int numberOfEnemies;
-    public int durationOfSpawn;
-    public bool hasBeenCalled;
+    public GameObject _mobPrefab;
+    public int _mobNumber;
 }
