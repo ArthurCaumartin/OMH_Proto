@@ -20,7 +20,7 @@ public class Shield : Upgradable, IDamageable
     [SerializeField] private LayerMask _mobLayer;
 
 
-    public UnityEvent _onShieldDown, _onShieldUp;
+    public UnityEvent _onShieldDown, _onShieldUp, _onPlayerDeath;
 
     private Vector3 _respawnPos;
     private bool _isShieldDown, _isInvincible;
@@ -101,6 +101,7 @@ public class Shield : Upgradable, IDamageable
 
         //! quick fix for stuck in QTE after death :)
         GetComponent<QTEControler>()?.KillQTE();
+        _onPlayerDeath.Invoke();
     }
 
     public void SetRespawnPos(Vector3 position)
