@@ -8,43 +8,52 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private MobTarget _gasTankTarget;
     
-    [SerializeField] private List<SpawnerScriptable> _spawnerScriptables = new List<SpawnerScriptable>();
+    [SerializeField] private List<WaveParent> _allWavesParents = new List<WaveParent>();
     [SerializeField] private List<EnemySpawner> _spawners = new List<EnemySpawner>();
+
+    [SerializeField] private GameEvent _canStartDefense;
+
+    [SerializeField] private int _timerMinutesWave1 = 7;
+    [SerializeField] private float _timerWaves = 0;
+    private int minutes;
     
-    private float _timer = 0;
+    private List<WaveParent> _waveParentsToSpawn = new List<WaveParent>();
+    
+    private float _timerSpawner = 0;
     /// <summary>
     /// Connect to game time
     /// </summary>
     
-    private bool _defenseAsStarted;
+    private bool _defenseAsStarted, _canStart;
     
     //Assert to verify if there are no errors in Scriptables
-    private void Start()
+    
+    private void Start() 
     {
-        for (int i = 0; i <  _spawnerScriptables.Count; i++)
+        for (int i = 0; i <  _allWavesParents.Count; i++)
         {
-            for (int j = 0; j < _spawnerScriptables[i]._waves.Count; j++)
+            for (int j = 0; j < _allWavesParents[i]._spawnersInfos.Count; j++)
             {
-                _spawnerScriptables[i]._waves[j].hasBeenCalled = false;
+                _allWavesParents[i]._spawnersInfos[j].hasBeenCalled = false;
             }
         }
         
-        for (int i = 0; i < _spawnerScriptables.Count; i++)
+        for (int i = 0; i < _allWavesParents.Count; i++)
         {
-            List<Wave> waves = _spawnerScriptables[i]._waves;
+            List<SpawnerScriptable> waves = _allWavesParents[i]._spawnersInfos;
             
-            Assert.AreNotEqual(0, waves.Count, "Spawner " + i + " need at least 1 wave");
-
-            if (waves.Count > 2)
-            {
-                int tempSpawnValue = waves[0].timeToSpawn + waves[0].durationOfSpawn;
-                for (int y = 1; y < waves.Count; y++)
-                {
-                    int x = y - 1;
-                    Assert.IsTrue(waves[y].timeToSpawn > tempSpawnValue, "Spawner" + i + " : Wave" + y + " is spawning before Wave" + x + " is finished spawning");
-                    tempSpawnValue = waves[y].timeToSpawn + waves[y].durationOfSpawn;
-                }
-            }
+            Assert.AreNotEqual(0, waves.Count, "All waves " + i + " need at least 1 spawner");
+    
+            // if (waves.Count > 2)
+            // {
+            //     int tempSpawnValue = waves[0].timeToSpawn + waves[0].durationOfSpawn;
+            //     for (int y = 1; y < waves.Count; y++)
+            //     {
+            //         int x = y - 1;
+            //         Assert.IsTrue(waves[y].timeToSpawn > tempSpawnValue, "Spawner" + i + " : Wave" + y + " is spawning before Wave" + x + " is finished spawning");
+            //         tempSpawnValue = waves[y].timeToSpawn + waves[y].durationOfSpawn;
+            //     }
+            // }
         }
         
         EnemySpawner[] tempArray = FindObjectsOfType<EnemySpawner>();
@@ -52,41 +61,56 @@ public class SpawnManager : MonoBehaviour
         {
             _spawners.Add(tempArray[i]);
         }
-
+    
     }
-
+    
     private void Update()
     {
+        _timerWaves += Time.deltaTime;
+        if (_timerWaves >= 60)
+        {
+            _timerWaves = 0;
+            minutes++;
+            if (minutes >= _timerMinutesWave1 && !_canStart)
+            {
+                _canStartDefense.Raise();
+                _canStart = true;
+            }
+        }
+        
         if (!_defenseAsStarted) return;
         
-        _timer += Time.deltaTime;
+        _timerSpawner += Time.deltaTime;
         VerifyIfSpawn();
     }
-
+    
     private void VerifyIfSpawn()
     {
-        for (int i = 0; i < _spawnerScriptables.Count; i++)
+        for (int i = 0; i < _waveParentsToSpawn.Count; i++)
         {
-            for (int j = 0; j < _spawnerScriptables[i]._waves.Count; j++)
+            for (int j = 0; j < _waveParentsToSpawn[i]._spawnersInfos.Count; j++)
             {
-                if (_timer >= _spawnerScriptables[i]._waves[j].timeToSpawn && !_spawnerScriptables[i]._waves[j].hasBeenCalled)
+                if (_timerSpawner >= _waveParentsToSpawn[i]._spawnersInfos[j].timeToSpawn && !_waveParentsToSpawn[i]._spawnersInfos[j].hasBeenCalled)
                 {
-                    CallSpawn(_spawnerScriptables[i]._waves[j].numberOfEnemies, _spawnerScriptables[i]._waves[j].durationOfSpawn, _gasTankTarget,i);
-
-                    _spawnerScriptables[i]._waves[j].hasBeenCalled = true;
-                    // _spawnerScriptables[i]._waves.Remove(_spawnerScriptables[i]._waves[j]);
+                    CallSpawn(_waveParentsToSpawn[i]._spawnersInfos[j]._enemiesType, _waveParentsToSpawn[i]._spawnersInfos[j].durationOfSpawn, _gasTankTarget,_waveParentsToSpawn[i]._spawnersInfos[j]._roomIDToSpawn);
+    
+                    _waveParentsToSpawn[i]._spawnersInfos[j].hasBeenCalled = true;
                 }
             }
         }
     }
-
-    private void CallSpawn(int numberOfMobs, int durationOfSpawn, MobTarget gasTankTarget,int index)
+    
+    private void CallSpawn(List<TypesOfEnemies> numberOfMobs, int durationOfSpawn, MobTarget gasTankTarget,int index)
     {
         _spawners[index].SpawnMob(numberOfMobs, durationOfSpawn, gasTankTarget);
     }
     
     public void StartDefense()
     {
+        _waveParentsToSpawn.Add(_allWavesParents[minutes - _timerMinutesWave1]);
+        _waveParentsToSpawn.Add(_allWavesParents[minutes - _timerMinutesWave1 + 1]);
+        _waveParentsToSpawn.Add(_allWavesParents[minutes - _timerMinutesWave1 + 2]);
+        
         _defenseAsStarted = true;
     }
 }
