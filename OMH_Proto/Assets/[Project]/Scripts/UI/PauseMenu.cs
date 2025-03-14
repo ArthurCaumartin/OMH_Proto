@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu, _gameUI, _noGameUI;
     
     [SerializeField] private InventoryPauseMenu _inventoryPauseMenu;
+    [SerializeField] private ItemMenu _itemMenu;
     
     [SerializeField] private GameEvent _pauseMenuEvent, _resumeMenuEvent;
     
@@ -40,7 +41,7 @@ public class PauseMenu : MonoBehaviour
     {
         _pauseMenu.SetActive(false);
 
-        if (!_inventoryPauseMenu._isInventoryOpen)
+        if (!_inventoryPauseMenu._isInventoryOpen && !_itemMenu._isItemSelectionMenuOpen)
         {
             _gameUI.SetActive(true);
             Time.timeScale = 1;

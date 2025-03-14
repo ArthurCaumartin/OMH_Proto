@@ -9,6 +9,8 @@ public class InventoryPauseMenu : MonoBehaviour
     
     [SerializeField] private GameEvent _pauseMenuEvent, _resumeMenuEvent;
 
+    [SerializeField] private ItemMenu _itemMenu;
+
     public bool _isInventoryOpen;
     
     public void OnOpenInventory()
@@ -28,13 +30,16 @@ public class InventoryPauseMenu : MonoBehaviour
     public void CloseInventory()
     {
         _inventoryMenu.SetActive(false);
-        _gameUI.SetActive(true);
         _gainItemUI.SetActive(true);
         
         _isInventoryOpen = false;
         
-        Time.timeScale = 1;
-        Camera.main.gameObject.GetComponent<Volume>().weight = 0;
+        if (!_itemMenu._isItemSelectionMenuOpen)
+        {
+            _gameUI.SetActive(true);
+            Time.timeScale = 1;
+            Camera.main.gameObject.GetComponent<Volume>().weight = 0;
+        }
         
         _resumeMenuEvent.Raise();
     }
