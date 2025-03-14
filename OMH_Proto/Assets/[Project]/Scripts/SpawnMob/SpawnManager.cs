@@ -71,6 +71,7 @@ public class SpawnManager : MonoBehaviour
         {
             _timerWaves = 0;
             minutes++;
+            
             if (minutes >= _timerMinutesWave1 && !_canStart)
             {
                 _canStartDefense.Raise();
@@ -86,16 +87,13 @@ public class SpawnManager : MonoBehaviour
     
     private void VerifyIfSpawn()
     {
-        for (int i = 0; i < _waveParentsToSpawn.Count; i++)
+        for (int j = 0; j < _waveParentsToSpawn[minutes]._spawnersInfos.Count; j++)
         {
-            for (int j = 0; j < _waveParentsToSpawn[i]._spawnersInfos.Count; j++)
+            if (_timerSpawner >= _waveParentsToSpawn[minutes]._spawnersInfos[j].timeToSpawn && !_waveParentsToSpawn[minutes]._spawnersInfos[j].hasBeenCalled)
             {
-                if (_timerSpawner >= _waveParentsToSpawn[i]._spawnersInfos[j].timeToSpawn && !_waveParentsToSpawn[i]._spawnersInfos[j].hasBeenCalled)
-                {
-                    CallSpawn(_waveParentsToSpawn[i]._spawnersInfos[j]._enemiesType, _waveParentsToSpawn[i]._spawnersInfos[j].durationOfSpawn, _gasTankTarget,_waveParentsToSpawn[i]._spawnersInfos[j]._roomIDToSpawn);
-    
-                    _waveParentsToSpawn[i]._spawnersInfos[j].hasBeenCalled = true;
-                }
+                CallSpawn(_waveParentsToSpawn[minutes]._spawnersInfos[j]._enemiesType, _waveParentsToSpawn[minutes]._spawnersInfos[j].durationOfSpawn, _gasTankTarget,_waveParentsToSpawn[minutes]._spawnersInfos[j]._roomIDToSpawn);
+
+                _waveParentsToSpawn[minutes]._spawnersInfos[j].hasBeenCalled = true;
             }
         }
     }
@@ -110,6 +108,9 @@ public class SpawnManager : MonoBehaviour
         _waveParentsToSpawn.Add(_allWavesParents[minutes - _timerMinutesWave1]);
         _waveParentsToSpawn.Add(_allWavesParents[minutes - _timerMinutesWave1 + 1]);
         _waveParentsToSpawn.Add(_allWavesParents[minutes - _timerMinutesWave1 + 2]);
+
+        _timerWaves = 0;
+        minutes = 0;
         
         _defenseAsStarted = true;
     }
