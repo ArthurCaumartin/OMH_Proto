@@ -21,6 +21,7 @@ public class ShieldVisual : MonoBehaviour
         _shieldRenderer = GetComponentInChildren<Renderer>();
         _mat = _shieldRenderer.material;
         _shield = GetComponentInParent<Shield>();
+        _shield._onPlayerDeath.AddListener(OnRespawn);
 
         SetMatValue(0);
 
@@ -48,6 +49,15 @@ public class ShieldVisual : MonoBehaviour
     {
         _mat.SetFloat(_opacityParameterName, 1 - Mathf.Sin(time * Mathf.PI));
         _mat.SetFloat(_wavePosParameterName, time);
+    }
+
+    private void OnRespawn()
+    {
+        _shieldRenderer.transform.localScale = Vector3.one * 2;
+        SetMatValue(0);
+        enabled = true;
+        _delayTime = _delayBetweenWave;
+        _waveTime = 0;
     }
 
     private void OnDamageTaken()
