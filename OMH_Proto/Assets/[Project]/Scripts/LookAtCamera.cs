@@ -13,7 +13,8 @@ public class LookAtCamera : MonoBehaviour
     {
         //? look at camera
         Vector3 newOrientation = (transform.position - _mainCam.transform.position).normalized;
-        newOrientation.x = 0; //? for good alignement
+        newOrientation.x = .5f;
+        newOrientation.z = .5f;
         transform.forward = newOrientation;
     }
 }
