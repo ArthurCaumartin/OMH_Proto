@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class Trap : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Trap : MonoBehaviour
     [SerializeField] private FloatReference _slowStrenght;
     [SerializeField] private FloatReference _slowDuration;
     [SerializeField] private LayerMask _targetLayer;
+    [Space]
+    [SerializeField] private ParticleSystem _slowParticle;
     [SerializeField] private List<GameObject> _visualList;
     private float _activationTime;
     private bool _isActif = false;
@@ -61,8 +64,13 @@ public class Trap : MonoBehaviour
             MobLife t = col[i].GetComponent<MobLife>();
             t?.TakeDamages(gameObject, _damages.Value, DamageType.Unassigned);
 
-            PhysicsAgent y = col[i].GetComponent<PhysicsAgent>();
-            y?.SlowAgent(_slowStrenght.Value / 100, _slowDuration.Value);
+            PhysicsAgent agent = col[i].GetComponent<PhysicsAgent>();
+            if (agent)
+            {
+                agent.SlowAgent(_slowStrenght.Value / 100, _slowDuration.Value);
+                if (_slowParticle)
+                    Destroy(Instantiate(_slowParticle, agent.transform), _slowDuration.Value);
+            }
         }
     }
 
@@ -93,7 +101,7 @@ public class Trap : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if(!DEBUG) return;
+        if (!DEBUG) return;
         Gizmos.color = new Color(1, 0, 0, .1f);
         Gizmos.DrawSphere(transform.position, _trapHitRange.Value);
     }
