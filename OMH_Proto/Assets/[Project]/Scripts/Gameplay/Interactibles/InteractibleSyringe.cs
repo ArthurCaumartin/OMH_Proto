@@ -12,9 +12,9 @@ public class InteractibleSyringe : Interactible
     
     [SerializeField] private GameObject _centriDome, _flasksObject, _rotatingObject;
     [SerializeField] private Vector3 _axis = Vector3.up;
-    [SerializeField] private float _speed = 400;
+    [SerializeField] private float _speed = 1000;
     [SerializeField] private int _direction = 1;
-    private bool _isDomeOpen;
+    public bool _isDomeOpen;
 
     public override void Interact(PlayerInteract playerInteract, out bool cancelInteraction)
     {
@@ -23,7 +23,7 @@ public class InteractibleSyringe : Interactible
             cancelInteraction = true;
             _isDomeOpen = true;
             
-            _centriDome.SetActive(false);
+            //_centriDome.SetActive(false);
             
             DOTween.To(() => _speed, x => _speed = x, 0f, 3f);
         }
