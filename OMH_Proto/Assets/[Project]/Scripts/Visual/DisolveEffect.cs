@@ -23,7 +23,7 @@ public class DisolveEffect : MonoBehaviour
 
     public void Disolve(bool isHiding)
     {
-        print("ksedfrgbj");
+        // print("ksedfrgbj");
         foreach (var item in _rendererArray)
             item.material.SetFloat(_parameterName, isHiding ? 1 : 0);
 
