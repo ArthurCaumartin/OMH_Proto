@@ -34,9 +34,12 @@ public class MapFogOfWar : MonoBehaviour
         }
     }
 
+    //It's working but it cost a lot
     private void Update()
     {
         TracePixel(GetPos(), _circleRadius, new Color(0,0,0,0));
+        TracePixel(GetPos(), _circleRadius - 1, new Color(0,0,0,0));
+        TracePixel(GetPos(), _circleRadius - 2, new Color(0,0,0,0));
     }
 
     public void TracePixelRoom(Transform roomPos, int radius)
@@ -115,9 +118,9 @@ public class MapFogOfWar : MonoBehaviour
     {
         int x0 = (int)center.x;
         int y0 = (int)center.y;
-        _texture.SetPixel(x0 + x, y0 + y, color);
-        _texture.SetPixel(x0 + x, y0 - y, color);
-        _texture.SetPixel(x0 - x, y0 + y, color);
-        _texture.SetPixel(x0 - x, y0 - y, color);
+        if(_texture.GetPixel(x0 + x, y0 + y) != color) _texture.SetPixel(x0 + x, y0 + y, color);
+        if(_texture.GetPixel(x0 + x, y0 - y) != color) _texture.SetPixel(x0 + x, y0 - y, color);
+        if(_texture.GetPixel(x0 - x, y0 + y) != color) _texture.SetPixel(x0 - x, y0 + y, color);
+        if(_texture.GetPixel(x0 - x, y0 - y) != color) _texture.SetPixel(x0 - x, y0 - y, color);
     }
 }
