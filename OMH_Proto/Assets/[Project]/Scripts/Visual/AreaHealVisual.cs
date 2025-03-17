@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AreaHealVisual : MonoBehaviour
@@ -7,8 +5,7 @@ public class AreaHealVisual : MonoBehaviour
     [SerializeField] private SphereCollider _collider;
     [SerializeField] private float _apparitionSpeed = 5;
     [SerializeField] private float _lockDuration = 2;
-    [SerializeField] private Transform _planeFx;
-    [SerializeField] private ParticleSystem _particle;
+    private ParticleSystem _particle;
     private float _currentScaleValue;
     private float _targetValue;
     private float _lockOnVisible;
@@ -16,6 +13,8 @@ public class AreaHealVisual : MonoBehaviour
 
     private void Start()
     {
+        _particle = GetComponentInChildren<ParticleSystem>();
+
         _lockOnVisible = 1000;
         SetVisualVisibility(0);
     }
@@ -35,7 +34,7 @@ public class AreaHealVisual : MonoBehaviour
     private void UpdateVisual(float scale)
     {
         Vector3 colliderScale = Vector3.one * _collider.radius * scale;
-        _planeFx.transform.localScale = colliderScale;
+        transform.localScale = colliderScale;
         ParticleSystem.ShapeModule shape = _particle.shape;
         shape.radius = colliderScale.x;
     }

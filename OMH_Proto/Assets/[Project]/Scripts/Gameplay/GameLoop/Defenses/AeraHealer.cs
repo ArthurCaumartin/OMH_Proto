@@ -7,6 +7,7 @@ public class AeraHealer : Upgradable
     private DefensesFinder _finder;
     AreaHealVisual _visual;
 
+
     private void Start()
     {
         _finder = GetComponentInParent<DefensesFinder>();
@@ -15,7 +16,7 @@ public class AeraHealer : Upgradable
 
     void Update()
     {
-        if(_finder.DefenseList.Count == 0)
+        if (_finder.DefenseList.Count == 0)
         {
             _visual.SetVisualVisibility(0);
             return;

@@ -27,7 +27,7 @@ public class QTESequenceUI : MonoBehaviour
     {
         _mainCam = Camera.main;
         _canvas.enabled = false;
-        //
+        
         // _canvas.worldCamera = Camera.main.GetUniversalAdditionalCameraData().cameraStack[Camera.main.GetUniversalAdditionalCameraData().cameraStack.Count - 1];
     }
 

@@ -19,8 +19,9 @@ public class Health : MonoBehaviour, IDamageable
     private IEnumerator _toDoBeforDeath;
 
     private float _delayBeforDestroy;
-
+    
     public bool IsFullLife { get => _currentHealth.Value >= _maxHealth.Value; }
+
 
     private void Start()
     {

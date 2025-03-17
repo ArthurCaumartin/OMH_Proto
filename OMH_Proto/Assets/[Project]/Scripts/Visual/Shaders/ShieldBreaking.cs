@@ -18,6 +18,7 @@ public class ShieldBreaking : MonoBehaviour
     {
         playerShield._onShieldDown.AddListener(DestroyShield);
         playerShield._onShieldUp.AddListener(ShieldIsUp);
+        playerShield._onPlayerDeath.AddListener(ShieldIsUp);
         ShieldIsUp();
         // playerShield.ShieldDown += () => DestroyShield();
         // playerShield.ShieldUp += () => ShieldIsUp();

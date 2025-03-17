@@ -6,15 +6,30 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private GameObject _mapPin;
 
     private MobTarget _mobTarget;
-    private List<float> timerSpawnEnemies = new List<float>();
-
-    private float _numberEnemies;
+    private List<float> _timerSpawnEnemies = new List<float>();
+    private List<GameObject> _enemiesPrefabs = new List<GameObject>();
+    
     private float _timer;
     private bool _isNestDestroyed, _spawnEnemies;
+
+    private int tempInt, _instantiatedEnemiesIndex;
+    
+    private List<TypeEnemiesStruct> _spawnedEnemies = new List<TypeEnemiesStruct>();
+
+    public class TypeEnemiesStruct
+    {
+        public GameObject typeOfEnemy;
+        public int numberOfEnemies;
+
+        public TypeEnemiesStruct(GameObject prefab, int numbers)
+        {
+            typeOfEnemy = prefab;
+            numberOfEnemies = numbers;
+        }
+    }
 
     private void Update()
     {
@@ -27,11 +42,12 @@ public class EnemySpawner : MonoBehaviour
         {
             _timer += Time.deltaTime;
 
-            if (_timer >= timerSpawnEnemies[0])
+            if (_timer >= _timerSpawnEnemies[0])
             {
                 InstantiateEnemy();
-                timerSpawnEnemies.RemoveAt(0);
-                if (timerSpawnEnemies.Count <= 0)
+                _timerSpawnEnemies.RemoveAt(0);
+                _instantiatedEnemiesIndex++;
+                if (_timerSpawnEnemies.Count <= 0)
                 {
                     _spawnEnemies = false;
                     _timer = 0;
@@ -40,25 +56,44 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void SpawnMob(int numberOfMobs, float durationOfSpawn, MobTarget gasTankTarget)
+    public void SpawnMob(List<TypesOfEnemies> numberOfMobs, float durationOfSpawn, MobTarget gasTankTarget)
     {
-        _spawnEnemies = true;
+        _instantiatedEnemiesIndex = 0;
         _mobTarget = gasTankTarget;
-        _numberEnemies = numberOfMobs;
-        
-        if (_isNestDestroyed)
+
+        foreach (TypesOfEnemies mob in numberOfMobs)
         {
-            _numberEnemies = Mathf.RoundToInt(_numberEnemies / 2);
+            _spawnedEnemies.Add(new TypeEnemiesStruct(mob._mobPrefab, mob._mobNumber));
         }
+
+        tempInt = 0;
+        for (int i = 0; i < _spawnedEnemies.Count; i++)
+        {
+            tempInt += _spawnedEnemies[i].numberOfEnemies;
+        }
+        print("Spawn " + tempInt + " enemies during " + durationOfSpawn);
         
-        print("Spawn " + _numberEnemies + " enemies during " + durationOfSpawn);
-        
-        for (int i = 0; i < _numberEnemies; i++)
+        for (int i = 0; i < tempInt; i++)
         {
             float tempFloat = Random.Range(0f, durationOfSpawn);
-            timerSpawnEnemies.Add(tempFloat);
+            _timerSpawnEnemies.Add(tempFloat);
+            
+            //Add random enemy
+            bool tempBool = true;
+            while (tempBool)
+            {
+                int tempRandomInt = Random.Range(0, _spawnedEnemies.Count);
+                if (_spawnedEnemies[tempRandomInt].numberOfEnemies > 0)
+                {
+                    _enemiesPrefabs.Add(_spawnedEnemies[tempRandomInt].typeOfEnemy);
+                    _spawnedEnemies[tempRandomInt].numberOfEnemies --;
+                    tempBool = false;
+                }
+            }
         }
-        timerSpawnEnemies.Sort();
+        _timerSpawnEnemies.Sort();
+        
+        _spawnEnemies = true;
     }
 
     private void InstantiateEnemy()
@@ -69,7 +104,7 @@ public class EnemySpawner : MonoBehaviour
         Vector3 posToSpawnEnemy = new Vector3(transform.position.x + tempXPos, transform.position.y, transform.position.z + tempZPos);
         
         
-        GameObject tempObject = Instantiate(_enemyPrefab, posToSpawnEnemy, Quaternion.identity, transform);
+        GameObject tempObject = Instantiate(_enemiesPrefabs[_instantiatedEnemiesIndex], posToSpawnEnemy, Quaternion.identity, transform);
         
         // tempObject.BroadcastMessage("Initialize", gasTankTarget);
         MobTargetFinder agentTargetFinder = tempObject.GetComponentInChildren<MobTargetFinder>();
