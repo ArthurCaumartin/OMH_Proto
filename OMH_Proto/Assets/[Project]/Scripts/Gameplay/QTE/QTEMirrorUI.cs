@@ -37,7 +37,7 @@ public class QTEMirrorUI : MonoBehaviour
         
         for (int i = 0; i < _activateObjects.Count; i++)
         {
-            _activateObjects[i].GetComponent<Image>().color = Color.cyan;
+            _activateObjects[i].GetComponent<Image>().color = Color.white;
             _reproduceObjects[i].GetComponent<Image>().sprite = _notReproduceButtonSprite;
             _reproduceObjects[i].GetComponent<Image>().color = Color.cyan;
         }
@@ -55,7 +55,7 @@ public class QTEMirrorUI : MonoBehaviour
         
         for (int i = 0; i < _activateObjects.Count; i++)
         {
-            _activateObjects[i].GetComponent<Image>().color = Color.cyan;
+            _activateObjects[i].GetComponent<Image>().color = Color.white;
             _reproduceObjects[i].GetComponent<Image>().color = Color.cyan;
         }
     }
@@ -67,6 +67,10 @@ public class QTEMirrorUI : MonoBehaviour
 
     public void SetBadInputFeedBack()
     {
+        for (int i = 0; i < _activateObjects.Count; i++)
+        {
+            _activateObjects[i].GetComponent<Image>().color = Color.white;
+        }
         StartCoroutine(BadInputFeedBack());
     }
 
