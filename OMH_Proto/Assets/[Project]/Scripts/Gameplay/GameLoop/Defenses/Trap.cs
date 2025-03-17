@@ -15,7 +15,7 @@ public class Trap : MonoBehaviour
     [SerializeField] private LayerMask _targetLayer;
     [Space]
     [SerializeField] private ParticleSystem _slowParticle;
-    [SerializeField] private List<GameObject> _visualList;
+    [SerializeField] private ParticleSystem _attackParticle;
     private float _activationTime;
     private bool _isActif = false;
     private Renderer[] _rendererArray;
@@ -23,7 +23,7 @@ public class Trap : MonoBehaviour
 
     private void Start()
     {
-        EnableVisual(false);
+        _attackParticle.gameObject.SetActive(false);
 
         _rendererArray = GetComponentsInChildren<Renderer>();
         _baseColorBackup = _rendererArray[0].materials[1].GetColor("_EmissionColor");
@@ -44,7 +44,7 @@ public class Trap : MonoBehaviour
         {
             _isActif = false;
             _activationTime = 0;
-            Activate();
+            Attack();
         }
     }
 
@@ -54,9 +54,9 @@ public class Trap : MonoBehaviour
         if (mob) _isActif = true;
     }
 
-    private void Activate()
+    private void Attack()
     {
-        StartCoroutine(VisualTrap());
+        StartCoroutine(AttackFx());
 
         Collider[] col = Physics.OverlapSphere(transform.position, _trapHitRange.Value, _targetLayer);
         for (int i = 0; i < col.Length; i++)
@@ -74,17 +74,11 @@ public class Trap : MonoBehaviour
         }
     }
 
-    IEnumerator VisualTrap()
+    IEnumerator AttackFx()
     {
-        EnableVisual(true);
-        yield return new WaitForSeconds(0.3f);
-        EnableVisual(false);
-    }
-
-    private void EnableVisual(bool value)
-    {
-        foreach (var item in _visualList)
-            item.SetActive(value);
+        _attackParticle.gameObject.SetActive(true);
+        yield return new WaitForSeconds(_attackParticle.main.duration);
+        _attackParticle.gameObject.SetActive(false);
     }
 
     private void LerpEmissive(float time)

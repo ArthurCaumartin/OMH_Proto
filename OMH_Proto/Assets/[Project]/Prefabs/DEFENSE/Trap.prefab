@@ -51,7 +51,7 @@ MonoBehaviour:
   DEBUG: 1
   _trapHitRange:
     propertyType: 0
-    constantValue: 1.8
+    constantValue: 1.87
     variable: {fileID: 0}
   _activationDelay:
     propertyType: 0
@@ -74,9 +74,7 @@ MonoBehaviour:
     m_Bits: 2048
   _slowParticle: {fileID: 4885310791781860184, guid: b20043f7b1c011446950a0fce51b4e2d,
     type: 3}
-  _visualList:
-  - {fileID: 5105126466894359247}
-  - {fileID: 7750377348301006060}
+  _attackParticle: {fileID: 2066876125059508536}
 --- !u!65 &4884198301127629469
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -323,6 +321,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 083fa6bfd9f1e5c48bc9ccdc3c5de028, type: 3}
+--- !u!198 &2066876125059508536 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2289625429839517880, guid: 083fa6bfd9f1e5c48bc9ccdc3c5de028,
+    type: 3}
+  m_PrefabInstance: {fileID: 245840698251768192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8972365866817048148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9218122864674815956, guid: 083fa6bfd9f1e5c48bc9ccdc3c5de028,
@@ -448,15 +452,3 @@ MonoBehaviour:
   _parameterName: _Alpha
   _disolveDuration: 1
   _health: {fileID: 0}
---- !u!1 &5105126466894359247 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -3133498875991405556, guid: 7f576a37ab90c814ab148400395ff2bc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1322543330539382467}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7750377348301006060 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -444658975746850257, guid: 7f576a37ab90c814ab148400395ff2bc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1322543330539382467}
-  m_PrefabAsset: {fileID: 0}
