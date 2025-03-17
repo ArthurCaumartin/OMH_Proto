@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AreaHealVisual : MonoBehaviour
@@ -37,6 +38,8 @@ public class AreaHealVisual : MonoBehaviour
         transform.localScale = colliderScale;
         ParticleSystem.ShapeModule shape = _particle.shape;
         shape.radius = colliderScale.x;
+
+        _particle.gameObject.SetActive(scale > 0.1f);
     }
 
     public void SetVisualVisibility(float targetValue)
