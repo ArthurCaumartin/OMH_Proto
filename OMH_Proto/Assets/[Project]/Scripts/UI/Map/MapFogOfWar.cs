@@ -9,7 +9,6 @@ using UnityEngine.UIElements;
 public class MapFogOfWar : MonoBehaviour
 {
     [SerializeField] private Camera _mapCamera;
-    [SerializeField] private LayerMask _layerMask;
     [Space]
     [SerializeField] private GameObject _playerPos, _texturePos;
     [SerializeField] private Texture2D _texture;
