@@ -7,13 +7,18 @@ public class TimerGame : MonoBehaviour
 {
     [SerializeField] private FloatReference _exploDuration;
 
+    [SerializeField] private Color _colorTextDefense;
+    
     private TextMeshProUGUI _timerText;
     private float _timer;
     private int _intCounter;
+
+    private bool _isDefenseStarted;
     
     void Start()
     {
         _timerText = GetComponent<TextMeshProUGUI>();
+        _timerText.color = Color.white;
         
         _intCounter = (int)_exploDuration.Value;
         _timer = _intCounter;
@@ -25,24 +30,51 @@ public class TimerGame : MonoBehaviour
 
     private void Update()
     {
-        _timer -= Time.deltaTime;
-
-        if (_timer < _intCounter)
+        if (_isDefenseStarted)
         {
-            if (_intCounter % 60 < 10)
+            _timer += Time.deltaTime;
+            if (_timer > _intCounter)
             {
-                _timerText.text = $"0{_intCounter / 60}:0{_intCounter % 60}";
+                if (_intCounter % 60 < 10)
+                {
+                    _timerText.text = $"0{_intCounter / 60}:0{_intCounter % 60}";
+                }
+                else
+                {
+                    _timerText.text = $"0{_intCounter / 60}:{_intCounter % 60}";
+                }
+                _intCounter++;
             }
-            else
+        }
+        else
+        {
+            _timer -= Time.deltaTime;
+            if (_timer < _intCounter)
             {
-                _timerText.text = $"0{_intCounter / 60}:{_intCounter % 60}";
+                if (_intCounter % 60 < 10)
+                {
+                    _timerText.text = $"0{_intCounter / 60}:0{_intCounter % 60}";
+                }
+                else
+                {
+                    _timerText.text = $"0{_intCounter / 60}:{_intCounter % 60}";
+                }
+                _intCounter--;
             }
-            _intCounter--;
         }
         
         if (_intCounter + 1 == 0)
         {
-            Destroy(gameObject);
+            StartDefense();
+            // Destroy(gameObject);
         }
+    }
+
+    public void StartDefense()
+    {
+        _isDefenseStarted = true;
+        _timerText.color = _colorTextDefense;
+        _timerText.text = "00:00";
+        _timer = 0;
     }
 }

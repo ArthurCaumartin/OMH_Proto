@@ -4398,6 +4398,7 @@ GameObject:
   - component: {fileID: 3126024725262830455}
   - component: {fileID: 1014852926676069456}
   - component: {fileID: 5502469566551819236}
+  - component: {fileID: 5212381940015314615}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -4462,8 +4463,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282663404
-  m_fontColor: {r: 0.92549026, g: 0.25490198, b: 0.26666668, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4538,6 +4539,35 @@ MonoBehaviour:
     propertyType: 1
     constantValue: 70
     variable: {fileID: 11400000, guid: 27024d8c2a5fb9e469a571e5ff933d0b, type: 2}
+  _colorTextDefense: {r: 0.92549026, g: 0.25490198, b: 0.27058825, a: 1}
+--- !u!114 &5212381940015314615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487960245954524992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 1ef557f46f9b64d44a7451596034930f, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5502469566551819236}
+        m_TargetAssemblyTypeName: TimerGame, Assembly-CSharp
+        m_MethodName: StartDefense
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3556340772607125910
 GameObject:
   m_ObjectHideFlags: 0
