@@ -41,6 +41,7 @@ public class ItemManager : MonoBehaviour
         Debug.Assert(_itemMenu != null, "ITEM MENU IS NULL IN ITEM MANAGER");
         if (_itemMenu == null) return;
         
+        itemsToSelect.Clear();
         
         int tempRandomInt = Random.Range(0, _commonList._itemsList.Count);
         itemsToSelect.Add(_commonList._itemsList[tempRandomInt]);
