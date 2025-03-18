@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
 
 public class ItemManager : MonoBehaviour
@@ -37,6 +38,9 @@ public class ItemManager : MonoBehaviour
     public void OpenItemSelection()
     {
         //Select Random items and add to a list
+        Debug.Assert(_itemMenu != null, "ITEM MENU IS NULL IN ITEM MANAGER");
+        if (_itemMenu == null) return;
+        
         
         int tempRandomInt = Random.Range(0, _commonList._itemsList.Count);
         itemsToSelect.Add(_commonList._itemsList[tempRandomInt]);
@@ -51,6 +55,7 @@ public class ItemManager : MonoBehaviour
         itemsToSelect.Add(_rareList._itemsList[tempThirdRandomInt]);
         
         //Activate UI
+        
         _itemMenu.OpenItemMenu(itemsToSelect, this);
     }
 
