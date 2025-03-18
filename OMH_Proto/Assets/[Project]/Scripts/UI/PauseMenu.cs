@@ -12,10 +12,16 @@ public class PauseMenu : MonoBehaviour
     
     [SerializeField] private GameEvent _pauseMenuEvent, _resumeMenuEvent;
     
-    private bool _isPaused, _isInventoryOpen;
+    private bool _isPaused;
     
     private void OnEscape()
     {
+        if (_inventoryPauseMenu._isInventoryOpen)
+        {
+            _inventoryPauseMenu.CloseInventory();
+            return;
+        }
+        
         if (!_isPaused) Pause();
         else
         {
