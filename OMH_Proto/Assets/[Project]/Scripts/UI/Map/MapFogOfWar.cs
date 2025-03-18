@@ -9,13 +9,14 @@ using UnityEngine.UIElements;
 public class MapFogOfWar : MonoBehaviour
 {
     [SerializeField] private Camera _mapCamera;
-    [SerializeField] private LayerMask _layerMask;
     [Space]
     [SerializeField] private GameObject _playerPos, _texturePos;
     [SerializeField] private Texture2D _texture;
     [SerializeField] private int _circleRadius;
     
-    private Vector2 relativePosPlayer; 
+    private Vector2 relativePosPlayer;
+
+    public Color _bgColor, _colorisation;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class MapFogOfWar : MonoBehaviour
         {
             for (int j = 0; j < _texture.width; j++)
             {
-                _texture.SetPixel(j, i, Color.black);
+                _texture.SetPixel(j, i, _bgColor);
             }
         }
         _texture.Apply();
@@ -37,9 +38,14 @@ public class MapFogOfWar : MonoBehaviour
     //It's working but it cost a lot
     private void Update()
     {
-        TracePixel(GetPos(), _circleRadius, new Color(0,0,0,0));
-        TracePixel(GetPos(), _circleRadius - 1, new Color(0,0,0,0));
-        TracePixel(GetPos(), _circleRadius - 2, new Color(0,0,0,0));
+        // TracePixel(GetPos(), _circleRadius, new Color(0,0,0,0));
+        // TracePixel(GetPos(), _circleRadius - 1, new Color(0,0,0,0));
+        // TracePixel(GetPos(), _circleRadius - 2, new Color(0,0,0,0));
+        
+        
+        TracePixel(GetPos(), _circleRadius, _colorisation);
+        TracePixel(GetPos(), _circleRadius - 1, _colorisation);
+        TracePixel(GetPos(), _circleRadius - 2, _colorisation);
     }
 
     public void TracePixelRoom(Transform roomPos, int radius)

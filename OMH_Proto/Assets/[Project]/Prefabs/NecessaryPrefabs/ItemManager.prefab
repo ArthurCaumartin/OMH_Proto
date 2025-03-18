@@ -46,8 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _commonList: {fileID: 11400000, guid: 0104227a93639c14285c4dc7fd942e68, type: 2}
-  _rareList: {fileID: 11400000, guid: eae94c81d347e5748b2307fdba0d85f6, type: 2}
-  _epicList: {fileID: 11400000, guid: 058a536409d864945a1874c16441c8fe, type: 2}
+  _rareList: {fileID: 11400000, guid: 058a536409d864945a1874c16441c8fe, type: 2}
   _refsStatsContainer:
     turretHealth:
       propertyType: 1
@@ -149,6 +148,7 @@ MonoBehaviour:
       variable: {fileID: 0}
   _objectUIManager: {fileID: 0}
   _gainItem: {fileID: 11400000, guid: d56a6701ecc57d644830f244620320c7, type: 2}
+  _itemMenu: {fileID: 0}
   _playerItemsList: {fileID: 11400000, guid: 0d097130c194fdb418655eeed11b9074, type: 2}
 --- !u!114 &7551448560026122879
 MonoBehaviour:
@@ -168,7 +168,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3324407491258960684}
         m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
-        m_MethodName: GainItem
+        m_MethodName: OpenItemSelection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
