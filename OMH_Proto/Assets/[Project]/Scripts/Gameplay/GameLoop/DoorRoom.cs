@@ -51,7 +51,7 @@ public class DoorRoom : MonoBehaviour
     {
         _verifTimer += Time.deltaTime;
 
-        if (_verifTimer >= 1)
+        if (_verifTimer >= 2)
         {
             _verifTimer = 0;
             for (int i = 0; i < _doors.Count; i++)
