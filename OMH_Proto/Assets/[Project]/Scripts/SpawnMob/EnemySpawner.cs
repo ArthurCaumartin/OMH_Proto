@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     private List<GameObject> _enemiesPrefabs = new List<GameObject>();
     
     private float _timer;
-    private bool _isNestDestroyed, _spawnEnemies;
+    private bool _spawnEnemies;
 
     private int tempInt, _instantiatedEnemiesIndex;
     
@@ -109,11 +109,5 @@ public class EnemySpawner : MonoBehaviour
         // tempObject.BroadcastMessage("Initialize", gasTankTarget);
         MobTargetFinder agentTargetFinder = tempObject.GetComponentInChildren<MobTargetFinder>();
         agentTargetFinder.Initialize(_mobTarget);
-    }
-
-    public void DestroyNest()
-    {
-        _isNestDestroyed = true;
-        print("Spawner nerfed");
     }
 }
