@@ -17,11 +17,14 @@ public class WeaponControler : MonoBehaviour
     public bool IsPrimaryAttacking { get => _isPrimaryAttacking; }
     public bool IsSecondaryAttacking { get => _isSecondaryAttacking; }
     private Transform _currentWeaponMesh;
+    private PlayerAnimation _playerAnimation;
 
     private void Start()
     {
         _primaryAttackInputAction = GetComponent<PlayerInput>().actions.FindAction("Attack");
         _secondaryAttackInputAction = GetComponent<PlayerInput>().actions.FindAction("SecondaryAttack");
+
+        _playerAnimation = GetComponent<PlayerAnimation>();
 
         GetAllChildWeapon();
     }
@@ -31,7 +34,9 @@ public class WeaponControler : MonoBehaviour
         _isPrimaryAttacking = _primaryAttackInputAction.ReadValue<float>() > .5f;
         _isSecondaryAttacking = _secondaryAttackInputAction.ReadValue<float>() > .5f;
 
-        if(_currentWeaponMesh)
+        _playerAnimation.IsPlayerShooting = IsShooting();
+
+        if (_currentWeaponMesh)
         {
             _currentWeaponMesh.position = _weaponMeshPivotTarget.position;
             _currentWeaponMesh.forward = -_weaponMeshPivotTarget.forward;
@@ -49,6 +54,9 @@ public class WeaponControler : MonoBehaviour
             item.gameObject.SetActive(false);
 
         _weaponList[index].gameObject.SetActive(true);
+        _currentWeaponMesh = _weaponList[index].MeshTransform;
+
+        _playerAnimation.SetWeaponAnimation(_weaponList[index].AnimationState);
     }
 
     private void SwapWeapon(int swapDirection)
@@ -79,8 +87,7 @@ public class WeaponControler : MonoBehaviour
     {
         Weapon newWeapon = Instantiate(weaponToAdd, _weaponParent);
 
-        newWeapon.Initialize(this, out Transform newWeaponMeshPivot);
-        _currentWeaponMesh = newWeaponMeshPivot;
+        newWeapon.Initialize(this);
 
         _weaponList.Add(newWeapon);
         EnableWeapon(_weaponList.Count - 1);
@@ -97,8 +104,7 @@ public class WeaponControler : MonoBehaviour
         _weaponList.Clear();
         foreach (var item in GetComponentsInChildren<Weapon>())
         {
-            item.Initialize(this, out Transform newWeaponMeshPivot);
-            _currentWeaponMesh = newWeaponMeshPivot;
+            item.Initialize(this);
 
             _weaponList.Add(item);
         }
