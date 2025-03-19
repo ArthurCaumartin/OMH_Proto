@@ -112,16 +112,22 @@ public class QTEMirror : Upgradable
         {
             if(kvp.Value == false) return;
         }
-
+        
         _winIndex++;
-        if(_winIndex >= _numbersOfCode) WinCode();
-        else NewCode();
+        if (_winIndex >= _numbersOfCode) WinCode();
+        else StartCoroutine(TempoEndQTEFeedback());
     }
 
     private void WinCode()
     {
         _qteUi.WinCode();
         StartCoroutine(Wait());
+    }
+
+    private IEnumerator TempoEndQTEFeedback()
+    {
+        yield return new WaitForSeconds(0.5f);
+        NewCode();
     }
 
     private IEnumerator Wait()

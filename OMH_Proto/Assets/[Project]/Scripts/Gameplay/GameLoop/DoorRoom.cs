@@ -16,6 +16,7 @@ public class DoorRoom : MonoBehaviour
     private List<GameObject> _doors = new List<GameObject>();
 
     private bool _isDoorLocked;
+    private float _verifTimer;
     public void OnTriggerEnter(Collider other)
     {
         if(_isDoorLocked) return;
@@ -38,6 +39,26 @@ public class DoorRoom : MonoBehaviour
         if (other.CompareTag("Player") || other.CompareTag("Mob"))
         {
             _doors.Remove(other.gameObject);
+            if (_doors.Count == 0)
+            {
+                _objectInRange = false;
+                CloseDoor();
+            }
+        }
+    }
+
+    private void Update()
+    {
+        _verifTimer += Time.deltaTime;
+
+        if (_verifTimer >= 2)
+        {
+            _verifTimer = 0;
+            for (int i = 0; i < _doors.Count; i++)
+            {
+                if(_doors[i] == null) _doors.RemoveAt(i);
+            }
+            
             if (_doors.Count == 0)
             {
                 _objectInRange = false;
