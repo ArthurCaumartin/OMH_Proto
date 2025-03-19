@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class State_Mob_Charge : IEntityState
-{
-    [SerializeField] private FloatReference _distanceToChargeAt;
+public class State_Mob_PrepCharge : IEntityState
+{ 
+    [SerializeField] private FloatReference _distanceToTriggerAttack;
     [SerializeField] private FloatReference _timeBetweenSpeedUp;
-    [SerializeField] private FloatReference _maxSpeed;
-
+    [SerializeField] private FloatReference _speedToCharge;
+    
     private PhysicsAgent _agent;
     StateMachine_Pterarmure _machinePteramyr;
-    
+
     private float _timerSpeed;
     
     public void Initialize(StateMachine behavior)
@@ -23,6 +23,7 @@ public class State_Mob_Charge : IEntityState
 
     public void EnterState()
     {
+        _timerSpeed = 0;
     }
 
     public void UpdateState()
@@ -31,14 +32,19 @@ public class State_Mob_Charge : IEntityState
         if (_timerSpeed > _timeBetweenSpeedUp.Value)
         {
             _timerSpeed = 0;
-            if(_timerSpeed < _maxSpeed.Value) _agent.Speed++;
+            _agent.Speed++;
+            if (_agent.Speed >= _speedToCharge.Value)
+            {
+                _machinePteramyr.SetState(_machinePteramyr.ChargeState);
+                return;
+            }
         }
         
         _agent.SetTarget(_machinePteramyr.Target);
-        
-        if (Vector3.Distance(_machinePteramyr.transform.position, _machinePteramyr.Target.transform.position) <= _distanceToChargeAt.Value)
+
+        if (Vector3.Distance(_machinePteramyr.transform.position, _machinePteramyr.Target.transform.position) <= _distanceToTriggerAttack.Value)
         {
-            _machinePteramyr.SetState(_machinePteramyr.ChargeAttackState);
+            _machinePteramyr.SetState(_machinePteramyr.AttackState);
             return;
         }
     }
