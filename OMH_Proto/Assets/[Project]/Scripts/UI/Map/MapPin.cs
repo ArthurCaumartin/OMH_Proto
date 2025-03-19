@@ -18,20 +18,25 @@ public class MapPin : MonoBehaviour
 
     public void ChangeTallMap()
     {
-        _isMapTall = true;
-        _spriteRenderer.sprite = _tallMapPin;
+        
+        gameObject.layer = LayerMask.NameToLayer("TallMap");
+        
+        // _isMapTall = true;
+        // _spriteRenderer.sprite = _tallMapPin;
     }
 
     public void ChangeLittleMap()
     {
-        _isMapTall = false;
-        if (_littleMapPin == null)
-        {
-            _spriteRenderer.sprite = null;
-        }
-        else
-        {
-            _spriteRenderer.sprite = _littleMapPin;
-        }
+        gameObject.layer = LayerMask.NameToLayer("LittleMap");
+        
+        // _isMapTall = false;
+        // if (_littleMapPin == null)
+        // {
+        //     _spriteRenderer.sprite = null;
+        // }
+        // else
+        // {
+        //     _spriteRenderer.sprite = _littleMapPin;
+        // }
     }
 }
