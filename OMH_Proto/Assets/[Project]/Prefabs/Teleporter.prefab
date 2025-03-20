@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4679872432830184309}
@@ -112,7 +112,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4679872432830184309}
@@ -210,8 +210,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4982803435801498176}
-  - component: {fileID: 4759455954685205604}
   - component: {fileID: 3302239070300546627}
+  - component: {fileID: 1315065591167766755}
   m_Layer: 0
   m_Name: PlanePivot
   m_TagString: Untagged
@@ -236,18 +236,6 @@ Transform:
   - {fileID: 8802355662713505102}
   m_Father: {fileID: 3150228672239226443}
   m_LocalEulerAnglesHint: {x: 15, y: -90, z: 0}
---- !u!114 &4759455954685205604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2530097949326445015}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae15fd929bc27e04eadff01690b2ad92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3302239070300546627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +252,21 @@ MonoBehaviour:
   _axis: {x: 0, y: 1, z: 0}
   _speed: 100
   _direction: 1
+--- !u!114 &1315065591167766755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2530097949326445015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3814f1f91501d884fbc4f9729ad7e6f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _axis: {x: 0, y: 1, z: 0}
+  _amplitude: 0.2
+  _speed: 1
 --- !u!1 &3275645082487284726
 GameObject:
   m_ObjectHideFlags: 0
