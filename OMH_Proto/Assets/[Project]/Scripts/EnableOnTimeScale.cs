@@ -8,6 +8,12 @@ public class EnableOnTimeScale : MonoBehaviour
 
     void Update()
     {
+        if (!_obj)
+        {
+            enabled = false;
+            Debug.LogError("Not Behavior Set on EnableOnTimeScale on : " + name);
+            return;
+        }
         _obj.enabled = Time.timeScale == 1;
     }
 }

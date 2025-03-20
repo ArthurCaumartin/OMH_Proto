@@ -18,15 +18,10 @@ public class Trap : MonoBehaviour
     [SerializeField] private ParticleSystem _attackParticle;
     private float _activationTime;
     private bool _isActif = false;
-    private Renderer[] _rendererArray;
-    private Color _baseColorBackup;
 
     private void Start()
     {
         _attackParticle.gameObject.SetActive(false);
-
-        _rendererArray = GetComponentsInChildren<Renderer>();
-        _baseColorBackup = _rendererArray[0].materials[1].GetColor("_EmissionColor");
     }
 
     private void Update()
@@ -34,12 +29,10 @@ public class Trap : MonoBehaviour
         if (!_isActif)
         {
             _activationTime = 0;
-            LerpEmissive(0);
             return;
         }
 
         _activationTime += Time.deltaTime;
-        LerpEmissive(_activationTime / _activationDelay.Value);
         if (_activationTime > _activationDelay.Value)
         {
             _isActif = false;
@@ -79,18 +72,6 @@ public class Trap : MonoBehaviour
         _attackParticle.gameObject.SetActive(true);
         yield return new WaitForSeconds(_attackParticle.main.duration);
         _attackParticle.gameObject.SetActive(false);
-    }
-
-    private void LerpEmissive(float time)
-    {
-        foreach (var item in _rendererArray)
-        {
-            try
-            {
-                item.materials[1].SetColor("_EmissionColor", Color.Lerp(_baseColorBackup, Color.red, time));
-            }
-            catch { }
-        }
     }
 
     private void OnDrawGizmos()

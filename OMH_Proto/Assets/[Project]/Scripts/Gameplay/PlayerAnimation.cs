@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    public enum AnimationState { Idle, Runing, Walking }
+    public enum MovementAnimationState { Idle, Runing, Walking }
     [SerializeField] private Animator _animator;
     [Space]
-    [SerializeField] private AnimationState _currentAnimationState;
+    [SerializeField] private MovementAnimationState _currentMovementAnimationState;
     [SerializeField] private Transform _meshPivot;
     [SerializeField] private WeaponControler _weaponControler;
     [SerializeField] private float _speed = 5;
     private PlayerMovement _playerMovement;
     private PlayerAim _playerAim;
+    private bool _isPlayerShooting;
+    public bool IsPlayerShooting { set => _isPlayerShooting = value; }
 
 
     private void Start()
@@ -21,29 +23,25 @@ public class PlayerAnimation : MonoBehaviour
         _playerAim = GetComponent<PlayerAim>();
     }
 
-
     private void Update()
     {
         _meshPivot.transform.localPosition = Vector3.zero; //! le mesh bouge tout seul /:
-
-        SetState(DefineState());
-        // print("Anim State : " + _currentAnimationState);
-
-
+        SetMovementState(DefineState());
         _animator.SetLayerWeight(1, 0);
 
+        _animator.SetBool("IsShooting", _isPlayerShooting);
 
-        switch (_currentAnimationState)
+        switch (_currentMovementAnimationState)
         {
-            case AnimationState.Idle:
+            case MovementAnimationState.Idle:
                 IdleUpdate();
                 break;
 
-            case AnimationState.Walking:
+            case MovementAnimationState.Walking:
                 WalkingUpdate();
                 break;
 
-            case AnimationState.Runing:
+            case MovementAnimationState.Runing:
                 RunningUpdate();
                 break;
         }
@@ -88,20 +86,25 @@ public class PlayerAnimation : MonoBehaviour
 
     }
 
-    private AnimationState DefineState()
+    private MovementAnimationState DefineState()
     {
-        if (_weaponControler.IsShooting()) return AnimationState.Walking;
-        if (_playerMovement.GetMovementDirection() != Vector3.zero && !_weaponControler.IsShooting()) return AnimationState.Runing;
-        return AnimationState.Idle;
+        if (_weaponControler.IsShooting()) return MovementAnimationState.Walking;
+        if (_playerMovement.GetMovementDirection() != Vector3.zero && !_weaponControler.IsShooting()) return MovementAnimationState.Runing;
+        return MovementAnimationState.Idle;
     }
 
-    private void SetState(AnimationState stateToSet)
+    private void SetMovementState(MovementAnimationState stateToSet)
     {
-        if (_currentAnimationState == stateToSet) return;
-        _currentAnimationState = stateToSet;
+        if (_currentMovementAnimationState == stateToSet) return;
+        _currentMovementAnimationState = stateToSet;
 
-        _animator.SetBool("IsIdle", _currentAnimationState == AnimationState.Idle);
-        _animator.SetBool("IsRunning", _currentAnimationState == AnimationState.Runing);
-        _animator.SetBool("IsWalking", _currentAnimationState == AnimationState.Walking);
+        _animator.SetBool("IsIdle", _currentMovementAnimationState == MovementAnimationState.Idle);
+        _animator.SetBool("IsRunning", _currentMovementAnimationState == MovementAnimationState.Runing);
+        _animator.SetBool("IsWalking", _currentMovementAnimationState == MovementAnimationState.Walking);
+    }
+
+    public void SetWeaponAnimation(int stateHash)
+    {
+        _animator.Play(stateHash);
     }
 }
