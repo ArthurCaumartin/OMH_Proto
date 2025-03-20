@@ -6,7 +6,6 @@ public class AreaHealVisual : MonoBehaviour
     [SerializeField] private SphereCollider _collider;
     [SerializeField] private float _apparitionSpeed = 5;
     [SerializeField] private float _lockDuration = 2;
-    private ParticleSystem _particle;
     private float _currentScaleValue;
     private float _targetValue;
     private float _lockOnVisible;
@@ -14,8 +13,6 @@ public class AreaHealVisual : MonoBehaviour
 
     private void Start()
     {
-        _particle = GetComponentInChildren<ParticleSystem>();
-
         _lockOnVisible = 1000;
         SetVisualVisibility(0);
     }
@@ -36,10 +33,6 @@ public class AreaHealVisual : MonoBehaviour
     {
         Vector3 colliderScale = Vector3.one * _collider.radius * scale;
         transform.localScale = colliderScale;
-        ParticleSystem.ShapeModule shape = _particle.shape;
-        shape.radius = colliderScale.x;
-
-        _particle.gameObject.SetActive(scale > 0.1f);
     }
 
     public void SetVisualVisibility(float targetValue)
