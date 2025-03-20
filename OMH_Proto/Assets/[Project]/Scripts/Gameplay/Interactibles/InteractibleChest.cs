@@ -36,9 +36,9 @@ public class Chest_Shader_Controller : Interactible
         }
         int tempInt = Random.Range(0, _chestControllers.Count);
 
-        print("Before Golden Chest");
+        // print("Before Golden Chest");
         if (_isGoldenChest) return;
-        print("Golden Chest");
+        // print("Golden Chest");
         _chestControllers[tempInt].TransformationGoldChest();
         _isGoldenChest = true;
     }

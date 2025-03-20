@@ -32,7 +32,7 @@ public class StateMachine_MobBase : StateMachine
 
     public void StunMob(float duration)
     {
-        print("Mob Stun");
+        // print("Mob Stun");
         _isOn = false;
         _agent.SlowAgent(1, duration, true);
         StartCoroutine(ResetIsOn(duration));
