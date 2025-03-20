@@ -20,14 +20,14 @@ public class PlayerEmissiveBlinking : MonoBehaviour
 
     public void DestroyShield()
     {
-        print("DestroyShield");
+        // print("DestroyShield");
         _shieldMaterial.SetColor("_FlashingColor", BreakColor);
         _shieldMaterial.SetFloat("_BlinkingSpeed", BreakBlinkingSpeed);
     }
 
     public void ShieldIsUp()
     {
-        print("ShieldUp");
+        // print("ShieldUp");
         _shieldMaterial.SetColor("_FlashingColor", UpColor);
         _shieldMaterial.SetFloat("_BlinkingSpeed", UpBlinkingSpeed);
     }
