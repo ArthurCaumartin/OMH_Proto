@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.IO.Compression;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class ShieldBreaking : MonoBehaviour
+public class PlayerEmissiveBlinking : MonoBehaviour
 {
     [SerializeField] private Shield playerShield;
     [SerializeField] private Material _shieldMaterial;
@@ -13,18 +9,13 @@ public class ShieldBreaking : MonoBehaviour
     public Color BreakColor;
     public float UpBlinkingSpeed;
     public float BreakBlinkingSpeed;
-    
+
     public void Start()
     {
         playerShield._onShieldDown.AddListener(DestroyShield);
         playerShield._onShieldUp.AddListener(ShieldIsUp);
         playerShield._onPlayerDeath.AddListener(ShieldIsUp);
         ShieldIsUp();
-        // playerShield.ShieldDown += () => DestroyShield();
-        // playerShield.ShieldUp += () => ShieldIsUp();
-
-        // playerShield.ShieldDown.AddListener(DestroyShield);
-        // playerShield.ShieldUp.AddListener(DestroyShield);
     }
 
     public void DestroyShield()
@@ -32,7 +23,6 @@ public class ShieldBreaking : MonoBehaviour
         print("DestroyShield");
         _shieldMaterial.SetColor("_FlashingColor", BreakColor);
         _shieldMaterial.SetFloat("_BlinkingSpeed", BreakBlinkingSpeed);
-        //FlashingColor.SetColor("_FlashingColor", 1);
     }
 
     public void ShieldIsUp()
@@ -40,7 +30,6 @@ public class ShieldBreaking : MonoBehaviour
         print("ShieldUp");
         _shieldMaterial.SetColor("_FlashingColor", UpColor);
         _shieldMaterial.SetFloat("_BlinkingSpeed", UpBlinkingSpeed);
-        //_FlashingColor = AlarmFlashingColor; 
     }
 }
 

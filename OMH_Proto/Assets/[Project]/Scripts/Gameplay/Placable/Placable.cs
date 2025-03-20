@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Placable : MonoBehaviour
@@ -56,8 +55,12 @@ public class Placable : MonoBehaviour
 
         foreach (var item in _rendererArray)
         {
-            item.material.SetColor(_colorParameterName
-            , Color.Lerp(item.material.GetColor(_colorParameterName), _renderColorTarget, Time.deltaTime * _transitionSpeed));
+            try
+            {
+                item.material.SetColor(_colorParameterName
+                , Color.Lerp(item.material.GetColor(_colorParameterName), _renderColorTarget, Time.deltaTime * _transitionSpeed));
+            }
+            catch { }
         }
     }
 
