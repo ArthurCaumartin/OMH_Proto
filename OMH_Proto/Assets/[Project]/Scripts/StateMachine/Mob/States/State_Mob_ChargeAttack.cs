@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 [Serializable]
@@ -37,21 +39,24 @@ public class State_Mob_ChargeAttack : IEntityState
         
         _agent.SetTarget(_machinePteramyr.Target);
         
-        float _targetDistance = Vector3.Distance(_machinePteramyr.transform.position, _machinePteramyr.Target.position);
-        Debug.Log(_targetDistance);
-        
-        if (_targetDistance > _distanceToChargeAt.Value)
+        Collider[] col = Physics.OverlapSphere(_machinePteramyr.transform.position, _distanceToHitCharge.Value);
+        for (int i = 0; i < col.Length; i++)
         {
-            //Hit enemy
-            Debug.Log("Hit Target");
-            //Hit enemy
-            _agent.Speed -= _speedtoLoseOnHit.Value;
-            if(_agent.Speed < _speedToCharge.Value) _machinePteramyr.SetState(_machinePteramyr.PrepChargeState);
-            else
-            {
-                _machinePteramyr.SetState(_machinePteramyr.ChargeState);
-            }
-            return;
+            Health health = col[i].GetComponent<Health>();
+            if (!health) continue;
+
+            health.TakeDamages(_machinePteramyr.gameObject, 20);
+            HitSomething();
+        }
+    }
+
+    private void HitSomething()
+    {
+        _agent.Speed -= _speedtoLoseOnHit.Value;
+        if(_agent.Speed < _speedToCharge.Value) _machinePteramyr.SetState(_machinePteramyr.PrepChargeState);
+        else
+        {
+            _machinePteramyr.SetState(_machinePteramyr.ChargeState);
         }
     }
 
