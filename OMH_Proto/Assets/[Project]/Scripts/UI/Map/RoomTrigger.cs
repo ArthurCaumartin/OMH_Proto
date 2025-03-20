@@ -19,7 +19,7 @@ public class RoomTrigger : MonoBehaviour
     {
         if (_isObjRoom)
         {
-            room.GetComponent<MapFogOfWar>().TracePixelRoom(transform, _radius);
+            if(room != null) room.GetComponent<MapFogOfWar>().TracePixelRoom(transform, _radius);
             Destroy(this);
         }
     }

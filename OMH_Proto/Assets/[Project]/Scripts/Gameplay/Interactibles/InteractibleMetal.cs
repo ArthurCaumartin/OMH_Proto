@@ -38,6 +38,8 @@ public class InteractibleMetal : Interactible
         _gainMetal.Raise();
 
         _onActivateMetalGenerator.Raise();
+
+        ActivateGenerator();
         
         gameObject.layer = LayerMask.NameToLayer("Default");
         // Destroy(gameObject);
@@ -58,7 +60,7 @@ public class InteractibleMetal : Interactible
 
     public void ActivateGenerator()
     {
-        GetComponentInChildren<MapPin>()._tallMapPin = _activatedSprite;
+        GetComponentInChildren<MapPin>().ChangeSprite(_activatedSprite);
         
         _isGeneratorActivated = true;
     }
