@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
 {
     [Header("Visual : ")]
     [SerializeField] private Transform _meshPivot;
+    [SerializeField] private string _animationStateName = "Pistol_Aim";
 
     [Header("Main Fire : ")]
     [SerializeField] protected Projectile _projectile;
@@ -25,6 +26,10 @@ public class Weapon : MonoBehaviour
     private WeaponVisual _weaponVisual;
     protected GameObject _parentShooter;
     private WeaponControler _weaponControler;
+    private int _animationStateHash;
+
+    public Transform MeshTransform { get => _meshPivot; }
+    public int AnimationState { get => _animationStateHash; }
 
     private void Start()
     {
@@ -33,14 +38,18 @@ public class Weapon : MonoBehaviour
         _secondaryDynamicCoolDown.Value = _secondaryCooldown.Value;
     }
 
+    private void OnValidate()
+    {
+        _animationStateHash = Animator.StringToHash(_animationStateName);
+    }
+
     private void OnEnable()
     {
         _attackTime = 0;
     }
 
-    public void Initialize(WeaponControler controler, out Transform weaponMeshPivot)
+    public void Initialize(WeaponControler controler)
     {
-        weaponMeshPivot = _meshPivot;
         _weaponControler = controler;
     }
 
