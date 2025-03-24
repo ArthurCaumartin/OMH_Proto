@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -9,43 +7,39 @@ public class Projectile : MonoBehaviour
     [SerializeField] private GameObject _shootEffect;
     [SerializeField] private FloatReference _shootRange;
     [SerializeField] private LayerMask _effectLayer;
-    [SerializeField] private LayerMask _projectileLayer;
-    private float _speed;
-    private float _damage;
+    [SerializeField] private LayerMask _layer;
     private GameObject _shooter;
+    private StatContainer _stat;
+    private LineRenderer _line;
 
     private void Start()
     {
-        Destroy(gameObject, 1f);
+        _line = GetComponentInChildren<LineRenderer>();
     }
 
-    public Projectile Initialize(GameObject shooter, float speed, float damage)
+    public Projectile Initialize(GameObject shooter, StatContainer stats)
     {
-        _shooter = shooter;
-        _speed = speed;
-        _damage = damage;
+        _stat = stats;
         return this;
     }
 
     private void Update()
     {
-        transform.Translate(Vector3.forward * _speed * Time.deltaTime);
-        Physics.Raycast(transform.position, -transform.forward, out RaycastHit hit, 1f, _projectileLayer);
+        transform.Translate(Vector3.forward * _stat.projectileSpeed.Value * Time.deltaTime);
+        Physics.Raycast(transform.position, -transform.forward, out RaycastHit hit, 1f, _layer);
         if (hit.collider)
         {
-            // print("Hit " + hit.collider.gameObject.name);
-
             MobLife enemyLife = hit.collider.gameObject.GetComponent<MobLife>();
-            if (enemyLife)
-            {
-                enemyLife?.TakeDamages(_shooter, _damage, DamageType.Unassigned);
-                if (_shootEffect) AddShootEffect();
-            }
-
-            Destroy(gameObject);
+            DealDamage(enemyLife);
         }
     }
 
+    private void DealDamage(MobLife enemyLife)
+    {
+        if (!enemyLife) return;
+        enemyLife?.TakeDamages(_shooter, _stat.damage.Value, DamageType.Unassigned);
+        if (_shootEffect) AddShootEffect();
+    }
 
     public void AddShootEffect()
     {

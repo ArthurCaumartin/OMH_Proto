@@ -37,7 +37,7 @@ public class GatlingGun : Weapon
         base.Attack();
         
         Projectile newProj = Instantiate(_projectile, transform.position, transform.rotation);
-        newProj.Initialize(_parentShooter, _stat.projectileSpeed.Value, _stat.damage.Value);
+        newProj.Initialize(_parentShooter, _stat);
 
         float randomAngle = Random.Range(-_spread.Value, _spread.Value);
         float x = Mathf.InverseLerp(-45, 45, randomAngle);
@@ -56,6 +56,6 @@ public class GatlingGun : Weapon
         
         base.SecondaryAttack();
         Projectile newProj = Instantiate(_secondaryProjectile, transform.position, transform.rotation);
-        newProj.Initialize(_parentShooter, _secondaryStat.projectileSpeed.Value, _secondaryStat.damage.Value);
+        newProj.Initialize(_parentShooter, _secondaryStat);
     }
 }

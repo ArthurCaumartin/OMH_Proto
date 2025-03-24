@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8595315573679136914}
-  - component: {fileID: 239494048925926836}
+  - component: {fileID: 8265660021290434939}
   m_Layer: 0
-  m_Name: Trail
+  m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,9 +32,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 447528718702615370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!96 &239494048925926836
-TrailRenderer:
-  serializedVersion: 3
+--- !u!120 &8265660021290434939
+LineRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -53,7 +53,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 4c3701a9ba6763d4bbbd6fccc4b18e6e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,8 +74,9 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.05
-  m_PreviewTimeScale: 1
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 5}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -84,28 +85,19 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.1089422
+        value: 0.4285717
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.81761, g: 0.81761, b: 0.81761, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -130,7 +122,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -140,10 +132,9 @@ TrailRenderer:
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
   m_MaskInteraction: 0
-  m_Autodestruct: 0
-  m_Emitting: 1
+  m_UseWorldSpace: 0
+  m_Loop: 0
   m_ApplyActiveColorSpace: 1
 --- !u!1 &1854377703920330254
 GameObject:
@@ -156,6 +147,7 @@ GameObject:
   - component: {fileID: 447528718702615370}
   - component: {fileID: 6403736433643166296}
   - component: {fileID: 2061851069309233094}
+  - component: {fileID: 6098718832422452104}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -191,8 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93cd5d3c6f3c5b04898e28e9eb3ec399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tasEffect: {fileID: 0}
-  _taserRange:
+  _shootEffect: {fileID: 0}
+  _shootRange:
     propertyType: 0
     constantValue: 0
     variable: {fileID: 0}
@@ -229,3 +221,19 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &6098718832422452104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854377703920330254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c877060b1bc6149a175a04327bd70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMovement: {fileID: 0}
+  _weaponControler: {fileID: 0}
+  _lenght: 5
+  _pointCount: 5
