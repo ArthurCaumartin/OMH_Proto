@@ -13,7 +13,7 @@ public class Gun : Weapon
         for (int i = 0; i < (int)_bulletCount.Value; i++)
         {
             Projectile newProj = Instantiate(_projectile, transform.position, transform.rotation);
-            newProj.Initialize(_parentShooter, _stat);
+            newProj.Initialize(_parentShooter, _stat.projectileSpeed.Value, _stat.damage.Value);
             if (_bulletCount.Value == 1) return;
             
             float countTime = Mathf.InverseLerp(0, _bulletCount.Value - 1, i);
@@ -36,6 +36,6 @@ public class Gun : Weapon
     {
         base.SecondaryAttack();
         Projectile newProj = Instantiate(_secondaryProjectile, transform.position, transform.rotation);
-        newProj.Initialize(_parentShooter, _secondaryStat);
+        newProj.Initialize(_parentShooter, _secondaryStat.projectileSpeed.Value, _secondaryStat.damage.Value);
     }
 }
