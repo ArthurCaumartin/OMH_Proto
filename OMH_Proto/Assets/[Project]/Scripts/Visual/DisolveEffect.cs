@@ -12,10 +12,11 @@ public class DisolveEffect : MonoBehaviour
     [SerializeField] private Health _health;
     [Space]
     [SerializeField] private Transform _objectToSeeThrought;
+    [SerializeField, Range(0, 1)] private float _disolveTresold = 5;
     [SerializeField] private float _transitionSpeed = 5;
     private Renderer[] _rendererArray;
     private Transform _cameraTransform;
-    private bool _isBehind = false;
+    private float _dotValue;
 
     private void Start()
     {
@@ -32,21 +33,10 @@ public class DisolveEffect : MonoBehaviour
     {
         if (!_objectToSeeThrought) return;
 
-        Vector3 dir = (_cameraTransform.position - _objectToSeeThrought.position).normalized;
-        RaycastHit[] hits = Physics.RaycastAll(_objectToSeeThrought.position, dir, 10);
-
-        _isBehind = false;
-        foreach (var item in hits)
-        {
-            if (item.collider.gameObject == gameObject)
-            {
-                _isBehind = true;
-                break;
-            }
-        }
-
+        Vector3 dirToObj = (_objectToSeeThrought.position - transform.position).normalized;
+        _dotValue = Vector3.Dot(_cameraTransform.forward, dirToObj);
         float current = _rendererArray[0].material.GetFloat(_parameterName);
-        SetMaterialsParameter(Mathf.Lerp(current, _isBehind ? 0 : 1, Time.deltaTime * _transitionSpeed));
+        SetMaterialsParameter(Mathf.Lerp(current, _dotValue > _disolveTresold ? 0 : 1, Time.deltaTime * _transitionSpeed));
     }
 
     public void Disolve(bool isHiding)
@@ -62,6 +52,7 @@ public class DisolveEffect : MonoBehaviour
     private void SetMaterialsParameter(float time)
     {
         foreach (var item in _rendererArray)
-            item.material.SetFloat(_parameterName, time);
+            foreach (var mat in item.materials)
+                mat.SetFloat(_parameterName, time);
     }
 }

@@ -7303,17 +7303,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a0807f7eb695aa44ea79fb1ef1fff73b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.1220922
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a0807f7eb695aa44ea79fb1ef1fff73b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.44
+      value: 10.32
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a0807f7eb695aa44ea79fb1ef1fff73b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 156.10747
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a0807f7eb695aa44ea79fb1ef1fff73b,
         type: 3}
@@ -7488,7 +7488,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a0807f7eb695aa44ea79fb1ef1fff73b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4157369809910976649}
   m_SourcePrefab: {fileID: 100100000, guid: a0807f7eb695aa44ea79fb1ef1fff73b, type: 3}
 --- !u!4 &4878904734417899221 stripped
 Transform:
@@ -7496,6 +7500,31 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4917899443540207934}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5259793891409990767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a0807f7eb695aa44ea79fb1ef1fff73b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4917899443540207934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4157369809910976649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5259793891409990767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fefd2e659d392e4d8d8e3261bdc0c85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parameterName: _Alpha
+  _disolveDuration: 1
+  _initialVisivbility: 0
+  _health: {fileID: 0}
+  _objectToSeeThrought: {fileID: 0}
+  _disolveTresold: 0.9
+  _transitionSpeed: 5
 --- !u!1001 &4942523953414923822
 PrefabInstance:
   m_ObjectHideFlags: 0
