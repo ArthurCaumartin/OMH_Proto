@@ -7,15 +7,17 @@ public class Projectile : MonoBehaviour
     //TODO set la durée du destroy avec la range et la speed
     //TODO changer TazerEffect ref par un truc plus generique pour avoir plusieur effet possible ?
     [SerializeField] private GameObject _shootEffect;
-    [SerializeField] private FloatReference _shootRange;
+    [SerializeField] private FloatReference _effectPropagationRange;
     [SerializeField] private LayerMask _effectLayer;
     [SerializeField] private LayerMask _projectileLayer;
     private float _speed;
     private float _damage;
     private GameObject _shooter;
+    private Rigidbody _rb;
 
     private void Start()
     {
+        _rb = GetComponent<Rigidbody>();
         Destroy(gameObject, 1f);
     }
 
@@ -27,13 +29,13 @@ public class Projectile : MonoBehaviour
         return this;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        transform.Translate(Vector3.forward * _speed * Time.deltaTime);
-        Physics.Raycast(transform.position, -transform.forward, out RaycastHit hit, 1f, _projectileLayer);
+        Physics.Raycast(transform.position, -transform.forward, out RaycastHit hit, _speed * Time.fixedDeltaTime, _projectileLayer);
+        Debug.DrawRay(transform.position, -transform.forward * _speed * Time.fixedDeltaTime, Color.red);
         if (hit.collider)
         {
-            // print("Hit " + hit.collider.gameObject.name);
+            print("Hit " + hit.collider.gameObject.name);
 
             MobLife enemyLife = hit.collider.gameObject.GetComponent<MobLife>();
             if (enemyLife)
@@ -44,14 +46,15 @@ public class Projectile : MonoBehaviour
 
             Destroy(gameObject);
         }
+        _rb.MovePosition(_rb.position + (transform.forward * Time.fixedDeltaTime * _speed));
     }
 
 
     public void AddShootEffect()
     {
-        Collider[] colls = Physics.OverlapSphere(transform.position, _shootRange.Value, _effectLayer);
+        Collider[] colls = Physics.OverlapSphere(transform.position, _effectPropagationRange.Value, _effectLayer);
         if (colls.Length == 0) return;
         for (int i = 0; i < colls.Length; i++)
-            Instantiate(_shootEffect, colls[i].transform).GetComponent<IEffectable>().InitializeEffect(_shootRange.Value, transform.position);
+            Instantiate(_shootEffect, colls[i].transform).GetComponent<IEffectable>().InitializeEffect(_effectPropagationRange.Value, transform.position);
     }
 }
