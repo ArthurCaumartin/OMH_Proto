@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class SiphonHealth : MonoBehaviour
     [SerializeField] private FloatReference _health;
     private bool _isVictory;
     private bool _canTakeDamage = false;
-    
+
     public void LostHP()
     {
         _health.Value--;
@@ -40,6 +41,7 @@ public class SiphonHealth : MonoBehaviour
 
     public void SetCanTakeDamage(bool value)
     {
+        gameObject.AddComponent<MobTarget>();
         _canTakeDamage = value;
     }
 
