@@ -32,15 +32,13 @@ public class Projectile : MonoBehaviour
     private void FixedUpdate()
     {
         Physics.Raycast(transform.position, -transform.forward, out RaycastHit hit, _speed * Time.fixedDeltaTime, _projectileLayer);
-        Debug.DrawRay(transform.position, -transform.forward * _speed * Time.fixedDeltaTime, Color.red);
         if (hit.collider)
         {
-            print("Hit " + hit.collider.gameObject.name);
-
-            MobLife enemyLife = hit.collider.gameObject.GetComponent<MobLife>();
-            if (enemyLife)
+            // print("Hit " + hit.collider.gameObject.name);
+            IDamageable damagable = hit.collider.gameObject.GetComponent<MobLife>();
+            if (damagable != null)
             {
-                enemyLife?.TakeDamages(_shooter, _damage, DamageType.Unassigned);
+                damagable?.TakeDamages(_shooter, _damage, DamageType.Unassigned);
                 if (_shootEffect) AddShootEffect();
             }
 
