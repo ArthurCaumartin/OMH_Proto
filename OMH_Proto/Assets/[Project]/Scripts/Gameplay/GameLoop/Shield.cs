@@ -28,6 +28,8 @@ public class Shield : Upgradable, IDamageable
     private float _shieldExplodRange;
     private float _stunCooldownTime;
 
+    public UnityEvent OnDeathEvent { get => _onPlayerDeath; }
+
 
     private void Start()
     {
@@ -65,7 +67,8 @@ public class Shield : Upgradable, IDamageable
 
         if (_isShieldDown)
         {
-            PlayerDeath();
+            OnDeath();
+            damageDealer.GetComponent<MobTargetFinder>()?.ClearTarget();
         }
         else
         {
@@ -91,16 +94,11 @@ public class Shield : Upgradable, IDamageable
         _onShieldUp.Invoke();
     }
 
-    private void PlayerDeath()
+    private void OnDeath()
     {
-        Rigidbody playerRigidbody = GetComponent<Rigidbody>();
-        playerRigidbody.MovePosition(_respawnPos);
-
         _timerRegenShield = 0;
         _isShieldDown = false;
 
-        //! quick fix for stuck in QTE after death :)
-        GetComponent<QTEControler>()?.KillQTE();
         _onPlayerDeath.Invoke();
     }
 

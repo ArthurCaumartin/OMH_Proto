@@ -25,13 +25,15 @@ Material:
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ALPHATEST_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2450
+  stringTagMap:
+    RenderType: TransparentCutout
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -104,12 +106,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 1
-    - _AlphaClip: 0
-    - _AlphaToMask: 0
-    - _AmbientStrength: 0.25
+    - _AlphaClip: 1
+    - _AlphaToMask: 1
+    - _AmbientStrength: 0.1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
+    - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -119,12 +122,12 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FalloffAmount: 0.1
+    - _FalloffAmount: 0.2
     - _FresnelSize: 0.05
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _LightingCutoff: 0.3
+    - _LightingCutoff: 0.1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -137,10 +140,14 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
+    - _Wavesize: 0.01
     - _WorkflowMode: 1
+    - _ZTest: 4
     - _ZWrite: 1
-    - _alpha: 1
+    - _ZWriteControl: 0
+    - _alpha: 0
     m_Colors:
+    - _ApparitionColor: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffuseColor: {r: 1, g: 1, b: 1, a: 0}

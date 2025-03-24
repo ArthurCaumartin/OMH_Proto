@@ -14,7 +14,7 @@ public class CreditsMoving : MonoBehaviour
     
     private void Start()
     {
-        _startPosition = _rectTransform.position;
+        _startPosition = _rectTransform.localPosition;
     }
 
     private void Update()

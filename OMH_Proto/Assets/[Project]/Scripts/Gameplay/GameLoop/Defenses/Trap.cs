@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class Trap : MonoBehaviour
 {
@@ -12,18 +13,15 @@ public class Trap : MonoBehaviour
     [SerializeField] private FloatReference _slowStrenght;
     [SerializeField] private FloatReference _slowDuration;
     [SerializeField] private LayerMask _targetLayer;
-    [SerializeField] private List<GameObject> _visualList;
+    [Space]
+    [SerializeField] private ParticleSystem _slowParticle;
+    [SerializeField] private ParticleSystem _attackParticle;
     private float _activationTime;
     private bool _isActif = false;
-    private Renderer[] _rendererArray;
-    private Color _baseColorBackup;
 
     private void Start()
     {
-        EnableVisual(false);
-
-        _rendererArray = GetComponentsInChildren<Renderer>();
-        _baseColorBackup = _rendererArray[0].materials[1].GetColor("_EmissionColor");
+        _attackParticle.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -31,17 +29,15 @@ public class Trap : MonoBehaviour
         if (!_isActif)
         {
             _activationTime = 0;
-            LerpEmissive(0);
             return;
         }
 
         _activationTime += Time.deltaTime;
-        LerpEmissive(_activationTime / _activationDelay.Value);
         if (_activationTime > _activationDelay.Value)
         {
             _isActif = false;
             _activationTime = 0;
-            Activate();
+            Attack();
         }
     }
 
@@ -51,9 +47,9 @@ public class Trap : MonoBehaviour
         if (mob) _isActif = true;
     }
 
-    private void Activate()
+    private void Attack()
     {
-        StartCoroutine(VisualTrap());
+        StartCoroutine(AttackFx());
 
         Collider[] col = Physics.OverlapSphere(transform.position, _trapHitRange.Value, _targetLayer);
         for (int i = 0; i < col.Length; i++)
@@ -61,39 +57,26 @@ public class Trap : MonoBehaviour
             MobLife t = col[i].GetComponent<MobLife>();
             t?.TakeDamages(gameObject, _damages.Value, DamageType.Unassigned);
 
-            PhysicsAgent y = col[i].GetComponent<PhysicsAgent>();
-            y?.SlowAgent(_slowStrenght.Value / 100, _slowDuration.Value);
-        }
-    }
-
-    IEnumerator VisualTrap()
-    {
-        EnableVisual(true);
-        yield return new WaitForSeconds(0.3f);
-        EnableVisual(false);
-    }
-
-    private void EnableVisual(bool value)
-    {
-        foreach (var item in _visualList)
-            item.SetActive(value);
-    }
-
-    private void LerpEmissive(float time)
-    {
-        foreach (var item in _rendererArray)
-        {
-            try
+            PhysicsAgent agent = col[i].GetComponent<PhysicsAgent>();
+            if (agent)
             {
-                item.materials[1].SetColor("_EmissionColor", Color.Lerp(_baseColorBackup, Color.red, time));
+                agent.SlowAgent(_slowStrenght.Value / 100, _slowDuration.Value);
+                if (_slowParticle)
+                    Destroy(Instantiate(_slowParticle, agent.transform), _slowDuration.Value);
             }
-            catch { }
         }
+    }
+
+    IEnumerator AttackFx()
+    {
+        _attackParticle.gameObject.SetActive(true);
+        yield return new WaitForSeconds(_attackParticle.main.duration);
+        _attackParticle.gameObject.SetActive(false);
     }
 
     private void OnDrawGizmos()
     {
-        if(!DEBUG) return;
+        if (!DEBUG) return;
         Gizmos.color = new Color(1, 0, 0, .1f);
         Gizmos.DrawSphere(transform.position, _trapHitRange.Value);
     }

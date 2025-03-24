@@ -115,12 +115,12 @@ public class Placer : MonoBehaviour
         Vector3 invPlayerDir = _gostPlacable.transform.position - _playerTransform.position;
         invPlayerDir.y = 0;
 
-        print("not : " + invPlayerDir);
+        // print("not : " + invPlayerDir);
         invPlayerDir = invPlayerDir.normalized;
         invPlayerDir.x = Mathf.Round(invPlayerDir.x);
         invPlayerDir.z = Mathf.Round(invPlayerDir.z);
         if(invPlayerDir.x != 0) invPlayerDir.z = 0;
-        print("round : " + invPlayerDir);
+        // print("round : " + invPlayerDir);
 
         _gostPlacable.transform.forward = invPlayerDir;
         _gostPlacable.transform.position = WorldToCellConvert(MouseAimPosition(_gostPlacable.transform.position));
