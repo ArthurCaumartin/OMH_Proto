@@ -36,6 +36,11 @@ public class State_Mob_Roam : IEntityState
             return;
         }
 
+        if (Vector3.Distance(_machinePteramyr.transform.position, _randomPos) <= 1f)
+        {
+            _agent.ClearTarget();
+        }
+        
         _timer += Time.deltaTime;
         if (_timer > _delay)
         {
