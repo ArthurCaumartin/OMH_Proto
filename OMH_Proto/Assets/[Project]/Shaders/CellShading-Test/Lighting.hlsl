@@ -50,6 +50,7 @@ void AdditionalLight_float(float3 WorldPos, int Index, out float3 Direction,
     int pixelLightCount = GetAdditionalLightsCount();
     if (Index < pixelLightCount)
     {
+        float4 shadowCoord = TransformWorldToShadowCoord(WorldPos);
         Light light = GetAdditionalLight(Index, WorldPos);
     
         Direction = light.direction;
@@ -72,6 +73,7 @@ void AdditionalLight_half(half3 WorldPos, int Index, out half3 Direction,
     int pixelLightCount = GetAdditionalLightsCount();
     if (Index < pixelLightCount)
     {
+        half4 shadowCoord = TransformWorldToShadowCoord(WorldPos);
         Light light = GetAdditionalLight(Index, WorldPos);
 
         Direction = light.direction;

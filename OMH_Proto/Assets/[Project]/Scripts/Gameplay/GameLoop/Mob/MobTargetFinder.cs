@@ -50,7 +50,7 @@ public class MobTargetFinder : MonoBehaviour
         //TODO delay pour le detect
         DetectNearestTarget();
 
-        if (_currentTarget) 
+        if (_currentTarget)
             _distanceWithTarget = Vector3.Distance(transform.position, _currentTarget.transform.position);
         else
             _distanceWithTarget = Mathf.Infinity;
@@ -80,6 +80,7 @@ public class MobTargetFinder : MonoBehaviour
         {
             MobTarget currentTarget = col[i].GetComponent<MobTarget>();
             if (!currentTarget) continue;
+            if (!currentTarget.enable) continue;
             if (currentTarget == _ifLostTarget) continue;
 
             float currentDistance = Vector3.Distance(transform.position, currentTarget.transform.position);
@@ -103,7 +104,7 @@ public class MobTargetFinder : MonoBehaviour
 
     private void SetNewTarget(MobTarget toSet)
     {
-        if(toSet && _banTag.Contains(toSet.tag)) return;
+        if (toSet && _banTag.Contains(toSet.tag)) return;
         //? si on a une target et que la nouvelle prio est plus grande
         if (_currentTarget && toSet.Priority > _currentTarget.Priority)
         {
@@ -111,6 +112,11 @@ public class MobTargetFinder : MonoBehaviour
             return;
         }
         _currentTarget = toSet;
+    }
+
+    public void ClearTarget()
+    {
+        _currentTarget = null;
     }
 
     public void OnDrawGizmos()
