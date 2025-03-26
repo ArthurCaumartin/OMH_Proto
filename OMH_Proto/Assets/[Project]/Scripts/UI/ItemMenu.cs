@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using DepthOfField = UnityEngine.Rendering.Universal.DepthOfField;
 
 public class ItemMenu : MonoBehaviour
 {
@@ -25,7 +26,13 @@ public class ItemMenu : MonoBehaviour
         _gameUI.SetActive(false);
         
         Time.timeScale = 0;
-        Camera.main.gameObject.GetComponent<Volume>().weight = 1;
+        
+        Volume volume = Camera.main.gameObject.GetComponent<Volume>();
+        DepthOfField depthOfField;
+        if (volume.profile.TryGet<DepthOfField>(out depthOfField))
+        {
+            depthOfField.focalLength.value = 300f;
+        }
         
         _itemSprite1.sprite = itemsList[0]._itemSprite;
         _itemName1.text = itemsList[0]._itemName;
@@ -54,6 +61,12 @@ public class ItemMenu : MonoBehaviour
         _gameUI.SetActive(true);
         
         Time.timeScale = 1;
-        Camera.main.gameObject.GetComponent<Volume>().weight = 0;
+        
+        Volume volume = Camera.main.gameObject.GetComponent<Volume>();
+        DepthOfField depthOfField;
+        if (volume.profile.TryGet<DepthOfField>(out depthOfField))
+        {
+            depthOfField.focalLength.value = 34f;
+        }
     }
 }
