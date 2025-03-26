@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEditor;
 using UnityEngine;
@@ -13,13 +12,16 @@ public class Health : MonoBehaviour, IDamageable
     [Tooltip("Call when damage is taken, send damage amount as parameter.")]
     [SerializeField] private UnityEvent<float> _onDamageTaken;
     [SerializeField] private UnityEvent _onDeathEvent;
+    [SerializeField] private UnityEvent _onHealEvent;
     private HealthBar _healthBar;
+    private IEnumerator _toDoBeforDeath;
+    private float _delayBeforDestroy;
+
     public UnityEvent<float> OnDamageTaken { get => _onDamageTaken; }
     public UnityEvent OnDeathEvent { get => _onDeathEvent; }
-    private IEnumerator _toDoBeforDeath;
+    public UnityEvent OnHealEvent { get => _onHealEvent; }
 
-    private float _delayBeforDestroy;
-    
+
     public bool IsFullLife { get => _currentHealth.Value >= _maxHealth.Value; }
 
 
@@ -46,9 +48,11 @@ public class Health : MonoBehaviour, IDamageable
 
     public void Heal(GameObject healer, float healAmount)
     {
+        print("heal");
         _currentHealth.Value += healAmount;
         _currentHealth.Value = Mathf.Clamp(_currentHealth.Value, -1000, _maxHealth.Value);
         _healthBar?.SetFillAmount(GetHealtRatio());
+        _onHealEvent.Invoke();
     }
 
     public float GetHealtRatio()
