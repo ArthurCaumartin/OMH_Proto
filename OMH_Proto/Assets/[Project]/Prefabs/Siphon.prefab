@@ -425,9 +425,9 @@ GameObject:
   - component: {fileID: 6425852159758870581}
   - component: {fileID: 662868379795253520}
   - component: {fileID: 3756947440309989330}
-  - component: {fileID: 7614021549618670539}
   - component: {fileID: 4755132753938955752}
   - component: {fileID: 99837648758901566}
+  - component: {fileID: 7614021549618670539}
   m_Layer: 15
   m_Name: Siphon
   m_TagString: Untagged
@@ -486,7 +486,7 @@ MonoBehaviour:
     propertyType: 0
     constantValue: 0
     variable: {fileID: 0}
-  enable: 1
+  enable: 0
 --- !u!114 &3756947440309989330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,27 +515,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!65 &7614021549618670539
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5422842546304363236}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3, y: 9.87639, z: 3}
-  m_Center: {x: 0, y: 3.4381952, z: 0}
+      - m_Target: {fileID: 662868379795253520}
+        m_TargetAssemblyTypeName: MobTarget, Assembly-CSharp
+        m_MethodName: Enable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &4755132753938955752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,6 +571,27 @@ MonoBehaviour:
   _lightParent: {fileID: 0}
   _radius: 75
   _isObjRoom: 1
+--- !u!65 &7614021549618670539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5422842546304363236}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 9.87639, z: 5}
+  m_Center: {x: 0, y: 3.4381952, z: 0}
 --- !u!1 &5774728664324975383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1086,7 @@ GameObject:
   - component: {fileID: 8187130700142836874}
   - component: {fileID: 1167912473178822578}
   - component: {fileID: 7631622335812450864}
+  - component: {fileID: 2323889033838086790}
   m_Layer: 14
   m_Name: InteractCuve
   m_TagString: Untagged
@@ -1113,7 +1126,7 @@ MonoBehaviour:
   _response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2323889033838086790}
         m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -1140,3 +1153,24 @@ MonoBehaviour:
   _qte: {fileID: 0}
   _confirmUIStartSiphon: {fileID: 6900964146530272729}
   _startDefense: {fileID: 11400000, guid: 1ef557f46f9b64d44a7451596034930f, type: 2}
+--- !u!135 &2323889033838086790
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7393841191358078204}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Radius: 4.5
+  m_Center: {x: 0, y: 0, z: 0}
