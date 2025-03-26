@@ -49,6 +49,7 @@ public class Trap : MonoBehaviour
 
     private void Attack()
     {
+        // print("Trap : " + name + " attack !");
         StartCoroutine(AttackFx());
 
         Collider[] col = Physics.OverlapSphere(transform.position, _trapHitRange.Value, _targetLayer);
@@ -69,8 +70,9 @@ public class Trap : MonoBehaviour
 
     IEnumerator AttackFx()
     {
+        _attackParticle.Clear();
         _attackParticle.gameObject.SetActive(true);
-        yield return new WaitForSeconds(_attackParticle.main.duration);
+        yield return new WaitForSeconds(_activationDelay.Value * .95f);
         _attackParticle.gameObject.SetActive(false);
     }
 
