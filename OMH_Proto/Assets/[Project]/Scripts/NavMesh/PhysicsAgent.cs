@@ -21,6 +21,7 @@ public class PhysicsAgent : MonoBehaviour
     private Transform _currentTarget = null;
     private Vector3 _posToGoIfNoTarget = Vector3.zero;
     private float _acctualSpeed;
+    private bool _isAllreadySlow = false;
 
     public float Speed { get => _acctualSpeed; set => _acctualSpeed = value; }
 
@@ -108,6 +109,7 @@ public class PhysicsAgent : MonoBehaviour
                                             , direction * Mathf.Clamp01(_slowMultiplier) * _acctualSpeed
                                             , Time.fixedDeltaTime * _acceleration);
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _fallingVelocity, _rigidbody.velocity.z);
+        print(_rigidbody.velocity);
     }
 
     private Vector3[] GetNewPath(Vector3 targetPosition)
@@ -140,6 +142,8 @@ public class PhysicsAgent : MonoBehaviour
 
     public void SlowAgent(float strenght, float duration, bool freezeAgentOnSlow = false)
     {
+        if (_isAllreadySlow) return;
+        _isAllreadySlow = true;
         if (freezeAgentOnSlow) _rigidbody.velocity = Vector3.zero;
         _slowMultiplier -= strenght;
         StartCoroutine(ResetSpeed(strenght, duration));
@@ -149,6 +153,7 @@ public class PhysicsAgent : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         _slowMultiplier += strenght;
+        _isAllreadySlow = false;
     }
 
     private void OnDisable()
