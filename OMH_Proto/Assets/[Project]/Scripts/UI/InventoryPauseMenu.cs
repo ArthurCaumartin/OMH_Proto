@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using DepthOfField = UnityEngine.Rendering.Universal.DepthOfField;
 
 public class InventoryPauseMenu : MonoBehaviour
 {
@@ -22,7 +23,14 @@ public class InventoryPauseMenu : MonoBehaviour
         _isInventoryOpen = true;
         
         Time.timeScale = 0;
-        Camera.main.gameObject.GetComponent<Volume>().weight = 1;
+        
+        Volume volume = Camera.main.gameObject.GetComponent<Volume>();
+        DepthOfField depthOfField;
+        if (volume.profile.TryGet<DepthOfField>(out depthOfField))
+        {
+            depthOfField.focalLength.value = 300f;
+        }
+        
         
         _pauseMenuEvent.Raise();
     }
@@ -38,7 +46,13 @@ public class InventoryPauseMenu : MonoBehaviour
         {
             _gameUI.SetActive(true);
             Time.timeScale = 1;
-            Camera.main.gameObject.GetComponent<Volume>().weight = 0;
+            
+            Volume volume = Camera.main.gameObject.GetComponent<Volume>();
+            DepthOfField depthOfField;
+            if (volume.profile.TryGet<DepthOfField>(out depthOfField))
+            {
+                depthOfField.focalLength.value = 34f;
+            }
         }
         
         _resumeMenuEvent.Raise();
