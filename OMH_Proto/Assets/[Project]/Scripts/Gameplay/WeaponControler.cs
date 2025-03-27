@@ -1,13 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.ProBuilder;
 
 public class WeaponControler : MonoBehaviour
 {
     [SerializeField] private Transform _weaponMeshPivotTarget;
     [SerializeField] private Transform _weaponParent;
     [SerializeField] private List<Weapon> _weaponList;
+    [SerializeField] private WeaponTimerShot _uiWeapon;
+
+    [SerializeField] private GameEvent _secondaryAttackEvent;
+    
     private int _currentWeaponIndex = 0;
 
     private InputAction _primaryAttackInputAction;
@@ -25,6 +28,8 @@ public class WeaponControler : MonoBehaviour
         _secondaryAttackInputAction = GetComponent<PlayerInput>().actions.FindAction("SecondaryAttack");
 
         _playerAnimation = GetComponent<PlayerAnimation>();
+        
+        Debug.Assert(_uiWeapon != null, "UI Weapon is not set in WeaponControler on Player");
 
         GetAllChildWeapon();
     }
@@ -34,6 +39,8 @@ public class WeaponControler : MonoBehaviour
         _isPrimaryAttacking = _primaryAttackInputAction.ReadValue<float>() > .5f;
         _isSecondaryAttacking = _secondaryAttackInputAction.ReadValue<float>() > .5f;
 
+        if(_isSecondaryAttacking) _secondaryAttackEvent.Raise();
+        
         _playerAnimation.IsPlayerShooting = IsShooting();
 
         if (_currentWeaponMesh)
@@ -54,6 +61,7 @@ public class WeaponControler : MonoBehaviour
             item.gameObject.SetActive(false);
 
         _weaponList[index].gameObject.SetActive(true);
+        _uiWeapon?.InitializeWeapon(_weaponList[index]);
         _currentWeaponMesh = _weaponList[index].MeshTransform;
 
         _playerAnimation.SetWeaponAnimation(_weaponList[index].AnimationState);
