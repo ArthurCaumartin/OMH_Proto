@@ -70,6 +70,7 @@ public class SpawnManager : MonoBehaviour
         if (_timerWaves >= 60)
         {
             _timerWaves = 0;
+            _timerSpawner = 0;
             minutes++;
             
             if (minutes >= _timerMinutesWave1 && !_canStart)
