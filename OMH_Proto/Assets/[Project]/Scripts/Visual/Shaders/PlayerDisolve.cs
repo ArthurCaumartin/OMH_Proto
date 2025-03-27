@@ -1,35 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
 public class PlayerDisolve : MonoBehaviour
 {
-    [SerializeField] private RespawnSequence _respawnSequence;
     [SerializeField] private Material _anneArmorDamage;
     [SerializeField] private Material _anne;
-    [SerializeField] private bool active;
-    [SerializeField] private float _integriteAnne;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        
+        SetMatValue(1);
     }
 
-    // Update is called once per frame
-    private void Update()
+    public void ShowPlayerWithDisolve(float duration)
     {
-
-        _anne.SetFloat("_integrite", _integriteAnne);
-        print ("Anne apparaît");
-        _anneArmorDamage.SetFloat("_integrite", _integriteAnne);
-        print ("l'armure de Anne apparaît");
+        DOTween.To((time) =>
+        {
+            print("disolve : " + time);
+            SetMatValue(time);
+        }, 0, 1, duration);
     }
 
-    public void IntegriteAnne(float duration)
+    private void SetMatValue(float value)
     {
-        _integriteAnne = 0;
-
-        DOTween.To(() => _integriteAnne, x => _integriteAnne = x, 1f, duration);
-    }   
+        _anne.SetFloat("_integrite", value);
+        _anneArmorDamage.SetFloat("_integrite", value);
+    }
 }
