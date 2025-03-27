@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class PlacerRail : MonoBehaviour
@@ -14,15 +15,22 @@ public class PlacerRail : MonoBehaviour
 
         for (int i = 0; i < 50; i++)
         {
-            _lineRenderer.SetPosition(i, Vector3.Lerp(_startPoint.position + new Vector3(0, .3f, 0), _endPoint.position + new Vector3(0, .3f, 0), Mathf.InverseLerp(0, 50, i)));
+            _lineRenderer.SetPosition(i, Vector3.Lerp(_startPoint.position + new Vector3(0, .3f, 0)
+                                        , _endPoint.position + new Vector3(0, .3f, 0), Mathf.InverseLerp(0, 50, i)));
         }
     }
 
     public Vector3 GetNearestPosition(Vector3 position)
     {
-        float posTime = Mathf.InverseLerp(_startPoint.position.x, _endPoint.position.x, position.x)
-                        + Mathf.InverseLerp(_startPoint.position.y, _endPoint.position.y, position.y);
+        float xTime = Mathf.InverseLerp(_startPoint.position.x, _endPoint.position.x, position.x);
+        float zTime = Mathf.InverseLerp(_startPoint.position.z, _endPoint.position.z, position.z);
+        // print("X = " + xTime + "//// Z = " + zTime);
+
+        float posTime = xTime + zTime;
+        if (xTime != 0 && zTime != 0)
+            posTime /= 2;
         // print(posTime);
+
         _lastPosReturn = Vector3.Lerp(_startPoint.position, _endPoint.position, posTime);
         return _lastPosReturn;
     }
