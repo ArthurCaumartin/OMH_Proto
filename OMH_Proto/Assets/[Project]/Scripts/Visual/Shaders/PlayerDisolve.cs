@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class ApparitionAnne : MonoBehaviour
+public class PlayerDisolve : MonoBehaviour
 {
     [SerializeField] private RespawnSequence _respawnSequence;
     [SerializeField] private Material _anneArmorDamage;
