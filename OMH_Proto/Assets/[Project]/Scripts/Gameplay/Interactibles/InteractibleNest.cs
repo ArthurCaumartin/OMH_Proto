@@ -12,9 +12,13 @@ public class InteractibleNest : Interactible
 
     [SerializeField] private GameEvent _destroyNest, _encounterNest, _notEnoughtSyringe;
     [SerializeField] private GameObject _enemyPrefab;
+    
+    [Space]
+    [SerializeField] private Transform _posToSpawn;
     [SerializeField] private float _timeMinSpawn, _timeMaxSpawn;
     [SerializeField] private int _numberOfEnemiesToSpawn;
 
+    private bool _isNestActive;
     public static bool _isPlayerInRangeForEncounter;
     private float _timer, _timerSpawnMob, _timeToSpawn;
 
@@ -40,12 +44,15 @@ public class InteractibleNest : Interactible
 
     public virtual void Update()
     {
-        _timerSpawnMob += Time.deltaTime;
-        if (_timerSpawnMob >= _timeToSpawn)
+        if (_isNestActive)
         {
-            _timeToSpawn = Random.Range(_timeMinSpawn, _timeMaxSpawn);
-            _timerSpawnMob = 0;
-            SpawnEnemies();
+            _timerSpawnMob += Time.deltaTime;
+            if (_timerSpawnMob >= _timeToSpawn)
+            {
+                _timeToSpawn = Random.Range(_timeMinSpawn, _timeMaxSpawn);
+                _timerSpawnMob = 0;
+                SpawnEnemies();
+            }
         }
 
         if (_isPlayerInRangeForEncounter) return;
@@ -75,8 +82,13 @@ public class InteractibleNest : Interactible
     {
         for (int i = 0; i < _numberOfEnemiesToSpawn; i++)
         {
-            StateMachine_Pteramyr mobStateMachine = Instantiate(_enemyPrefab, transform.position, Quaternion.identity).GetComponent<StateMachine_Pteramyr>();
-            mobStateMachine.SetState(mobStateMachine.RoamState);
+            Instantiate(_enemyPrefab, _posToSpawn.position, Quaternion.identity).GetComponent<StateMachine_Pteramyr>();
         }
+    }
+
+    public void ActivateNest()
+    {
+        _isNestActive = true;
+        //Show visuals
     }
 }

@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
     /// Connect to game time
     /// </summary>
     
-    private bool _defenseAsStarted, _canStart;
+    public bool _defenseAsStarted, _canStart;
     
     //Assert to verify if there are no errors in Scriptables
     
@@ -70,6 +70,7 @@ public class SpawnManager : MonoBehaviour
         if (_timerWaves >= 60)
         {
             _timerWaves = 0;
+            _timerSpawner = 0;
             minutes++;
             
             if (minutes >= _timerMinutesWave1 && !_canStart)

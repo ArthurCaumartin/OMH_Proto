@@ -10,8 +10,8 @@ public class NestManager : MonoBehaviour
     [SerializeField] private GameObject _nestPrefab;
     [SerializeField] private int _numberNests;
     
-    [SerializeField] private List<Transform> _nestsSpawnPoints = new List<Transform>();
-    private Dictionary<Transform, bool> _nests = new Dictionary<Transform, bool>();
+    [SerializeField] private List<InteractibleNest> _nestsSpawnPoints = new List<InteractibleNest>();
+    private Dictionary<InteractibleNest, bool> _nests = new Dictionary<InteractibleNest, bool>();
     
     private List<float> _nestTimerSpawn = new List<float>();
     private float _gameTimer;
@@ -48,7 +48,7 @@ public class NestManager : MonoBehaviour
 
     private void SpawnNest()
     {
-        Transform tempTransform = transform;
+        InteractibleNest tempTransform = new InteractibleNest();
         
         bool isWhileNotFinished = true;
         int randomIndex = 0;
@@ -56,7 +56,7 @@ public class NestManager : MonoBehaviour
         while (isWhileNotFinished)
         {
             randomIndex = Random.Range(0, _nestsSpawnPoints.Count);
-            foreach (KeyValuePair<Transform, bool> kvp in _nests)
+            foreach (KeyValuePair<InteractibleNest, bool> kvp in _nests)
             {
                 if (kvp.Key == _nestsSpawnPoints[randomIndex])
                 {
@@ -68,7 +68,7 @@ public class NestManager : MonoBehaviour
             }
         }
         
-        foreach (KeyValuePair<Transform, bool> kvp in _nests)
+        foreach (KeyValuePair<InteractibleNest, bool> kvp in _nests)
         {
             if (kvp.Key == _nestsSpawnPoints[randomIndex])
             {
@@ -77,6 +77,6 @@ public class NestManager : MonoBehaviour
         }
         _nests[tempTransform] = true;
         
-        GameObject tempGameObject = Instantiate(_nestPrefab, tempTransform);
+        tempTransform.ActivateNest();
     }
 }
