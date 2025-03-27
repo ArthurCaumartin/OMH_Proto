@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 
 //? reset shield
@@ -37,7 +38,6 @@ public class RespawnSequence : MonoBehaviour
 
         _shield.OnDeathEvent.AddListener(Respawn);
     }
-
     private void Respawn()
     {
         _qteControler.KillQTE();
