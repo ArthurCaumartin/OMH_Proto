@@ -12,14 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4321c8099288684fb2f6638a8e0bfc0, type: 3}
   m_Name: WaveSpawner2_03
   m_EditorClassIdentifier: 
-  _roomIDToSpawn: 0
+  _roomIDToSpawn: 4
   timeToSpawn: 0
-  _enemiesType: []
-  durationOfSpawn: 0
+  _enemiesType:
+  - _mobPrefab: {fileID: 8873736450507444681, guid: cd99ef29ec71bd4489abd4193ef01b23,
+      type: 3}
+    _mobNumber: 25
+  - _mobPrefab: {fileID: 6193887633719100724, guid: 1763f75e895b59043aa51b7587ceef62,
+      type: 3}
+    _mobNumber: 2
+  durationOfSpawn: 20
   hasBeenCalled: 0
   testCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
