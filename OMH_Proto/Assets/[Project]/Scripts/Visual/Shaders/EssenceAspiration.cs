@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class EssenceAspiration : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private SpawnManager _spawnManager;
-    [SerializeField] private bool Active;
+    [SerializeField] private bool _active;
     [SerializeField] private Material _essence;
-    [SerializeField] private float _transitionSpeed;
-     private float _vitesseAspiration = 1;
-     private float transitionTime;
+     private float _vitesseAspiration = 0;
+     [SerializeField] private float _transitionTime;
 
     void Start()
     {
@@ -20,15 +20,12 @@ public class EssenceAspiration : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Active == true ) 
+       if(_spawnManager._defenseAsStarted || _active) 
        {
-        transitionTime += Time.deltaTime*_transitionSpeed;
-        if (transitionTime > 1) return;
-        AspireEssence(transitionTime);
+            DOTween.To(() => _vitesseAspiration, x => _vitesseAspiration = x, 1f, _transitionTime);
+            _essence.SetFloat("_aspiration", _vitesseAspiration);
+            print (_vitesseAspiration);
        }
     }
-    public void AspireEssence(float value)
-    {
-        _essence.SetFloat("_aspiration", _vitesseAspiration);
-    }
+    
 }
