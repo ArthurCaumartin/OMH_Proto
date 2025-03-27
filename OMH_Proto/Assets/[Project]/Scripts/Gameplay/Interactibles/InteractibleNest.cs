@@ -12,6 +12,9 @@ public class InteractibleNest : Interactible
 
     [SerializeField] private GameEvent _destroyNest, _encounterNest, _notEnoughtSyringe;
     [SerializeField] private GameObject _enemyPrefab;
+    
+    [Space]
+    [SerializeField] private Transform _posToSpawn;
     [SerializeField] private float _timeMinSpawn, _timeMaxSpawn;
     [SerializeField] private int _numberOfEnemiesToSpawn;
 
@@ -79,7 +82,7 @@ public class InteractibleNest : Interactible
     {
         for (int i = 0; i < _numberOfEnemiesToSpawn; i++)
         {
-            Instantiate(_enemyPrefab, transform.position, Quaternion.identity).GetComponent<StateMachine_Pteramyr>();
+            Instantiate(_enemyPrefab, _posToSpawn.position, Quaternion.identity).GetComponent<StateMachine_Pteramyr>();
         }
     }
 
