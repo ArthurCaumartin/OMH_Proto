@@ -1,35 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DefensePlacement_Controller : MonoBehaviour
 {
+    [SerializeField] private Transform _renderer;
     [SerializeField] private LayerMask _aimLayer;
-    [SerializeField] private FloatReference _range;
     public Camera _mainCamera;
-    private Transform _playerTransform;
     private Vector3 _currentMousePos = Vector3.zero;
     private Vector3 _localMousePos = Vector3.zero;
-    private Vector2 _normalizePos= Vector2.zero;
+    private Vector2 _normalizePos = Vector2.zero;
 
     public Material _GridMaterial;
 
     private void Start()
     {
-        _playerTransform = FindAnyObjectByType<PlayerMovement>()?.transform;
-        if (!_playerTransform) enabled = false;
         _mainCamera = Camera.main;
     }
-
+    float scale;
     private void Update()
     {
         _currentMousePos = MouseAimPosition(_currentMousePos);
-        
+
         _localMousePos = transform.InverseTransformPoint(_currentMousePos);
 
-        float scale = transform.localScale.x;
-        _normalizePos.x = Mathf.InverseLerp(-5, 5, _localMousePos.x) - .5f;
-        _normalizePos.y = Mathf.InverseLerp(-5, 5, _localMousePos.z) - .5f;
+        scale = _renderer.localScale.x / 2;
+        Debug.DrawRay(transform.TransformPoint(new Vector3(scale, 0, scale)), Vector3.up, Color.green);
+        Debug.DrawRay(transform.TransformPoint(new Vector3(-scale, 0, -scale)), Vector3.up, Color.green);
+
+        _normalizePos.x = Mathf.InverseLerp(-scale, scale, _localMousePos.x) - .5f;
+        _normalizePos.y = Mathf.InverseLerp(-scale, scale, _localMousePos.z) - .5f;
 
         _GridMaterial.SetVector("_CursorLocation", _normalizePos);
     }
@@ -47,16 +45,6 @@ public class DefensePlacement_Controller : MonoBehaviour
         Debug.DrawLine(new Vector3(hit.point.x, hit.point.y - 1, hit.point.z)
                                 , new Vector3(hit.point.x, hit.point.y + 1, hit.point.z)
                                 , Color.red);
-
-        // Vector3 normalizePos = new Vector3(Mathf.Lerp(transform.localScale.x))
-
-        if (Vector3.Distance(_playerTransform.position, hit.point) > _range.Value)
-        {
-            return _playerTransform.position + (hit.point - _playerTransform.position).normalized * _range.Value;
-        }
-        else
-        {
-            return hit.point;
-        }
+        return hit.point;
     }
 }
