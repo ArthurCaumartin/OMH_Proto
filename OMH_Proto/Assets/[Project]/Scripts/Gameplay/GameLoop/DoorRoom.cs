@@ -19,26 +19,29 @@ public class DoorRoom : MonoBehaviour
     private float _verifTimer;
     public void OnTriggerEnter(Collider other)
     {
-        if(_isDoorLocked) return;
-        
         if (other.CompareTag("Player") || other.CompareTag("Mob"))
         {
-            if (_doors.Count == 0)
+            _doors.Add(other.gameObject);
+            
+            if(_isDoorLocked) return;
+            
+            if (_doors.Count == 1)
             {
                 OpenDoor();
                 _objectInRange = true;
             }
-            _doors.Add(other.gameObject);
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if(_isDoorLocked) return;
         
         if (other.CompareTag("Player") || other.CompareTag("Mob"))
         {
             _doors.Remove(other.gameObject);
+            
+            if(_isDoorLocked) return;
+            
             if (_doors.Count == 0)
             {
                 _objectInRange = false;
