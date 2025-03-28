@@ -28,8 +28,8 @@ public class DefensePlacement_Controller : MonoBehaviour
         _localMousePos = transform.InverseTransformPoint(_currentMousePos);
 
         float scale = transform.localScale.x;
-        _normalizePos.x = Mathf.InverseLerp(-5, 5, _localMousePos.x) - (.5f);
-        _normalizePos.y = Mathf.InverseLerp(-5, 5, _localMousePos.z) - (.5f);
+        _normalizePos.x = Mathf.InverseLerp(-5, 5, _localMousePos.x) - .5f;
+        _normalizePos.y = Mathf.InverseLerp(-5, 5, _localMousePos.z) - .5f;
 
         _GridMaterial.SetVector("_CursorLocation", _normalizePos);
     }
