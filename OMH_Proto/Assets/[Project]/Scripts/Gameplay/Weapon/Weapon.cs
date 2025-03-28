@@ -17,13 +17,13 @@ public class Weapon : MonoBehaviour
 
     [Header("Secondary Fire :")]
     [SerializeField] protected Projectile _secondaryProjectile;
-    [SerializeField] private FloatReference _secondaryCooldown;
+    [SerializeField] public FloatReference _secondaryCooldown;
     [SerializeField] private FloatReference _secondaryDynamicCoolDown;
     [SerializeField] protected StatContainer _secondaryStat;
     private float _attackTime;
 
 
-    private WeaponVisual _weaponVisual;
+    public WeaponVisual _weaponVisual;
     protected GameObject _parentShooter;
     private WeaponControler _weaponControler;
     private int _animationStateHash;

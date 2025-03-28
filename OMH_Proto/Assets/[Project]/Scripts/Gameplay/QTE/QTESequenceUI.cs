@@ -48,7 +48,7 @@ public class QTESequenceUI : MonoBehaviour
             Image newImage = Instantiate(_directionImagePrefab, _imageContainer);
             // newImage.sprite = GetDirectionSprite(inputList[i]);
             newImage.sprite = _directionSprite;
-            newImage.transform.up = inputList[i];
+            newImage.transform.up = newImage.transform.rotation * inputList[i];
             _imageList.Add(newImage);
         }
 
