@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
     /// Connect to game time
     /// </summary>
     
-    private bool _defenseAsStarted, _canStart;
+    public bool _defenseAsStarted, _canStart;
     
     //Assert to verify if there are no errors in Scriptables
     

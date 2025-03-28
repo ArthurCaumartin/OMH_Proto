@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.ProBuilder;
 
 public class WeaponControler : MonoBehaviour
 {
@@ -62,7 +61,7 @@ public class WeaponControler : MonoBehaviour
             item.gameObject.SetActive(false);
 
         _weaponList[index].gameObject.SetActive(true);
-        _uiWeapon.InitializeWeapon(_weaponList[index]);
+        _uiWeapon?.InitializeWeapon(_weaponList[index]);
         _currentWeaponMesh = _weaponList[index].MeshTransform;
 
         _playerAnimation.SetWeaponAnimation(_weaponList[index].AnimationState);

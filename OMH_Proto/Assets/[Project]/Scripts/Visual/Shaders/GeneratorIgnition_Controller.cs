@@ -5,7 +5,7 @@ using UnityEngine;
 public class GeneratorIgnition_Controller : MonoBehaviour
 {
 
-[SerializeField] private InteractibleMetal MetalGenerator;
+[SerializeField] private InteractibleMetal _metalGenerator;
     public float off;
     public float on;
     public float EmissiveValue;
@@ -21,7 +21,7 @@ public class GeneratorIgnition_Controller : MonoBehaviour
 
     public void Update()
     {
-        SetMaterialValue(MetalGenerator._isGeneratorActivated);
+        SetMaterialValue(_metalGenerator._isGeneratorActivated);
     }
 
     public void SetMaterialValue(bool isOn)
@@ -29,5 +29,6 @@ public class GeneratorIgnition_Controller : MonoBehaviour
         _FonctionnementGenerateur.SetFloat("_VitesseVague", isOn ? on : off);
         _FonctionnementGenerateur.SetFloat("_IntensiteEmission", isOn ? EmissiveValue : 3 ); 
         _FonctionnementGenerateur.SetColor("_ObjectColor", isOn ? ColorShaderOn : ColorShaderOff);
+        // Debug.Log("Test de la variable " + _metalGenerator);
     }
 }
