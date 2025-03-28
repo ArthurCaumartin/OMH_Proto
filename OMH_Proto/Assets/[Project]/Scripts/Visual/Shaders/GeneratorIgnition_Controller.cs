@@ -29,5 +29,6 @@ public class GeneratorIgnition_Controller : MonoBehaviour
         _FonctionnementGenerateur.SetFloat("_VitesseVague", isOn ? on : off);
         _FonctionnementGenerateur.SetFloat("_IntensiteEmission", isOn ? EmissiveValue : 3 ); 
         _FonctionnementGenerateur.SetColor("_ObjectColor", isOn ? ColorShaderOn : ColorShaderOff);
+        // Debug.Log("Test de la variable " + _metalGenerator);
     }
 }

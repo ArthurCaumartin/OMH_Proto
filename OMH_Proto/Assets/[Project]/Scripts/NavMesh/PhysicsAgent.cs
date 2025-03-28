@@ -109,7 +109,7 @@ public class PhysicsAgent : MonoBehaviour
                                             , direction * Mathf.Clamp01(_slowMultiplier) * _acctualSpeed
                                             , Time.fixedDeltaTime * _acceleration);
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _fallingVelocity, _rigidbody.velocity.z);
-        print(_rigidbody.velocity);
+        // print(_rigidbody.velocity);
     }
 
     private Vector3[] GetNewPath(Vector3 targetPosition)

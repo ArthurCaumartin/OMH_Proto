@@ -9,7 +9,7 @@ public class MoveOnDefenseTime : MonoBehaviour
     [SerializeField] private GameObject MovingObject;
     [SerializeField] private SpawnManager _spawnManager;
     [SerializeField] private FloatReference _defenseDuration;
-    public bool Active;
+    [SerializeField] private bool Active;
     private float _timePassed;
     // Start is called before the first frame update
     // void Start()

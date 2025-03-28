@@ -1,13 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
-
-//? reset shield
-//? reset QTE
-//? enable/disable movement
-//? enable/disable aim
-//? enable/disable shoot
 
 public class RespawnSequence : MonoBehaviour
 {
@@ -23,6 +15,7 @@ public class RespawnSequence : MonoBehaviour
     private PlayerInteract _interact;
     private WeaponControler _weaponControler;
     private MobTarget _mobTarget;
+    private PlayerDisolve _playerDisolve;
 
     private void Start()
     {
@@ -35,9 +28,10 @@ public class RespawnSequence : MonoBehaviour
         _qteControler = GetComponent<QTEControler>();
         _weaponControler = GetComponent<WeaponControler>();
 
+        _playerDisolve = GetComponent<PlayerDisolve>();
+
         _shield.OnDeathEvent.AddListener(Respawn);
     }
-
     private void Respawn()
     {
         _qteControler.KillQTE();
@@ -48,6 +42,8 @@ public class RespawnSequence : MonoBehaviour
             ScreenHider.instance?.HideScreenForDuration(1, .3f, () =>
             {
                 _rigidbody.MovePosition(_respawnPoint.position);
+                _rigidbody.velocity = Vector3.zero;
+                _playerDisolve.ShowPlayerWithDisolve(_gameplayDisableDuration);
             });
         }
         else
@@ -55,7 +51,6 @@ public class RespawnSequence : MonoBehaviour
             StartCoroutine(DisableAllForDuration(_gameplayDisableDuration));
             _rigidbody.MovePosition(_respawnPoint.position);
         }
-
     }
 
     private void EnableGameplay(bool value)

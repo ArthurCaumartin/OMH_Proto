@@ -3,7 +3,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Chest_Shader_Controller : Interactible
+public class InteractibleChest : Interactible
 {
     [Space]
     [SerializeField] private GameEvent _onOpenChestEvent, _onOpenGoldenChestEvent;
@@ -19,7 +19,7 @@ public class Chest_Shader_Controller : Interactible
     private bool _isOpen = false;
 
     public static bool _isGoldenChest; 
-    private List<Chest_Shader_Controller> _chestControllers = new List<Chest_Shader_Controller>();
+    private List<InteractibleChest> _chestControllers = new List<InteractibleChest>();
 
     void Awake()
     {
@@ -29,8 +29,8 @@ public class Chest_Shader_Controller : Interactible
     void Start()
     {
         base.Start();
-        Object[] chest = FindObjectsOfType(typeof(Chest_Shader_Controller));
-        foreach (Chest_Shader_Controller chestShader in chest)
+        Object[] chest = FindObjectsOfType(typeof(InteractibleChest));
+        foreach (InteractibleChest chestShader in chest)
         {
             _chestControllers.Add(chestShader);
         }
@@ -69,7 +69,7 @@ public class Chest_Shader_Controller : Interactible
 
     public void TransformationGoldChest()
     {
-        Instantiate(_goldenChestPrefab, transform.position, Quaternion.identity);
+        Instantiate(_goldenChestPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 

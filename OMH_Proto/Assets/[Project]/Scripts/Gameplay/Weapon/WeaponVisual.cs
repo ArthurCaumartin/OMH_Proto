@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class WeaponVisual : MonoBehaviour
 {
+    public Sprite _weaponSprite;
     [SerializeField] private GameObject _visual;
     [SerializeField] private float _duration;
     [SerializeField] private Material _material;
