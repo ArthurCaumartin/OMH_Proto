@@ -23,8 +23,7 @@ public class DisolveEffect : MonoBehaviour
         _cameraTransform = Camera.main.transform;
         _rendererArray = GetComponentsInChildren<Renderer>();
 
-        _health?.SetDelayBeforDestroy(_disolveDuration);
-        _health?.OnDeathEvent.AddListener(() => Disolve(true));
+        _health?.OnDeathEvent.AddListener(() => Disolve(true, true));
 
         Disolve(_initialVisivbility);
     }
@@ -39,8 +38,13 @@ public class DisolveEffect : MonoBehaviour
         SetMaterialsParameter(Mathf.Lerp(current, _dotValue > _disolveTresold ? 0 : 1, Time.deltaTime * _transitionSpeed));
     }
 
-    public void Disolve(bool isHiding)
+    public void Disolve(bool isHiding, bool isoleMesh = false)
     {
+        if(isoleMesh)
+        {
+            transform.parent = null;
+            Destroy(gameObject, _disolveDuration);
+        }
         // print("ksedfrgbj");
         SetMaterialsParameter(isHiding ? 1 : 0);
         DOTween.To((time) =>
