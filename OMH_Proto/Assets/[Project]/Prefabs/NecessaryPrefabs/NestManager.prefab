@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3302497477426021879}
   - component: {fileID: 971496289646262167}
+  - component: {fileID: 3857236396474971419}
   m_Layer: 0
   m_Name: NestManager
   m_TagString: Untagged
@@ -45,17 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb19664a5839fa34585f5b4986dbd6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timerStartSpawning:
-    propertyType: 0
-    constantValue: 2
-    variable: {fileID: 0}
-  _timerEndSpawning:
-    propertyType: 0
-    constantValue: 20
-    variable: {fileID: 0}
   _nestPrefab: {fileID: 3985633620420445386, guid: 479e34dd72e14c7499376b8946c18add,
     type: 3}
-  _numberNests: 3
+  _probabilityNestSpawn: 33
+  _timeToTrySpawnNest: 20
   _nestsSpawnPoints:
   - {fileID: 354297961329048581}
   - {fileID: 7069484476932920598}
@@ -63,6 +57,34 @@ MonoBehaviour:
   - {fileID: 3651959224813054019}
   - {fileID: 5900509151983592921}
   - {fileID: 2959314238564201853}
+--- !u!114 &3857236396474971419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736159898135039909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 1ef557f46f9b64d44a7451596034930f, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 971496289646262167}
+        m_TargetAssemblyTypeName: NestManager, Assembly-CSharp
+        m_MethodName: DefenseStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5061224297928861862
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +437,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378788903009436182, guid: 479e34dd72e14c7499376b8946c18add,
+        type: 3}
+      propertyPath: _timeMaxSpawn
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378788903009436182, guid: 479e34dd72e14c7499376b8946c18add,
+        type: 3}
+      propertyPath: _timeMinSpawn
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3985633620420445386, guid: 479e34dd72e14c7499376b8946c18add,
         type: 3}

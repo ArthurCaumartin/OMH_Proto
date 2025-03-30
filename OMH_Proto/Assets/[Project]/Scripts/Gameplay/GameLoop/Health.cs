@@ -14,8 +14,6 @@ public class Health : MonoBehaviour, IDamageable
     [SerializeField] private UnityEvent _onDeathEvent;
     [SerializeField] private UnityEvent _onHealEvent;
     private HealthBar _healthBar;
-    private IEnumerator _toDoBeforDeath;
-    private float _delayBeforDestroy;
 
     public UnityEvent<float> OnDamageTaken { get => _onDamageTaken; }
     public UnityEvent OnDeathEvent { get => _onDeathEvent; }
@@ -42,7 +40,7 @@ public class Health : MonoBehaviour, IDamageable
         if (_currentHealth.Value <= 0)
         {
             _onDeathEvent.Invoke();
-            StartCoroutine(DestoryDelais(_delayBeforDestroy));
+            Destroy(gameObject);
         }
     }
 
@@ -58,11 +56,6 @@ public class Health : MonoBehaviour, IDamageable
     public float GetHealtRatio()
     {
         return Mathf.InverseLerp(0, _maxHealth.Value, _currentHealth.Value);
-    }
-
-    public void SetDelayBeforDestroy(float value)
-    {
-        _delayBeforDestroy = value;
     }
 
     private IEnumerator DestoryDelais(float delay)
