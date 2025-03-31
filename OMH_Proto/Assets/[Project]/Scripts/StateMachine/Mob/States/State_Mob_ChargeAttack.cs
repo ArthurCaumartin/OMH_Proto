@@ -33,6 +33,7 @@ public class State_Mob_ChargeAttack : IEntityState
     {
         if (!_machinePteramyr.Target)
         {
+            Debug.Log("No target Set state to charge");
             _machinePteramyr.SetState(_machinePteramyr.ChargeState);
             return;
         }

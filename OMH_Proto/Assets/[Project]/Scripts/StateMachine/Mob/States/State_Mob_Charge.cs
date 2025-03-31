@@ -34,8 +34,8 @@ public class State_Mob_Charge : IEntityState
             if(_timerSpeed < _maxSpeed.Value) _agent.Speed++;
         }
         
+        Debug.Log("target name : " + _machinePteramyr.Target.name);
         _agent.SetTarget(_machinePteramyr.Target);
-        
         if (Vector3.Distance(_machinePteramyr.transform.position, _machinePteramyr.Target.transform.position) <= _distanceToChargeAt.Value)
         {
             _machinePteramyr.SetState(_machinePteramyr.ChargeAttackState);
