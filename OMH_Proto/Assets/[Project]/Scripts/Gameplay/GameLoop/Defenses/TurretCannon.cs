@@ -18,6 +18,7 @@ public class TurretCannon : MonoBehaviour
     [SerializeField, Range(0.1f, 10)] public float _damagesMultiplier = 1;
     protected Transform _currentTarget;
     protected float _shootTime = 0;
+    private float _checkTargetHideTime = 0;
 
     public virtual void Shoot()
     {
@@ -32,6 +33,14 @@ public class TurretCannon : MonoBehaviour
         {
             LookAtTarget();
             ComputeShootTime();
+
+            _checkTargetHideTime += Time.deltaTime;
+            if (_checkTargetHideTime > .5f)
+            {
+                _checkTargetHideTime = 0;
+                if (_finder.IsBehindWall(_currentTarget))
+                    _currentTarget = null;
+            }
         }
     }
 
