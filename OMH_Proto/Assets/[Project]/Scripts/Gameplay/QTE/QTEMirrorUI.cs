@@ -39,7 +39,7 @@ public class QTEMirrorUI : MonoBehaviour
         for (int i = 0; i < _activateObjects.Count; i++)
         {
             _activateObjects[i].GetComponent<Image>().color = new Color32(29, 173, 215, 255);
-            // _reproduceObjects[i].GetComponent<Image>().sprite = _notReproduceButtonSprite;
+            _reproduceObjects[i].GetComponent<Image>().sprite = _notReproduceButtonSprite;
             _reproduceObjects[i].GetComponent<Image>().color = new Color32(29, 173, 215, 255);
         }
         
@@ -47,7 +47,7 @@ public class QTEMirrorUI : MonoBehaviour
         {
             Image tempImage = _reproduceObjects[intArray[i]].GetComponent<Image>();
             tempImage.color = Color.green;
-            // tempImage.sprite = _reproduceButtonSprite;
+            tempImage.sprite = _reproduceButtonSprite;
         }
     }
 
