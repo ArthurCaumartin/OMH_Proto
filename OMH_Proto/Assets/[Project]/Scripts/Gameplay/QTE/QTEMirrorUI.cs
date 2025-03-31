@@ -46,7 +46,7 @@ public class QTEMirrorUI : MonoBehaviour
         for (int i = 0; i < intArray.Length; i++)
         {
             Image tempImage = _reproduceObjects[intArray[i]].GetComponent<Image>();
-            tempImage.color = Color.green;
+            // tempImage.color = Color.green;
             tempImage.sprite = _reproduceButtonSprite;
         }
     }
