@@ -312,7 +312,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &902045850944156568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,7 +695,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9689701, y: 1.8816824, z: 1}
+  m_Size: {x: 1.9689701, y: 1.8816824, z: 1.6349154}
   m_Center: {x: -0.107524276, y: 0.9408412, z: 0}
 --- !u!114 &7979235968769345466
 MonoBehaviour:
@@ -867,8 +867,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7620764041712979700}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.70710576, w: 0.70710784}
-  m_LocalPosition: {x: 9.112717, y: 0.38099858, z: 16.44196}
+  m_LocalRotation: {x: -0, y: -0, z: -0.70710576, w: 0.7071079}
+  m_LocalPosition: {x: 0.236, y: 0.538, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -893,8 +893,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.36
-  m_Height: 1.3
+  m_Radius: 0.6
+  m_Height: 1.75
   m_Direction: 1
   m_Center: {x: 0, y: -0.07120061, z: 0}
 --- !u!1 &8358092036057370778
@@ -1187,6 +1187,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3035917158588029805, guid: 1a238de9aa961684eb9e3a9b5ae8e647,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cfb88cb26a4381642a8a86251d1e0d04, type: 2}
     - target: {fileID: 919132149155446097, guid: 1a238de9aa961684eb9e3a9b5ae8e647,
         type: 3}
       propertyPath: m_Name
@@ -1196,7 +1201,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 2b7a3dc550d97b84d86014c36e99b9bb, type: 2}
+      objectReference: {fileID: 9100000, guid: a35aa224cd3eabd46b5e019d24965a79, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
