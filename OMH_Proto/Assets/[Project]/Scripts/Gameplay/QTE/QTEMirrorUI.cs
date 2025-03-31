@@ -12,7 +12,7 @@ public class QTEMirrorUI : MonoBehaviour
     [SerializeField] private Canvas _canvas;
     [SerializeField] private GameObject _reproduceButtonsParent, _endText;
     
-    [SerializeField] private List<Image> _objectsToLight = new List<Image>();
+    [SerializeField] private Image _objectsToLight;
     [SerializeField] private List<GameObject> _reproduceObjects = new List<GameObject>();
     [SerializeField] private List<GameObject> _activateObjects = new List<GameObject>();
     
@@ -25,10 +25,9 @@ public class QTEMirrorUI : MonoBehaviour
         // _canvas.worldCamera = Camera.main.GetUniversalAdditionalCameraData().cameraStack[Camera.main.GetUniversalAdditionalCameraData().cameraStack.Count - 1];
         _counterText.text = $"1 / {numberWinsValue}";
         
-        for (int i = 0; i < _objectsToLight.Count; i++)
-        {
-            _objectsToLight[i].color = Color.cyan;
-        }
+        
+        _objectsToLight.color = new Color32(29, 173, 215, 255);
+        
     }
     
     public void NewQTE(int[] intArray, int winCounter, int numberWinsValue)
@@ -37,15 +36,16 @@ public class QTEMirrorUI : MonoBehaviour
         
         for (int i = 0; i < _activateObjects.Count; i++)
         {
-            _activateObjects[i].GetComponent<Image>().color = Color.white;
-            _reproduceObjects[i].GetComponent<Image>().sprite = _notReproduceButtonSprite;
-            _reproduceObjects[i].GetComponent<Image>().color = Color.cyan;
+            _activateObjects[i].GetComponent<Image>().color = new Color32(29, 173, 215, 255);
+            // _reproduceObjects[i].GetComponent<Image>().sprite = _notReproduceButtonSprite;
+            _reproduceObjects[i].GetComponent<Image>().color = new Color32(29, 173, 215, 255);
         }
         
         for (int i = 0; i < intArray.Length; i++)
         {
             Image tempImage = _reproduceObjects[intArray[i]].GetComponent<Image>();
-            tempImage.sprite = _reproduceButtonSprite;
+            tempImage.color = Color.green;
+            // tempImage.sprite = _reproduceButtonSprite;
         }
     }
 
@@ -55,8 +55,8 @@ public class QTEMirrorUI : MonoBehaviour
         
         for (int i = 0; i < _activateObjects.Count; i++)
         {
-            _activateObjects[i].GetComponent<Image>().color = Color.white;
-            _reproduceObjects[i].GetComponent<Image>().color = Color.cyan;
+            _activateObjects[i].GetComponent<Image>().color = new Color32(29, 173, 215, 255);
+            _reproduceObjects[i].GetComponent<Image>().color = new Color32(29, 173, 215, 255);
         }
     }
     
@@ -69,7 +69,7 @@ public class QTEMirrorUI : MonoBehaviour
     {
         for (int i = 0; i < _activateObjects.Count; i++)
         {
-            _activateObjects[i].GetComponent<Image>().color = Color.white;
+            _activateObjects[i].GetComponent<Image>().color = new Color32(29, 173, 215, 255);
         }
         StartCoroutine(BadInputFeedBack());
     }
@@ -82,14 +82,10 @@ public class QTEMirrorUI : MonoBehaviour
 
     private IEnumerator BadInputFeedBack()
     {
-        for (int i = 0; i < _objectsToLight.Count; i++)
-        {
-            _objectsToLight[i].color = Color.red;
-        }
+        _objectsToLight.color = new Color32(232, 73, 73, 255);
+        
         yield return new WaitForSeconds(0.75f);
-        for (int i = 0; i < _objectsToLight.Count; i++)
-        {
-            _objectsToLight[i].color = Color.cyan;
-        }
+        
+        _objectsToLight.color = new Color32(29, 173, 215, 255);
     }
 }

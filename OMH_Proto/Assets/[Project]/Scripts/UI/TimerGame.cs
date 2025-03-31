@@ -22,9 +22,13 @@ public class TimerGame : MonoBehaviour
         
         _intCounter = (int)_exploDuration.Value;
         _timer = _intCounter;
-        
-        
-        if ((_intCounter % 60) <= 10) _timerText.text = $"0{((int)_exploDuration.Value - _intCounter) / 60}:0{((int)_exploDuration.Value - _intCounter) % 60}";
+
+
+        if ((_intCounter % 60) <= 10)
+        {
+            if (_intCounter < 600) _timerText.text = $"0{((int)_exploDuration.Value - _intCounter) / 60}:0{((int)_exploDuration.Value - _intCounter) % 60}";
+            else _timerText.text = $"{((int)_exploDuration.Value - _intCounter) / 60}:0{((int)_exploDuration.Value - _intCounter) % 60}";
+        }
         else _timerText.text = $"0{((int)_exploDuration.Value - _intCounter) / 60}:{((int)_exploDuration.Value - _intCounter) % 60}";
     }
 
@@ -37,11 +41,13 @@ public class TimerGame : MonoBehaviour
             {
                 if (_intCounter % 60 < 10)
                 {
-                    _timerText.text = $"0{_intCounter / 60}:0{_intCounter % 60}";
+                    if (_intCounter < 600) _timerText.text = $"0{_intCounter / 60}:0{_intCounter % 60}";
+                    else _timerText.text = $"{_intCounter / 60}:0{_intCounter % 60}";
                 }
                 else
                 {
-                    _timerText.text = $"0{_intCounter / 60}:{_intCounter % 60}";
+                    if (_intCounter < 600) _timerText.text = $"0{_intCounter / 60}:{_intCounter % 60}";
+                    else _timerText.text = $"0{_intCounter / 60}:{_intCounter % 60}";
                 }
                 _intCounter++;
             }
@@ -53,11 +59,13 @@ public class TimerGame : MonoBehaviour
             {
                 if (_intCounter % 60 < 10)
                 {
-                    _timerText.text = $"0{_intCounter / 60}:0{_intCounter % 60}";
+                    if(_intCounter < 600) _timerText.text = $"0{_intCounter / 60}:0{_intCounter % 60}";
+                    else _timerText.text = $"{_intCounter / 60}:0{_intCounter % 60}";
                 }
                 else
                 {
-                    _timerText.text = $"0{_intCounter / 60}:{_intCounter % 60}";
+                    if(_intCounter < 600) _timerText.text = $"0{_intCounter / 60}:{_intCounter % 60}";
+                    else _timerText.text = $"{_intCounter / 60}:{_intCounter % 60}";
                 }
                 _intCounter--;
             }
@@ -76,5 +84,6 @@ public class TimerGame : MonoBehaviour
         _timerText.color = _colorTextDefense;
         _timerText.text = "00:00";
         _timer = 0;
+        _intCounter = 0;
     }
 }
