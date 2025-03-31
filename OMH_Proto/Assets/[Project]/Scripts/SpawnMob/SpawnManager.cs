@@ -7,11 +7,12 @@ using UnityEngine.Assertions;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private MobTarget _gasTankTarget;
+    [SerializeField] private FloatReference _explorationDuration;
     
     [SerializeField] private List<WaveParent> _allWavesParents = new List<WaveParent>();
     [SerializeField] private List<EnemySpawner> _spawners = new List<EnemySpawner>();
 
-    [SerializeField] private GameEvent _canStartDefense;
+    [SerializeField] private GameEvent _canStartDefense, _defenseStartEvent;
 
     [SerializeField] private int _timerMinutesWave1 = 7;
     [SerializeField] private float _timerWaves = 0;
@@ -78,6 +79,12 @@ public class SpawnManager : MonoBehaviour
                 _canStartDefense.Raise();
                 _canStart = true;
             }
+
+            if (minutes >= _explorationDuration.Value / 60)
+            {
+                _defenseAsStarted = true;
+                _defenseStartEvent.Raise();
+            }
         }
         
         if (!_defenseAsStarted) return;
@@ -88,6 +95,8 @@ public class SpawnManager : MonoBehaviour
     
     private void VerifyIfSpawn()
     {
+        if (minutes >= 3) return;
+        
         for (int j = 0; j < _waveParentsToSpawn[minutes]._spawnersInfos.Count; j++)
         {
             if (_timerSpawner >= _waveParentsToSpawn[minutes]._spawnersInfos[j].timeToSpawn && !_waveParentsToSpawn[minutes]._spawnersInfos[j].hasBeenCalled)

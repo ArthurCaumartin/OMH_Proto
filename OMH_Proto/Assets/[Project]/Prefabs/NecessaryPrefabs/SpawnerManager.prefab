@@ -46,10 +46,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gasTankTarget: {fileID: 0}
+  _explorationDuration:
+    propertyType: 1
+    constantValue: 60
+    variable: {fileID: 11400000, guid: 27024d8c2a5fb9e469a571e5ff933d0b, type: 2}
   _allWavesParents:
   - {fileID: 11400000, guid: 7dc383eace859f9479a375d8dc281d52, type: 2}
   - {fileID: 11400000, guid: cc48e84828fe4dd47ace24f754de0551, type: 2}
   - {fileID: 11400000, guid: 5a90d01a31ac8c54793f1951e92249f0, type: 2}
+  - {fileID: 11400000, guid: 740b12cc83081614aab29e75b49ea8a2, type: 2}
+  - {fileID: 11400000, guid: 87db923e56f216140969bf13c38eced3, type: 2}
+  - {fileID: 11400000, guid: 3fe706994da1ba24cab7cd1e8b8d2545, type: 2}
+  - {fileID: 11400000, guid: 340006a8e494485459375cea90d428e8, type: 2}
+  - {fileID: 11400000, guid: 2fca85a374d436d459757f61ca3e40c3, type: 2}
   _spawners:
   - {fileID: 0}
   - {fileID: 0}
@@ -58,8 +67,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _canStartDefense: {fileID: 11400000, guid: a0b5fe8f8990d7d41a18a5a7876a152d, type: 2}
-  _timerMinutesWave1: 1
-  _timerWaves: 55
+  _defenseStartEvent: {fileID: 11400000, guid: 1ef557f46f9b64d44a7451596034930f, type: 2}
+  _timerMinutesWave1: 7
+  _timerWaves: 0
+  _defenseAsStarted: 0
+  _canStart: 0
 --- !u!114 &8346079879260156443
 MonoBehaviour:
   m_ObjectHideFlags: 0
