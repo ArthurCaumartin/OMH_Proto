@@ -23,8 +23,8 @@ public class DefensePlacement_Controller : MonoBehaviour
         _localMousePos = transform.InverseTransformPoint(_currentMousePos);
 
         scale = _renderer.localScale.x / 2;
-        // Debug.DrawRay(transform.TransformPoint(new Vector3(scale, 0, scale)), Vector3.up, Color.green);
-        // Debug.DrawRay(transform.TransformPoint(new Vector3(-scale, 0, -scale)), Vector3.up, Color.green);
+        Debug.DrawRay(transform.TransformPoint(new Vector3(scale, 0, scale)), Vector3.up, Color.green);
+        Debug.DrawRay(transform.TransformPoint(new Vector3(-scale, 0, -scale)), Vector3.up, Color.green);
 
         _normalizePos.x = Mathf.InverseLerp(-scale, scale, _localMousePos.x) - .5f;
         _normalizePos.y = Mathf.InverseLerp(-scale, scale, _localMousePos.z) - .5f;
