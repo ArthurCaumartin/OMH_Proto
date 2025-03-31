@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.009141672, g: 0.009539509, b: 0.057503927, a: 1}
+  m_IndirectSpecularColor: {r: 0.02408419, g: 0.018907951, b: 0.020405907, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -753,6 +753,7 @@ GameObject:
   - component: {fileID: 715246517}
   - component: {fileID: 715246520}
   - component: {fileID: 715246521}
+  - component: {fileID: 715246522}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -974,6 +975,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &715246522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715246516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 5927a52393acc8845b390675e4ddd33c, type: 2}
 --- !u!1 &877023582 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1457315419002421013, guid: 6f3691e2acc28694db57edf22a409cb6,
@@ -1599,6 +1617,51 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8571198961971078195, guid: c8bd42a4f1d44d44cab9ab626e139e26,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 97.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8571198961971078195, guid: c8bd42a4f1d44d44cab9ab626e139e26,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 97.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8571198961971078195, guid: c8bd42a4f1d44d44cab9ab626e139e26,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 97.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8571198961971078195, guid: c8bd42a4f1d44d44cab9ab626e139e26,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7609005047869559164, guid: c8bd42a4f1d44d44cab9ab626e139e26,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 99.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -7609005047869559164, guid: c8bd42a4f1d44d44cab9ab626e139e26,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 99.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -7609005047869559164, guid: c8bd42a4f1d44d44cab9ab626e139e26,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 99.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -7609005047869559164, guid: c8bd42a4f1d44d44cab9ab626e139e26,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1961088960589954611, guid: c8bd42a4f1d44d44cab9ab626e139e26,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -1872865563349029924, guid: c8bd42a4f1d44d44cab9ab626e139e26,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1608,6 +1671,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Planet (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c8bd42a4f1d44d44cab9ab626e139e26,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2674257645776837463, guid: c8bd42a4f1d44d44cab9ab626e139e26,
         type: 3}
