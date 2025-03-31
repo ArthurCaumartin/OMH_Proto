@@ -7,6 +7,8 @@ public class InteractibleArmory : Interactible
     [Space]
     [SerializeField] private GameEvent _onCompleteArmory;
 
+    [SerializeField] private GameObject _casierObject;
+
     // [SerializeField] private Sprite _activatedSprite;
 
     private bool _isArmoryOpened = false;
@@ -23,10 +25,10 @@ public class InteractibleArmory : Interactible
 
     public override void OnQTEWin()
     {
-        // _onCompleteArmory.Raise();
+        _onCompleteArmory.Raise();
         
         gameObject.layer = LayerMask.NameToLayer("Default");
-        // Destroy(gameObject);
+        Destroy(_casierObject);
         // GetComponent<BoxCollider>().enabled = false;
     } 
 
