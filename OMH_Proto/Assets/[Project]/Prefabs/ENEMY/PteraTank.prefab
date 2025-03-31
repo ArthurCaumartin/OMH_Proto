@@ -478,13 +478,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8425919492805344585}
+  - component: {fileID: 7979235968769345466}
+  - component: {fileID: 6933460311172398903}
+  - component: {fileID: 2214248701639049121}
   - component: {fileID: 9099634110685431414}
   - component: {fileID: 4446903255052029556}
-  - component: {fileID: 2214248701639049121}
-  - component: {fileID: 6933460311172398903}
   - component: {fileID: 3852836700417546793}
   - component: {fileID: 9020423861077944736}
-  - component: {fileID: 7979235968769345466}
   m_Layer: 11
   m_Name: PteraTank
   m_TagString: Mob
@@ -511,6 +511,129 @@ Transform:
   - {fileID: 6732154253467498139}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7979235968769345466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193887633719100724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f59fb3a6f5ef74f4f9f9d3b9d479e773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _debugStateName: 
+  _prepareCharge:
+    _distanceToTriggerAttack:
+      propertyType: 0
+      constantValue: 2
+      variable: {fileID: 0}
+    _timeBetweenSpeedUp:
+      propertyType: 0
+      constantValue: 2
+      variable: {fileID: 0}
+    _speedToCharge:
+      propertyType: 0
+      constantValue: 7
+      variable: {fileID: 0}
+  _chargeState:
+    _distanceToChargeAt:
+      propertyType: 0
+      constantValue: 5
+      variable: {fileID: 0}
+    _timeBetweenSpeedUp:
+      propertyType: 0
+      constantValue: 2
+      variable: {fileID: 0}
+    _maxSpeed:
+      propertyType: 0
+      constantValue: 12
+      variable: {fileID: 0}
+  _attackState:
+    _lookSpeed: 6
+    _distanceToTriggerAttack:
+      propertyType: 0
+      constantValue: 1.6
+      variable: {fileID: 0}
+    _attackAnimationSpeed:
+      propertyType: 0
+      constantValue: 2
+      variable: {fileID: 0}
+    _attackDelais:
+      propertyType: 0
+      constantValue: 1
+      variable: {fileID: 0}
+  _chargeAttackState:
+    _distanceToChargeAt:
+      propertyType: 0
+      constantValue: 5
+      variable: {fileID: 0}
+    _distanceToHitCharge:
+      propertyType: 0
+      constantValue: 2.75
+      variable: {fileID: 0}
+    _speedToCharge:
+      propertyType: 0
+      constantValue: 7
+      variable: {fileID: 0}
+    _speedtoLoseOnHit:
+      propertyType: 0
+      constantValue: 3
+      variable: {fileID: 0}
+--- !u!114 &6933460311172398903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193887633719100724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da9ecd2ccafc734698b7d5b7f117906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DEBUG: 0
+  _reComputePathPerSecond: 2
+  _speedToset:
+    propertyType: 0
+    constantValue: 3
+    variable: {fileID: 0}
+  _acceleration: 5
+  _rotationSpeed: 5
+  _fallingVelocity: 0
+--- !u!114 &2214248701639049121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193887633719100724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbd4998d0293364c8d906e8c8469283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DEBUG: 0
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 98304
+  _targetDetectionPerSecond: 1
+  _targetDetectionRange:
+    propertyType: 0
+    constantValue: 9.8
+    variable: {fileID: 0}
+  _maxFollowDistance:
+    propertyType: 0
+    constantValue: 15.02
+    variable: {fileID: 0}
+  _timeBeforeCanDropAgro:
+    propertyType: 0
+    constantValue: 5
+    variable: {fileID: 0}
+  _ifLostTarget: {fileID: 0}
+  _currentTarget: {fileID: 0}
+  _banTag: []
 --- !u!114 &9099634110685431414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,59 +719,6 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 1b7a04430355f6841a72c6a64bcf5c66, type: 3}
   - {fileID: 2800000, guid: bd0e2c460d15441479842ff7e63eaf62, type: 3}
   - {fileID: 2800000, guid: e8be4ad1f0d968447a6e915fb12fa622, type: 3}
---- !u!114 &2214248701639049121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6193887633719100724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bbd4998d0293364c8d906e8c8469283, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DEBUG: 0
-  _targetLayer:
-    serializedVersion: 2
-    m_Bits: 98304
-  _targetDetectionPerSecond: 1
-  _targetDetectionRange:
-    propertyType: 0
-    constantValue: 9.8
-    variable: {fileID: 0}
-  _maxFollowDistance:
-    propertyType: 0
-    constantValue: 15.02
-    variable: {fileID: 0}
-  _timeBeforeCanDropAgro:
-    propertyType: 0
-    constantValue: 5
-    variable: {fileID: 0}
-  _ifLostTarget: {fileID: 0}
-  _currentTarget: {fileID: 0}
-  _banTag: []
---- !u!114 &6933460311172398903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6193887633719100724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da9ecd2ccafc734698b7d5b7f117906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DEBUG: 0
-  _reComputePathPerSecond: 2
-  _speedToset:
-    propertyType: 0
-    constantValue: 3
-    variable: {fileID: 0}
-  _acceleration: 5
-  _rotationSpeed: 5
-  _fallingVelocity: 0
 --- !u!54 &3852836700417546793
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -697,76 +767,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9689701, y: 1.8816824, z: 1.6349154}
   m_Center: {x: -0.107524276, y: 0.9408412, z: 0}
---- !u!114 &7979235968769345466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6193887633719100724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f59fb3a6f5ef74f4f9f9d3b9d479e773, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _debugStateName: 
-  _prepareCharge:
-    _distanceToTriggerAttack:
-      propertyType: 0
-      constantValue: 2
-      variable: {fileID: 0}
-    _timeBetweenSpeedUp:
-      propertyType: 0
-      constantValue: 2
-      variable: {fileID: 0}
-    _speedToCharge:
-      propertyType: 0
-      constantValue: 7
-      variable: {fileID: 0}
-  _chargeState:
-    _distanceToChargeAt:
-      propertyType: 0
-      constantValue: 5
-      variable: {fileID: 0}
-    _timeBetweenSpeedUp:
-      propertyType: 0
-      constantValue: 2
-      variable: {fileID: 0}
-    _maxSpeed:
-      propertyType: 0
-      constantValue: 12
-      variable: {fileID: 0}
-  _attackState:
-    _lookSpeed: 6
-    _distanceToTriggerAttack:
-      propertyType: 0
-      constantValue: 1.6
-      variable: {fileID: 0}
-    _attackAnimationSpeed:
-      propertyType: 0
-      constantValue: 2
-      variable: {fileID: 0}
-    _attackDelais:
-      propertyType: 0
-      constantValue: 1
-      variable: {fileID: 0}
-  _chargeAttackState:
-    _distanceToChargeAt:
-      propertyType: 0
-      constantValue: 5
-      variable: {fileID: 0}
-    _distanceToHitCharge:
-      propertyType: 0
-      constantValue: 2.75
-      variable: {fileID: 0}
-    _speedToCharge:
-      propertyType: 0
-      constantValue: 7
-      variable: {fileID: 0}
-    _speedtoLoseOnHit:
-      propertyType: 0
-      constantValue: 3
-      variable: {fileID: 0}
 --- !u!1 &6619099970630340440
 GameObject:
   m_ObjectHideFlags: 0
