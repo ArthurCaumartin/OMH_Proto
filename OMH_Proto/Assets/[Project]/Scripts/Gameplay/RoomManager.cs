@@ -8,6 +8,7 @@ public class RoomManager : MonoBehaviour
     [SerializeField] private GameObject _doorLockInteractiblePrefab;
 
     private InteractibleDoor _doorLocked;
+    private bool _isDoorUnlocked;
     void Awake()
     {
         int _lockedDoorIndex = Random.Range(0, _doors.Count);
@@ -15,12 +16,18 @@ public class RoomManager : MonoBehaviour
         
         InteractibleDoor tempInteractible = tempObject.GetComponent<InteractibleDoor>();
         
-        tempInteractible.InitializeDoor(_doors[_lockedDoorIndex].GetComponent<DoorRoom>());
+        tempInteractible.InitializeDoor(_doors[_lockedDoorIndex].GetComponent<DoorRoom>(), this);
         _doorLocked = tempInteractible;
     }
 
     public void StartDefense()
     {
+        if (_isDoorUnlocked) return;
         _doorLocked.StartDefense();
+    }
+
+    public void DoorIsUnlocked()
+    {
+        _isDoorUnlocked = true;
     }
 }

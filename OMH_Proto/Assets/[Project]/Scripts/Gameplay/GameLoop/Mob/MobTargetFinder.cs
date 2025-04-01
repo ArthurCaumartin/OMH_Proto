@@ -122,9 +122,9 @@ public class MobTargetFinder : MonoBehaviour
     public void OnDrawGizmos()
     {
         if (!DEBUG) return;
-        Gizmos.color = new Color(1, 0, 0, .2f);
+        Gizmos.color = new Color(1, 0, 0, .01f);
         Gizmos.DrawSphere(transform.position, _targetDetectionRange.Value);
-        Gizmos.color = new Color(0, 0, 1, .2f);
+        Gizmos.color = new Color(0, 0, 1, .01f);
         Gizmos.DrawSphere(transform.position, _maxFollowDistance.Value);
     }
 }

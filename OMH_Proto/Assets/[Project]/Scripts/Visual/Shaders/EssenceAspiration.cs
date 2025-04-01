@@ -9,8 +9,8 @@ public class EssenceAspiration : MonoBehaviour
     [SerializeField] private SpawnManager _spawnManager;
     [SerializeField] private bool _active;
     [SerializeField] private Material _essence;
-     private float _vitesseAspiration = 0;
-     [SerializeField] private float _transitionTime;
+    public float _vitesseAspiration = 0;
+    [SerializeField] private float _transitionDuration;
 
     void Start()
     {
@@ -20,12 +20,11 @@ public class EssenceAspiration : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(_spawnManager._defenseAsStarted || _active) 
-       {
-            DOTween.To(() => _vitesseAspiration, x => _vitesseAspiration = x, 1f, _transitionTime);
+        if (_spawnManager._defenseAsStarted || _active)
+        {
+            DOTween.To(() => _vitesseAspiration, x => _vitesseAspiration = x, 1f, _transitionDuration).SetEase(Ease.Linear);
             _essence.SetFloat("_aspiration", _vitesseAspiration);
-            print (_vitesseAspiration);
-       }
+            // print(_vitesseAspiration);
+        }
     }
-    
 }

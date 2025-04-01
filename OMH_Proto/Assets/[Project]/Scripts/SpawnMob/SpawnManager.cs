@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private List<WaveParent> _allWavesParents = new List<WaveParent>();
     [SerializeField] private List<EnemySpawner> _spawners = new List<EnemySpawner>();
 
-    [SerializeField] private GameEvent _canStartDefense, _defenseStartEvent;
+    [SerializeField] private GameEvent _canStartDefense, _defenseStartEvent, _winEvent;
 
     [SerializeField] private int _timerMinutesWave1 = 7;
     [SerializeField] private float _timerWaves = 0;
@@ -91,6 +91,8 @@ public class SpawnManager : MonoBehaviour
         
         _timerSpawner += Time.deltaTime;
         VerifyIfSpawn();
+
+        if (minutes >= 3) _winEvent.Raise();
     }
     
     private void VerifyIfSpawn()
