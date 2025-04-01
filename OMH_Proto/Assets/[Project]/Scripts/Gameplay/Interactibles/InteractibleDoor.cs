@@ -26,4 +26,10 @@ public class InteractibleDoor : Interactible
         
         _doorRoom.LockDoor();
     }
+
+    public void StartDefense()
+    {
+        _doorRoom.UnlockDoor();
+        Destroy(gameObject);
+    }
 }
