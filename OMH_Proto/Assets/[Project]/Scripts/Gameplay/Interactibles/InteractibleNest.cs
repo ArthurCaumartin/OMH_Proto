@@ -17,6 +17,7 @@ public class InteractibleNest : Interactible
     [SerializeField] private Transform _posToSpawn;
     [SerializeField] private float _timeMinSpawn, _timeMaxSpawn;
     [SerializeField] private int _numberOfEnemiesToSpawn;
+    [SerializeField] private MobTarget _mobTarget;
 
     private bool _isNestActive;
     public static bool _isPlayerInRangeForEncounter;
@@ -82,7 +83,9 @@ public class InteractibleNest : Interactible
     {
         for (int i = 0; i < _numberOfEnemiesToSpawn; i++)
         {
-            Instantiate(_enemyPrefab, _posToSpawn.position, Quaternion.identity).GetComponent<StateMachine_Pteramyr>();
+            GameObject tempObject = Instantiate(_enemyPrefab, _posToSpawn.position, Quaternion.identity);
+            
+            tempObject.GetComponent<MobTargetFinder>().Initialize(_mobTarget);
         }
     }
 
