@@ -25,6 +25,7 @@ public class State_Mob_PrepCharge : IEntityState
     {
         _timerSpeed = 0;
         _agent.Speed = 3;
+        _agent.CanBeSlow = true;
     }
 
     public void UpdateState()
