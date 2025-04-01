@@ -26,7 +26,6 @@ public class State_Mob_ChargeAttack : IEntityState
 
     public void EnterState()
     {
-        
     }
 
     public void UpdateState()

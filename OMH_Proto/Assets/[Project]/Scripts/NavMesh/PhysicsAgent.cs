@@ -23,6 +23,9 @@ public class PhysicsAgent : MonoBehaviour
     private Vector3 _posToGoIfNoTarget = Vector3.zero;
     private float _acctualSpeed;
     private bool _isAllreadySlow = false;
+    private bool _canBeSlow = true;
+    
+    public bool CanBeSlow{set => _canBeSlow = value;}
 
     public float Speed { get => _acctualSpeed; set => _acctualSpeed = value; }
 
@@ -144,6 +147,8 @@ public class PhysicsAgent : MonoBehaviour
 
     public void SlowAgent(float strenght, float duration, bool freezeAgentOnSlow = false)
     {
+        if (!_canBeSlow) return;
+        
         if (_isAllreadySlow) return;
         _isAllreadySlow = true;
         if (freezeAgentOnSlow) _rigidbody.velocity = Vector3.zero;

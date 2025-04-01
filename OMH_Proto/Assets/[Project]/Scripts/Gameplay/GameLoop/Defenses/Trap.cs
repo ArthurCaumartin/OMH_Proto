@@ -1,4 +1,4 @@
-using System;
+    using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,7 +28,7 @@ public class Trap : MonoBehaviour
     {
         if (!_isActif)
         {
-            _activationTime = 0;
+            _activationTime = _activationDelay.Value;
             return;
         }
 
