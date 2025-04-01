@@ -17,10 +17,11 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator ChangeScene()
     {
-        _image.gameObject.SetActive(true);
-        _image.DOFade(1f, 1f);
+        ScreenHider.instance.HideScreenForDuration(1f, 1f);
         
-        yield return new WaitForSeconds(1.1f);
+        // _image.gameObject.SetActive(true);
+        
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(_sceneToLoadName);
     }
 }
