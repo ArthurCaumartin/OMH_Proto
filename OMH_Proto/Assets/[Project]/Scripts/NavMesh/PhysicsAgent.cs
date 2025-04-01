@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -100,6 +101,7 @@ public class PhysicsAgent : MonoBehaviour
 
     private void MoveRigidbody(Vector3[] path)
     {
+        if(path.Count() < 2) return;
         Vector3 direction = (path[1] - transform.position).normalized;
         transform.right = Vector3.Lerp(transform.right
                                         , new Vector3(direction.x, 0, direction.z)

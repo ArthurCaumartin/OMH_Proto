@@ -56,8 +56,11 @@ public class TurretTargetFinder : MonoBehaviour
             _mobInRangeList.Remove(toRemove);
     }
 
-    private bool IsBehindWall(Transform obj)
+    public bool IsBehindWall(Transform obj)
     {
-        return Physics.Linecast(transform.position, obj.position, _wallLayer);
+        bool isBehind = Physics.Linecast(transform.position + Vector3.up, obj.position, _wallLayer);
+        print("isBehind : " + isBehind);
+        Debug.DrawLine(transform.position + Vector3.up, obj.position, isBehind ? Color.red : Color.green);
+        return isBehind;
     }
 }
