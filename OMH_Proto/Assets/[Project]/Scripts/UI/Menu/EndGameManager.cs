@@ -48,7 +48,7 @@ public class EndGameManager : MonoBehaviour
         _titleText.text = "You lost !";
         
 
-        float defenseTimeBeforeLost = _defenseDuration.Value - (_gameTime.Value - explorationDuration.Value);
+        float defenseTimeBeforeLost = _gameTime.Value;
         int pcenGainFromTime = Mathf.RoundToInt(defenseTimeBeforeLost * _valueEachSecond);
         
         SetupValues(pcenGainFromTime);
