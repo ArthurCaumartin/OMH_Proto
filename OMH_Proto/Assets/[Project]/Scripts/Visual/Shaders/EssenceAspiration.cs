@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -16,6 +16,8 @@ public class EssenceAspiration : MonoBehaviour
     {
         _renderer = GetComponent<Renderer>();
         //_essence.SetFloat("_aspiration", 0);
+        _renderer.materials[0].SetFloat ("_aspiration", 0);
+
     }
 
     // Update is called once per frame
