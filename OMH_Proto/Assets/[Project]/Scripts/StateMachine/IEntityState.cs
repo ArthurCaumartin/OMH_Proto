@@ -8,3 +8,6 @@ public interface IEntityState
 
     public void ExitState();
 }
+
+
+

@@ -12,15 +12,19 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene()
     {
-        StartCoroutine(ChangeScene());
+        if (Time.timeScale != 1)
+            SceneManager.LoadScene(_sceneToLoadName);
+        else
+            StartCoroutine(ChangeScene());
     }
 
     private IEnumerator ChangeScene()
     {
-        ScreenHider.instance.HideScreenForDuration(1f, 1f);
-        
+        if (ScreenHider.instance)
+            ScreenHider.instance.HideScreenForDuration(1f, 1f);
+
         // _image.gameObject.SetActive(true);
-        
+
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(_sceneToLoadName);
     }
