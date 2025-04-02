@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField] private int _timerMinutesWave1 = 7;
     [SerializeField] private float _timerWaves = 0;
-    private int minutes;
+    public int minutes;
     
     private List<WaveParent> _waveParentsToSpawn = new List<WaveParent>();
     
@@ -80,7 +80,7 @@ public class SpawnManager : MonoBehaviour
                 _canStart = true;
             }
 
-            if (minutes >= _explorationDuration.Value / 60)
+            if (minutes - 1 >= _explorationDuration.Value / 60)
             {
                 _defenseAsStarted = true;
                 _defenseStartEvent.Raise();

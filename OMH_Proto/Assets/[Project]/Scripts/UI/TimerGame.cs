@@ -80,6 +80,8 @@ public class TimerGame : MonoBehaviour
 
     public void StartDefense()
     {
+        Debug.LogWarning("SET TIMER IN RED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        
         _isDefenseStarted = true;
         _timerText.color = _colorTextDefense;
         _timerText.text = "00:00";

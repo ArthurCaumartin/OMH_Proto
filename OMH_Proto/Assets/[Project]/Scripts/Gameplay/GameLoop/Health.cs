@@ -3,7 +3,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CanEditMultipleObjects]
 public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private FloatReference _maxHealth;
