@@ -8,7 +8,7 @@ public class SiphonHealth : MonoBehaviour
     [SerializeField] private GameEvent _destroyEvent, _winScreenEvent, _lostHP;
     [SerializeField] private FloatReference _health;
     private bool _isVictory;
-    private bool _canTakeDamage = false;
+    public bool _canTakeDamage = false;
 
     public void LostHP()
     {
