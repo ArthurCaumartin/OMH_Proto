@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class OverlapAttack : MonoBehaviour
 {
+    [SerializeField] private LayerMask _layerMask;
     [SerializeField] private Transform _pivot;
     [SerializeField] private FloatReference _damage;
     [SerializeField] private FloatReference _raduis;
 
     public void Attack()
     {
-        Collider[] col = Physics.OverlapSphere(_pivot.position, _raduis.Value);
+        Collider[] col = Physics.OverlapSphere(_pivot.position, _raduis.Value, _layerMask);
         for (int i = 0; i < col.Length; i++)
         {
             IDamageable overLapHealth = col[i].GetComponent<IDamageable>();

@@ -23,12 +23,14 @@ public class QTESequence : Upgradable
     {
         _isRunning = true;
         _qte = qteManager;
+        _index = 0;
         _qteUi.ActivateUI(RandomSequence(_lenght));
     }
 
     public void ResetQTE()
     {
         _isRunning = false;
+        _index = 0;
         _qteUi.ClearInputImage();
     }
     
