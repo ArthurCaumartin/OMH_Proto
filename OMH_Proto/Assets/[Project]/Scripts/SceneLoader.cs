@@ -12,8 +12,11 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene()
     {
-        if (Time.timeScale != 1)
+        if (Time.timeScale < 0.5f)
+        {
+            Time.timeScale = 1;
             SceneManager.LoadScene(_sceneToLoadName);
+        }
         else
             StartCoroutine(ChangeScene());
     }
@@ -22,7 +25,7 @@ public class SceneLoader : MonoBehaviour
     {
         if (ScreenHider.instance)
             ScreenHider.instance.HideScreenForDuration(1f, 1f);
-
+        
         // _image.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(1f);
