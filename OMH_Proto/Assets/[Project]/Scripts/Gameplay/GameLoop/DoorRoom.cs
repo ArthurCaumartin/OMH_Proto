@@ -26,6 +26,8 @@ public class DoorRoom : MonoBehaviour
             
             if(_isDoorLocked) return;
             
+            if(other.CompareTag("Player")) _roomTrigger.EntryRoom();
+            
             if (_doors.Count == 1)
             {
                 OpenDoorEntity(other);
