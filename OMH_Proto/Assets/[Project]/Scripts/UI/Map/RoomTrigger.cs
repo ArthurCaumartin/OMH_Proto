@@ -9,7 +9,9 @@ public class RoomTrigger : MonoBehaviour
     [SerializeField] private int _radius;
     [SerializeField] private bool _isObjRoom;
 
+    private bool _isDiscovered;
     private GameObject room;
+    
     private void Awake()
     {
         room = GameObject.FindGameObjectWithTag("MapTexture");
@@ -24,20 +26,30 @@ public class RoomTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if(_isDiscovered) return;
+    //     
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         _isDiscovered = true;
+    //         EntryRoom();
+    //     }
+    // }
+
+    public void EntryRoom()
     {
+        if(_isDiscovered) return;
+        _isDiscovered = true;
         
-        if (other.CompareTag("Player"))
-        {
-            if (_centerRoom != null) room.GetComponent<MapFogOfWar>().TracePixelRoom(_centerRoom.transform, _radius);
-            if(_lightParent != null) _lightParent.SetActive(false);
-        }
+        if (_centerRoom != null) room.GetComponent<MapFogOfWar>().TracePixelRoom(_centerRoom.transform, _radius);
+        if(_lightParent != null) _lightParent.SetActive(false);
     }
 
-    public void OnDrawGizmos()
-    {
-        // if(!DEBUG) return;
-        Gizmos.color = new Color(0, 0, 1, .2f);
-        Gizmos.DrawSphere(transform.position, 3.25f);
-    }
+    // public void OnDrawGizmos()
+    // {
+    //     // if(!DEBUG) return;
+    //     Gizmos.color = new Color(0, 0, 1, .2f);
+    //     Gizmos.DrawSphere(transform.position, 3.25f);
+    // }
 }

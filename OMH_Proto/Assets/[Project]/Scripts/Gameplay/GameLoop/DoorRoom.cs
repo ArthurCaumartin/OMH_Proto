@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class DoorRoom : MonoBehaviour
 {
     [SerializeField] private AnimatorBoolSetter _animator;
+    [SerializeField] private RoomTrigger _roomTrigger;
     [SerializeField] private NavMeshObstacle _doorNavMeshObstacle;
     [SerializeField] private GameObject _lockedDoorVisual, _tempSealedDoorVisual;
     [SerializeField] private float _doorLockTime = 60f;
@@ -27,7 +28,7 @@ public class DoorRoom : MonoBehaviour
             
             if (_doors.Count == 1)
             {
-                OpenDoor();
+                OpenDoorEntity(other);
                 _objectInRange = true;
             }
         }
@@ -70,9 +71,17 @@ public class DoorRoom : MonoBehaviour
         }
     }
 
+    private void OpenDoorEntity(Collider entityThatOpens)
+    {
+        _animator.SetParametre(true);
+        if(entityThatOpens.CompareTag("Player")) _roomTrigger.EntryRoom();
+        SpawnParticle();
+    }
+    
     private void OpenDoor()
     {
         _animator.SetParametre(true);
+        _roomTrigger.EntryRoom();
         SpawnParticle();
     }
     private void CloseDoor()
