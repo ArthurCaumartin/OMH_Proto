@@ -37,7 +37,7 @@ public class InteractibleNest : Interactible
 
     public override void OnQTEWin()
     {
-        _syringeValue.Value -= 1;
+        // _syringeValue.Value -= 1;
         _destroyNest.Raise();
 
         Destroy(gameObject);
