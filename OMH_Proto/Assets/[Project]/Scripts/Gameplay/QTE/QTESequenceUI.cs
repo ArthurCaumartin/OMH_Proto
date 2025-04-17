@@ -30,6 +30,7 @@ public class QTESequenceUI : MonoBehaviour
     // [SerializeField] private Sprite _leftSprite;
     [SerializeField] private List<Image> _imageList;
     private Camera _mainCam;
+    private Tween _goodInputTween;
 
     private void Awake()
     {
@@ -52,6 +53,7 @@ public class QTESequenceUI : MonoBehaviour
 
     private void SetNewImageList(List<Vector2> inputList)
     {
+        if (_goodInputTween != null && _goodInputTween.IsActive()) _goodInputTween.Kill();
         // CloseUI();
         // print($"InputList Lenth = {inputList.Count}");
 
@@ -93,7 +95,7 @@ public class QTESequenceUI : MonoBehaviour
     {
         // print("index : " + index + " / " + "Image count " + _imageList.Count);
         Color startColor = _imageList[index].color;
-        DOTween.To((time) =>
+        _goodInputTween = DOTween.To((time) =>
         {
             _imageList[index].transform.localScale =
             Vector3.Lerp(Vector3.one, Vector3.zero, _inputScaleCurve.Evaluate(time));
@@ -106,9 +108,8 @@ public class QTESequenceUI : MonoBehaviour
 
     public void SetBadInputFeedBack()
     {
-        Vector3 backupPos = _imageBackground.position;
-        _imageBackground.DOShakePosition(_animDuration, _badInputShakeVibrato, _badInputShakeVibrato, _badInputShakeRandomness)
-        .OnComplete(() => _imageBackground.position = backupPos);
+        _imageBackground.DOShakePosition(_animDuration * .8f, _badInputShakeVibrato, _badInputShakeVibrato, _badInputShakeRandomness)
+        .OnComplete(() => _imageBackground.DOAnchorPos(Vector2.zero, _animDuration * .2f));
 
         for (int i = 0; i < _imageList.Count; i++)
         {
