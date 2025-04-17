@@ -1,7 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Placer : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class Placer : MonoBehaviour
     [Space]
     [SerializeField] private List<Placable> _placableList;
     [SerializeField] private GameEvent _onPlacableSelect, _onShowGrid, _onShowRails;
+    [SerializeField] private Image _button1Image, _button2Image, _button3Image;
     private Placable _ghostPlacable;
     private Camera _mainCamera;
     private PlacerRail _railUnderMouse;
@@ -37,11 +40,13 @@ public class Placer : MonoBehaviour
             return;
         }
 
-        if (_ressourceCondition)
-        {
-            if (_ressourceCondition.Value - _placableList[index].cost.Value < 0)
-                return;
-        }
+        // if (_ressourceCondition)
+        // {
+        //     if (_ressourceCondition.Value - _placableList[index].cost.Value < 0)
+        //     {
+        //         return;
+        //     }
+        // }
 
         //* If Player selecte a placable allready select
         if (_oldPlacableIndex == index)
@@ -188,7 +193,11 @@ public class Placer : MonoBehaviour
 
     public void OnSelectPlacable1()
     {
-        if (_ressourceCondition.Value - _placableList[2].cost.Value < 0) return;
+        if (_ressourceCondition.Value - _placableList[2].cost.Value < 0)
+        {
+            StartCoroutine(NotEnoughMaterials(2));
+            return;
+        }
         
         UnSelect();
         _onShowRails.Raise();
@@ -196,7 +205,11 @@ public class Placer : MonoBehaviour
     }
     public void OnSelectPlacable2()
     {
-        if (_ressourceCondition.Value - _placableList[0].cost.Value < 0) return;
+        if (_ressourceCondition.Value - _placableList[0].cost.Value < 0)
+        {
+            StartCoroutine(NotEnoughMaterials(0));
+            return;
+        }
         
         UnSelect();
         _onShowGrid.Raise();
@@ -204,10 +217,25 @@ public class Placer : MonoBehaviour
     }
     public void OnSelectPlacable3()
     {
-        if (_ressourceCondition.Value - _placableList[1].cost.Value < 0) return;
+        if (_ressourceCondition.Value - _placableList[1].cost.Value < 0)
+        {
+            StartCoroutine(NotEnoughMaterials(1));
+            return;
+        }
         
         UnSelect();
         _onShowGrid.Raise();
         Select(1);
+    }
+
+    private IEnumerator NotEnoughMaterials(int index)
+    {
+        if(index == 0) _button1Image.color = Color.red;
+        if(index == 1) _button2Image.color = Color.red;
+        if(index == 2) _button3Image.color = Color.red;
+        yield return new WaitForSeconds(0.25f);
+        if(index == 0) _button1Image.color = Color.white;
+        if(index == 1) _button2Image.color = Color.white;
+        if(index == 2) _button3Image.color = Color.white;
     }
 }
