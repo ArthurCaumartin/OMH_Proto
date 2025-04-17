@@ -99,8 +99,6 @@ public class QTESequenceUI : MonoBehaviour
 
     public void SetBadInputFeedBack()
     {
-        // print("index : " + index + " / " + "Image count " + _imageList.Count);
-        // List<Vector3> posBackup = new List<Vector3>();
         Vector3 backupPos = _imageBackground.position;
         _imageBackground.DOShakePosition(_animDuration, _badInputShakeVibrato, _badInputShakeVibrato, _badInputShakeRandomness)
         .OnComplete(() => _imageBackground.position = backupPos);
@@ -110,13 +108,8 @@ public class QTESequenceUI : MonoBehaviour
             Sequence colorSwap = DOTween.Sequence();
             colorSwap.Append(_imageList[i].DOColor(_badInputColor, _animDuration / 2));
             colorSwap.Append(_imageList[i].DOColor(Color.white, _animDuration / 2));
-
         }
     }
-
-    // posBackup.Add(_imageList[i].transform.position);
-    // _imageList[i].transform.DOShakePosition(_animDuration, _badInputShakeVibrato, _badInputShakeVibrato, _badInputShakeRandomness);
-    // .OnComplete(() => _imageList[i].transform.position = posBackup[i]);
 
     public void CloseUI()
     {
