@@ -10,10 +10,18 @@ public class QTESequenceUI : MonoBehaviour
     [SerializeField] private Image _directionImagePrefab;
     [SerializeField] private RectTransform _imageBackground;
     [SerializeField] private RectTransform _imageContainer;
-    [Space]
+
+    [Header("Good Input Animation :")]
+    [SerializeField] private float _animDuration = .5f;
     [SerializeField] private AnimationCurve _inputAlphaCurve;
     [SerializeField] private AnimationCurve _inputScaleCurve;
-    [SerializeField] private float _animDuration = .5f;
+
+    [Header("Bad Input Animation :")]
+    [SerializeField] private Color _badInputColor = Color.red;
+    [SerializeField] private float _badInputShakeStrenght = 3;
+    [SerializeField] private int _badInputShakeVibrato = 15;
+    [SerializeField] private float _badInputShakeRandomness = 90;
+
     [Space]
     [SerializeField] private Sprite _directionSprite;
     // [SerializeField] private Sprite _upSprite;
@@ -27,7 +35,7 @@ public class QTESequenceUI : MonoBehaviour
     {
         _mainCam = Camera.main;
         _canvas.enabled = false;
-        
+
         // _canvas.worldCamera = Camera.main.GetUniversalAdditionalCameraData().cameraStack[Camera.main.GetUniversalAdditionalCameraData().cameraStack.Count - 1];
     }
 
@@ -37,10 +45,22 @@ public class QTESequenceUI : MonoBehaviour
         _canvas.enabled = true;
     }
 
+    public void SetNewSequence(List<Vector2> inputList)
+    {
+        SetNewImageList(inputList);
+    }
+
     private void SetNewImageList(List<Vector2> inputList)
     {
-        ClearInputImage();
+        // CloseUI();
         // print($"InputList Lenth = {inputList.Count}");
+
+        if (_imageList.Count != 0)
+        {
+            foreach (var item in _imageList)
+                Destroy(item.gameObject);
+            _imageList.Clear();
+        }
 
         for (int i = 0; i < inputList.Count; i++)
         {
@@ -53,7 +73,7 @@ public class QTESequenceUI : MonoBehaviour
         }
 
         float inputImageSize = (_directionImagePrefab.transform as RectTransform).sizeDelta.x * 1.2f;
-        print("Size x : " + inputImageSize);
+        // print("Size x : " + inputImageSize);
         _imageBackground.sizeDelta = new Vector2(inputList.Count * inputImageSize, _imageBackground.sizeDelta.y);
 
         //? look at camera
@@ -77,15 +97,28 @@ public class QTESequenceUI : MonoBehaviour
         }, 0, 1, _animDuration);
     }
 
-    public void SetBadInputFeedBack(int index)
+    public void SetBadInputFeedBack()
     {
         // print("index : " + index + " / " + "Image count " + _imageList.Count);
-        // Vector2 startpos = _imageList[index].transform.localPosition;
-        // _imageList[index].transform.DOShakePosition(_animDuration, 1, 10, 90)
-        // .OnComplete(() => _imageList[index].transform.localPosition = startpos);
+        // List<Vector3> posBackup = new List<Vector3>();
+        Vector3 backupPos = _imageBackground.position;
+        _imageBackground.DOShakePosition(_animDuration, _badInputShakeVibrato, _badInputShakeVibrato, _badInputShakeRandomness)
+        .OnComplete(() => _imageBackground.position = backupPos);
+
+        for (int i = 0; i < _imageList.Count; i++)
+        {
+            Sequence colorSwap = DOTween.Sequence();
+            colorSwap.Append(_imageList[i].DOColor(_badInputColor, _animDuration / 2));
+            colorSwap.Append(_imageList[i].DOColor(Color.white, _animDuration / 2));
+
+        }
     }
 
-    public void ClearInputImage()
+    // posBackup.Add(_imageList[i].transform.position);
+    // _imageList[i].transform.DOShakePosition(_animDuration, _badInputShakeVibrato, _badInputShakeVibrato, _badInputShakeRandomness);
+    // .OnComplete(() => _imageList[i].transform.position = posBackup[i]);
+
+    public void CloseUI()
     {
         if (_imageList == null) return;
         for (int i = 0; i < _imageList.Count; i++)
