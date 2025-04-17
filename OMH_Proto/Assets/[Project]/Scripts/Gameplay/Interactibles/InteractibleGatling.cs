@@ -6,7 +6,7 @@ public class InteractibleGatling : Interactible
 {
     [Space]
     [SerializeField] private GameEvent _getGatling;
-
+    
     public override void Interact(PlayerInteract playerInteract, out bool cancelInteraction)
     {
         cancelInteraction = false;

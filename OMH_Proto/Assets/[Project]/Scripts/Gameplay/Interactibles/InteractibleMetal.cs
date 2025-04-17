@@ -12,6 +12,7 @@ public class InteractibleMetal : Interactible
 
     [SerializeField] private Sprite _activatedSprite;
     
+    
     // [SerializeField] private MeshRenderer _meshRenderer;
     // [SerializeField] private Material _material;
     
