@@ -52,8 +52,18 @@ public class ItemManager : MonoBehaviour
         }
         itemsToSelect.Add(_commonList._itemsList[tempSecondRandomInt]);
         
-        int tempThirdRandomInt = Random.Range(0, _rareList._itemsList.Count);
-        itemsToSelect.Add(_rareList._itemsList[tempThirdRandomInt]);
+        int tempRareRandomInt = Random.Range(0, 100);
+        print(tempRareRandomInt);
+        if (tempRareRandomInt >= 75)
+        {
+            int tempThirdRandomInt = Random.Range(0, _rareList._itemsList.Count);
+            itemsToSelect.Add(_rareList._itemsList[tempThirdRandomInt]);
+        }
+        else
+        {
+            int tempThirdRandomInt = Random.Range(0, _commonList._itemsList.Count);
+            itemsToSelect.Add(_commonList._itemsList[tempThirdRandomInt]);
+        }
         
         //Activate UI
         
