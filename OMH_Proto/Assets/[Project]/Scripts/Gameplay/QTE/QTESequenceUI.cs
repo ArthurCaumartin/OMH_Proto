@@ -68,7 +68,14 @@ public class QTESequenceUI : MonoBehaviour
             Image newImage = Instantiate(_directionImagePrefab, _imageContainer);
             // newImage.sprite = GetDirectionSprite(inputList[i]);
             newImage.sprite = _directionSprite;
-            newImage.transform.up = newImage.transform.rotation * inputList[i];
+            newImage.gameObject.name += "_" + i;
+
+            float angle = Vector3.Angle(Vector3.up, inputList[i]);
+            print("angle for image" + i + " : " + angle);
+            newImage.transform.localEulerAngles = new Vector3(0, 0, angle);
+            if (inputList[i].x > 0)
+                newImage.transform.localEulerAngles = new Vector3(0, 0, -newImage.transform.localEulerAngles.z);
+
             _imageList.Add(newImage);
         }
 
