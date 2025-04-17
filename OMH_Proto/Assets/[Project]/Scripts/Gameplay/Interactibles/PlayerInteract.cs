@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private float _detectionRange = 5;
     [SerializeField] private float _detectionPerSecond = 2;
     [SerializeField] private GameEvent _inRangeEvent, _notInRangeEvent;
+    [SerializeField] private TextMeshProUGUI _interactText;
+    
     private float _detectionTime;
     private Interactible _nearestInteractible;
 
@@ -20,6 +23,12 @@ public class PlayerInteract : MonoBehaviour
         {
             _detectionTime = 0;
             _nearestInteractible = GetNearestInteractible();
+            if (_interactText != null)
+            {
+                if (_nearestInteractible == null) return;
+                _interactText.text = _nearestInteractible._textToInteract;
+            }
+            else Debug.Log("! Interactible Text not Set in Player Interact !");
         }
     }
 

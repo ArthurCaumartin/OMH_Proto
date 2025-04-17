@@ -6,11 +6,16 @@ public class RoomManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _doors = new List<GameObject>();
     [SerializeField] private GameObject _doorLockInteractiblePrefab;
+    [Space]
+    [SerializeField] private int _probabilitySpawnLockedDoor = 70;
 
     private InteractibleDoor _doorLocked;
     private bool _isDoorUnlocked;
     void Awake()
     {
+        int tempInt = Random.Range(0, 100);
+        if (tempInt >= _probabilitySpawnLockedDoor) return;
+        
         int _lockedDoorIndex = Random.Range(0, _doors.Count);
         GameObject tempObject = Instantiate(_doorLockInteractiblePrefab, _doors[_lockedDoorIndex].transform);
         
@@ -23,7 +28,7 @@ public class RoomManager : MonoBehaviour
     public void StartDefense()
     {
         if (_isDoorUnlocked) return;
-        _doorLocked.StartDefense();
+        if(_doorLocked != null) _doorLocked.StartDefense();
     }
 
     public void DoorIsUnlocked()
