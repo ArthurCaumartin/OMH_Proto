@@ -29,7 +29,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4287771279998677150}
   m_Father: {fileID: 8930944578604698470}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -182,19 +183,7 @@ MonoBehaviour:
         m_CallState: 2
   ResetQTEScript:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5703936412662924257}
-        m_TargetAssemblyTypeName: QTESequence, Assembly-CSharp
-        m_MethodName: ResetQTE
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &5703936412662924257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +214,7 @@ MonoBehaviour:
     type: 3}
   _imageBackground: {fileID: 4056858874960862801}
   _imageContainer: {fileID: 4287771279998677150}
+  _animDuration: 0.3
   _inputAlphaCurve:
     serializedVersion: 2
     m_Curve:
@@ -282,7 +272,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _animDuration: 0.5
+  _badInputColor: {r: 0.8867924, g: 0.4224813, b: 0.4224813, a: 1}
+  _badInputShakeStrenght: 2.5
+  _badInputShakeVibrato: 20
+  _badInputShakeRandomness: 90
   _directionSprite: {fileID: 21300000, guid: 96d46ad24a2165b4fb0562a3958fa124, type: 3}
   _imageList: []
 --- !u!114 &5114501385823233037
@@ -365,12 +358,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8299122050794416066}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8930944578604698470}
+  m_Father: {fileID: 4056858874960862801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -433,7 +426,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4056858874960862801}
-  - {fileID: 4287771279998677150}
   m_Father: {fileID: 2151939693956361395}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
