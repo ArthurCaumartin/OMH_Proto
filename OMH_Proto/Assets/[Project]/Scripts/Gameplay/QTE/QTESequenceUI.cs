@@ -30,6 +30,7 @@ public class QTESequenceUI : MonoBehaviour
     // [SerializeField] private Sprite _leftSprite;
     [SerializeField] private List<Image> _imageList;
     private Camera _mainCam;
+    private Tween _goodInputTween;
 
     private void Awake()
     {
@@ -52,6 +53,7 @@ public class QTESequenceUI : MonoBehaviour
 
     private void SetNewImageList(List<Vector2> inputList)
     {
+        if (_goodInputTween != null && _goodInputTween.IsActive()) _goodInputTween.Kill();
         // CloseUI();
         // print($"InputList Lenth = {inputList.Count}");
 
@@ -68,7 +70,14 @@ public class QTESequenceUI : MonoBehaviour
             Image newImage = Instantiate(_directionImagePrefab, _imageContainer);
             // newImage.sprite = GetDirectionSprite(inputList[i]);
             newImage.sprite = _directionSprite;
-            newImage.transform.up = newImage.transform.rotation * inputList[i];
+            newImage.gameObject.name += "_" + i;
+
+            float angle = Vector3.Angle(Vector3.up, inputList[i]);
+            print("angle for image" + i + " : " + angle);
+            newImage.transform.localEulerAngles = new Vector3(0, 0, angle);
+            if (inputList[i].x > 0)
+                newImage.transform.localEulerAngles = new Vector3(0, 0, -newImage.transform.localEulerAngles.z);
+
             _imageList.Add(newImage);
         }
 
@@ -86,7 +95,7 @@ public class QTESequenceUI : MonoBehaviour
     {
         // print("index : " + index + " / " + "Image count " + _imageList.Count);
         Color startColor = _imageList[index].color;
-        DOTween.To((time) =>
+        _goodInputTween = DOTween.To((time) =>
         {
             _imageList[index].transform.localScale =
             Vector3.Lerp(Vector3.one, Vector3.zero, _inputScaleCurve.Evaluate(time));
@@ -99,24 +108,16 @@ public class QTESequenceUI : MonoBehaviour
 
     public void SetBadInputFeedBack()
     {
-        // print("index : " + index + " / " + "Image count " + _imageList.Count);
-        // List<Vector3> posBackup = new List<Vector3>();
-        Vector3 backupPos = _imageBackground.position;
-        _imageBackground.DOShakePosition(_animDuration, _badInputShakeVibrato, _badInputShakeVibrato, _badInputShakeRandomness)
-        .OnComplete(() => _imageBackground.position = backupPos);
+        _imageBackground.DOShakePosition(_animDuration * .8f, _badInputShakeVibrato, _badInputShakeVibrato, _badInputShakeRandomness)
+        .OnComplete(() => _imageBackground.DOAnchorPos(Vector2.zero, _animDuration * .2f));
 
         for (int i = 0; i < _imageList.Count; i++)
         {
             Sequence colorSwap = DOTween.Sequence();
             colorSwap.Append(_imageList[i].DOColor(_badInputColor, _animDuration / 2));
             colorSwap.Append(_imageList[i].DOColor(Color.white, _animDuration / 2));
-
         }
     }
-
-    // posBackup.Add(_imageList[i].transform.position);
-    // _imageList[i].transform.DOShakePosition(_animDuration, _badInputShakeVibrato, _badInputShakeVibrato, _badInputShakeRandomness);
-    // .OnComplete(() => _imageList[i].transform.position = posBackup[i]);
 
     public void CloseUI()
     {
