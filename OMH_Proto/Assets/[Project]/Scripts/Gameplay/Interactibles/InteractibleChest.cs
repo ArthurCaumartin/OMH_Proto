@@ -2,9 +2,11 @@ using UnityEngine;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class InteractibleChest : Interactible
 {
+    [SerializeField] private bool _canBeGolen = true;
     [Space]
     [SerializeField] private GameEvent _onOpenChestEvent, _onOpenGoldenChestEvent;
     [SerializeField] private GameObject _mapPin;
@@ -15,34 +17,31 @@ public class InteractibleChest : Interactible
     [SerializeField] private ParticleSystem _openParticle;
     [Space]
     [SerializeField] private GameObject _goldenChestPrefab;
-    
+
     private bool _isOpen = false;
 
-    public static bool _isGoldenChest; 
-    private List<InteractibleChest> _chestControllers = new List<InteractibleChest>();
+    public static bool _isGoldenChestPicked = false;
+
+    public bool CanBeGolden { get => _canBeGolen; }
 
     void Awake()
     {
-        _isGoldenChest = false;
+        _isGoldenChestPicked = false;
     }
-    
-    void Start()
+
+    public override void Start()
     {
         base.Start();
-        Object[] chest = FindObjectsOfType(typeof(InteractibleChest));
-        foreach (InteractibleChest chestShader in chest)
-        {
-            _chestControllers.Add(chestShader);
-        }
-        int tempInt = Random.Range(0, _chestControllers.Count);
+        if (_isGoldenChestPicked) return;
 
-        // print("Before Golden Chest");
-        if (_isGoldenChest) return;
-        // print("Golden Chest");
-        _chestControllers[tempInt].TransformationGoldChest();
-        _isGoldenChest = true;
+        List<InteractibleChest> interactibleChestInScene = (FindObjectsOfType(typeof(InteractibleChest)) as InteractibleChest[]).ToList();
+        interactibleChestInScene.RemoveAll(item => !item.CanBeGolden);
+        if(interactibleChestInScene.Count == 0) return;
+        
+        interactibleChestInScene[Random.Range(0, interactibleChestInScene.Count)].TransformationGoldChest();
+        _isGoldenChestPicked = true;
     }
-    
+
     public override void Interact(PlayerInteract playerInteract, out bool cancelIteraction)
     {
         cancelIteraction = _isOpen;
@@ -61,7 +60,7 @@ public class InteractibleChest : Interactible
         }
 
         _mapPin.SetActive(false);
-        
+
         gameObject.layer = LayerMask.NameToLayer("Default");
         // Destroy(gameObject);
         // GetComponent<BoxCollider>().enabled = false;
