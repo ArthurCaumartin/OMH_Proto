@@ -16,6 +16,8 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField] private int _timerMinutesWave1 = 7;
     [SerializeField] private float _timerWaves = 0;
+
+    public float _gameTime;
     public int minutes;
     
     private List<WaveParent> _waveParentsToSpawn = new List<WaveParent>();
@@ -68,6 +70,14 @@ public class SpawnManager : MonoBehaviour
     private void Update()
     {
         _timerWaves += Time.deltaTime;
+        _gameTime += Time.deltaTime;
+
+        if (_gameTime >= _explorationDuration.Value && !_defenseAsStarted)
+        {
+            _defenseAsStarted = true; 
+            _defenseStartEvent.Raise();
+        }
+        
         if (_timerWaves >= 60)
         {
             _timerWaves = 0;
@@ -80,11 +90,11 @@ public class SpawnManager : MonoBehaviour
                 _canStart = true;
             }
 
-            if (minutes - 1 >= _explorationDuration.Value / 60)
-            {
-                _defenseAsStarted = true;
-                _defenseStartEvent.Raise();
-            }
+            // if (minutes - 1 >= _explorationDuration.Value / 60)
+            // {
+            //     _defenseAsStarted = true;
+            //     _defenseStartEvent.Raise();
+            // }
         }
         
         if (!_defenseAsStarted) return;
@@ -117,6 +127,7 @@ public class SpawnManager : MonoBehaviour
     
     public void StartDefense()
     {
+        if(minutes == 0) minutes = _timerMinutesWave1;
         _waveParentsToSpawn.Add(_allWavesParents[minutes - _timerMinutesWave1]);
         _waveParentsToSpawn.Add(_allWavesParents[minutes - _timerMinutesWave1 + 1]);
         _waveParentsToSpawn.Add(_allWavesParents[minutes - _timerMinutesWave1 + 2]);

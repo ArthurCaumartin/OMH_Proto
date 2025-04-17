@@ -28,7 +28,7 @@ public class RoomManager : MonoBehaviour
     public void StartDefense()
     {
         if (_isDoorUnlocked) return;
-        _doorLocked.StartDefense();
+        if(_doorLocked != null) _doorLocked.StartDefense();
     }
 
     public void DoorIsUnlocked()

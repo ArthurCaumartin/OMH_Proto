@@ -5,6 +5,8 @@ public class Interactible : MonoBehaviour
     [SerializeField] private QTE _qte;
     public QTE QTE { get => _qte; }
     public bool HaveQTE { get => _qte; }
+    
+    public string _textToInteract;
 
     public virtual void Start()
     {
