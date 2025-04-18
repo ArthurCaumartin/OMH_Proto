@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactible : MonoBehaviour
@@ -7,7 +8,7 @@ public class Interactible : MonoBehaviour
     public bool HaveQTE { get => _qte; }
     
     public string _textToInteract;
-    [SerializeField] private Material _meshToOutline;
+    [SerializeField] private List<MeshRenderer> _meshRenderersToOutline;
     [SerializeField] float _timeToVerifyOutline = 0.3f;
      
     private float _timer;
@@ -49,10 +50,13 @@ public class Interactible : MonoBehaviour
     {
         _isOutlined = true;
         _timer = 0;
-        //Set Outline to 1
+        for (int i = 0; i < _meshRenderersToOutline.Count; i++)
+        {
+            _meshRenderersToOutline[i].materials[1].SetFloat("_outlineAlpha", 1);
+        }
     }
 
-    private void Update()
+    public void Update()
     {
         if (!_isOutlined) return;
         
@@ -60,7 +64,10 @@ public class Interactible : MonoBehaviour
         if (_timer >= _timeToVerifyOutline)
         {
             _isOutlined = false;
-            //Set Outline to 0
-        }
+            for (int i = 0; i < _meshRenderersToOutline.Count; i++)
+            {
+                _meshRenderersToOutline[i].materials[1].SetFloat("_outlineAlpha", 0);
+            }
+        } 
     }
 }

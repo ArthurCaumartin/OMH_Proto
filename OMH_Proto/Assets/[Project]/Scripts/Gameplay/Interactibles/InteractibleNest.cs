@@ -45,6 +45,8 @@ public class InteractibleNest : Interactible
 
     public virtual void Update()
     {
+        base.Update();
+        
         if (_isNestActive)
         {
             _timerSpawnMob += Time.deltaTime;
