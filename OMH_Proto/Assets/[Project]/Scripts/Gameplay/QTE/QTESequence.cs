@@ -96,6 +96,7 @@ public class QTESequence : Upgradable
 
     private IEnumerator WaitForWin()
     {
+        _isRunning = false;
         yield return new WaitForSeconds(.35f);
         _qte.OnWin.Invoke();
         ResetQTE(true);
