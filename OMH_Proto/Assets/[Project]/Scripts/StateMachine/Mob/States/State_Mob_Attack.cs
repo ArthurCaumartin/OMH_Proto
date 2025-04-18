@@ -58,7 +58,7 @@ public class State_Mob_Attack : IEntityState
     {
         Vector3 targetDir = (_machinePteramyr.Target.transform.position - _machinePteramyr.transform.position).normalized;
         float dotDir = Vector3.Dot(_machinePteramyr.transform.right, targetDir);
-        Debug.Log("dot : " + dotDir);
+        // Debug.Log("dot : " + dotDir);
         return dotDir > .95f;
     }
 

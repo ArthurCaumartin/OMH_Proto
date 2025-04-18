@@ -84,7 +84,16 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.15656489
+        value: 0
+        inSlope: 1.4170462
+        outSlope: 1.4170462
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.8688853
+      - serializedVersion: 3
+        time: 0.18484148
+        value: 0.110347345
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -156,6 +165,7 @@ GameObject:
   - component: {fileID: 447528718702615370}
   - component: {fileID: 6403736433643166296}
   - component: {fileID: 2061851069309233094}
+  - component: {fileID: 4786986606833837304}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -191,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93cd5d3c6f3c5b04898e28e9eb3ec399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pushForce: 10
   _shootEffect: {fileID: 0}
   _effectPropagationRange:
     propertyType: 0
@@ -225,7 +236,28 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 1
+  m_IsKinematic: 0
+  m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!65 &4786986606833837304
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854377703920330254}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
