@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -60,8 +61,7 @@ public class QTESequence : Upgradable
 
         if (_index + 1 > _directionSequence.Count)
         {
-            _qte.OnWin.Invoke();
-            ResetQTE(true);
+            StartCoroutine(WaitForWin());
         }
     }
 
@@ -92,5 +92,12 @@ public class QTESequence : Upgradable
         }
 
         return _directionSequence;
+    }
+
+    private IEnumerator WaitForWin()
+    {
+        yield return new WaitForSeconds(.35f);
+        _qte.OnWin.Invoke();
+        ResetQTE(true);
     }
 }

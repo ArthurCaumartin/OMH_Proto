@@ -23,6 +23,9 @@ public class PlayerInteract : MonoBehaviour
         {
             _detectionTime = 0;
             _nearestInteractible = GetNearestInteractible();
+
+            _nearestInteractible.OutlineInteractible();
+            
             if (_interactText != null)
             {
                 if (_nearestInteractible == null) return;
