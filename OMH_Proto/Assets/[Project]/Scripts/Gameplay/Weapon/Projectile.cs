@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -19,7 +20,7 @@ public class Projectile : MonoBehaviour
 
     public Projectile Initialize(GameObject shooter, float speed, float damage)
     {
-        Debug.Log("<color=orange>From script [Projectile.cs] : Pan !</color>");
+        AudioDebugLog.LogAudio(this.GetType().ToString(), gameObject.name, "Pan");
         _shooter = shooter;
         _speed = speed;
         _damage = damage;
