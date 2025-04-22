@@ -10,6 +10,8 @@ public class EnginerModControler : MonoBehaviour
 
     public void OnEnginerMod(InputValue value)
     {
+        if (Time.timeScale <= 0.5f) return;
+        
         if (value.Get<float>() < .5f) return;
         isOn = !isOn;
         _enginerModeEvent.Raise(isOn);
