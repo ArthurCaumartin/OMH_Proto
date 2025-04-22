@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -9,14 +10,17 @@ public class Projectile : MonoBehaviour
     [SerializeField] private FloatReference _effectPropagationRange;
     [SerializeField] private LayerMask _effectLayer;
     [SerializeField] private LayerMask _projectileLayer;
+    [SerializeField] public AK.Wwise.Event _shootSound;
     private float _speed;
     private float _damage;
     private GameObject _shooter;
     private Rigidbody _rb;
     private Vector3 _lastFramePosition;
+    
 
     public Projectile Initialize(GameObject shooter, float speed, float damage)
     {
+        AudioDebugLog.LogAudio(this.GetType().ToString(), gameObject.name, "Pan");
         _shooter = shooter;
         _speed = speed;
         _damage = damage;
@@ -24,6 +28,7 @@ public class Projectile : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _lastFramePosition = _rb.position;
         _rb.AddForce(transform.forward * _speed, ForceMode.Impulse);
+        _shootSound.Post(gameObject);
 
         Destroy(gameObject, 1f);
         return this;
