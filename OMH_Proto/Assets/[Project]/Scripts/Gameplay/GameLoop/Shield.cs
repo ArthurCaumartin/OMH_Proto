@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class Shield : Upgradable, IDamageable
 {
     public bool DEBUG = false;
+    public bool CAN_DIED = true;
     [Header("Shield Stat")]
     [SerializeField] private FloatReference _timeShieldRegen;
     [SerializeField] private FloatReference _playerInvincibiltyDuration;
@@ -96,6 +97,8 @@ public class Shield : Upgradable, IDamageable
 
     private void OnDeath()
     {
+        if(!CAN_DIED) return;
+
         _timerRegenShield = 0;
         _isShieldDown = false;
 

@@ -29,12 +29,12 @@ public class MobTargetFinder : MonoBehaviour
     {
         MobTarget t = damageDealer.GetComponent<MobTarget>();
         if (!t) return;
-        print(damageDealer.name);
+        // print(damageDealer.name);
 
         float distWithDealer = Vector3.Distance(transform.position, damageDealer.transform.position);
         if (distWithDealer < _distanceWithTarget)
         {
-            print("Set new target : " + t.name);
+            // print("Set new target : " + t.name);
             _canDropAgro = 0;
             SetNewTarget(t);
         }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,19 +22,26 @@ public class QTESequence : Upgradable
     {
         _isRunning = true;
         _qte = qteManager;
+        _index = 0;
         _qteUi.ActivateUI(RandomSequence(_lenght));
     }
 
-    public void ResetQTE()
+    public void ResetQTE(bool closeUI)
     {
-        _isRunning = false;
-        _qteUi.ClearInputImage();
+        // print("closeUI : " + closeUI);
+        _isRunning = !closeUI;
+        _index = 0;
+
+        if (closeUI)
+            _qteUi.CloseUI();
+        else
+            _qteUi.SetNewSequence(RandomSequence(_lenght));
     }
-    
+
     private void PlayInput(Vector2 inputDirection)
     {
-        if(!_isRunning) return;
-        
+        if (!_isRunning) return;
+
         // print($"Current Direction = {_directionSequence[_index]} / Input Direction {inputDirection}");
         if (_directionSequence[_index] == inputDirection)
         {
@@ -45,17 +51,20 @@ public class QTESequence : Upgradable
         }
         else
         {
-            _qteUi.SetBadInputFeedBack(_index);
-            _qte.OnInput.Invoke(false);
+            // print("Bad Input");
+            ResetQTE(false);
+            _qteUi.SetBadInputFeedBack();
+            // _qte.OnInput.Invoke(false);
+            return;
         }
 
         if (_index + 1 > _directionSequence.Count)
         {
             _qte.OnWin.Invoke();
-            ResetQTE();
+            ResetQTE(true);
         }
     }
-    
+
     public void OnQTEDirection(InputValue value)
     {
         // print("QTE Direction");
@@ -64,7 +73,7 @@ public class QTESequence : Upgradable
         if (valueVector == Vector2.zero) return;
         PlayInput(valueVector);
     }
-    
+
     public List<Vector2> RandomSequence(int size)
     {
         _directionSequence = new List<Vector2>();
@@ -81,7 +90,7 @@ public class QTESequence : Upgradable
 
             _directionSequence.Add(newV);
         }
-        
+
         return _directionSequence;
     }
 }
