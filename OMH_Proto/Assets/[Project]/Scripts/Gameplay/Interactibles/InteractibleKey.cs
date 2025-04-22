@@ -8,6 +8,7 @@ public class InteractibleKey : Interactible
     [SerializeField] private GameEvent _getKey;
     [SerializeField] private FloatVariable keyValue;
     [SerializeField] private MeshRenderer _mesh;
+    [SerializeField] private BoxCollider _collider;
     
     private bool _isKeyGet = false;
     
@@ -20,7 +21,6 @@ public class InteractibleKey : Interactible
         keyValue.Value += 1f;
         _getKey.Raise();
         
-        _mesh.transform.parent = null;
-        Destroy(gameObject);
+        _collider.enabled = false;
     }
 }
