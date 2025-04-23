@@ -1804,10 +1804,26 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 312270348147416509}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bf2b27d8a1fdcdc4cafce68da7f616b8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4388212056126120535}
   m_SourcePrefab: {fileID: 100100000, guid: bf2b27d8a1fdcdc4cafce68da7f616b8, type: 3}
 --- !u!4 &2972307556445583807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6121415369636602511, guid: bf2b27d8a1fdcdc4cafce68da7f616b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 9064729143726021424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3173788820620107784 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3330425956203398344, guid: bf2b27d8a1fdcdc4cafce68da7f616b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 9064729143726021424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3761889687241122528 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5330161462786521552, guid: bf2b27d8a1fdcdc4cafce68da7f616b8,
     type: 3}
   m_PrefabInstance: {fileID: 9064729143726021424}
   m_PrefabAsset: {fileID: 0}
@@ -1869,6 +1885,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4388212056126120535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8146179330933171809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 888f81557c0e8cb46bda8012f94ff794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rayLenth: 0.15
+  _decalLifeTime: 5
+  _decalSpawnDuration: 5
+  _feetDecalPrefab: {fileID: 4762428507030957568, guid: ad5baa22180f39e4aaaab6167ae18c94,
+    type: 3}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  _decalsLayer:
+    serializedVersion: 2
+    m_Bits: 1048576
+  _rightFoot:
+    pivot: {fileID: 3173788820620107784}
+    texture2D: {fileID: 2800000, guid: 74ccdf72fcefd8a438bcba3d4e50bda4, type: 3}
+    canSpawnDecal: 0
+    asStep: 0
+    lastBloodMixe: 0
+  _leftFoot:
+    pivot: {fileID: 3761889687241122528}
+    texture2D: {fileID: 2800000, guid: 88a97eefb1adbc7458ccabdb4c7445d2, type: 3}
+    canSpawnDecal: 0
+    asStep: 0
+    lastBloodMixe: 0
 --- !u!4 &8810969811452886235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bf2b27d8a1fdcdc4cafce68da7f616b8,
