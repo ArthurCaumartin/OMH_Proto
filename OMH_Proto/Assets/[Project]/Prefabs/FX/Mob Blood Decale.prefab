@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6226094695669152884}
   - component: {fileID: 4762428507030957568}
   - component: {fileID: 3708929576874183796}
-  m_Layer: 0
+  - component: {fileID: 6792297771018509525}
+  m_Layer: 20
   m_Name: Mob Blood Decale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,8 +56,8 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_DecalLayerMask: 2
   m_ScaleMode: 1
-  m_Offset: {x: 0, y: 0, z: 3}
-  m_Size: {x: 2, y: 2, z: 6}
+  m_Offset: {x: 0, y: 0, z: 0.25}
+  m_Size: {x: 2, y: 2, z: 0.5}
   m_FadeFactor: 1
 --- !u!114 &3708929576874183796
 MonoBehaviour:
@@ -94,3 +95,25 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _lifeTime: 0
+--- !u!65 &6792297771018509525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732800467366556471}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5966742, y: 1.6033423, z: 1.0201927}
+  m_Center: {x: 0, y: -6.765252e-16, z: 0.24988994}
