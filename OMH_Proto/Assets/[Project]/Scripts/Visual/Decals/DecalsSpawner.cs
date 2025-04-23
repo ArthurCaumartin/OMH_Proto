@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
 
-public class DecalesSpawner : MonoBehaviour
+public class DecalsSpawner : MonoBehaviour
 {
     [Serializable]
     public struct SpawnParameter
@@ -35,7 +35,7 @@ public class DecalesSpawner : MonoBehaviour
     private void SpawnDecals(SpawnParameter parameter, DamageType type)
     {
         Vector3 offset = Random.insideUnitSphere * parameter.spawnPosOffsetMax.Value;
-        offset.y = 0.01f;
+        offset.y = 0.04f;
         DecalProjector d = Instantiate(_decalePrefab, transform.position + offset, Quaternion.Euler(90f, 0, Random.Range(0, 360)));
         d.GetComponent<DecalControler>().SetLifeTime(Random.Range(parameter.minLifeTime.Value, parameter.maxLifeTime.Value));
         d.transform.localScale = Vector3.one * Random.Range(parameter.minSize.Value, parameter.maxSize.Value);
