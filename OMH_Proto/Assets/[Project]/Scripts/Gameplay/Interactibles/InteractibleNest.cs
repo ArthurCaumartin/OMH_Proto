@@ -21,7 +21,7 @@ public class InteractibleNest : Interactible
 
     private bool _isNestActive;
     public static bool _isPlayerInRangeForEncounter;
-    private float _timer, _timerSpawnMob, _timeToSpawn;
+    private float _timerNest, _timerSpawnMob, _timeToSpawn;
 
     private void Awake()
     {
@@ -60,10 +60,10 @@ public class InteractibleNest : Interactible
 
         if (_isPlayerInRangeForEncounter) return;
 
-        _timer += Time.deltaTime;
-        if (_timer > 0.5f)
+        _timerNest += Time.deltaTime;
+        if (_timerNest > 0.5f)
         {
-            _timer = 0;
+            _timerNest = 0;
             VerifyPlayerInRangeForText();
         }
     }
