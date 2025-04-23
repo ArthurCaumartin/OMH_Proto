@@ -1,7 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Placer : MonoBehaviour
 {
@@ -14,16 +16,20 @@ public class Placer : MonoBehaviour
     [SerializeField] private FloatVariable _ressourceCondition;
     [Space]
     [SerializeField] private List<Placable> _placableList;
-    [SerializeField] private GameEvent _onPlacableSelect;
-    private Placable _gostPlacable;
+    [SerializeField] private GameEvent _onPlacableSelect, _onShowGrid, _onShowRails;
+    [SerializeField] private Image _button1Image, _button2Image, _button3Image;
+    private Placable _ghostPlacable;
     private Camera _mainCamera;
     private PlacerRail _railUnderMouse;
     private UnityEvent<GameObject> _onPlacePrefab = new UnityEvent<GameObject>();
     public UnityEvent<GameObject> OnPlacePrefab { get => _onPlacePrefab; }
 
+    private int _oldPlacableIndex;
+
     private void Start()
     {
         _mainCamera = Camera.main;
+        _oldPlacableIndex = -1;
     }
 
     public void Select(int index)
@@ -34,65 +40,74 @@ public class Placer : MonoBehaviour
             return;
         }
 
-        if (_ressourceCondition)
-        {
-            if (_ressourceCondition.Value - _placableList[index].cost.Value < 0)
-                return;
-        }
+        // if (_ressourceCondition)
+        // {
+        //     if (_ressourceCondition.Value - _placableList[index].cost.Value < 0)
+        //     {
+        //         return;
+        //     }
+        // }
 
         //* If Player selecte a placable allready select
-        if (_gostPlacable)
+        if (_oldPlacableIndex == index)
         {
+            if (!_ghostPlacable) _oldPlacableIndex = -1;
             UnSelect();
-            return;
         }
-
-        if (!_gostPlacable) _onPlacableSelect.Raise(false);
-        _gostPlacable = Instantiate(_placableList[index]);
+        else
+        {
+            if (!_ghostPlacable) _onPlacableSelect.Raise(false);
+            _ghostPlacable = Instantiate(_placableList[index]);
+            _oldPlacableIndex = index;
+        }
     }
 
     private void UnSelect()
     {
-        if (!_gostPlacable) return;
-        _gostPlacable.ClearPlacable();
-        Destroy(_gostPlacable.gameObject);
-        _gostPlacable = null;
+        _onShowGrid.Raise(false);
+        _onShowRails.Raise(false);
+        
+        if (!_ghostPlacable) return;
+        _ghostPlacable.ClearPlacable();
+        Destroy(_ghostPlacable.gameObject);
+        _ghostPlacable = null;
         _onPlacableSelect.Raise(true);
     }
 
     private void Place()
     {
-        if (!_gostPlacable) return;
-        if (_gostPlacable && _gostPlacable.CanBePlaced)
+        if (!_ghostPlacable) return;
+        if (_ghostPlacable && _ghostPlacable.CanBePlaced)
         {
-            if (_gostPlacable.placeOnCorridorRail && !_railUnderMouse) return;
-            if (_ressourceCondition) _ressourceCondition.Value -= _gostPlacable.cost.Value;
+            if (_ghostPlacable.placeOnCorridorRail && !_railUnderMouse) return;
+            if (_ressourceCondition) _ressourceCondition.Value -= _ghostPlacable.cost.Value;
 
             InstantiatePlaceblePrefab();
             UnSelect();
+            _oldPlacableIndex = -1;
         }
     }
 
     private void InstantiatePlaceblePrefab()
     {
         GameObject newPrefab;
-        if (_gostPlacable.placeOnCorridorRail && _railUnderMouse)
+        if (_ghostPlacable.placeOnCorridorRail && _railUnderMouse)
         {
-            newPrefab = Instantiate(_gostPlacable.PrefabToPlace //! l'enchainement de converstion (dsl le moi du future)
-                        , _railUnderMouse.GetNearestPosition(MouseAimPosition(_gostPlacable.transform.position))
-                        , _gostPlacable.transform.rotation);
+            newPrefab = Instantiate(_ghostPlacable.PrefabToPlace //! l'enchainement de converstion (dsl le moi du future)
+                        , _railUnderMouse.GetNearestPosition(MouseAimPosition(_ghostPlacable.transform.position))
+                        , _ghostPlacable.transform.rotation);
             return;
         }
 
-        newPrefab = Instantiate(_gostPlacable.PrefabToPlace
-                                , WorldToCellConvert(MouseAimPosition(_gostPlacable.transform.position))
-                                , _gostPlacable.transform.rotation);
+        newPrefab = Instantiate(_ghostPlacable.PrefabToPlace
+                                , WorldToCellConvert(MouseAimPosition(_ghostPlacable.transform.position))
+                                , _ghostPlacable.transform.rotation);
         _onPlacePrefab.Invoke(newPrefab);
     }
 
     private void Update()
     {
-        if (!_gostPlacable) return;
+        if (!_ghostPlacable) return;
 
         _railUnderMouse = CheckForRail();
         MoveGostPlacableToMouse();
@@ -100,30 +115,28 @@ public class Placer : MonoBehaviour
 
     private void MoveGostPlacableToMouse()
     {
-        _gostPlacable.IsOnRail = _railUnderMouse;
-        if (_gostPlacable.placeOnCorridorRail)
+        _ghostPlacable.IsOnRail = _railUnderMouse;
+        if (_ghostPlacable.placeOnCorridorRail)
         {
             if (_railUnderMouse)
             {
-                Vector3 railPosition = _railUnderMouse.GetNearestPosition(MouseAimPosition(_gostPlacable.transform.position));
-                _gostPlacable.transform.forward = _railUnderMouse.GetDirection();
-                _gostPlacable.transform.position = railPosition;
+                Vector3 railPosition = _railUnderMouse.GetNearestPosition(MouseAimPosition(_ghostPlacable.transform.position));
+                _ghostPlacable.transform.forward = _railUnderMouse.GetDirection();
+                _ghostPlacable.transform.position = railPosition;
                 return;
             }
         }
 
-        Vector3 invPlayerDir = _gostPlacable.transform.position - _playerTransform.position;
+        Vector3 invPlayerDir = _ghostPlacable.transform.position - _playerTransform.position;
         invPlayerDir.y = 0;
 
-        // print("not : " + invPlayerDir);
         invPlayerDir = invPlayerDir.normalized;
         invPlayerDir.x = Mathf.Round(invPlayerDir.x);
         invPlayerDir.z = Mathf.Round(invPlayerDir.z);
         if(invPlayerDir.x != 0) invPlayerDir.z = 0;
-        // print("round : " + invPlayerDir);
 
-        _gostPlacable.transform.forward = invPlayerDir;
-        _gostPlacable.transform.position = WorldToCellConvert(MouseAimPosition(_gostPlacable.transform.position));
+        _ghostPlacable.transform.forward = invPlayerDir;
+        _ghostPlacable.transform.position = WorldToCellConvert(MouseAimPosition(_ghostPlacable.transform.position));
     }
 
 
@@ -175,5 +188,54 @@ public class Placer : MonoBehaviour
     private void OnDeselectPlacable(InputValue value)
     {
         UnSelect();
+        _oldPlacableIndex = -1;
+    }
+
+    public void OnSelectPlacable1()
+    {
+        if (_ressourceCondition.Value - _placableList[2].cost.Value < 0)
+        {
+            StartCoroutine(NotEnoughMaterials(2));
+            return;
+        }
+        
+        UnSelect();
+        _onShowRails.Raise();
+        Select(2);
+    }
+    public void OnSelectPlacable2()
+    {
+        if (_ressourceCondition.Value - _placableList[0].cost.Value < 0)
+        {
+            StartCoroutine(NotEnoughMaterials(0));
+            return;
+        }
+        
+        UnSelect();
+        _onShowGrid.Raise();
+        Select(0);
+    }
+    public void OnSelectPlacable3()
+    {
+        if (_ressourceCondition.Value - _placableList[1].cost.Value < 0)
+        {
+            StartCoroutine(NotEnoughMaterials(1));
+            return;
+        }
+        
+        UnSelect();
+        _onShowGrid.Raise();
+        Select(1);
+    }
+
+    private IEnumerator NotEnoughMaterials(int index)
+    {
+        if(index == 0) _button1Image.color = Color.red;
+        if(index == 1) _button2Image.color = Color.red;
+        if(index == 2) _button3Image.color = Color.red;
+        yield return new WaitForSeconds(0.25f);
+        if(index == 0) _button1Image.color = Color.white;
+        if(index == 1) _button2Image.color = Color.white;
+        if(index == 2) _button3Image.color = Color.white;
     }
 }

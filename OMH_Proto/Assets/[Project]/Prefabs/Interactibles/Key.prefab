@@ -123,9 +123,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _qte: {fileID: 0}
   _textToInteract: Press (E) to loot the corpse
+  _meshRenderersToOutline:
+  - {fileID: 8997116942956264958}
+  _timeToVerifyOutline: 0.3
   _getKey: {fileID: 11400000, guid: 2f4546881cd8ab64b82e7864c3bc6ebe, type: 2}
   keyValue: {fileID: 11400000, guid: 28d538c4736c2b64385136eb82c4267a, type: 2}
   _mesh: {fileID: 8997116942956264958}
+  _collider: {fileID: 2411556497088700766}
 --- !u!1001 &7718531567981486458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -201,9 +205,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: a35082d025497ba4a9a639ef7de01ba6,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a35082d025497ba4a9a639ef7de01ba6,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1241e94b54bf83247a3ea96f2adc3bee, type: 2}
+    - target: {fileID: -7511558181221131132, guid: a35082d025497ba4a9a639ef7de01ba6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 023f90ef04dcd994a9561747d7e2d710, type: 2}
     - target: {fileID: 919132149155446097, guid: a35082d025497ba4a9a639ef7de01ba6,
         type: 3}
       propertyPath: m_Name

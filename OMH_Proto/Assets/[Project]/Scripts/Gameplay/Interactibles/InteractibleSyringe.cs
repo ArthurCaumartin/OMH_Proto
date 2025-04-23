@@ -49,6 +49,8 @@ public class InteractibleSyringe : Interactible
 
     void Update()
     {
+        base.Update();
+        
         _centriMaterial.material.SetFloat("_centrifugeuseeteinte", _syringeShaderValue);
         
         _flasksObject.transform.Rotate(_axis * (_direction * (Time.deltaTime * _speed)));
