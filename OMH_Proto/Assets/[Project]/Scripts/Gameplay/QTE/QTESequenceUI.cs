@@ -73,7 +73,7 @@ public class QTESequenceUI : MonoBehaviour
             newImage.gameObject.name += "_" + i;
 
             float angle = Vector3.Angle(Vector3.up, inputList[i]);
-            print("angle for image" + i + " : " + angle);
+            // print("angle for image" + i + " : " + angle);
             newImage.transform.localEulerAngles = new Vector3(0, 0, angle);
             if (inputList[i].x > 0)
                 newImage.transform.localEulerAngles = new Vector3(0, 0, -newImage.transform.localEulerAngles.z);
