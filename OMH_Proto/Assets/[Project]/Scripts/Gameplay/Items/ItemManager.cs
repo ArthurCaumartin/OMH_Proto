@@ -46,8 +46,8 @@ public class ItemManager : MonoBehaviour
         
         //1st item
         _firstItemID = Random.Range(0, _commonList._itemsList.Count / 2);
-        print("----------------------------");
-        print(_firstItemID);
+        // print("----------------------------");
+        // print(_firstItemID);
         int tempRandomInt = Random.Range(0, 2);
         
         itemsToSelect.Add(_commonList._itemsList[_firstItemID * 2 + tempRandomInt]);
@@ -59,7 +59,7 @@ public class ItemManager : MonoBehaviour
         {
             _secondItemID = Random.Range(0, _commonList._itemsList.Count / 2);
         }
-        print(_secondItemID);
+        // print(_secondItemID);
         tempRandomInt = Random.Range(0, 2);
         
         itemsToSelect.Add(_commonList._itemsList[_secondItemID * 2 + tempRandomInt]);

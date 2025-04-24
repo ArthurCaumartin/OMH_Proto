@@ -39,14 +39,14 @@ public class QTEControler : MonoBehaviour
 
     private void OnQTEFinish()
     {
+        _onQTEEndEvent.Raise();
+        
         EnableControler(true);
 
         _currentQTE?.OnWin.RemoveListener(OnQTEFinish);
         _currentQTE?.OnKill.RemoveListener(OnQTEFinish);
 
         _currentQTE = null;
-
-        _onQTEEndEvent.Raise();
     }
 
     public void EnableControler(bool value)

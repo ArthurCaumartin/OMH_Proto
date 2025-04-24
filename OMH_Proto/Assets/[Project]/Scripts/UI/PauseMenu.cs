@@ -13,10 +13,12 @@ public class PauseMenu : MonoBehaviour
     
     [SerializeField] private GameEvent _pauseMenuEvent, _resumeMenuEvent;
     
-    private bool _isPaused;
+    private bool _isPaused, _isQTEActive;
     
     private void OnEscape()
     {
+        if (_isQTEActive) return;
+        
         if (_inventoryPauseMenu._isInventoryOpen)
         {
             _inventoryPauseMenu.CloseInventory();
@@ -72,5 +74,10 @@ public class PauseMenu : MonoBehaviour
         
         _isPaused = false;
         _resumeMenuEvent.Raise();
-    } 
+    }
+
+    public void QTEToggler()
+    {
+        _isQTEActive = !_isQTEActive;
+    }
 }

@@ -2256,6 +2256,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _qte: {fileID: 0}
   _textToInteract: Press (E) to open the centrifuge
+  _meshRenderersToOutline:
+  - {fileID: 6736794929761568308}
+  _timeToVerifyOutline: 0.3
   _textAfterOpeningCentrifuge: Press (E) to pickup the Thanatos
   _syringeValue: {fileID: 11400000, guid: 9251047eb0ab4b241aca90ae13039e56, type: 2}
   _getSyringe: {fileID: 11400000, guid: 9dbab37f3f59da945958abbea302af3b, type: 2}
@@ -5061,14 +5064,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1663276173205939159, guid: 0588a2c62a1eafd4784b0a79afbb2a91,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1663276173205939159, guid: 0588a2c62a1eafd4784b0a79afbb2a91,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 089b53e4d07e26e4990e08a8fe089b43, type: 2}
+    - target: {fileID: -1663276173205939159, guid: 0588a2c62a1eafd4784b0a79afbb2a91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 089b53e4d07e26e4990e08a8fe089b43, type: 2}
+    - target: {fileID: -33598351899159328, guid: 0588a2c62a1eafd4784b0a79afbb2a91,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -33598351899159328, guid: 0588a2c62a1eafd4784b0a79afbb2a91,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c1e4b6521e6d2c241bd37882b8f53b2c, type: 2}
+    - target: {fileID: -33598351899159328, guid: 0588a2c62a1eafd4784b0a79afbb2a91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 023f90ef04dcd994a9561747d7e2d710, type: 2}
     - target: {fileID: 919132149155446097, guid: 0588a2c62a1eafd4784b0a79afbb2a91,
         type: 3}
       propertyPath: m_Name
@@ -5146,7 +5169,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6336921009009357216, guid: 0588a2c62a1eafd4784b0a79afbb2a91,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336921009009357216, guid: 0588a2c62a1eafd4784b0a79afbb2a91,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 645ffc9d1ee7c8040bf2aa56c578bdf1, type: 2}
+    - target: {fileID: 6336921009009357216, guid: 0588a2c62a1eafd4784b0a79afbb2a91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 645ffc9d1ee7c8040bf2aa56c578bdf1, type: 2}
     m_RemovedComponents: []
