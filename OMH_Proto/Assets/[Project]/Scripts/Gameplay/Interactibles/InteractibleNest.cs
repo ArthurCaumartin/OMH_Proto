@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,7 +9,7 @@ public class InteractibleNest : Interactible
     [SerializeField] private FloatVariable _syringeValue;
 
     [SerializeField] private GameEvent _destroyNest, _encounterNest, _notEnoughtSyringe;
-    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private GameObject _enemyPrefab, _eggMesh, _doorObject1, _doorObject2;
     
     [Space]
     [SerializeField] private Transform _posToSpawn;
@@ -39,8 +37,15 @@ public class InteractibleNest : Interactible
     {
         // _syringeValue.Value -= 1;
         _destroyNest.Raise();
+        
+        if(_eggMesh != null) _eggMesh.SetActive(false);
+        Material object1Material = _doorObject1.GetComponent<MeshRenderer>().material;
+        object1Material.SetFloat("_infested", 0);
+        Material object2Material = _doorObject2.GetComponent<MeshRenderer>().material;
+        object2Material.SetFloat("_infested", 0);
+        enabled = false;
 
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
 
     public virtual void Update()
@@ -94,6 +99,11 @@ public class InteractibleNest : Interactible
     public void ActivateNest()
     {
         _isNestActive = true;
-        //Show visuals
+        
+        if(_eggMesh != null) _eggMesh.SetActive(true);
+        Material object1Material = _doorObject1.GetComponent<MeshRenderer>().material;
+        object1Material.SetFloat("_infested", 1);
+        Material object2Material = _doorObject2.GetComponent<MeshRenderer>().material;
+        object2Material.SetFloat("_infested", 1);
     }
 }
