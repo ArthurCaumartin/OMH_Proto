@@ -52,7 +52,7 @@ public class Interactible : MonoBehaviour
         _timer = 0;
         for (int i = 0; i < _meshRenderersToOutline.Count; i++)
         {
-            _meshRenderersToOutline[i].materials[-1].SetFloat("_outlineAlpha", 1);
+            _meshRenderersToOutline[i].materials[_meshRenderersToOutline[i].materials.Length - 1].SetFloat("_outlineAlpha", 1);
         }
     }
 
@@ -66,7 +66,7 @@ public class Interactible : MonoBehaviour
             _isOutlined = false;
             for (int i = 0; i < _meshRenderersToOutline.Count; i++)
             {
-                _meshRenderersToOutline[i].materials[-1].SetFloat("_outlineAlpha", 0);
+                _meshRenderersToOutline[i].materials[_meshRenderersToOutline[i].materials.Length - 1].SetFloat("_outlineAlpha", 0);
             }
         } 
     }
