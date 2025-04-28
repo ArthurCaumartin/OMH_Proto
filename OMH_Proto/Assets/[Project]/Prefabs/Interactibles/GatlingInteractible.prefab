@@ -71,6 +71,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _qte: {fileID: 0}
   _textToInteract: Press (E) to pickup the weapon
+  _meshRenderersToOutline:
+  - {fileID: 8211592217248404299}
+  - {fileID: 8937333929800700634}
+  _timeToVerifyOutline: 0.3
   _getGatling: {fileID: 11400000, guid: d61b0476cd7188e46a176340affdc103, type: 2}
 --- !u!1001 &5175466640219663817
 PrefabInstance:
@@ -147,9 +151,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: e7e5204344d0d3a468b820d6c4248dab,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e7e5204344d0d3a468b820d6c4248dab,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1241e94b54bf83247a3ea96f2adc3bee, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e7e5204344d0d3a468b820d6c4248dab,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 023f90ef04dcd994a9561747d7e2d710, type: 2}
     - target: {fileID: 919132149155446097, guid: e7e5204344d0d3a468b820d6c4248dab,
         type: 3}
       propertyPath: m_Name
@@ -246,14 +260,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1501071915142111280, guid: bcd64ebb45164e84d83c1c91f623a945,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501071915142111280, guid: bcd64ebb45164e84d83c1c91f623a945,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c5efb9b73c3894a4cbd99059c01e6a43, type: 2}
+    - target: {fileID: 1501071915142111280, guid: bcd64ebb45164e84d83c1c91f623a945,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 023f90ef04dcd994a9561747d7e2d710, type: 2}
+    - target: {fileID: 1812213630884209057, guid: bcd64ebb45164e84d83c1c91f623a945,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1812213630884209057, guid: bcd64ebb45164e84d83c1c91f623a945,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c5efb9b73c3894a4cbd99059c01e6a43, type: 2}
+    - target: {fileID: 1812213630884209057, guid: bcd64ebb45164e84d83c1c91f623a945,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 023f90ef04dcd994a9561747d7e2d710, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -262,6 +296,18 @@ PrefabInstance:
 --- !u!4 &7109835896523134096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bcd64ebb45164e84d83c1c91f623a945,
+    type: 3}
+  m_PrefabInstance: {fileID: 7287263355094987643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8211592217248404299 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1501071915142111280, guid: bcd64ebb45164e84d83c1c91f623a945,
+    type: 3}
+  m_PrefabInstance: {fileID: 7287263355094987643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8937333929800700634 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1812213630884209057, guid: bcd64ebb45164e84d83c1c91f623a945,
     type: 3}
   m_PrefabInstance: {fileID: 7287263355094987643}
   m_PrefabAsset: {fileID: 0}
