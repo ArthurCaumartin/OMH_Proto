@@ -288,6 +288,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &640899433045007249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1598833690220931007}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1598833690220931007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640899433045007249}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5618748810280927273}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &741263747257898561
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,6 +2095,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _qte: {fileID: 8472526839861891094}
   _textToInteract: Press (E) to unlock the door
+  _meshRenderersToOutline: []
+  _timeToVerifyOutline: 0.3
 --- !u!1 &5853376506747636781
 GameObject:
   m_ObjectHideFlags: 0
@@ -2776,6 +2809,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8867285715154815909}
+  - {fileID: 1598833690220931007}
   m_Father: {fileID: 6489098345415382232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7046344431801994542
@@ -2830,9 +2864,9 @@ MonoBehaviour:
   _onQTEKill:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2267275200595012632}
-        m_TargetAssemblyTypeName: InteractibleDoor, Assembly-CSharp
-        m_MethodName: OnQTEKill
+      - m_Target: {fileID: 6029332308850372588}
+        m_TargetAssemblyTypeName: QTEDoor, Assembly-CSharp
+        m_MethodName: ResetQTE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2884,6 +2918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86bba4e593a22a4db5b77a09ccd4ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactibleDoor: {fileID: 2267275200595012632}
   _rotationSpeed: 200
   _axis: {x: 0, y: 0, z: 1}
   _direction: -1

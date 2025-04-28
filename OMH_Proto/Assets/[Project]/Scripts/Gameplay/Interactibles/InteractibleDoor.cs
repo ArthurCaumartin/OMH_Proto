@@ -16,6 +16,14 @@ public class InteractibleDoor : Interactible
 
     public override void OnQTEKill()
     {
+        // _doorRoom.TempSealDoor();
+        //
+        // _roomManager.DoorIsUnlocked();
+        // Destroy(gameObject);
+    }
+    
+    public void OnQTELose()
+    {
         _doorRoom.TempSealDoor();
 
         _roomManager.DoorIsUnlocked();
