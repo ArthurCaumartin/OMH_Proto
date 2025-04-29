@@ -104,5 +104,6 @@ public class QTEDoor : Upgradable
         _rotationSpeed = 0;
         yield return new WaitForSecondsRealtime(1f);
         _interactibleDoor.OnQTELose();
+        _qte.KillQTE();
     }
 }
