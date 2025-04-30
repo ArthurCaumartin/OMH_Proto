@@ -9,6 +9,8 @@ public class Rotate : MonoBehaviour
     [SerializeField] private float _speed = 5;
     [SerializeField] private int _direction = 1;
 
+    public float Speed { set => _speed = value; }
+
     void Start() { if (_randomDirection) _direction = Random.value > .5f ? -1 : 1; }
 
     void Update()

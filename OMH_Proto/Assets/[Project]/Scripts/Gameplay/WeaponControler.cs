@@ -6,11 +6,12 @@ public class WeaponControler : MonoBehaviour
 {
     [SerializeField] private Transform _weaponMeshPivotTarget;
     [SerializeField] private Transform _weaponParent;
+    [SerializeField] private PlayerAim _playerAim;
     [SerializeField] private List<Weapon> _weaponList;
     [SerializeField] private WeaponTimerShot _uiWeapon;
 
     [SerializeField] private GameEvent _secondaryAttackEvent;
-    
+
     private int _currentWeaponIndex = 0;
 
     private InputAction _primaryAttackInputAction;
@@ -28,7 +29,7 @@ public class WeaponControler : MonoBehaviour
         _secondaryAttackInputAction = GetComponent<PlayerInput>().actions.FindAction("SecondaryAttack");
 
         _playerAnimation = GetComponent<PlayerAnimation>();
-        
+
         Debug.Assert(_uiWeapon != null, "UI Weapon is not set in WeaponControler on Player");
 
         GetAllChildWeapon();
@@ -39,15 +40,22 @@ public class WeaponControler : MonoBehaviour
         _isPrimaryAttacking = _primaryAttackInputAction.ReadValue<float>() > .5f;
         _isSecondaryAttacking = _secondaryAttackInputAction.ReadValue<float>() > .5f;
 
-        if(_isSecondaryAttacking) _secondaryAttackEvent.Raise();
-        
-        _playerAnimation.IsPlayerShooting = IsShooting();
+        if (_isSecondaryAttacking) _secondaryAttackEvent.Raise();
 
-        if (_currentWeaponMesh)
-        {
-            _currentWeaponMesh.position = _weaponMeshPivotTarget.position;
+        _playerAnimation.IsPlayerShooting = IsShooting();
+        AligneWeaponMesh();
+    }
+
+    private void AligneWeaponMesh()
+    {
+        if (!_currentWeaponMesh) return;
+
+        _currentWeaponMesh.position = _weaponMeshPivotTarget.position;
+
+        if (_isPrimaryAttacking | _isSecondaryAttacking)
+            _currentWeaponMesh.forward = _playerAim.WorldMouseDirection;
+        else
             _currentWeaponMesh.forward = -_weaponMeshPivotTarget.forward;
-        }
     }
 
     public bool IsShooting()

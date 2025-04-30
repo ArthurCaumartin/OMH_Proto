@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] protected Transform _shootPoint;
     [Header("Visual : ")]
     [SerializeField] private Transform _meshPivot;
     [SerializeField] private string _animationStateName = "Pistol_Aim";
@@ -25,7 +26,7 @@ public class Weapon : MonoBehaviour
 
     public WeaponVisual _weaponVisual;
     protected GameObject _parentShooter;
-    private WeaponControler _weaponControler;
+    protected WeaponControler _weaponControler;
     private int _animationStateHash;
 
     public Transform MeshTransform { get => _meshPivot; }
@@ -63,7 +64,7 @@ public class Weapon : MonoBehaviour
         _weaponVisual.PlayVisual(Vector3.one * .8f);
     }
 
-    private void Update()
+    public virtual void Update()
     {
         _attackTime += Time.deltaTime;
         _secondaryDynamicCoolDown.Value += Time.deltaTime;
