@@ -27,21 +27,15 @@ public class Weapon : MonoBehaviour
     public WeaponVisual _weaponVisual;
     protected GameObject _parentShooter;
     protected WeaponControler _weaponControler;
-    private int _animationStateHash;
 
     public Transform MeshTransform { get => _meshPivot; }
-    public int AnimationState { get => _animationStateHash; }
+    public string AnimationState { get => _animationStateName; }
 
     private void Start()
     {
         _parentShooter = GetComponentInParent<PlayerAim>().gameObject;
         _weaponVisual = GetComponent<WeaponVisual>();
         _secondaryDynamicCoolDown.Value = _secondaryCooldown.Value;
-    }
-
-    private void OnValidate()
-    {
-        _animationStateHash = Animator.StringToHash(_animationStateName);
     }
 
     private void OnEnable()
