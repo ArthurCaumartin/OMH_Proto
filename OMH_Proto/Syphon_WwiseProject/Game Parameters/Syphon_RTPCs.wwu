@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{44DEA821-E645-4ADE-B7AF-55126F879D1C}" SchemaVersion="123">
+	<GameParameters>
+		<WorkUnit Name="Syphon_RTPCs" ID="{44DEA821-E645-4ADE-B7AF-55126F879D1C}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="PlayerRTPCs" ID="{64F103B8-4C78-4CBE-8AA9-2BD290822971}" ShortID="20267245">
+					<ChildrenList>
+						<GameParameter Name="RTPC_PlayerSpeed" ID="{2B50CDBD-87CC-4172-B607-FF1E451696F4}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="Max" Type="Real64" Value="500"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="RTPC_PlayerHealth" ID="{D83A3498-5B2A-48AF-AEE2-01463848C3C3}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="100"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
+				<GameParameter Name="RTPC_Distance" ID="{A89EB0F9-98C5-424A-A29E-86551AAA4541}">
+					<PropertyList>
+						<Property Name="BindToBuiltInParam" Type="int16" Value="1"/>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="10000"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="RTPC_ToD" ID="{8CB25190-1AAE-4E7F-BFC7-360898C6F78C}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="12"/>
+						<Property Name="Max" Type="Real64" Value="24"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="RTPC_GroundWetness" ID="{9AC47AC9-0CB2-4E86-B5CB-5A18407FBF01}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
+				<Folder Name="SystemsRTPCs" ID="{278D346F-24D8-42DB-AB5C-F5487EE810A9}" ShortID="481126828">
+					<ChildrenList>
+						<GameParameter Name="RTPC_LPMusicMenu" ID="{BBA0BB55-63EC-4FDE-9164-E7CBE9A0821F}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="RTPCRamping" Type="int16" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>

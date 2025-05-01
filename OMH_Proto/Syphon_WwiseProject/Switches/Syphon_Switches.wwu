@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{0102F9C1-F733-41E5-A589-212597C4F5B9}" SchemaVersion="123">
+	<Switches>
+		<WorkUnit Name="Syphon_Switches" ID="{0102F9C1-F733-41E5-A589-212597C4F5B9}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}">
+					<ChildrenList>
+						<Switch Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
+						<Switch Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="PlayerSpeedSwitch" ID="{B1439E85-49A1-433C-8373-3E17577C13B7}">
+					<PropertyList>
+						<Property Name="UseGameParameter" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Switch Name="Walking" ID="{CD4AC599-0961-476A-B109-39BE8FB90DB1}"/>
+						<Switch Name="Firing" ID="{C44185DE-2FB0-49D0-95E3-A4825A143E74}"/>
+						<Switch Name="Running" ID="{FC10B88F-D664-4B0E-BD5E-97E2E5696951}"/>
+					</ChildrenList>
+					<SwitchOnRTPC>
+						<GameParameterRef Name="RTPC_PlayerSpeed" ID="{2B50CDBD-87CC-4172-B607-FF1E451696F4}"/>
+						<Curve Name="" ID="{F30915AD-DFC2-444F-B5A3-07A38400E9D2}">
+							<PropertyList>
+								<Property Name="Flags" Type="int32" Value="65537"/>
+							</PropertyList>
+							<PointList>
+								<Point>
+									<XPos>0</XPos>
+									<YPos>1</YPos>
+									<Flags>5</Flags>
+								</Point>
+								<Point>
+									<XPos>175</XPos>
+									<YPos>1</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>300</XPos>
+									<YPos>2</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>350</XPos>
+									<YPos>3</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>500</XPos>
+									<YPos>3</YPos>
+									<Flags>37</Flags>
+								</Point>
+							</PointList>
+						</Curve>
+					</SwitchOnRTPC>
+				</SwitchGroup>
+				<SwitchGroup Name="PlayerHealth" ID="{E89C2955-C92B-4A4A-9BB5-CB981E062BDE}">
+					<PropertyList>
+						<Property Name="UseGameParameter" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Switch Name="NearDeath" ID="{41504413-E129-4110-AEBB-74DD8D4DFA09}"/>
+						<Switch Name="LowHealth" ID="{50D15628-D1DD-42A3-A9C3-B89C57AA53F5}"/>
+						<Switch Name="MidHealth" ID="{BD17F327-1492-4A55-A765-844CD56FD4A9}"/>
+						<Switch Name="FullHealth" ID="{D552AEDB-98D4-4E1F-9543-C88865F33FB8}"/>
+					</ChildrenList>
+					<SwitchOnRTPC>
+						<GameParameterRef Name="RTPC_PlayerHealth" ID="{D83A3498-5B2A-48AF-AEE2-01463848C3C3}"/>
+						<Curve Name="" ID="{84103F44-F7CE-4817-AD94-C3C90A0B45BB}">
+							<PropertyList>
+								<Property Name="Flags" Type="int32" Value="65537"/>
+							</PropertyList>
+							<PointList>
+								<Point>
+									<XPos>0</XPos>
+									<YPos>1</YPos>
+									<Flags>5</Flags>
+								</Point>
+								<Point>
+									<XPos>10</XPos>
+									<YPos>2</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>35</XPos>
+									<YPos>3</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>75</XPos>
+									<YPos>4</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>100</XPos>
+									<YPos>4</YPos>
+									<Flags>37</Flags>
+								</Point>
+							</PointList>
+						</Curve>
+					</SwitchOnRTPC>
+				</SwitchGroup>
+				<SwitchGroup Name="GeneratorEnergy" ID="{C21AAFE6-3CEB-45B6-A5E3-0B7B939B642E}">
+					<ChildrenList>
+						<Switch Name="FullEnergy" ID="{B3E9E17F-414C-4D8B-A33F-2B0C7D057376}"/>
+						<Switch Name="LowEnergy" ID="{D620E6C9-A495-4B72-B0F0-5E3EA1A847FC}"/>
+						<Switch Name="NearDestroyed" ID="{7AD221BF-4850-4202-A349-9DDCE5C9779D}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="GroundWetness" ID="{7B82B0C9-1142-4019-9420-B295FB08E116}">
+					<PropertyList>
+						<Property Name="UseGameParameter" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Switch Name="Dry" ID="{ADF4DAAE-CB8B-43C6-AFFE-BB6DA4CF8CD2}"/>
+						<Switch Name="Damp" ID="{CA29BD28-5251-4F3B-A1FA-0C4F3276FDB7}"/>
+						<Switch Name="Soaked" ID="{3DDF5EF4-8BCF-490F-92C1-9A7C86917BA0}"/>
+					</ChildrenList>
+					<SwitchOnRTPC>
+						<GameParameterRef Name="RTPC_GroundWetness" ID="{9AC47AC9-0CB2-4E86-B5CB-5A18407FBF01}"/>
+						<Curve Name="" ID="{2EEEF2A1-090D-4619-8DE9-5E4C8207E04F}">
+							<PropertyList>
+								<Property Name="Flags" Type="int32" Value="65537"/>
+							</PropertyList>
+							<PointList>
+								<Point>
+									<XPos>0</XPos>
+									<YPos>1</YPos>
+									<Flags>5</Flags>
+								</Point>
+								<Point>
+									<XPos>25</XPos>
+									<YPos>2</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>50</XPos>
+									<YPos>2</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>75</XPos>
+									<YPos>3</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>100</XPos>
+									<YPos>3</YPos>
+									<Flags>37</Flags>
+								</Point>
+							</PointList>
+						</Curve>
+					</SwitchOnRTPC>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</Switches>
+</WwiseDocument>

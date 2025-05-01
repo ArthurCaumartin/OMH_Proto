@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{20F2F5A8-E0B0-41DE-AAAE-8DB441A157B7}" SchemaVersion="123">
+	<Events>
+		<WorkUnit Name="TestEvents" ID="{20F2F5A8-E0B0-41DE-AAAE-8DB441A157B7}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_TestBeep" ID="{2594AE04-0C7F-4B2E-8C45-DBBF7B7C50C3}"/>
+				<Event Name="Play_TestBeep_3D" ID="{70F14C89-02BB-4299-A6E2-136C2E5A6AA4}"/>
+				<Event Name="Play_TestBeep_LP" ID="{D26E075D-495B-48D7-B510-B2EC8288DC44}"/>
+				<Event Name="Play_Stop_TestBeep_LP" ID="{D245AC10-DDE8-4954-98FB-3D348B43417E}"/>
+				<Event Name="Play_TestBeep_3D_LP" ID="{AA3971C7-A8B8-4E95-80BB-A7A246363319}"/>
+				<Event Name="Play_Stop_TestBeep_3D_LP" ID="{7BC27E9F-4800-4DFA-A0AD-0E86E7D38A6A}"/>
+				<Event Name="Play_TestShoot" ID="{8BCB5F8D-9C13-4632-BADE-70B3514120CD}">
+					<ChildrenList>
+						<Action Name="" ID="{87F1B6DC-7404-4562-8497-813EFD6972B4}" ShortID="952782723">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="0.1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC-TEST_Shoot" ID="{B067CE6D-9C8A-4C72-B1BB-9481A1907443}" WorkUnitID="{EDCCC98A-53E3-4B07-AD37-DEC1D50B08E0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_AMB_BlendTest" ID="{EE164405-B437-428C-849B-13957839FD6B}">
+					<ChildrenList>
+						<Action Name="" ID="{32C14C62-67F3-4BCB-A96C-27E01B767833}" ShortID="53134440">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="AMB_BlendTest" ID="{C591FEF8-E57C-4F60-BB9C-8439DDE83416}" WorkUnitID="{EDCCC98A-53E3-4B07-AD37-DEC1D50B08E0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
