@@ -76,10 +76,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -283,8 +283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20fab25f882370549b0c3f4d8cca263c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shootPoint: {fileID: 8110121224176825581}
   _meshPivot: {fileID: 8849064851254775497}
-  _animationStateName: Pistol_Aim
+  _animationStateName: Minigun_Aim
   _projectile: {fileID: 6403736433643166296, guid: d49a1cea79879ec4d83dfedacc23edbf,
     type: 3}
   _stat:
@@ -344,6 +345,9 @@ MonoBehaviour:
     constantValue: 0
     variable: {fileID: 11400000, guid: 47bc48892735f8842a7068fc962064df, type: 2}
   _gatlingMunitionsText: {fileID: 2153564791326878620}
+  _cannonRotate: {fileID: 4836171602984522062}
+  _passiveRotateSpeed: 100
+  _activeRotateSpeed: 1000
 --- !u!114 &2889685188999926782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,6 +397,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &6202101291721092976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8110121224176825581}
+  m_Layer: 17
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8110121224176825581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202101291721092976}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.06, z: 0.213}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8849064851254775497}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6254499568128965529
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +951,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8462650375083732511}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: bcd64ebb45164e84d83c1c91f623a945,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8110121224176825581}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8426376700034278119, guid: bcd64ebb45164e84d83c1c91f623a945,
         type: 3}
