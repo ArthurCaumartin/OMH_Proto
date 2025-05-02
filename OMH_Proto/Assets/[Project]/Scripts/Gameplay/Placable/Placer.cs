@@ -9,6 +9,7 @@ public class Placer : MonoBehaviour
 {
     public bool DEBUG = true;
     [SerializeField] private Transform _playerTransform;
+    [SerializeField] private Seller _seller;
     [SerializeField] private Grid _levelGrid;
     [SerializeField] private LayerMask _aimLayer;
     [SerializeField] private FloatReference _range;
@@ -40,6 +41,7 @@ public class Placer : MonoBehaviour
             return;
         }
 
+
         // if (_ressourceCondition)
         // {
         //     if (_ressourceCondition.Value - _placableList[index].cost.Value < 0)
@@ -47,6 +49,8 @@ public class Placer : MonoBehaviour
         //         return;
         //     }
         // }
+
+        _seller.EnableSellMode(false);
 
         //* If Player selecte a placable allready select
         if (_oldPlacableIndex == index)
@@ -62,7 +66,7 @@ public class Placer : MonoBehaviour
         }
     }
 
-    private void UnSelect()
+    public void UnSelect()
     {
         _onShowGrid.Raise(false);
         _onShowRails.Raise(false);
