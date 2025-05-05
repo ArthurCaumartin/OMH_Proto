@@ -31,7 +31,7 @@ public class PlayerInteract : MonoBehaviour
                 if (_nearestInteractible == null) return;
                 _interactText.text = _nearestInteractible._textToInteract;
             }
-            else Debug.Log("! Interactible Text not Set in Player Interact !");
+            // else Debug.Log("! Interactible Text not Set in Player Interact !");
         }
     }
 

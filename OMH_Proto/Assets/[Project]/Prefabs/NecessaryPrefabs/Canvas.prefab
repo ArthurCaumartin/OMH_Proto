@@ -12455,9 +12455,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4144615001120201699}
-        m_TargetAssemblyTypeName: Placer, Assembly-CSharp
-        m_MethodName: OnSelectPlacable3
+      - m_Target: {fileID: 858407687400097773}
+        m_TargetAssemblyTypeName: Seller, Assembly-CSharp
+        m_MethodName: ToogleSeller
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18117,7 +18117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2996139579253323673
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19172,6 +19172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3384020329176018084}
   - component: {fileID: 4144615001120201699}
+  - component: {fileID: 858407687400097773}
   - component: {fileID: 8149221885356125278}
   - component: {fileID: 5466488827181204153}
   - component: {fileID: 1379962189873945929}
@@ -19219,6 +19220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DEBUG: 1
   _playerTransform: {fileID: 0}
+  _seller: {fileID: 858407687400097773}
   _levelGrid: {fileID: 0}
   _aimLayer:
     serializedVersion: 2
@@ -19239,6 +19241,40 @@ MonoBehaviour:
   _button1Image: {fileID: 587788305727834736}
   _button2Image: {fileID: 4056136921621733509}
   _button3Image: {fileID: 782458823263785717}
+--- !u!114 &858407687400097773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8146071135723517457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d22c6089571e5043b72b94a6aa770ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DEBUG: 0
+  _metalQuantity:
+    propertyType: 0
+    constantValue: 0
+    variable: {fileID: 0}
+  _sellerSelectorVisualPrefab: {fileID: 9104800244571238175, guid: 80653118f32cfd141a02d9eda4643fe1,
+    type: 3}
+  _hoverColor: {r: 0, g: 1, b: 0.015245676, a: 1}
+  _notHoverColor: {r: 1, g: 0, b: 0, a: 1}
+  _range:
+    propertyType: 0
+    constantValue: 10
+    variable: {fileID: 0}
+  _speed: 10
+  _playerTransform: {fileID: 0}
+  _placer: {fileID: 4144615001120201699}
+  _aimLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  _onPlacableSelect: {fileID: 11400000, guid: 7e3f7cdc18d30694580c93e9d564106d, type: 2}
+  _onShowGrid: {fileID: 11400000, guid: f91852699f7243d479966da1376ad54b, type: 2}
+  _onShowRails: {fileID: 11400000, guid: feb028408e19480498c3fea095502589, type: 2}
 --- !u!114 &8149221885356125278
 MonoBehaviour:
   m_ObjectHideFlags: 0

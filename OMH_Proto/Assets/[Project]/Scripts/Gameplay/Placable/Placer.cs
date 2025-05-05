@@ -107,6 +107,7 @@ public class Placer : MonoBehaviour
                                 , WorldToCellConvert(MouseAimPosition(_ghostPlacable.transform.position))
                                 , _ghostPlacable.transform.rotation);
         _onPlacePrefab.Invoke(newPrefab);
+        newPrefab.AddComponent<CostBackup>().costBackup = _ghostPlacable.cost.Value;
     }
 
     private void Update()

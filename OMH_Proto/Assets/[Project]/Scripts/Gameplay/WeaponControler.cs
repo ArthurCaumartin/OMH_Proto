@@ -30,7 +30,7 @@ public class WeaponControler : MonoBehaviour
 
         _playerAnimation = GetComponent<PlayerAnimation>();
 
-        Debug.Assert(_uiWeapon != null, "UI Weapon is not set in WeaponControler on Player");
+        // Debug.Assert(_uiWeapon != null, "UI Weapon is not set in WeaponControler on Player");
 
         GetAllChildWeapon();
     }
