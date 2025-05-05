@@ -41,6 +41,7 @@ public class Placer : MonoBehaviour
             return;
         }
 
+        _seller.EnableSellMode(false);
 
         // if (_ressourceCondition)
         // {
@@ -50,7 +51,6 @@ public class Placer : MonoBehaviour
         //     }
         // }
 
-        _seller.EnableSellMode(false);
 
         //* If Player selecte a placable allready select
         if (_oldPlacableIndex == index)
@@ -70,7 +70,7 @@ public class Placer : MonoBehaviour
     {
         _onShowGrid.Raise(false);
         _onShowRails.Raise(false);
-        
+
         if (!_ghostPlacable) return;
         _ghostPlacable.ClearPlacable();
         Destroy(_ghostPlacable.gameObject);
@@ -138,7 +138,7 @@ public class Placer : MonoBehaviour
         invPlayerDir = invPlayerDir.normalized;
         invPlayerDir.x = Mathf.Round(invPlayerDir.x);
         invPlayerDir.z = Mathf.Round(invPlayerDir.z);
-        if(invPlayerDir.x != 0) invPlayerDir.z = 0;
+        if (invPlayerDir.x != 0) invPlayerDir.z = 0;
 
         _ghostPlacable.transform.forward = invPlayerDir;
         _ghostPlacable.transform.position = WorldToCellConvert(MouseAimPosition(_ghostPlacable.transform.position));
@@ -203,10 +203,10 @@ public class Placer : MonoBehaviour
             StartCoroutine(NotEnoughMaterials(2));
             return;
         }
-        
+
         UnSelect();
-        _onShowRails.Raise();
         Select(2);
+        _onShowRails.Raise();
     }
     public void OnSelectPlacable2()
     {
@@ -215,10 +215,10 @@ public class Placer : MonoBehaviour
             StartCoroutine(NotEnoughMaterials(0));
             return;
         }
-        
+
         UnSelect();
-        _onShowGrid.Raise();
         Select(0);
+        _onShowGrid.Raise();
     }
     public void OnSelectPlacable3()
     {
@@ -227,20 +227,20 @@ public class Placer : MonoBehaviour
             StartCoroutine(NotEnoughMaterials(1));
             return;
         }
-        
+
         UnSelect();
-        _onShowGrid.Raise();
         Select(1);
+        _onShowGrid.Raise();
     }
 
     private IEnumerator NotEnoughMaterials(int index)
     {
-        if(index == 0) _button1Image.color = Color.red;
-        if(index == 1) _button2Image.color = Color.red;
-        if(index == 2) _button3Image.color = Color.red;
+        if (index == 0) _button1Image.color = Color.red;
+        if (index == 1) _button2Image.color = Color.red;
+        if (index == 2) _button3Image.color = Color.red;
         yield return new WaitForSeconds(0.25f);
-        if(index == 0) _button1Image.color = Color.white;
-        if(index == 1) _button2Image.color = Color.white;
-        if(index == 2) _button3Image.color = Color.white;
+        if (index == 0) _button1Image.color = Color.white;
+        if (index == 1) _button2Image.color = Color.white;
+        if (index == 2) _button3Image.color = Color.white;
     }
 }
