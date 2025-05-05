@@ -100,14 +100,16 @@ public class Placer : MonoBehaviour
             newPrefab = Instantiate(_ghostPlacable.PrefabToPlace //! l'enchainement de converstion (dsl le moi du future)
                         , _railUnderMouse.GetNearestPosition(MouseAimPosition(_ghostPlacable.transform.position))
                         , _ghostPlacable.transform.rotation);
+            newPrefab.AddComponent<CostBackup>().costBackup = _ghostPlacable.cost.Value;
+            _onPlacePrefab.Invoke(newPrefab);
             return;
         }
 
         newPrefab = Instantiate(_ghostPlacable.PrefabToPlace
                                 , WorldToCellConvert(MouseAimPosition(_ghostPlacable.transform.position))
                                 , _ghostPlacable.transform.rotation);
-        _onPlacePrefab.Invoke(newPrefab);
         newPrefab.AddComponent<CostBackup>().costBackup = _ghostPlacable.cost.Value;
+        _onPlacePrefab.Invoke(newPrefab);
     }
 
     private void Update()
