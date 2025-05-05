@@ -104,8 +104,8 @@ public class PlayerAnimation : MonoBehaviour
         _animator.SetBool("IsWalking", _currentMovementAnimationState == MovementAnimationState.Walking);
     }
 
-    public void SetWeaponAnimation(int stateHash)
+    public void SetWeaponAnimation(string stateName)
     {
-        _animator.Play(stateHash);
+        _animator.Play(stateName);
     }
 }

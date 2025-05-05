@@ -8,7 +8,6 @@ public class Projectile : MonoBehaviour
     [SerializeField] private GameObject _shootEffect;
     [SerializeField] private FloatReference _effectPropagationRange;
     [SerializeField] private LayerMask _effectLayer;
-    [SerializeField] private LayerMask _projectileLayer;
     private float _speed;
     private float _damage;
     private GameObject _shooter;
@@ -59,6 +58,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.layer == 15)
+            Destroy(gameObject);
+
         IDamageable damagable = other.gameObject.GetComponent<MobLife>();
         if (damagable != null)
         {

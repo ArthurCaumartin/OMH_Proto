@@ -8,10 +8,13 @@ public class PlayerAim : MonoBehaviour
     [SerializeField] private Transform _aimContainer;
     [SerializeField] private FloatReference _aimSpeed;
     private Vector3 _mouseWorldPos;
+    private Vector3 _worldMouseDirection;
     private CameraControler _camControler;
     private InputAction _aimInputAction;
-    private Vector3 _aimVelocity; 
+    private Vector3 _aimVelocity;
     private Camera _mainCamera;
+
+    public Vector3 WorldMouseDirection { get => _worldMouseDirection; }
 
     private void Start()
     {
@@ -51,12 +54,12 @@ public class PlayerAim : MonoBehaviour
                                 , Color.red);
 
         _mouseWorldPos = Vector3.SmoothDamp(_mouseWorldPos, hit.point, ref _aimVelocity, 1 / _aimSpeed.Value, Mathf.Infinity);
-        Vector3 worldMouseDirection = (_mouseWorldPos - transform.position).normalized;
-        worldMouseDirection.y = 0;
+        _worldMouseDirection = (_mouseWorldPos - transform.position).normalized;
+        _worldMouseDirection.y = 0;
 
         //TODO integrer la distance joueur / _mouseWorldPos 
-        _camControler?.SetInputOffSet(worldMouseDirection);
-        _aimContainer.forward = worldMouseDirection;
+        _camControler?.SetInputOffSet(_worldMouseDirection);
+        _aimContainer.forward = _worldMouseDirection;
     }
 
     // private void ControlerAim()
