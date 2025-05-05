@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class Seller : MonoBehaviour
 {
     public bool DEBUG = false;
-    [SerializeField] private FloatReference _metalQuantity;
+    [SerializeField] private FloatVariable _metalQuantity;
     [SerializeField] private Transform _sellerSelectorVisualPrefab;
     [SerializeField] private Color _hoverColor;
     [SerializeField] private Color _notHoverColor;
@@ -43,7 +43,7 @@ public class Seller : MonoBehaviour
 
     public void EnableSellMode(bool value)
     {
-        print("Enable Sell Mode : " + value);
+        // print("Enable Sell Mode : " + value);
         _isEnable = value;
         _placer.UnSelect();
         _selectorVisual.gameObject.SetActive(value);
@@ -79,7 +79,8 @@ public class Seller : MonoBehaviour
     {
         if (_nearestSellable)
         {
-            _metalQuantity.Value += _nearestSellable.costBackup / 2;
+            _metalQuantity.Value += _nearestSellable.GetCostOnHealth();
+            _nearestSellable.GetComponentInChildren<DisolveEffect>().Disolve(true, true);
             Destroy(_nearestSellable.gameObject);
             EnableSellMode(false);
         }
@@ -103,6 +104,7 @@ public class Seller : MonoBehaviour
             }
         }
 
+        // print("BacupToReturn : " + toReturn?.name);
         return toReturn;
     }
 
