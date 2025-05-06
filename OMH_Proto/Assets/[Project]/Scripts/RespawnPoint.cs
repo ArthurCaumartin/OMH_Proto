@@ -8,7 +8,8 @@ using UnityEngine;
 public class RespawnPoint : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    [SerializeField] private TextMeshProUGUI _countText;
+    [SerializeField] private string _stateName;
+    [SerializeField] private TextMeshPro _countText;
 
     private void Start()
     {
@@ -17,7 +18,7 @@ public class RespawnPoint : MonoBehaviour
 
     public void StartVisualSequence(float duration)
     {
-        _animator.Play("Respawn_sequence");
+        _animator.Play(_stateName);
         _countText.gameObject.SetActive(true);
         DOTween.To((time) =>
         {

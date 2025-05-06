@@ -36,7 +36,7 @@ public class Seller : MonoBehaviour
         _selectorVisual = Instantiate(_sellerSelectorVisualPrefab);
 
         _selectorLight = _selectorVisual.GetComponentInChildren<Light>();
-        _selectorRenderer = _selectorVisual.GetComponentInChildren<Renderer>();
+        _selectorRenderer = _selectorVisual.GetComponentInChildren<MeshRenderer>();
 
         EnableSellMode(false);
     }
