@@ -15,6 +15,7 @@ public class BalanceProfile : ScriptableObject
         containerList.Add(new SetterContainer("Player"));
         containerList.Add(new SetterContainer("Defense"));
         containerList.Add(new SetterContainer("Mobs"));
+        containerList.Add(new SetterContainer("Armor"));
         containerList.Add(new SetterContainer("Time"));
     }
 
