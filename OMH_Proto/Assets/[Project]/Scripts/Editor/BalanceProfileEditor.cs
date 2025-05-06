@@ -4,7 +4,8 @@ using UnityEngine;
 [CustomEditor(typeof(BalanceProfile)), CanEditMultipleObjects]
 public class BalanceProfileEditor : Editor
 {
-    public bool verif = false;
+    public bool verifBakeConst = false;
+    public bool verifBakeVariable = false;
     public override void OnInspectorGUI()
     {
         GUILayout.Space(10);
@@ -12,24 +13,54 @@ public class BalanceProfileEditor : Editor
         if (GUILayout.Button("Copy Template")) balanceProfile.CopyTemplate();
         GUILayout.Space(10);
         base.OnInspectorGUI();
-        if (GUILayout.Button("Bake Values")) balanceProfile.BakeValues();
         GUILayout.Space(10);
+        BakeVariable(balanceProfile);
         GUILayout.Space(10);
-        GUILayout.Space(10);
-        if (!verif)
+        BakeConst(balanceProfile);
+    }
+
+    private void BakeVariable(BalanceProfile balanceProfile)
+    {
+        if (!verifBakeVariable)
         {
-            if (GUILayout.Button("Set Constant With Variable"))
+            if (GUILayout.Button("Bake Variable with Constant"))
             {
-                verif = true;
+                verifBakeVariable = true;
             }
         }
         else
         {
+            GUILayout.BeginHorizontal();
             if (GUILayout.Button("Sure ?"))
             {
-                verif = false;
+                verifBakeVariable = false;
+                balanceProfile.BakeValues();
+            }
+            if (GUILayout.Button("Cancel"))
+                verifBakeVariable = false;
+            GUILayout.EndHorizontal();
+        }
+    }
+    private void BakeConst(BalanceProfile balanceProfile)
+    {
+        if (!verifBakeConst)
+        {
+            if (GUILayout.Button("Bake Constant With Variable"))
+            {
+                verifBakeConst = true;
+            }
+        }
+        else
+        {
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Sure ?"))
+            {
+                verifBakeConst = false;
                 balanceProfile.BakeConstantWithVariable();
             }
+            if (GUILayout.Button("Cancel"))
+                verifBakeConst = false;
+            GUILayout.EndHorizontal();
         }
     }
 }
