@@ -15,17 +15,18 @@ public class ScreenHider : MonoBehaviour
         instance = this;
     }
 
-    public void HideScreenForDuration(float hideDuration, float fadeDuration, Action toDoAfter = null)
+    public void HideScreenForDuration(float hideDuration, float fadeDuration, Action toDoWhenHide = null, Action toDoAfter = null)
     {
         _imageHider.DOColor(Color.black, fadeDuration);
-        StartCoroutine(SetColorAfterDelay(_imageHider, fadeDuration, hideDuration, new Color(0, 0, 0, 0), toDoAfter));
+        StartCoroutine(SetColorAfterDelay(_imageHider, fadeDuration, hideDuration, new Color(0, 0, 0, 0), toDoWhenHide, toDoAfter));
     }
 
-    private IEnumerator SetColorAfterDelay(Image image, float fadeDuration, float delay, Color color, Action toDoAfter = null)
+    private IEnumerator SetColorAfterDelay(Image image, float fadeDuration, float delay, Color color, Action toDoWhenHide = null, Action toDoAfter = null)
     {
         yield return new WaitForSeconds(delay / 2);
-        toDoAfter?.Invoke();
+        toDoWhenHide?.Invoke();
         yield return new WaitForSeconds(delay / 2);
-        image.DOColor(color, fadeDuration);
+        image.DOColor(color, fadeDuration)
+        .OnComplete(() => toDoAfter?.Invoke());
     }
 }

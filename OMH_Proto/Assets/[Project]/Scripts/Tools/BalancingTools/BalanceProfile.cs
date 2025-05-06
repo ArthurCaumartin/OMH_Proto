@@ -15,6 +15,7 @@ public class BalanceProfile : ScriptableObject
         containerList.Add(new SetterContainer("Player"));
         containerList.Add(new SetterContainer("Defense"));
         containerList.Add(new SetterContainer("Mobs"));
+        containerList.Add(new SetterContainer("Armor"));
         containerList.Add(new SetterContainer("Time"));
     }
 
@@ -52,6 +53,18 @@ public class BalanceProfile : ScriptableObject
         if (!_templateToCopy) return;
         containerList = _templateToCopy.containerList;
         _templateToCopy = null;
+    }
+
+    public void BakeConstantWithVariable()
+    {
+        for (int i = 0; i < containerList.Count; i++)
+        {
+            for (int j = 0; j < containerList[i].setterList.Count; j++)
+            {
+                if (containerList[i].setterList[j].variable)
+                    containerList[i].setterList[j].constant = containerList[i].setterList[j].variable.Value;
+            }
+        }
     }
 }
 

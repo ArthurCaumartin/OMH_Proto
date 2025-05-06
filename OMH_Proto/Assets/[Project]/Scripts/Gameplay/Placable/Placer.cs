@@ -9,6 +9,7 @@ public class Placer : MonoBehaviour
 {
     public bool DEBUG = true;
     [SerializeField] private Transform _playerTransform;
+    [SerializeField] private Seller _seller;
     [SerializeField] private Grid _levelGrid;
     [SerializeField] private LayerMask _aimLayer;
     [SerializeField] private FloatReference _range;
@@ -40,6 +41,8 @@ public class Placer : MonoBehaviour
             return;
         }
 
+        _seller.EnableSellMode(false);
+
         // if (_ressourceCondition)
         // {
         //     if (_ressourceCondition.Value - _placableList[index].cost.Value < 0)
@@ -47,6 +50,7 @@ public class Placer : MonoBehaviour
         //         return;
         //     }
         // }
+
 
         //* If Player selecte a placable allready select
         if (_oldPlacableIndex == index)
@@ -62,11 +66,11 @@ public class Placer : MonoBehaviour
         }
     }
 
-    private void UnSelect()
+    public void UnSelect()
     {
         _onShowGrid.Raise(false);
         _onShowRails.Raise(false);
-        
+
         if (!_ghostPlacable) return;
         _ghostPlacable.ClearPlacable();
         Destroy(_ghostPlacable.gameObject);
@@ -96,12 +100,15 @@ public class Placer : MonoBehaviour
             newPrefab = Instantiate(_ghostPlacable.PrefabToPlace //! l'enchainement de converstion (dsl le moi du future)
                         , _railUnderMouse.GetNearestPosition(MouseAimPosition(_ghostPlacable.transform.position))
                         , _ghostPlacable.transform.rotation);
+            newPrefab.AddComponent<CostBackup>().costBackup = _ghostPlacable.cost.Value;
+            _onPlacePrefab.Invoke(newPrefab);
             return;
         }
 
         newPrefab = Instantiate(_ghostPlacable.PrefabToPlace
                                 , WorldToCellConvert(MouseAimPosition(_ghostPlacable.transform.position))
                                 , _ghostPlacable.transform.rotation);
+        newPrefab.AddComponent<CostBackup>().costBackup = _ghostPlacable.cost.Value;
         _onPlacePrefab.Invoke(newPrefab);
     }
 
@@ -133,7 +140,7 @@ public class Placer : MonoBehaviour
         invPlayerDir = invPlayerDir.normalized;
         invPlayerDir.x = Mathf.Round(invPlayerDir.x);
         invPlayerDir.z = Mathf.Round(invPlayerDir.z);
-        if(invPlayerDir.x != 0) invPlayerDir.z = 0;
+        if (invPlayerDir.x != 0) invPlayerDir.z = 0;
 
         _ghostPlacable.transform.forward = invPlayerDir;
         _ghostPlacable.transform.position = WorldToCellConvert(MouseAimPosition(_ghostPlacable.transform.position));
@@ -198,10 +205,10 @@ public class Placer : MonoBehaviour
             StartCoroutine(NotEnoughMaterials(2));
             return;
         }
-        
+
         UnSelect();
-        _onShowRails.Raise();
         Select(2);
+        _onShowRails.Raise();
     }
     public void OnSelectPlacable2()
     {
@@ -210,10 +217,10 @@ public class Placer : MonoBehaviour
             StartCoroutine(NotEnoughMaterials(0));
             return;
         }
-        
+
         UnSelect();
-        _onShowGrid.Raise();
         Select(0);
+        _onShowGrid.Raise();
     }
     public void OnSelectPlacable3()
     {
@@ -222,20 +229,20 @@ public class Placer : MonoBehaviour
             StartCoroutine(NotEnoughMaterials(1));
             return;
         }
-        
+
         UnSelect();
-        _onShowGrid.Raise();
         Select(1);
+        _onShowGrid.Raise();
     }
 
     private IEnumerator NotEnoughMaterials(int index)
     {
-        if(index == 0) _button1Image.color = Color.red;
-        if(index == 1) _button2Image.color = Color.red;
-        if(index == 2) _button3Image.color = Color.red;
+        if (index == 0) _button1Image.color = Color.red;
+        if (index == 1) _button2Image.color = Color.red;
+        if (index == 2) _button3Image.color = Color.red;
         yield return new WaitForSeconds(0.25f);
-        if(index == 0) _button1Image.color = Color.white;
-        if(index == 1) _button2Image.color = Color.white;
-        if(index == 2) _button3Image.color = Color.white;
+        if (index == 0) _button1Image.color = Color.white;
+        if (index == 1) _button2Image.color = Color.white;
+        if (index == 2) _button3Image.color = Color.white;
     }
 }

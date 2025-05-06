@@ -20,9 +20,13 @@ public class InteractibleNest : Interactible
     private bool _isNestActive;
     public static bool _isPlayerInRangeForEncounter;
     private float _timerNest, _timerSpawnMob, _timeToSpawn;
+    private BoxCollider _boxCollider;
 
     private void Awake()
     {
+        _boxCollider = GetComponent<BoxCollider>();
+        _boxCollider.enabled = false;
+        
         _timeToSpawn = Random.Range(_timeMinSpawn, _timeMaxSpawn);
         _isPlayerInRangeForEncounter = false;
     }
@@ -45,7 +49,8 @@ public class InteractibleNest : Interactible
         object2Material.SetFloat("_infested", 0);
         enabled = false;
 
-        // Destroy(gameObject);
+        _boxCollider.enabled = false;
+        Destroy(this);
     }
 
     public virtual void Update()
@@ -99,6 +104,7 @@ public class InteractibleNest : Interactible
     public void ActivateNest()
     {
         _isNestActive = true;
+        _boxCollider.enabled = true;
         
         if(_eggMesh != null) _eggMesh.SetActive(true);
         Material object1Material = _doorObject1.GetComponent<MeshRenderer>().material;

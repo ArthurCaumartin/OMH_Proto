@@ -21,7 +21,7 @@ public class SubmachineGun : Weapon
         if (_bulletsHeat > _maxHeatBullets) _bulletsHeat = _maxHeatBullets;
         _heatMultiplier = _heatMultiplier + _bulletsHeat / _maxHeatBullets;
 
-        Projectile newProj = Instantiate(_projectile, transform.position, transform.rotation);
+        Projectile newProj = Instantiate(_projectile, _shootPoint.position, transform.rotation);
         newProj.Initialize(_parentShooter, _stat.projectileSpeed.Value, _stat.damage.Value);
 
         float randomAngle = Random.Range(-_spreadAngle.Value, _spreadAngle.Value);
