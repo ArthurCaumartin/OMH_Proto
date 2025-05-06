@@ -11,7 +11,7 @@ public class FadeInStartScene : MonoBehaviour
     void Start()
     {
         _image = GetComponent<Image>();
-        
+        _image.color = new Color(0, 0, 0, 1);
         _image.DOFade(0, 1f);
     }
 
