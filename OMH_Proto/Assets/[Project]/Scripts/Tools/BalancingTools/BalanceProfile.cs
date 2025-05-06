@@ -53,6 +53,18 @@ public class BalanceProfile : ScriptableObject
         containerList = _templateToCopy.containerList;
         _templateToCopy = null;
     }
+
+    public void BakeConstantWithVariable()
+    {
+        for (int i = 0; i < containerList.Count; i++)
+        {
+            for (int j = 0; j < containerList[i].setterList.Count; j++)
+            {
+                if (containerList[i].setterList[j].variable)
+                    containerList[i].setterList[j].constant = containerList[i].setterList[j].variable.Value;
+            }
+        }
+    }
 }
 
 
