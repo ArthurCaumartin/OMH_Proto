@@ -70,7 +70,7 @@ public class SlideAnimator : MonoBehaviour
     {
         if (_autoSlider)
         {
-            _sliderTime += Time.deltaTime * .2f;
+            _sliderTime += Time.deltaTime * _speed;
             if (_sliderTime >= 1) _sliderTime = 0;
             _sliderUI.value = _sliderTime;
         }
@@ -86,18 +86,18 @@ public class SlideAnimator : MonoBehaviour
             return;
         }
 
-        _animator.Play(_slideData[_currentIndex].name, 0, GetClipTime(_currentIndex));
+        _animator.Play(_slideData[_currentIndex].name, 0, GetClipTime(_slideData, _currentIndex, _sliderTime));
     }
 
-    private float GetClipTime(int index)
+    private float GetClipTime(List<SlideData> data, int index, float time)
     {
         float maxRemapValue = 0;
-        if (index + 1 >= _slideData.Count)
+        if (index + 1 >= data.Count)
             maxRemapValue = 1;
         else
-            maxRemapValue = _slideData[index + 1].startTime;
+            maxRemapValue = data[index + 1].startTime;
 
-        return Mathf.InverseLerp(_slideData[index].startTime, maxRemapValue, _sliderTime);
+        return Mathf.InverseLerp(data[index].startTime, maxRemapValue, time);
     }
 
     private int GetIndexOnSliderTime(List<SlideData> data, float sliderTime)
@@ -114,7 +114,7 @@ public class SlideAnimator : MonoBehaviour
 
             if (data[i + 1].startTime > sliderTime)
             {
-                print($"Clip {data[i].name} index = {i}");
+                // print($"Clip {data[i].name} index = {i}");
                 return i;
             }
         }
