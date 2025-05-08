@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float _pushForce = 5;
     [SerializeField] private GameObject _shootEffect;
     [SerializeField] private FloatReference _effectPropagationRange;
+    [SerializeField] private LayerMask _wallLayer;
     [SerializeField] private LayerMask _effectLayer;
     private float _speed;
     private float _damage;
@@ -16,6 +17,8 @@ public class Projectile : MonoBehaviour
 
     public Projectile Initialize(GameObject shooter, float speed, float damage)
     {
+        print(name + " Initialize");
+
         _shooter = shooter;
         _speed = speed;
         _damage = damage;
@@ -28,24 +31,18 @@ public class Projectile : MonoBehaviour
         return this;
     }
 
-    // private void FixedUpdate()
-    // {
-    //     Physics.Linecast(transform.position, _lastFramePosition, out RaycastHit hit, _projectileLayer);
-    //     if (hit.collider)
-    //     {
-    //         // print("Hit " + hit.collider.gameObject.name);
-    //         IDamageable damagable = hit.collider.gameObject.GetComponent<MobLife>();
-    //         if (damagable != null)
-    //         {
-    //             damagable?.TakeDamages(_shooter, _damage, DamageType.Unassigned);
-    //             if (_shootEffect) AddShootEffect();
-    //         }
+    // faut encore fix les proj
+    // en raycast y depase les mob
+    // en collider c chaud de filtrer les layer
 
-    //         Destroy(gameObject);
-    //     }
+    private void FixedUpdate()
+    {
+        Physics.Linecast(transform.position, _lastFramePosition, out RaycastHit hit, _wallLayer);
+        if (hit.collider)
+            Destroy(gameObject);
 
-    //     _lastFramePosition = _rb.position;
-    // }
+        _lastFramePosition = _rb.position;
+    }
 
 
     public void AddShootEffect()
@@ -58,11 +55,8 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 15)
-            Destroy(gameObject);
-
         IDamageable damagable = other.gameObject.GetComponent<MobLife>();
-        if (damagable != null)
+        if (damagable != null && other.tag != "Defenses")
         {
             Rigidbody otherRb = other.GetComponent<Rigidbody>();
             if (_pushForce != 0) otherRb.AddForce(transform.forward * _pushForce, ForceMode.Impulse);

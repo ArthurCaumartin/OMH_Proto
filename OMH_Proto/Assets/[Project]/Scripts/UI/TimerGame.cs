@@ -13,7 +13,7 @@ public class TimerGame : MonoBehaviour
     private float _timer;
     private int _intCounter;
 
-    private bool _isDefenseStarted;
+    private bool _isDefenseStarted, _isTimerStarted;
     
     void Start()
     {
@@ -80,7 +80,9 @@ public class TimerGame : MonoBehaviour
 
     public void StartDefense()
     {
+        if (_isTimerStarted) return;
         Debug.LogWarning("SET TIMER IN RED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        _isTimerStarted = true;
         
         _isDefenseStarted = true;
         _timerText.color = _colorTextDefense;

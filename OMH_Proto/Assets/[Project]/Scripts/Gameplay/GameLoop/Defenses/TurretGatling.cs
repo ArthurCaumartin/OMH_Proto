@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class TurretGatling : TurretCannon
@@ -19,9 +20,21 @@ public class TurretGatling : TurretCannon
 
     [Tooltip("Time between decreasing charge when not firing")]
     [SerializeField] private float _timeToDecreaseCharge = 0.5f;
+    [Space]
+    [SerializeField] private Transform _hat;
+    [SerializeField] private WeaponVisual _weaponVisual;
 
     private int _bulletCounter = 0;
     private float _counterDecrease;
+    private float _fullShootSpeedMultiplier;
+    private Vector3 _cannonMeshStartPos;
+    private Vector3 _hatMeshStartPos;
+
+    public void Start()
+    {
+        _cannonMeshStartPos = _canonMeshPivot.localPosition;
+        _hatMeshStartPos = _hat.localPosition;
+    }
 
     public override void Update()
     {
@@ -55,17 +68,37 @@ public class TurretGatling : TurretCannon
 
         _bulletCounter++;
         _counterDecrease = 0;
+
+        print("Turret triger visual");
+        _weaponVisual.PlayVisual(Vector3.one * .8f);
+        CannonAnimation();
     }
 
     protected override void ComputeShootTime()
     {
-        float fullShootSpeedMultiplier = Mathf.Lerp(_attackSpeedAtMinCharge, _attackSpeedAtMaxCharge, Mathf.InverseLerp(0, _bulletsMaxCharge, _bulletCounter));
+        _fullShootSpeedMultiplier = Mathf.Lerp(_attackSpeedAtMinCharge, _attackSpeedAtMaxCharge, Mathf.InverseLerp(0, _bulletsMaxCharge, _bulletCounter));
 
         _shootTime += Time.deltaTime;
-        if (_shootTime > 1 / (_stat.attackPerSecond.Value * (_attackSpeedMultiplier * fullShootSpeedMultiplier)))
+        if (_shootTime > 1 / (_stat.attackPerSecond.Value * (_attackSpeedMultiplier * _fullShootSpeedMultiplier)))
         {
             _shootTime = 0;
             Shoot();
         }
+    }
+
+
+    private void CannonAnimation()
+    {
+        float duration = 1 / (_stat.attackPerSecond.Value * (_attackSpeedMultiplier * _fullShootSpeedMultiplier));
+        // duration /= 4;
+
+        duration = Mathf.Clamp(duration, 0, .1f);
+
+        //! .002
+        _canonMeshPivot.DOLocalMove(_cannonMeshStartPos - (_canonMeshPivot.forward * .002f), duration / 2)
+        .OnComplete(() => { _canonMeshPivot.DOLocalMove(_cannonMeshStartPos, duration / 2); });
+
+        _hat.DOLocalMove(_hatMeshStartPos + (_hat.up * .002f), duration / 4)
+        .OnComplete(() => { _hat.DOLocalMove(_hatMeshStartPos, duration / 4); });
     }
 }
