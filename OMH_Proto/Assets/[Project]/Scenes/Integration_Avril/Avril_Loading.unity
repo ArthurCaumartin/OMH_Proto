@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &287522342 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 404104781738432614, guid: 0f1764957161f1248820655549faeb76,
+    type: 3}
+  m_PrefabInstance: {fileID: 4093276331789402396}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697672b90514e3b44b10917a76f61f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &296107818 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7574343380103991393, guid: 0f1764957161f1248820655549faeb76,
@@ -272,7 +284,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581148637}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 327a94f82d964014c9943449d274cabc, type: 3}
   m_Name: 
@@ -285,6 +297,7 @@ MonoBehaviour:
   - {fileID: 296107818}
   _skipSpeed: 0.5
   _chargeImage: {fileID: 2046085520}
+  _loadingTextSequence: {fileID: 287522342}
 --- !u!4 &581148639
 Transform:
   m_ObjectHideFlags: 0
@@ -606,6 +619,66 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 404104781738432614, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 404104781738432614, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: _sequence.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 404104781738432614, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: _sequence.Array.data[0].name
+      value: Loading
+      objectReference: {fileID: 0}
+    - target: {fileID: 404104781738432614, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: _sequence.Array.data[1].name
+      value: Hold 'Space' To Skip
+      objectReference: {fileID: 0}
+    - target: {fileID: 404104781738432614, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: _sequence.Array.data[0].strings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 404104781738432614, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: _sequence.Array.data[1].strings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 404104781738432614, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: _sequence.Array.data[0].strings.Array.data[0]
+      value: Loading.
+      objectReference: {fileID: 0}
+    - target: {fileID: 404104781738432614, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: _sequence.Array.data[0].strings.Array.data[1]
+      value: Loading..
+      objectReference: {fileID: 0}
+    - target: {fileID: 404104781738432614, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: _sequence.Array.data[0].strings.Array.data[2]
+      value: Loading...
+      objectReference: {fileID: 0}
+    - target: {fileID: 404104781738432614, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: _sequence.Array.data[1].strings.Array.data[0]
+      value: Hold 'Space' To Skip.
+      objectReference: {fileID: 0}
+    - target: {fileID: 404104781738432614, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: _sequence.Array.data[1].strings.Array.data[1]
+      value: Hold 'Space' To Skip..
+      objectReference: {fileID: 0}
+    - target: {fileID: 404104781738432614, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: _sequence.Array.data[1].strings.Array.data[2]
+      value: Hold 'Space' To Skip...
+      objectReference: {fileID: 0}
     - target: {fileID: 3862320759541447139, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
       propertyPath: m_Color.b
@@ -770,6 +843,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130498586696804469, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130498586696804469, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
