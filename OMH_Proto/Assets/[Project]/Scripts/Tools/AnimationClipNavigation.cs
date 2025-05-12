@@ -1,20 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
-public class SlideData
+public class StepData
 {
     [HideInInspector] public string name;
     public float length;
     public float startSecond;
     public float startTime;
 
-    public SlideData(string name, float length, float startSecond, float startTime = 0)
+    public StepData(string name, float length, float startSecond, float startTime = 0)
     {
         this.name = name;
         this.length = length;
@@ -23,17 +21,16 @@ public class SlideData
     }
 }
 
-public class SlideAnimator : MonoBehaviour
+public class AnimationClipNavigation : MonoBehaviour
 {
     [SerializeField] private Slider _sliderUI;
     [SerializeField] private float _speed = .2f;
     [SerializeField, Range(0, 1)] private float _sliderTime;
     [SerializeField] private Animator _animator;
-    [SerializeField] private float _currentSecond;
-    [SerializeField] private float _totalDuration;
-    [SerializeField] private List<SlideData> _slideData;
-    [SerializeField] private int _currentIndex;
-    private bool _autoSlider = true;
+    private float _totalAnimationDuration;
+    private List<StepData> _stepDataList;
+    private int _currentStepIndex;
+    private bool _isAutoSlider = true;
 
     private void Start()
     {
@@ -55,20 +52,20 @@ public class SlideAnimator : MonoBehaviour
                 if (currentIndex == lastFound + 1)
                 {
                     lastFound = currentIndex;
-                    _slideData.Add(new SlideData(tempClips[j].name, _totalDuration, _totalDuration));
-                    _totalDuration += tempClips[j].length;
+                    _stepDataList.Add(new StepData(tempClips[j].name, _totalAnimationDuration, _totalAnimationDuration));
+                    _totalAnimationDuration += tempClips[j].length;
                 }
             }
         }
 
         // set normalize time in a other loop because need total duration
         for (int i = 0; i < rac.animationClips.Length; i++)
-            _slideData[i].startTime = Mathf.InverseLerp(0, _totalDuration, _slideData[i].startSecond);
+            _stepDataList[i].startTime = Mathf.InverseLerp(0, _totalAnimationDuration, _stepDataList[i].startSecond);
     }
 
     void Update()
     {
-        if (_autoSlider)
+        if (_isAutoSlider)
         {
             _sliderTime += Time.deltaTime * _speed;
             if (_sliderTime >= 1) _sliderTime = 0;
@@ -79,17 +76,17 @@ public class SlideAnimator : MonoBehaviour
             _sliderTime = _sliderUI.value;
         }
 
-        _currentIndex = GetIndexOnSliderTime(_slideData, _sliderTime);
-        if (_currentIndex == -1)
+        _currentStepIndex = GetIndexOnSliderTime(_stepDataList, _sliderTime);
+        if (_currentStepIndex == -1)
         {
             print("-1 !!!!!!!!!!!!");
             return;
         }
 
-        _animator.Play(_slideData[_currentIndex].name, 0, GetClipTime(_slideData, _currentIndex, _sliderTime));
+        _animator.Play(_stepDataList[_currentStepIndex].name, 0, GetClipTime(_stepDataList, _currentStepIndex, _sliderTime));
     }
 
-    private float GetClipTime(List<SlideData> data, int index, float time)
+    private float GetClipTime(List<StepData> data, int index, float time)
     {
         float maxRemapValue = 0;
         if (index + 1 >= data.Count)
@@ -100,7 +97,7 @@ public class SlideAnimator : MonoBehaviour
         return Mathf.InverseLerp(data[index].startTime, maxRemapValue, time);
     }
 
-    private int GetIndexOnSliderTime(List<SlideData> data, float sliderTime)
+    private int GetIndexOnSliderTime(List<StepData> data, float sliderTime)
     {
         for (int i = 0; i <= data.Count; i++)
         {
@@ -123,6 +120,6 @@ public class SlideAnimator : MonoBehaviour
 
     public void EnableAutoSlider(bool value)
     {
-        _autoSlider = value;
+        _isAutoSlider = value;
     }
 }

@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -12,6 +14,7 @@ public class SceneTransitionLoader : MonoBehaviour
     [Space]
     [SerializeField] private float _skipSpeed = .5f;
     [SerializeField] private Image _chargeImage;
+    [SerializeField] private TextSequence _loadingTextSequence;
     private AsyncOperation _asyncLoading;
     private bool _chargeSkip;
     private float _time;
@@ -20,10 +23,17 @@ public class SceneTransitionLoader : MonoBehaviour
     {
         _asyncLoading = SceneManager.LoadSceneAsync(_sceneToLoad, LoadSceneMode.Additive);
         _asyncLoading.allowSceneActivation = false;
-
     }
 
     void Update()
+    {
+        // print(_asyncLoading.progress);
+        if (_asyncLoading.progress >= .9f)
+            _loadingTextSequence.IndexToPlay = 1;
+        ChargeSkip();
+    }
+
+    private void ChargeSkip()
     {
         if (_chargeSkip)
         {
