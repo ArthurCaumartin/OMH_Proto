@@ -14,10 +14,12 @@ public class ButtonMenuHighlight : Selectable, IPointerEnterHandler, IPointerExi
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _text;
     
+    [SerializeField] private UnityEvent _onEnter;
     [SerializeField] private UnityEvent _onClick;
     
     public void OnPointerEnter(PointerEventData eventData)
     {
+        _onEnter.Invoke();
         _image.sprite = _highLightSprite;
         _text.color = _highLightColor;
     }
