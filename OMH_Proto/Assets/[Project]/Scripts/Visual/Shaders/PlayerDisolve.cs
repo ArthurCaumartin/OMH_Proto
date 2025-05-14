@@ -15,12 +15,11 @@ public class PlayerDisolve : MonoBehaviour
     {
         DOTween.To((time) =>
         {
-            print("disolve : " + time);
             SetMatValue(time);
         }, 0, 1, duration);
     }
 
-    private void SetMatValue(float value)
+    public void SetMatValue(float value)
     {
         _anne.SetFloat("_integrite", value);
         _anneArmorDamage.SetFloat("_integrite", value);

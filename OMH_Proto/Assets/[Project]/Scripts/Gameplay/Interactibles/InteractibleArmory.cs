@@ -6,7 +6,7 @@ public class InteractibleArmory : Interactible
 {
     [Space]
     [SerializeField] private GameEvent _onCompleteArmory;
-
+    
     [SerializeField] private GameObject _casierObject;
 
     // [SerializeField] private Sprite _activatedSprite;

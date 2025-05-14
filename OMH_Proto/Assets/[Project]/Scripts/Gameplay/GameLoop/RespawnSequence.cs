@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RespawnSequence : MonoBehaviour
 {
-    [SerializeField] private Transform _respawnPoint;
+    [SerializeField] private RespawnPoint _respawnPoint;
     [SerializeField] private float _gameplayDisableDuration = 5;
     [Space]
     [SerializeField] private GameObject[] _objectToHideArray;
@@ -32,6 +32,7 @@ public class RespawnSequence : MonoBehaviour
 
         _shield.OnDeathEvent.AddListener(Respawn);
     }
+
     private void Respawn()
     {
         _qteControler.KillQTE();
@@ -41,15 +42,20 @@ public class RespawnSequence : MonoBehaviour
             StartCoroutine(DisableAllForDuration(_gameplayDisableDuration));
             ScreenHider.instance?.HideScreenForDuration(1, .3f, () =>
             {
-                _rigidbody.MovePosition(_respawnPoint.position);
+                _playerDisolve.SetMatValue(0);
+                _rigidbody.MovePosition(_respawnPoint.transform.position);
                 _rigidbody.velocity = Vector3.zero;
-                _playerDisolve.ShowPlayerWithDisolve(_gameplayDisableDuration);
+            },
+            () =>
+            {
+                _playerDisolve.ShowPlayerWithDisolve(_gameplayDisableDuration - 1 - .3f);
+                _respawnPoint.StartVisualSequence(_gameplayDisableDuration - 1 - .3f);
             });
         }
         else
         {
             StartCoroutine(DisableAllForDuration(_gameplayDisableDuration));
-            _rigidbody.MovePosition(_respawnPoint.position);
+            _rigidbody.MovePosition(_respawnPoint.transform.position);
         }
     }
 

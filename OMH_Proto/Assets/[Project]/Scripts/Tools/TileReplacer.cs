@@ -7,7 +7,7 @@ public class TileReplacer : MonoBehaviour
     public void RoundPosition()
     {
         Transform[] tList = GetComponentsInChildren<Transform>();
-        Undo.RecordObjects(tList, "tilePos");
+        // Undo.RecordObjects(tList, "tilePos");
         for (int i = 0; i < tList.Length; i++)
         {
             if (tList[i] == transform) continue;

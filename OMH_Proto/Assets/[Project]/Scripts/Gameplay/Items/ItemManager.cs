@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class ItemManager : MonoBehaviour
 {
+    [SerializeField, Tooltip("When checked, select 2 items, when not, select 3 items")] private bool _isBuildB;
+    [Space]
     [SerializeField] private ItemList _commonList, _rareList;
 
     [SerializeField] private ItemStatsContainer _refsStatsContainer, _baseStatsContainer;
@@ -20,6 +22,7 @@ public class ItemManager : MonoBehaviour
 
     public PlayerItemList _playerItemsList;
     private List<ItemScriptable> itemsToSelect = new List<ItemScriptable>();
+    private int _firstItemID, _secondItemID, _thirdItemID;
 
     private void Awake()
     {
@@ -43,21 +46,52 @@ public class ItemManager : MonoBehaviour
         
         itemsToSelect.Clear();
         
-        int tempRandomInt = Random.Range(0, _commonList._itemsList.Count);
-        itemsToSelect.Add(_commonList._itemsList[tempRandomInt]);
-        int tempSecondRandomInt = tempRandomInt;
-        while (tempSecondRandomInt == tempRandomInt)
-        {
-            tempSecondRandomInt = Random.Range(0, _commonList._itemsList.Count);
-        }
-        itemsToSelect.Add(_commonList._itemsList[tempSecondRandomInt]);
+        //1st item
+        _firstItemID = Random.Range(0, _commonList._itemsList.Count / 2);
+        // print("----------------------------");
+        // print(_firstItemID);
+        int tempRandomInt = Random.Range(0, 2);
         
-        int tempThirdRandomInt = Random.Range(0, _rareList._itemsList.Count);
-        itemsToSelect.Add(_rareList._itemsList[tempThirdRandomInt]);
+        itemsToSelect.Add(_commonList._itemsList[_firstItemID * 2 + tempRandomInt]);
+        
+        
+        //2nd item
+        _secondItemID = Random.Range(0, _commonList._itemsList.Count / 2);
+        while (_secondItemID == _firstItemID)
+        {
+            _secondItemID = Random.Range(0, _commonList._itemsList.Count / 2);
+        }
+        // print(_secondItemID);
+        tempRandomInt = Random.Range(0, 2);
+        
+        itemsToSelect.Add(_commonList._itemsList[_secondItemID * 2 + tempRandomInt]);
+        
+        
+        //3rd item
+        int tempRareRandomInt = Random.Range(0, 100);
+        if (tempRareRandomInt >= 75)
+        {
+            int tempThirdRandomInt = Random.Range(0, _rareList._itemsList.Count);
+            
+            itemsToSelect.Add(_rareList._itemsList[tempThirdRandomInt]);
+        }
+        
+        else
+        {
+            _thirdItemID = Random.Range(0, _commonList._itemsList.Count / 2);
+            while (_thirdItemID == _firstItemID || _thirdItemID == _secondItemID)
+            {
+                _thirdItemID = Random.Range(0, _commonList._itemsList.Count / 2);
+            }
+            print(_thirdItemID);
+            tempRandomInt = Random.Range(0, 2);
+            
+            itemsToSelect.Add(_commonList._itemsList[_thirdItemID * 2 + tempRandomInt]);
+        }
         
         //Activate UI
         
-        _itemMenu.OpenItemMenu(itemsToSelect, this);
+        _itemMenu.OpenItemMenu(itemsToSelect, this, _isBuildB);
     }
 
     public void SelectItem(int itemId)

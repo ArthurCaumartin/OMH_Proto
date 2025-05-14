@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 using Unity.VisualScripting;
 
 public class InteractibleSyringe : Interactible
 {
+    [SerializeField] private string _textAfterOpeningCentrifuge;
     [Space]
     [SerializeField] private FloatVariable _syringeValue;
     [SerializeField] private GameEvent _getSyringe;
@@ -26,6 +28,7 @@ public class InteractibleSyringe : Interactible
         {
             cancelInteraction = true;
             _isDomeOpen = true;
+            _textToInteract = _textAfterOpeningCentrifuge;
             
             _rotatingObject.transform.DOLocalRotate(new Vector3(-30, 0, 0), 1);
             DOTween.To(() => _speed, x => _speed = x, 0f, 3f);
@@ -46,6 +49,8 @@ public class InteractibleSyringe : Interactible
 
     void Update()
     {
+        base.Update();
+        
         _centriMaterial.material.SetFloat("_centrifugeuseeteinte", _syringeShaderValue);
         
         _flasksObject.transform.Rotate(_axis * (_direction * (Time.deltaTime * _speed)));

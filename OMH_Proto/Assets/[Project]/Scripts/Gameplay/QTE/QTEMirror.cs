@@ -12,6 +12,7 @@ public class QTEMirror : Upgradable
     private QTEMirrorUI _qteUi;
     
     private int _winIndex = 0;
+    private int[] _codeValues = new int[3];
     private Dictionary<int, bool> _valuesDictionnary = new Dictionary<int, bool>();
     
     private void Start()
@@ -68,6 +69,11 @@ public class QTEMirror : Upgradable
     {
         _valuesDictionnary = new Dictionary<int, bool>();
         int[] tempArray = GetRandomArray(3);
+        while (tempArray == _codeValues)
+        {
+            tempArray = GetRandomArray(3);
+        }
+        _codeValues = tempArray;
         
         _qteUi.NewQTE(tempArray, _winIndex, _numbersOfCode);
         for (int i = 0; i < tempArray.Length; i++)

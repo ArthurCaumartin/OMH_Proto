@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E49D5AD1-7B15-4641-B9E6-4A548C143DA6}" SchemaVersion="123">
+	<InteractiveMusic>
+		<WorkUnit Name="Syphon" ID="{E49D5AD1-7B15-4641-B9E6-4A548C143DA6}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="TRACKS" ID="{90D5557D-9B34-4238-8B03-04DECA526E2B}" ShortID="210620069"/>
+				<Folder Name="LINEAR" ID="{CF59BED3-7147-458F-A388-4928A330CC86}" ShortID="28246226">
+					<ChildrenList>
+						<MusicSegment Name="AMB_MusicMainMenu_V1" ID="{E8E373E2-3BD0-4342-8E72-35675613A8C0}" ShortID="551989329">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="104531.25"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="AMB_MusicMainMenu_V1" ID="{FB6B836A-A190-4735-A65C-D82BB6958FF9}" ShortID="898447487">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{7AF2F7FC-F405-451A-945D-ABC7488BA985}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="AMB_MusicMainMenu_V1" ID="{0E7B8404-8C13-4BEA-945C-D9A299535E69}">
+											<Language>SFX</Language>
+											<AudioFile>MUS\AMB_MusicMainMenu_V1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="461181913"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{9C66345B-25F3-4286-BE2E-C844570208EC}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="AMB_MusicMainMenu_V1" ID="{47E5B9D9-ADA4-45B5-8A2F-6AFAC9D03AA1}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="104531.25"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="AMB_MusicMainMenu_V1" ID="{0E7B8404-8C13-4BEA-945C-D9A299535E69}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{C15AEF49-6CD1-4166-89DB-43EDC658B26B}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{EE094D87-3102-4F98-A1BF-A21D491B7FFA}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="104531.25"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{3099FD96-C9BD-4202-8128-70EF1333176A}" ShortID="789946671">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Lowpass"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="RTPC_LPMusicMenu" ID="{BBA0BB55-63EC-4FDE-9164-E7CBE9A0821F}" WorkUnitID="{44DEA821-E645-4ADE-B7AF-55126F879D1C}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{0C1D7976-F4D1-4C44-958E-EDA5DEBCE3E2}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																		<SegmentShape>Log3</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>60</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</InteractiveMusic>
+</WwiseDocument>

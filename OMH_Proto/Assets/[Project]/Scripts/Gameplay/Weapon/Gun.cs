@@ -12,7 +12,7 @@ public class Gun : Weapon
         base.Attack();
         for (int i = 0; i < (int)_bulletCount.Value; i++)
         {
-            Projectile newProj = Instantiate(_projectile, transform.position, transform.rotation);
+            Projectile newProj = Instantiate(_projectile, _shootPoint.position, transform.rotation);
             newProj.Initialize(_parentShooter, _stat.projectileSpeed.Value, _stat.damage.Value);
             if (_bulletCount.Value == 1) return;
             

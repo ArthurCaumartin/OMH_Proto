@@ -18,8 +18,6 @@ public class MobAnimationControler : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         OnValidate();
-
-        GetComponent<AnimationEvent>().Event.AddListener(OnAttackAnimationEnd);
     }
 
     private void OnValidate()
@@ -36,14 +34,7 @@ public class MobAnimationControler : MonoBehaviour
 
     public void PlayAttackAnimation(float animationSpeed)
     {
-        _physicsAgent.enabled = false;
-
         _animator.SetFloat(_attackAnimationSpeedHash, animationSpeed);
         _animator.SetTrigger(_attackHash);
-    }
-
-    public void OnAttackAnimationEnd()
-    {
-        _physicsAgent.enabled = true;
     }
 }

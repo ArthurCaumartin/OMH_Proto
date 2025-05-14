@@ -11,17 +11,21 @@ public class State_Mob_Attack : IEntityState
     private MobAnimationControler _mobAnimationControler;
     private StateMachine_Pteramyr _machinePteramyr;
     private float _timeDelay = 0;
+    private PhysicsAgent _physicAgent;
 
     public void Initialize(StateMachine behavior)
     {
         _mobAnimationControler = behavior.GetComponentInChildren<MobAnimationControler>();
         _machinePteramyr = behavior as StateMachine_Pteramyr;
+        _physicAgent = _machinePteramyr.GetComponent<PhysicsAgent>();
     }
 
     public void EnterState()
     {
         // Debug.Log("ENTER ATTACK STATE");
         _timeDelay = _attackDelais.Value;
+
+        _physicAgent.enabled = false;
     }
 
     public void UpdateState()
@@ -33,14 +37,11 @@ public class State_Mob_Attack : IEntityState
         }
 
         float _targetDistance = Vector3.Distance(_machinePteramyr.transform.position, _machinePteramyr.Target.position);
-        if (_targetDistance > _distanceToTriggerAttack.Value)
+        if (!IsTargetAlign() | _targetDistance > _distanceToTriggerAttack.Value)
         {
-            _machinePteramyr.SetState(_machinePteramyr.RoamState);
+            _machinePteramyr.SetState(_machinePteramyr.ChaseState);
             return;
         }
-
-        if (!CheckTargetAlignement())
-            return;
 
 
         // Debug.Log("Attack DoState");
@@ -53,22 +54,17 @@ public class State_Mob_Attack : IEntityState
         }
     }
 
-    private bool CheckTargetAlignement()
+    private bool IsTargetAlign()
     {
         Vector3 targetDir = (_machinePteramyr.Target.transform.position - _machinePteramyr.transform.position).normalized;
         float dotDir = Vector3.Dot(_machinePteramyr.transform.right, targetDir);
-        if (dotDir < .95f)
-        {
-            _machinePteramyr.transform.right = Vector3.Lerp(_machinePteramyr.transform.right, targetDir, Time.deltaTime * _lookSpeed);
-            _timeDelay = 0;
-            return false;
-        }
-
-        return true;
+        // Debug.Log("dot : " + dotDir);
+        return dotDir > .95f;
     }
 
     public void ExitState()
     {
-
+        // Debug.Log("EXIT ATTACK STATE");
+        _physicAgent.enabled = true;
     }
 }

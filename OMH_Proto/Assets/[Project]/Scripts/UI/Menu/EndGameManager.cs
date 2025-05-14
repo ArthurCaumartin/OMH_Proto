@@ -11,7 +11,7 @@ public class EndGameManager : MonoBehaviour
     [SerializeField] private FloatReference _gameTime, _defenseDuration, explorationDuration;
     [Space] [SerializeField] private PlayerItemList _playerItemList;
     [SerializeField] private ObjectUIManager _objectUIManager;
-    [Space] [SerializeField] private TextMeshProUGUI _titleText, _lostHpText;
+    [Space] [SerializeField] private TextMeshProUGUI _titleText, _lostHpText, _timerGameText;
     [SerializeField] private GameObject _pcenFromTime, _pcenFromMetal, _pcenLost, _pcenText;
     [SerializeField] private Image _weaponImage;
 
@@ -32,6 +32,7 @@ public class EndGameManager : MonoBehaviour
 
         _weaponImage.sprite = _gameChooseMeta._weaponChoose._weaponIcon;
         _lostHpText.text = 20 - _syphonHealth.Value + " HP Lost :";
+        _timerGameText.text = $"{_gameTime.Value / 60}:{_gameTime.Value % 60}";
         
         if (_syphonHealth.Value <= 0)
         {
@@ -48,7 +49,7 @@ public class EndGameManager : MonoBehaviour
         _titleText.text = "You lost !";
         
 
-        float defenseTimeBeforeLost = _defenseDuration.Value - (_gameTime.Value - explorationDuration.Value);
+        float defenseTimeBeforeLost = _gameTime.Value;
         int pcenGainFromTime = Mathf.RoundToInt(defenseTimeBeforeLost * _valueEachSecond);
         
         SetupValues(pcenGainFromTime);

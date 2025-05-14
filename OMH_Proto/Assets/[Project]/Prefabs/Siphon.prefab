@@ -470,6 +470,7 @@ MonoBehaviour:
     propertyType: 1
     constantValue: 7
     variable: {fileID: 11400000, guid: ebda03ae3d0be3440a5ff07211e9098f, type: 2}
+  _canTakeDamage: 0
 --- !u!114 &662868379795253520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,7 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _centerRoom: {fileID: 0}
-  _lightParent: {fileID: 0}
+  _roomHiders: []
   _radius: 75
   _isObjRoom: 1
 --- !u!65 &7614021549618670539
@@ -1085,6 +1086,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8187130700142836874}
   - component: {fileID: 1167912473178822578}
+  - component: {fileID: 7859482250106939980}
   - component: {fileID: 7631622335812450864}
   - component: {fileID: 2323889033838086790}
   m_Layer: 14
@@ -1138,6 +1140,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &7859482250106939980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7393841191358078204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 1ef557f46f9b64d44a7451596034930f, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2323889033838086790}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7631622335812450864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1151,6 +1181,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _qte: {fileID: 0}
+  _textToInteract: Press (E) to begin the siphoning
+  _meshRenderersToOutline: []
+  _timeToVerifyOutline: 0.3
   _confirmUIStartSiphon: {fileID: 6900964146530272729}
   _startDefense: {fileID: 11400000, guid: 1ef557f46f9b64d44a7451596034930f, type: 2}
 --- !u!135 &2323889033838086790

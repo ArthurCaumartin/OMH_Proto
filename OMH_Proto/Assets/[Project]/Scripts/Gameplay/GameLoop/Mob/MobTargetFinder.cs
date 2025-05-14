@@ -29,12 +29,12 @@ public class MobTargetFinder : MonoBehaviour
     {
         MobTarget t = damageDealer.GetComponent<MobTarget>();
         if (!t) return;
-        print(damageDealer.name);
+        // print(damageDealer.name);
 
         float distWithDealer = Vector3.Distance(transform.position, damageDealer.transform.position);
         if (distWithDealer < _distanceWithTarget)
         {
-            print("Set new target : " + t.name);
+            // print("Set new target : " + t.name);
             _canDropAgro = 0;
             SetNewTarget(t);
         }
@@ -122,9 +122,9 @@ public class MobTargetFinder : MonoBehaviour
     public void OnDrawGizmos()
     {
         if (!DEBUG) return;
-        Gizmos.color = new Color(1, 0, 0, .2f);
+        Gizmos.color = new Color(1, 0, 0, .01f);
         Gizmos.DrawSphere(transform.position, _targetDetectionRange.Value);
-        Gizmos.color = new Color(0, 0, 1, .2f);
+        Gizmos.color = new Color(0, 0, 1, .01f);
         Gizmos.DrawSphere(transform.position, _maxFollowDistance.Value);
     }
 }

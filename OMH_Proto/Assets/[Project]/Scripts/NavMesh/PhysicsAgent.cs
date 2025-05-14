@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -22,6 +23,9 @@ public class PhysicsAgent : MonoBehaviour
     private Vector3 _posToGoIfNoTarget = Vector3.zero;
     private float _acctualSpeed;
     private bool _isAllreadySlow = false;
+    private bool _canBeSlow = true;
+
+    public bool CanBeSlow { set => _canBeSlow = value; }
 
     public float Speed { get => _acctualSpeed; set => _acctualSpeed = value; }
 
@@ -100,8 +104,9 @@ public class PhysicsAgent : MonoBehaviour
 
     private void MoveRigidbody(Vector3[] path)
     {
+        if (path.Count() < 2) return;
         Vector3 direction = (path[1] - transform.position).normalized;
-        transform.right = Vector3.Lerp(transform.right
+        transform.right = Vector3.Slerp(transform.right
                                         , new Vector3(direction.x, 0, direction.z)
                                         , Time.deltaTime * _acceleration * _rotationSpeed * Mathf.Clamp01(_slowMultiplier));
 
@@ -142,6 +147,8 @@ public class PhysicsAgent : MonoBehaviour
 
     public void SlowAgent(float strenght, float duration, bool freezeAgentOnSlow = false)
     {
+        if (!_canBeSlow) return;
+
         if (_isAllreadySlow) return;
         _isAllreadySlow = true;
         if (freezeAgentOnSlow) _rigidbody.velocity = Vector3.zero;
@@ -158,7 +165,8 @@ public class PhysicsAgent : MonoBehaviour
 
     private void OnDisable()
     {
-        _rigidbody.velocity = Vector3.zero;
+        if (_rigidbody)
+            _rigidbody.velocity = Vector3.zero;
     }
 
     private void DebugPath()

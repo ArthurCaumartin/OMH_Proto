@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3701047484409584489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3744260681323627359}
+  m_Layer: 17
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3744260681323627359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3701047484409584489}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.216, z: 0.041}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3993987248070714212}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6479633303855670742
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,6 +63,7 @@ Transform:
   - {fileID: 2633406157032180961}
   - {fileID: 8651325363903735265}
   - {fileID: 3550945894098813035}
+  - {fileID: 3744260681323627359}
   m_Father: {fileID: 1273255557225295727}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6954251608494401972
@@ -81,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9218224d5651d72429294c37f1fb3308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shootPoint: {fileID: 3744260681323627359}
   _meshPivot: {fileID: 3993987248070714212}
   _animationStateName: Pistol_Aim
   _projectile: {fileID: 6403736433643166296, guid: d49a1cea79879ec4d83dfedacc23edbf,
@@ -100,7 +133,7 @@ MonoBehaviour:
       variable: {fileID: 0}
     projectileSpeed:
       propertyType: 0
-      constantValue: 150
+      constantValue: 75
       variable: {fileID: 0}
   _secondaryProjectile: {fileID: 8350907008403827077, guid: 8397481d79980a74fa842572c2e66fa8,
     type: 3}
@@ -127,7 +160,7 @@ MonoBehaviour:
       variable: {fileID: 0}
     projectileSpeed:
       propertyType: 0
-      constantValue: 150
+      constantValue: 50
       variable: {fileID: 0}
   _weaponVisual: {fileID: 0}
   _bulletCount:
@@ -462,6 +495,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Line AimAssist
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455042848967811184, guid: d24b61041910e8a4e9866709d5043839,
+        type: 3}
+      propertyPath: _lenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455042848967811184, guid: d24b61041910e8a4e9866709d5043839,
+        type: 3}
+      propertyPath: _pointCount
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

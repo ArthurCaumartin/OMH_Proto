@@ -6,17 +6,19 @@ using DepthOfField = UnityEngine.Rendering.Universal.DepthOfField;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject _pauseMenu, _gameUI, _noGameUI;
+    [SerializeField] private GameObject _pauseMenu, _gameUI, _noGameUI, _optionsMenu;
     
     [SerializeField] private InventoryPauseMenu _inventoryPauseMenu;
     [SerializeField] private ItemMenu _itemMenu;
     
     [SerializeField] private GameEvent _pauseMenuEvent, _resumeMenuEvent;
     
-    private bool _isPaused;
+    private bool _isPaused, _isQTEActive;
     
     private void OnEscape()
     {
+        if (_isQTEActive) return;
+        
         if (_inventoryPauseMenu._isInventoryOpen)
         {
             _inventoryPauseMenu.CloseInventory();
@@ -53,6 +55,7 @@ public class PauseMenu : MonoBehaviour
     public void ResumeMenu()
     {
         _pauseMenu.SetActive(false);
+        _optionsMenu.SetActive(false);
 
         if (!_inventoryPauseMenu._isInventoryOpen && !_itemMenu._isItemSelectionMenuOpen)
         {
@@ -71,5 +74,10 @@ public class PauseMenu : MonoBehaviour
         
         _isPaused = false;
         _resumeMenuEvent.Raise();
-    } 
+    }
+
+    public void QTEToggler()
+    {
+        _isQTEActive = !_isQTEActive;
+    }
 }

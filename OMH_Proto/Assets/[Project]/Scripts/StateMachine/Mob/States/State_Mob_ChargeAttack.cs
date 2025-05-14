@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 [Serializable]
@@ -26,7 +22,6 @@ public class State_Mob_ChargeAttack : IEntityState
 
     public void EnterState()
     {
-        
     }
 
     public void UpdateState()

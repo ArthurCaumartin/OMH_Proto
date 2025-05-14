@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class QTEDoor : Upgradable
 {
+    [SerializeField] private InteractibleDoor _interactibleDoor;
     [SerializeField, Range(0, 500)] private float _rotationSpeed;
     [SerializeField] private Vector3 _axis = Vector3.up;
     [SerializeField] private int _direction = 1;
@@ -74,6 +75,7 @@ public class QTEDoor : Upgradable
 
     public void ClickDisk(RectTransform disk)
     {
+        print("Click disk");
         if (disk.transform.rotation.eulerAngles.z > 315 || disk.transform.rotation.eulerAngles.z < 45)
         {
             disk.transform.localRotation = Quaternion.Euler(0, 0, 0);
@@ -101,6 +103,7 @@ public class QTEDoor : Upgradable
     {
         _rotationSpeed = 0;
         yield return new WaitForSecondsRealtime(1f);
+        _interactibleDoor.OnQTELose();
         _qte.KillQTE();
     }
 }

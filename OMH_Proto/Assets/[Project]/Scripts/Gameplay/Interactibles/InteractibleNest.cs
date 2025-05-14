@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,19 +9,24 @@ public class InteractibleNest : Interactible
     [SerializeField] private FloatVariable _syringeValue;
 
     [SerializeField] private GameEvent _destroyNest, _encounterNest, _notEnoughtSyringe;
-    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private GameObject _enemyPrefab, _eggMesh, _doorObject1, _doorObject2;
     
     [Space]
     [SerializeField] private Transform _posToSpawn;
     [SerializeField] private float _timeMinSpawn, _timeMaxSpawn;
     [SerializeField] private int _numberOfEnemiesToSpawn;
+    [SerializeField] private MobTarget _mobTarget;
 
     private bool _isNestActive;
     public static bool _isPlayerInRangeForEncounter;
-    private float _timer, _timerSpawnMob, _timeToSpawn;
+    private float _timerNest, _timerSpawnMob, _timeToSpawn;
+    private BoxCollider _boxCollider;
 
     private void Awake()
     {
+        _boxCollider = GetComponent<BoxCollider>();
+        _boxCollider.enabled = false;
+        
         _timeToSpawn = Random.Range(_timeMinSpawn, _timeMaxSpawn);
         _isPlayerInRangeForEncounter = false;
     }
@@ -36,14 +39,24 @@ public class InteractibleNest : Interactible
 
     public override void OnQTEWin()
     {
-        _syringeValue.Value -= 1;
+        // _syringeValue.Value -= 1;
         _destroyNest.Raise();
+        
+        if(_eggMesh != null) _eggMesh.SetActive(false);
+        Material object1Material = _doorObject1.GetComponent<MeshRenderer>().material;
+        object1Material.SetFloat("_infested", 0);
+        Material object2Material = _doorObject2.GetComponent<MeshRenderer>().material;
+        object2Material.SetFloat("_infested", 0);
+        enabled = false;
 
-        Destroy(gameObject);
+        _boxCollider.enabled = false;
+        Destroy(this);
     }
 
     public virtual void Update()
     {
+        base.Update();
+        
         if (_isNestActive)
         {
             _timerSpawnMob += Time.deltaTime;
@@ -57,10 +70,10 @@ public class InteractibleNest : Interactible
 
         if (_isPlayerInRangeForEncounter) return;
 
-        _timer += Time.deltaTime;
-        if (_timer > 0.5f)
+        _timerNest += Time.deltaTime;
+        if (_timerNest > 0.5f)
         {
-            _timer = 0;
+            _timerNest = 0;
             VerifyPlayerInRangeForText();
         }
     }
@@ -82,13 +95,21 @@ public class InteractibleNest : Interactible
     {
         for (int i = 0; i < _numberOfEnemiesToSpawn; i++)
         {
-            Instantiate(_enemyPrefab, _posToSpawn.position, Quaternion.identity).GetComponent<StateMachine_Pteramyr>();
+            GameObject tempObject = Instantiate(_enemyPrefab, _posToSpawn.position, Quaternion.identity);
+            
+            tempObject.GetComponent<MobTargetFinder>().Initialize(_mobTarget);
         }
     }
 
     public void ActivateNest()
     {
         _isNestActive = true;
-        //Show visuals
+        _boxCollider.enabled = true;
+        
+        if(_eggMesh != null) _eggMesh.SetActive(true);
+        Material object1Material = _doorObject1.GetComponent<MeshRenderer>().material;
+        object1Material.SetFloat("_infested", 1);
+        Material object2Material = _doorObject2.GetComponent<MeshRenderer>().material;
+        object2Material.SetFloat("_infested", 1);
     }
 }

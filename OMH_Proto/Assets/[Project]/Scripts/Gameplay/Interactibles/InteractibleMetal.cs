@@ -12,10 +12,11 @@ public class InteractibleMetal : Interactible
 
     [SerializeField] private Sprite _activatedSprite;
     
+    
     // [SerializeField] private MeshRenderer _meshRenderer;
     // [SerializeField] private Material _material;
     
-    private float _timer;
+    private float _timerMetal;
     public bool _isGeneratorActivated;
 
     public override void Interact(PlayerInteract playerInteract, out bool cancelIteraction)
@@ -48,12 +49,14 @@ public class InteractibleMetal : Interactible
 
     private void Update()
     {
+        base.Update();
+        
         if (!_isGeneratorActivated) return;
 
-        _timer += Time.deltaTime;
-        if (_timer >= _timerToGetRessource.Value)
+        _timerMetal += Time.deltaTime;
+        if (_timerMetal >= _timerToGetRessource.Value)
         {
-            _timer = 0;
+            _timerMetal = 0;
             GainRessource();
         }
     }
@@ -62,7 +65,7 @@ public class InteractibleMetal : Interactible
     {
         GetComponentInChildren<MapPin>().ChangeSprite(_activatedSprite);
         
-        _isGeneratorActivated = true;
+        // _isGeneratorActivated = true;
     }
 
     private void GainRessource()

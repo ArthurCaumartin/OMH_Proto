@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1589222758988743125}
   - component: {fileID: 9082355591016843950}
   - component: {fileID: 5767195301784240458}
+  - component: {fileID: 2582441485668114571}
   m_Layer: 0
   m_Name: GridVisual
   m_TagString: Untagged
@@ -64,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ec91d0e7d9bca45972e33057472c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 931bda51cd1069c46b73d3952dee80a4, type: 2}
+  _event: {fileID: 11400000, guid: f91852699f7243d479966da1376ad54b, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
@@ -80,6 +81,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2582441485668114571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181231561908003638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26bf7e2cd953b943a5f837292a5dd53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obj: {fileID: 9082355591016843950}
 --- !u!1001 &3871439594111591473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91,17 +105,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0829a7469ab04c746bbf53421a92715d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 300
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0829a7469ab04c746bbf53421a92715d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 300
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0829a7469ab04c746bbf53421a92715d,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 300
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0829a7469ab04c746bbf53421a92715d,
         type: 3}
@@ -176,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0829a7469ab04c746bbf53421a92715d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

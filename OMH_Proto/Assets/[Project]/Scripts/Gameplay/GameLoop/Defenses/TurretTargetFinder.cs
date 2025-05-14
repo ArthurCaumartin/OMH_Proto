@@ -59,7 +59,7 @@ public class TurretTargetFinder : MonoBehaviour
     public bool IsBehindWall(Transform obj)
     {
         bool isBehind = Physics.Linecast(transform.position + Vector3.up, obj.position, _wallLayer);
-        print("isBehind : " + isBehind);
+        // print("isBehind : " + isBehind);
         Debug.DrawLine(transform.position + Vector3.up, obj.position, isBehind ? Color.red : Color.green);
         return isBehind;
     }
