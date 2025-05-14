@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}" SchemaVersion="123">
+	<Busses>
+		<WorkUnit Name="BUSSES" ID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}" PersistMode="Standalone">
+			<ChildrenList>
+				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
+							<ObjectRef Name="System" ID="{53F27174-C3F7-42C4-A1C2-EB81C10CF8C7}" WorkUnitID="{90116DC3-91B6-402C-900B-65966F22D9FF}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="SFX_Master" ID="{CB9A733B-F7FD-4B36-AF47-C02BF2C0E571}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="6"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Bus Name="Player_Master" ID="{07D9D945-EDA6-4D82-BD17-82BEB2374203}">
+									<ChildrenList>
+										<Bus Name="Player_Locomotion" ID="{10E863BA-0A9E-4991-A4CD-70E41F73790B}">
+											<ChildrenList>
+												<Bus Name="Player_Footsteps" ID="{DCDE1BB3-6E1B-4F12-9944-9FC4678EFE7C}"/>
+												<Bus Name="Player_Equipment" ID="{C52B77D8-4FEE-4D54-9518-A0EC6B6BD823}"/>
+											</ChildrenList>
+										</Bus>
+										<Bus Name="Player_SFX" ID="{196D595A-9B28-4B8B-9B63-2FE55D345847}"/>
+									</ChildrenList>
+								</Bus>
+							</ChildrenList>
+						</Bus>
+						<Bus Name="AMB_Master" ID="{CED5D395-23AF-4164-9F2F-FBF50C8FAE26}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="12"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Bus Name="AmbientsBeds" ID="{E69482C8-FEA7-4EFA-A333-1BCC88678CD5}">
+									<ChildrenList>
+										<Bus Name="2DAmbientsBeds" ID="{14DA7535-9315-4341-AB2D-66184109A9D6}"/>
+									</ChildrenList>
+								</Bus>
+								<Bus Name="3DAmbience" ID="{72645D1B-6AF7-4A68-9112-296A400AE0BD}"/>
+								<Bus Name="2DAmbience" ID="{F5DDF892-0CCD-4847-8025-6C5A59C974BB}"/>
+							</ChildrenList>
+						</Bus>
+						<Bus Name="MUS_Master" ID="{C8599793-A64F-43BA-ACAA-B80313CFC9A1}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="8"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Bus Name="MUS_InGame" ID="{559A3C4B-B6CB-4534-939C-4B4DDB490F2E}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="7"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+								</Bus>
+								<Bus Name="MUS_InMenu" ID="{52FF7066-CE89-414D-82E2-3C4750B824ED}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="22"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+								</Bus>
+							</ChildrenList>
+						</Bus>
+						<Bus Name="VO_Master" ID="{379B7861-2D9C-4E0A-980A-5EC173CF1A31}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="17"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Bus>
+						<Bus Name="UI_Master" ID="{C86534B7-1D5D-42AB-9688-CD18CCDC88CB}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="2"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Bus>
+						<AuxBus Name="Reverbs" ID="{7B7D2D1E-D571-45E6-B785-AE1E2FD8B3CB}">
+							<ChildrenList>
+								<AuxBus Name="BigRoom" ID="{296EC729-2AFB-42AD-8D36-1D77104670B4}"/>
+								<AuxBus Name="Corridors" ID="{2BB412FF-EBFE-43FE-8489-4FDA57C928FB}"/>
+							</ChildrenList>
+						</AuxBus>
+					</ChildrenList>
+				</Bus>
+				<Bus Name="Motion Factory Bus" ID="{2AF9B9C6-6EF1-46E9-B5F2-E30C9E602C74}">
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="Wwise Motion" CompanyID="0" PluginID="507" PluginType="7">
+							<ObjectRef Name="Default_Motion_Device" ID="{1059DC2C-E6CF-4E87-8646-1D9190CED54B}" WorkUnitID="{90116DC3-91B6-402C-900B-65966F22D9FF}"/>
+						</Reference>
+					</ReferenceList>
+				</Bus>
+			</ChildrenList>
+		</WorkUnit>
+	</Busses>
+</WwiseDocument>

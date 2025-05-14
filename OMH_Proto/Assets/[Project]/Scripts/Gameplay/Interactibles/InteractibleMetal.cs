@@ -65,7 +65,7 @@ public class InteractibleMetal : Interactible
     {
         GetComponentInChildren<MapPin>().ChangeSprite(_activatedSprite);
         
-        _isGeneratorActivated = true;
+        // _isGeneratorActivated = true;
     }
 
     private void GainRessource()
