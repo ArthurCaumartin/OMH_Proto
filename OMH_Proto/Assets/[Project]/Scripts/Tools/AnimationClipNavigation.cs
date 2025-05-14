@@ -28,7 +28,7 @@ public class AnimationClipNavigation : MonoBehaviour
     [SerializeField, Range(0, 1)] private float _sliderTime;
     [SerializeField] private Animator _animator;
     private float _totalAnimationDuration;
-    private List<StepData> _stepDataList;
+    private List<StepData> _stepDataList = new List<StepData>();
     private int _currentStepIndex;
     private bool _isAutoSlider = true;
 
