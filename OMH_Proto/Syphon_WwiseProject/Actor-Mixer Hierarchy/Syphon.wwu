@@ -1,0 +1,1258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}" SchemaVersion="123">
+	<AudioObjects>
+		<WorkUnit Name="Syphon" ID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Player" ID="{FF7F6B33-23C5-4532-9466-3E5B7F90390F}" ShortID="451634693">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="23"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Folder Name="Player_Locomotion" ID="{1F11D5FC-7112-4024-8354-FC60C7EC2C25}" ShortID="347214042">
+							<ChildrenList>
+								<SwitchContainer Name="Player_SpeedSwitch" ID="{2E950F1F-7A35-417A-AD42-34A72EAA696D}" ShortID="282661426">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="Walking" ID="{CD4AC599-0961-476A-B109-39BE8FB90DB1}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="PlayerSpeedSwitch" ID="{B1439E85-49A1-433C-8373-3E17577C13B7}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<BlendContainer Name="Player_BlendFootstepsWalk" ID="{79A6577E-520E-495F-821C-EA835F821176}" ShortID="900848173">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="23"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<SwitchContainer Name="Dry_MatSwitch" ID="{297010F7-943A-4A2A-9C40-6B1562BCAA19}" ShortID="574953549">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="DefaultSwitchOrState">
+															<ObjectRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+														<Reference Name="SwitchGroupOrStateGroup">
+															<ObjectRef Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<RandomSequenceContainer Name="Glass" ID="{571AC3B9-FDD1-4DA2-BDC6-DB2747461F30}" ShortID="506793963">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+														<RandomSequenceContainer Name="Metal" ID="{C1F8611F-9B67-4C1E-890E-4961B16FA1CA}" ShortID="840188583">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+													</ChildrenList>
+													<GroupingInfo>
+														<GroupingBehaviorList>
+															<GroupingBehavior>
+																<ItemRef Name="Metal" ID="{C1F8611F-9B67-4C1E-890E-4961B16FA1CA}"/>
+															</GroupingBehavior>
+															<GroupingBehavior>
+																<ItemRef Name="Glass" ID="{571AC3B9-FDD1-4DA2-BDC6-DB2747461F30}"/>
+															</GroupingBehavior>
+														</GroupingBehaviorList>
+														<GroupingList>
+															<Grouping>
+																<SwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
+																<ItemList>
+																	<ItemRef Name="Glass" ID="{571AC3B9-FDD1-4DA2-BDC6-DB2747461F30}"/>
+																</ItemList>
+															</Grouping>
+															<Grouping>
+																<SwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
+																<ItemList>
+																	<ItemRef Name="Metal" ID="{C1F8611F-9B67-4C1E-890E-4961B16FA1CA}"/>
+																</ItemList>
+															</Grouping>
+														</GroupingList>
+													</GroupingInfo>
+												</SwitchContainer>
+												<SwitchContainer Name="Damp_MatSwitch" ID="{6007EA71-2D41-4316-8C5A-C7108FDC63C4}" ShortID="807414140">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="DefaultSwitchOrState">
+															<ObjectRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+														<Reference Name="SwitchGroupOrStateGroup">
+															<ObjectRef Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<RandomSequenceContainer Name="Glass" ID="{FBDCA181-AD4D-4B33-8782-F01FFE495DAA}" ShortID="997723038">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+														<RandomSequenceContainer Name="Metal" ID="{77D6C45C-7DBB-4358-90DE-CC39006E02E6}" ShortID="318164655">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+													</ChildrenList>
+													<GroupingInfo>
+														<GroupingBehaviorList>
+															<GroupingBehavior>
+																<ItemRef Name="Metal" ID="{77D6C45C-7DBB-4358-90DE-CC39006E02E6}"/>
+															</GroupingBehavior>
+															<GroupingBehavior>
+																<ItemRef Name="Glass" ID="{FBDCA181-AD4D-4B33-8782-F01FFE495DAA}"/>
+															</GroupingBehavior>
+														</GroupingBehaviorList>
+														<GroupingList>
+															<Grouping>
+																<SwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
+																<ItemList>
+																	<ItemRef Name="Glass" ID="{FBDCA181-AD4D-4B33-8782-F01FFE495DAA}"/>
+																</ItemList>
+															</Grouping>
+															<Grouping>
+																<SwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
+																<ItemList>
+																	<ItemRef Name="Metal" ID="{77D6C45C-7DBB-4358-90DE-CC39006E02E6}"/>
+																</ItemList>
+															</Grouping>
+														</GroupingList>
+													</GroupingInfo>
+												</SwitchContainer>
+												<SwitchContainer Name="Soaked_MatSwitch" ID="{B4005880-A4B0-416F-8AC4-1840F9FD5DF8}" ShortID="587218803">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="DefaultSwitchOrState">
+															<ObjectRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+														<Reference Name="SwitchGroupOrStateGroup">
+															<ObjectRef Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<RandomSequenceContainer Name="Glass" ID="{F8A7563F-054B-450D-8259-AD0C5CD1829F}" ShortID="565679924">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+														<RandomSequenceContainer Name="Metal" ID="{54ABC981-39C4-4729-A975-A6FD43DA843C}" ShortID="522646826">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+													</ChildrenList>
+													<GroupingInfo>
+														<GroupingBehaviorList>
+															<GroupingBehavior>
+																<ItemRef Name="Glass" ID="{F8A7563F-054B-450D-8259-AD0C5CD1829F}"/>
+															</GroupingBehavior>
+															<GroupingBehavior>
+																<ItemRef Name="Metal" ID="{54ABC981-39C4-4729-A975-A6FD43DA843C}"/>
+															</GroupingBehavior>
+														</GroupingBehaviorList>
+														<GroupingList>
+															<Grouping>
+																<SwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
+																<ItemList>
+																	<ItemRef Name="Glass" ID="{F8A7563F-054B-450D-8259-AD0C5CD1829F}"/>
+																</ItemList>
+															</Grouping>
+															<Grouping>
+																<SwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
+																<ItemList>
+																	<ItemRef Name="Metal" ID="{54ABC981-39C4-4729-A975-A6FD43DA843C}"/>
+																</ItemList>
+															</Grouping>
+														</GroupingList>
+													</GroupingInfo>
+												</SwitchContainer>
+											</ChildrenList>
+											<BlendTrackList>
+												<BlendTrack Name="FootstepWetness" ID="{F6AECF35-27D6-4C8A-893E-58D1A1EE093A}" ShortID="702491418">
+													<PropertyList>
+														<Property Name="EnableCrossFading" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="LayerCrossFadeControlInput">
+															<ObjectRef Name="RTPC_GroundWetness" ID="{9AC47AC9-0CB2-4E86-B5CB-5A18407FBF01}" WorkUnitID="{44DEA821-E645-4ADE-B7AF-55126F879D1C}"/>
+														</Reference>
+													</ReferenceList>
+													<BlendTrackAssocList>
+														<BlendTrackAssoc>
+															<ItemRef Name="Dry_MatSwitch" ID="{297010F7-943A-4A2A-9C40-6B1562BCAA19}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>0</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>40</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+														<BlendTrackAssoc>
+															<ItemRef Name="Damp_MatSwitch" ID="{6007EA71-2D41-4316-8C5A-C7108FDC63C4}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>35</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>80</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+														<BlendTrackAssoc>
+															<ItemRef Name="Soaked_MatSwitch" ID="{B4005880-A4B0-416F-8AC4-1840F9FD5DF8}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>75</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>100</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+													</BlendTrackAssocList>
+												</BlendTrack>
+											</BlendTrackList>
+										</BlendContainer>
+										<BlendContainer Name="Player_BlendFootstepsFire" ID="{1B0A93FF-D529-4572-8EF8-F806510235C4}" ShortID="558443079">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="23"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<SwitchContainer Name="Dry_MatSwitch" ID="{9D31DDAC-6444-4994-B4EE-C3B0389FAF34}" ShortID="1021406782">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="DefaultSwitchOrState">
+															<ObjectRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+														<Reference Name="SwitchGroupOrStateGroup">
+															<ObjectRef Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<RandomSequenceContainer Name="Glass" ID="{B7086B41-54A3-4E10-ABF0-A752CE3F191A}" ShortID="584765131">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+														<RandomSequenceContainer Name="Metal" ID="{9D768154-AFBD-4A8E-B988-F31188B4CFB2}" ShortID="20823490">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+													</ChildrenList>
+													<GroupingInfo>
+														<GroupingBehaviorList>
+															<GroupingBehavior>
+																<ItemRef Name="Glass" ID="{B7086B41-54A3-4E10-ABF0-A752CE3F191A}"/>
+															</GroupingBehavior>
+															<GroupingBehavior>
+																<ItemRef Name="Metal" ID="{9D768154-AFBD-4A8E-B988-F31188B4CFB2}"/>
+															</GroupingBehavior>
+														</GroupingBehaviorList>
+														<GroupingList>
+															<Grouping>
+																<SwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
+																<ItemList>
+																	<ItemRef Name="Glass" ID="{B7086B41-54A3-4E10-ABF0-A752CE3F191A}"/>
+																</ItemList>
+															</Grouping>
+															<Grouping>
+																<SwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
+																<ItemList>
+																	<ItemRef Name="Metal" ID="{9D768154-AFBD-4A8E-B988-F31188B4CFB2}"/>
+																</ItemList>
+															</Grouping>
+														</GroupingList>
+													</GroupingInfo>
+												</SwitchContainer>
+												<SwitchContainer Name="Damp_MatSwitch" ID="{33E05729-8C7A-45EF-BE6A-5665D8F75949}" ShortID="430741095">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="DefaultSwitchOrState">
+															<ObjectRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+														<Reference Name="SwitchGroupOrStateGroup">
+															<ObjectRef Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<RandomSequenceContainer Name="Glass" ID="{394AE89F-5D15-4CD4-9B83-08AE81720548}" ShortID="997333785">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+														<RandomSequenceContainer Name="Metal" ID="{490DF8FE-EEDB-43F3-9847-46DFDAE0466B}" ShortID="712293276">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+													</ChildrenList>
+													<GroupingInfo>
+														<GroupingBehaviorList>
+															<GroupingBehavior>
+																<ItemRef Name="Glass" ID="{394AE89F-5D15-4CD4-9B83-08AE81720548}"/>
+															</GroupingBehavior>
+															<GroupingBehavior>
+																<ItemRef Name="Metal" ID="{490DF8FE-EEDB-43F3-9847-46DFDAE0466B}"/>
+															</GroupingBehavior>
+														</GroupingBehaviorList>
+														<GroupingList>
+															<Grouping>
+																<SwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
+																<ItemList>
+																	<ItemRef Name="Glass" ID="{394AE89F-5D15-4CD4-9B83-08AE81720548}"/>
+																</ItemList>
+															</Grouping>
+															<Grouping>
+																<SwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
+																<ItemList>
+																	<ItemRef Name="Metal" ID="{490DF8FE-EEDB-43F3-9847-46DFDAE0466B}"/>
+																</ItemList>
+															</Grouping>
+														</GroupingList>
+													</GroupingInfo>
+												</SwitchContainer>
+												<SwitchContainer Name="Soaked_MatSwitch" ID="{6EC59E50-BD80-441C-8624-6F9FCEA90AA9}" ShortID="204628917">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="DefaultSwitchOrState">
+															<ObjectRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+														<Reference Name="SwitchGroupOrStateGroup">
+															<ObjectRef Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<RandomSequenceContainer Name="Glass" ID="{D3CA35DB-11EA-404A-B6FA-83E596E6E35F}" ShortID="142954467">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+														<RandomSequenceContainer Name="Metal" ID="{DF891504-30B8-4E82-AF1A-AF352B07E0D7}" ShortID="191018277">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+													</ChildrenList>
+													<GroupingInfo>
+														<GroupingBehaviorList>
+															<GroupingBehavior>
+																<ItemRef Name="Metal" ID="{DF891504-30B8-4E82-AF1A-AF352B07E0D7}"/>
+															</GroupingBehavior>
+															<GroupingBehavior>
+																<ItemRef Name="Glass" ID="{D3CA35DB-11EA-404A-B6FA-83E596E6E35F}"/>
+															</GroupingBehavior>
+														</GroupingBehaviorList>
+														<GroupingList>
+															<Grouping>
+																<SwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
+																<ItemList>
+																	<ItemRef Name="Glass" ID="{D3CA35DB-11EA-404A-B6FA-83E596E6E35F}"/>
+																</ItemList>
+															</Grouping>
+															<Grouping>
+																<SwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
+																<ItemList>
+																	<ItemRef Name="Metal" ID="{DF891504-30B8-4E82-AF1A-AF352B07E0D7}"/>
+																</ItemList>
+															</Grouping>
+														</GroupingList>
+													</GroupingInfo>
+												</SwitchContainer>
+											</ChildrenList>
+											<BlendTrackList>
+												<BlendTrack Name="FootstepWetness" ID="{D057F788-56F0-4CE3-876B-3B1651F36E59}" ShortID="615596149">
+													<PropertyList>
+														<Property Name="EnableCrossFading" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="LayerCrossFadeControlInput">
+															<ObjectRef Name="RTPC_GroundWetness" ID="{9AC47AC9-0CB2-4E86-B5CB-5A18407FBF01}" WorkUnitID="{44DEA821-E645-4ADE-B7AF-55126F879D1C}"/>
+														</Reference>
+													</ReferenceList>
+													<BlendTrackAssocList>
+														<BlendTrackAssoc>
+															<ItemRef Name="Dry_MatSwitch" ID="{9D31DDAC-6444-4994-B4EE-C3B0389FAF34}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>0</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>40</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+														<BlendTrackAssoc>
+															<ItemRef Name="Damp_MatSwitch" ID="{33E05729-8C7A-45EF-BE6A-5665D8F75949}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>35</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>80</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+														<BlendTrackAssoc>
+															<ItemRef Name="Soaked_MatSwitch" ID="{6EC59E50-BD80-441C-8624-6F9FCEA90AA9}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>75</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>100</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+													</BlendTrackAssocList>
+												</BlendTrack>
+											</BlendTrackList>
+										</BlendContainer>
+										<BlendContainer Name="Player_BlendFootstepsRun" ID="{FAE13911-10ED-4D24-8F90-ADFC0441C74E}" ShortID="1056809938">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="23"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<SwitchContainer Name="Dry_MatSwitch" ID="{ACBDF59E-B3CD-4B33-A68B-35797B77FCF2}" ShortID="196501061">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="DefaultSwitchOrState">
+															<ObjectRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+														<Reference Name="SwitchGroupOrStateGroup">
+															<ObjectRef Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<RandomSequenceContainer Name="Glass" ID="{66FA5D7D-6170-444F-8945-A1C51AE845E1}" ShortID="123879999">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+														<RandomSequenceContainer Name="Metal" ID="{BFBE44C9-A7C0-4675-A997-06D5F4EF3AB0}" ShortID="123489767">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+													</ChildrenList>
+													<GroupingInfo>
+														<GroupingBehaviorList>
+															<GroupingBehavior>
+																<ItemRef Name="Glass" ID="{66FA5D7D-6170-444F-8945-A1C51AE845E1}"/>
+															</GroupingBehavior>
+															<GroupingBehavior>
+																<ItemRef Name="Metal" ID="{BFBE44C9-A7C0-4675-A997-06D5F4EF3AB0}"/>
+															</GroupingBehavior>
+														</GroupingBehaviorList>
+														<GroupingList>
+															<Grouping>
+																<SwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
+																<ItemList>
+																	<ItemRef Name="Glass" ID="{66FA5D7D-6170-444F-8945-A1C51AE845E1}"/>
+																</ItemList>
+															</Grouping>
+															<Grouping>
+																<SwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
+																<ItemList>
+																	<ItemRef Name="Metal" ID="{BFBE44C9-A7C0-4675-A997-06D5F4EF3AB0}"/>
+																</ItemList>
+															</Grouping>
+														</GroupingList>
+													</GroupingInfo>
+												</SwitchContainer>
+												<SwitchContainer Name="Damp_MatSwitch" ID="{0908343F-49CE-4AC1-B05B-5C8467CC620E}" ShortID="839368449">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="DefaultSwitchOrState">
+															<ObjectRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+														<Reference Name="SwitchGroupOrStateGroup">
+															<ObjectRef Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<RandomSequenceContainer Name="Glass" ID="{99D36BE2-C182-47F5-8D02-EA762B227841}" ShortID="773300331">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+														<RandomSequenceContainer Name="Metal" ID="{1755E97B-3C1C-4DCF-9F6D-51DF4759590E}" ShortID="546011277">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+													</ChildrenList>
+													<GroupingInfo>
+														<GroupingBehaviorList>
+															<GroupingBehavior>
+																<ItemRef Name="Metal" ID="{1755E97B-3C1C-4DCF-9F6D-51DF4759590E}"/>
+															</GroupingBehavior>
+															<GroupingBehavior>
+																<ItemRef Name="Glass" ID="{99D36BE2-C182-47F5-8D02-EA762B227841}"/>
+															</GroupingBehavior>
+														</GroupingBehaviorList>
+														<GroupingList>
+															<Grouping>
+																<SwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
+																<ItemList>
+																	<ItemRef Name="Glass" ID="{99D36BE2-C182-47F5-8D02-EA762B227841}"/>
+																</ItemList>
+															</Grouping>
+															<Grouping>
+																<SwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
+																<ItemList>
+																	<ItemRef Name="Metal" ID="{1755E97B-3C1C-4DCF-9F6D-51DF4759590E}"/>
+																</ItemList>
+															</Grouping>
+														</GroupingList>
+													</GroupingInfo>
+												</SwitchContainer>
+												<SwitchContainer Name="Soaked_MatSwitch" ID="{72A4BF75-BD0E-4341-A80C-FF751D1E0119}" ShortID="71638422">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="DefaultSwitchOrState">
+															<ObjectRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+														<Reference Name="SwitchGroupOrStateGroup">
+															<ObjectRef Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<RandomSequenceContainer Name="Glass" ID="{AF889DCC-0999-4782-BD70-7F4C697CC786}" ShortID="925416468">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+														<RandomSequenceContainer Name="Metal" ID="{A873D561-1AA8-4212-AFCC-72B7EE60D39F}" ShortID="1071418938">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+														</RandomSequenceContainer>
+													</ChildrenList>
+													<GroupingInfo>
+														<GroupingBehaviorList>
+															<GroupingBehavior>
+																<ItemRef Name="Metal" ID="{A873D561-1AA8-4212-AFCC-72B7EE60D39F}"/>
+															</GroupingBehavior>
+															<GroupingBehavior>
+																<ItemRef Name="Glass" ID="{AF889DCC-0999-4782-BD70-7F4C697CC786}"/>
+															</GroupingBehavior>
+														</GroupingBehaviorList>
+														<GroupingList>
+															<Grouping>
+																<SwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
+																<ItemList>
+																	<ItemRef Name="Glass" ID="{AF889DCC-0999-4782-BD70-7F4C697CC786}"/>
+																</ItemList>
+															</Grouping>
+															<Grouping>
+																<SwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
+																<ItemList>
+																	<ItemRef Name="Metal" ID="{A873D561-1AA8-4212-AFCC-72B7EE60D39F}"/>
+																</ItemList>
+															</Grouping>
+														</GroupingList>
+													</GroupingInfo>
+												</SwitchContainer>
+											</ChildrenList>
+											<BlendTrackList>
+												<BlendTrack Name="FootstepWetness" ID="{FC837A5D-2260-49AE-AF7C-16FA2BD112F2}" ShortID="329607281">
+													<PropertyList>
+														<Property Name="EnableCrossFading" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="LayerCrossFadeControlInput">
+															<ObjectRef Name="RTPC_GroundWetness" ID="{9AC47AC9-0CB2-4E86-B5CB-5A18407FBF01}" WorkUnitID="{44DEA821-E645-4ADE-B7AF-55126F879D1C}"/>
+														</Reference>
+													</ReferenceList>
+													<BlendTrackAssocList>
+														<BlendTrackAssoc>
+															<ItemRef Name="Dry_MatSwitch" ID="{ACBDF59E-B3CD-4B33-A68B-35797B77FCF2}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>0</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>40</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+														<BlendTrackAssoc>
+															<ItemRef Name="Damp_MatSwitch" ID="{0908343F-49CE-4AC1-B05B-5C8467CC620E}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>35</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>80</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+														<BlendTrackAssoc>
+															<ItemRef Name="Soaked_MatSwitch" ID="{72A4BF75-BD0E-4341-A80C-FF751D1E0119}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>75</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>100</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+													</BlendTrackAssocList>
+												</BlendTrack>
+											</BlendTrackList>
+										</BlendContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Player_BlendFootstepsRun" ID="{FAE13911-10ED-4D24-8F90-ADFC0441C74E}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Player_BlendFootstepsWalk" ID="{79A6577E-520E-495F-821C-EA835F821176}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Player_BlendFootstepsFire" ID="{1B0A93FF-D529-4572-8EF8-F806510235C4}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Running" ID="{FC10B88F-D664-4B0E-BD5E-97E2E5696951}"/>
+												<ItemList>
+													<ItemRef Name="Player_BlendFootstepsRun" ID="{FAE13911-10ED-4D24-8F90-ADFC0441C74E}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Walking" ID="{CD4AC599-0961-476A-B109-39BE8FB90DB1}"/>
+												<ItemList>
+													<ItemRef Name="Player_BlendFootstepsWalk" ID="{79A6577E-520E-495F-821C-EA835F821176}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Firing" ID="{C44185DE-2FB0-49D0-95E3-A4825A143E74}"/>
+												<ItemList>
+													<ItemRef Name="Player_BlendFootstepsFire" ID="{1B0A93FF-D529-4572-8EF8-F806510235C4}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Player_Equipment" ID="{06159C6B-C730-4D8F-9D86-F39D9A9B127E}" ShortID="265313775">
+							<ChildrenList>
+								<SwitchContainer Name="PlayerGear" ID="{4F1F56AA-AB35-4AC9-9A12-A0BD487EF205}" ShortID="1037998958">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<GroupingInfo/>
+								</SwitchContainer>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="NPCs" ID="{721D16A7-7DBA-43DC-8CCA-CB951B5EE185}" ShortID="357145529">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="23"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Folder Name="NPCs_Locomotion" ID="{35047FE4-F46D-43E9-B168-A86F6290083A}" ShortID="865322220">
+							<ChildrenList>
+								<Folder Name="NPCs_Footsteps" ID="{D3BEAC61-F8FE-438F-A6A8-CCF115EA4588}" ShortID="188914651"/>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Ambiences" ID="{70ED32DA-8947-4652-B41F-6487EBC826F7}" ShortID="105966123">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="23"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<ActorMixer Name="Amb_MainMixer" ID="{5541BCE7-FEC0-4E18-A1B6-FA03A56BA9C0}" ShortID="155906700">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="2DAmbientsBeds" ID="{14DA7535-9315-4341-AB2D-66184109A9D6}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+								</Reference>
+							</ReferenceList>
+						</ActorMixer>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="UI" ID="{F5574DB6-0472-4380-A254-249BA0A1C0C7}" ShortID="79071956">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="23"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Folder Name="InMainMenu" ID="{7C69F159-CF3E-4F7B-A600-9958019BE134}" ShortID="383953272">
+							<ChildrenList>
+								<Sound Name="AMB_InMenu_MainMenu" ID="{C251D029-11C2-4225-BD2F-93EF25572C3F}" ShortID="979009667">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="AMB_InMenu_MainMenu" ID="{89EC12E7-DB4F-4992-BFC3-27C5E662008E}">
+											<Language>SFX</Language>
+											<AudioFile>AMB_2D\AMB_InMenu_MainMenu .wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="938875201"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="AMB_InMenu_MainMenu" ID="{89EC12E7-DB4F-4992-BFC3-27C5E662008E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="AMB_InMenu_Credits" ID="{00F957A1-42FB-4CB7-B623-C728F4250BF0}" ShortID="187477634">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="AMB_InMenu_Credits" ID="{D6097E8F-8DCC-4E53-BF69-C139EB9A3E6E}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="1.02223172746692"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>AMB_InMenu_Credits .wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="608227031"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="AMB_InMenu_Credits" ID="{D6097E8F-8DCC-4E53-BF69-C139EB9A3E6E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="UI_Menu_Select" ID="{C99D182E-9197-4174-AAE0-61BBD760B590}" ShortID="873240704">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UI_Menu_Select" ID="{859795B4-85A2-49AF-8DC0-B431276136B1}">
+											<Language>SFX</Language>
+											<AudioFile>UI\UI_Menu_Select.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="374963357"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="UI_Menu_Select" ID="{859795B4-85A2-49AF-8DC0-B431276136B1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="UI_Menu_Error" ID="{A55C136B-5F45-4BAB-BB07-177E5245E487}" ShortID="895305160">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UI_Menu_Error" ID="{F3E8F1E3-263C-4A7E-AC35-76B2F4795534}">
+											<Language>SFX</Language>
+											<AudioFile>UI\UI_Menu_Error.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="159808636"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="UI_Menu_Error" ID="{F3E8F1E3-263C-4A7E-AC35-76B2F4795534}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="UI_Menu_Back" ID="{6C631D15-C9CF-4D33-9985-8CDE6B0AF27A}" ShortID="613885237">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UI_Menu_Back" ID="{933AF8AA-7D4F-4B6F-968D-42535A7D5E01}">
+											<Language>SFX</Language>
+											<AudioFile>UI\UI_Menu_Back.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="454317722"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="UI_Menu_Back" ID="{933AF8AA-7D4F-4B6F-968D-42535A7D5E01}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="UI_Menu_Confirm" ID="{F4171D56-7E6F-409E-9718-DA5DA8C0C8C4}" ShortID="974577207">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UI_Menu_Confirm" ID="{F1EE74EE-A76C-4A8B-AFC8-80EE6DCD14DC}">
+											<Language>SFX</Language>
+											<AudioFile>UI\UI_Menu_Confirm.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="335396021"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="UI_Menu_Confirm" ID="{F1EE74EE-A76C-4A8B-AFC8-80EE6DCD14DC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="UI_Menu_StartGame" ID="{F2BBD3DD-CD9A-4B12-BB0D-88999BDADC65}" ShortID="439780754">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UI_Menu_StartGame" ID="{9CC68573-7E81-40B3-BBC2-A29647F9D441}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.350718001847773"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>UI\UI_Menu_StartGame.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="202510398"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="UI_Menu_StartGame" ID="{9CC68573-7E81-40B3-BBC2-A29647F9D441}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="UI_Menu_Confirm_SwitchPerkWeapon" ID="{A5279947-E7D7-4618-930A-6FE233DE3810}" ShortID="132360392">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UI_Menu_Confirm_SwitchPerkWeapon" ID="{57F40B52-7E61-4EE7-A845-FAB1DB008E97}">
+											<Language>SFX</Language>
+											<AudioFile>UI\UI_Menu_Confirm_SwitchPerkWeapon.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="246348373"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="UI_Menu_Confirm_SwitchPerkWeapon" ID="{57F40B52-7E61-4EE7-A845-FAB1DB008E97}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="UI_Menu_Hoover" ID="{98BD623F-F1B9-46F4-83D8-3EA2B6D6047F}" ShortID="899439488">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UI_Menu_Hoover" ID="{9D504713-E569-4163-B6BF-2DC3AE3F9D02}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.265979568603059"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>UI\UI_Menu_Hoover.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="309098172"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="UI_Menu_Hoover" ID="{9D504713-E569-4163-B6BF-2DC3AE3F9D02}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SFX_InMenu_OptionsDisplay" ID="{D1E22B76-8645-4228-9F19-D4F148D8A7A2}" ShortID="378214816">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_InMenu_OptionsDisplay" ID="{E32F5A65-BB65-44B5-8064-1D2169C5B643}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\SFX_InMenu_OptionsDisplay .wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="811518267"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_InMenu_OptionsDisplay" ID="{E32F5A65-BB65-44B5-8064-1D2169C5B643}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SFX_Menu_ChangePageBack" ID="{05910180-F424-4127-A2DC-0416A0BD9E90}" ShortID="334109162">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>20</Value>
+											</ValueList>
+										</Property>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>60</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_Menu_ChangePageBack" ID="{9EA84B12-22C4-4DCC-9967-713E008B7AC6}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.336749526689637"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.87060241641638"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>SFX\SFX_Menu_ChangePageBack.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="421209777"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_Menu_ChangePageBack" ID="{9EA84B12-22C4-4DCC-9967-713E008B7AC6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<RandomSequenceContainer Name="SFX_Menu_ChangePageSwoosh" ID="{C1291ED3-F45F-4B23-851C-CE34573DD3D8}" ShortID="649980936">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="SFX_Menu_ChangePageVari-000" ID="{9B6997F9-DF4A-4616-B9D5-4E62B3E60384}" ShortID="539081546">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>70</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX_Menu_ChangePage" ID="{8DD659A6-D03D-4360-AACE-292B45A9B094}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\SFX_Menu_ChangePage.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="383185297"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX_Menu_ChangePage" ID="{8DD659A6-D03D-4360-AACE-292B45A9B094}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="SFX_Menu_ChangePageVari-001" ID="{BD9D6045-28D9-4383-B180-EF64466CBFDE}" ShortID="34497228">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX_Menu_ChangePageVari-001" ID="{44351E1F-9DEC-4B17-B7CF-7ED9D38E70EC}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\SFX_Menu_ChangePageVari-001.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="86729134"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX_Menu_ChangePageVari-001" ID="{44351E1F-9DEC-4B17-B7CF-7ED9D38E70EC}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="SFX_Menu_ChangePageVari-002" ID="{2DF33E0C-020E-43B9-8D3C-4E4A528C2787}" ShortID="733509573">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>-30</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX_Menu_ChangePage" ID="{E9D45D34-EF1A-4FC3-AA61-8A9EF640B0A3}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\SFX_Menu_ChangePage.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="383185297"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX_Menu_ChangePage" ID="{E9D45D34-EF1A-4FC3-AA61-8A9EF640B0A3}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="SFX_Menu_ChangePageVari-003" ID="{CAFE2278-BC6C-4702-A070-5DE26A5A01DD}" ShortID="208239120">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>30</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX_Menu_ChangePageVari-001" ID="{9E445073-0F17-4755-860B-529918E9B1A5}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\SFX_Menu_ChangePageVari-001.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="86729134"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX_Menu_ChangePageVari-001" ID="{9E445073-0F17-4755-860B-529918E9B1A5}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="InGameMenu" ID="{6699E2A1-4031-4A65-B425-078372090E30}" ShortID="512515505"/>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

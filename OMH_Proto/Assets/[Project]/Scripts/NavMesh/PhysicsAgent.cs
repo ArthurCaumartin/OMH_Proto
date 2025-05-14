@@ -165,7 +165,8 @@ public class PhysicsAgent : MonoBehaviour
 
     private void OnDisable()
     {
-        _rigidbody.velocity = Vector3.zero;
+        if (_rigidbody)
+            _rigidbody.velocity = Vector3.zero;
     }
 
     private void DebugPath()

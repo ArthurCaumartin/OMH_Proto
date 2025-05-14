@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SyntaliumManager : MonoBehaviour
 {
-    [SerializeField] private bool _isBuildB;
+    [SerializeField, Tooltip("When checked, Metal gain is logarithmic, when not, it's linear")] private bool _isBuildB;
     [Space]
     [SerializeField] private GameEvent _gainMetal;
     [SerializeField] private FloatReference _syntalium;

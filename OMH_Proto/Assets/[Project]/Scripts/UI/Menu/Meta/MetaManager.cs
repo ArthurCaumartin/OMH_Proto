@@ -25,9 +25,12 @@ public class MetaManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _descriptionText;
     [SerializeField] private TextMeshProUGUI _costText;
     [SerializeField] private GameObject _confirmButton;
+    
 
     private MetaButton _tempUpgrade;
     public bool _isReset;
+    [Space]
+    [SerializeField] private AK.Wwise.Event _DisplayMenuSounds;
     void Start()
     {
         _upgradesList._upgradesUnlocked = new List<UpgradeMeta>();
@@ -74,7 +77,10 @@ public class MetaManager : MonoBehaviour
             instantiatedObject.GetComponent<MetaButton>().Initialize(infos);
         }
     }
-
+    void OnEnable()
+    {
+        _DisplayMenuSounds.Post(gameObject);
+    }
     public void TryBuy(MetaButton upgradeMetaButton)
     {
         if (upgradeMetaButton._infos._cost < 5)
