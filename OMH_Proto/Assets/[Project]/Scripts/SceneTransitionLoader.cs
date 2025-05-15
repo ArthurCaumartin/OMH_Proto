@@ -51,9 +51,9 @@ public class SceneTransitionLoader : MonoBehaviour
             },
             () =>
             {
-                Scene toUnload = SceneManager.GetSceneByName(_sceneToUnLoad);
-                if (toUnload != null)
-                    SceneManager.UnloadSceneAsync(toUnload);
+                // Scene toUnload = SceneManager.GetSceneByName(_sceneToUnLoad);
+                // if (toUnload != null)
+                SceneManager.UnloadSceneAsync(_sceneToUnLoad);
             });
         }
     }
