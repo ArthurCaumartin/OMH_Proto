@@ -22,17 +22,15 @@ public class Trap : MonoBehaviour
     private void Start()
     {
         _attackParticle.gameObject.SetActive(false);
+        _activationTime = _activationDelay.Value;
     }
 
     private void Update()
     {
-        if (!_isActif)
-        {
-            _activationTime = _activationDelay.Value;
-            return;
-        }
-
         _activationTime += Time.deltaTime;
+        
+        if (!_isActif) return;
+
         if (_activationTime > _activationDelay.Value)
         {
             _isActif = false;
