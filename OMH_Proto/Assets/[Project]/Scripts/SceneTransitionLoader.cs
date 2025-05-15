@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,7 +6,7 @@ using UnityEngine.UI;
 public class SceneTransitionLoader : MonoBehaviour
 {
     [SerializeField] private string _sceneToLoad;
-    [SerializeField] private List<GameObject> _objToDisableOnSceneActivation;
+    [SerializeField] private string _sceneToUnLoad;
     [Space]
     [SerializeField] private float _skipSpeed = .5f;
     [SerializeField] private Image _chargeImage;
@@ -49,11 +45,12 @@ public class SceneTransitionLoader : MonoBehaviour
 
         if (_time >= 1)
         {
+            enabled = false;
             ScreenHider.instance.HideScreenForDuration(2, .2f, () =>
             {
-                foreach (var item in _objToDisableOnSceneActivation)
-                    item.SetActive(false);
                 _asyncLoading.allowSceneActivation = true;
+                Scene toUnload = SceneManager.GetSceneByName(_sceneToUnLoad);
+                SceneManager.UnloadSceneAsync(toUnload);
             });
         }
     }
