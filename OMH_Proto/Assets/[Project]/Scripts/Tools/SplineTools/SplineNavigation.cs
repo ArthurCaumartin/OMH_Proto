@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.Splines;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 
 public class SplineNavigation : MonoBehaviour
@@ -41,6 +42,12 @@ public class SplineNavigation : MonoBehaviour
     {
         _nextButton.onClick.AddListener(() => { MoveCurrentIndex(1); });
         _backButton.onClick.AddListener(() => { MoveCurrentIndex(-1); });
+
+        // set position on start
+        _currentTime = _nodes[_currentIndex].distance / _splineContainer[0].GetLength();
+        Vector3 pos = _splineContainer[0].EvaluatePosition(_currentTime);
+        pos = _splineContainer.transform.InverseTransformPoint(pos);
+        _transformToMove.position = pos + _offSet;
     }
 
     private void Update()
@@ -101,5 +108,12 @@ public class SplineNavigation : MonoBehaviour
                             _splineContainer[0].EvaluatePosition(item.distance / _splineContainer[0].GetLength()));
             Gizmos.DrawSphere(pos, item.debug_Size);
         }
+    }
+
+    private void OnMove(InputValue value)
+    {
+        Vector2 input = value.Get<Vector2>();
+        if (input == Vector2.zero) return;
+        MoveCurrentIndex((int)Mathf.Abs(input.x));
     }
 }

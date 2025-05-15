@@ -48,6 +48,7 @@ public class PlayerMovement : Upgradable
 
     private void OnDisable()
     {
+        if(!_rb) return;
         _velocityTarget = Vector3.zero;
         _rb.velocity = Vector3.zero;
     }
