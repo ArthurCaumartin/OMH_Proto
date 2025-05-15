@@ -13,7 +13,7 @@ public class ScreenHider : MonoBehaviour
     {
         print("ScreenHider Awake");
         DontDestroyOnLoad(gameObject);
-        // if (instance) Destroy(instance.gameObject);
+        if (instance) Destroy(gameObject);
         instance = this;
     }
 
