@@ -79,7 +79,8 @@ public class Seller : MonoBehaviour
     {
         if (_nearestSellable)
         {
-            _metalQuantity.Value += _nearestSellable.GetCostOnHealth();
+            // _metalQuantity.Value += _nearestSellable.GetCostOnHealth();
+            _metalQuantity.Add(_nearestSellable.GetCostOnHealth());
             _nearestSellable.GetComponentInChildren<DisolveEffect>().Disolve(true, true);
             Destroy(_nearestSellable.gameObject);
             EnableSellMode(false);
