@@ -48,8 +48,8 @@ public class Seller : MonoBehaviour
         _placer.UnSelect();
         _selectorVisual.gameObject.SetActive(value);
 
-        _onShowGrid.Raise(value);
-        _onShowRails.Raise(value);
+        // _onShowGrid.Raise(value);
+        // _onShowRails.Raise(value); //! hide rail and trap
         _onPlacableSelect.Raise(!value);
     }
 
