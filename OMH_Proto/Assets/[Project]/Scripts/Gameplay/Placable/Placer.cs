@@ -86,7 +86,7 @@ public class Placer : MonoBehaviour
             if (_ghostPlacable.placeOnCorridorRail && !_railUnderMouse) return;
             // if (_ressourceCondition) _ressourceCondition.Value -= _ghostPlacable.cost.Value;
             if (_ressourceCondition)
-                _ressourceCondition.Add(_ghostPlacable.cost.Value);
+                _ressourceCondition.Add(-_ghostPlacable.cost.Value);
 
             InstantiatePlaceblePrefab();
             UnSelect();

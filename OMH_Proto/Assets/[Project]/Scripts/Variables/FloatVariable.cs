@@ -7,7 +7,7 @@ public class FloatVariable : ScriptableObject
 {
     public float Value;
 
-    [HideInInspector] private UnityEvent<float> OnAddValue;
+    [HideInInspector] public UnityEvent<float> OnAddValue;
 
     public void Add(float toAdd)
     {
