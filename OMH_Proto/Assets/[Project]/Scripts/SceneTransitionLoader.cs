@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SceneTransitionLoader : MonoBehaviour
 {
     [SerializeField] private string _sceneToLoad;
-    [SerializeField] private string _sceneToUnLoad;
+    // [SerializeField] private string _sceneToUnLoad;
     [SerializeField] private GameObject _slideAnimation;
     [Space]
     [SerializeField] private float _skipSpeed = .5f;
@@ -48,12 +48,6 @@ public class SceneTransitionLoader : MonoBehaviour
             {
                 _asyncLoading.allowSceneActivation = true;
                 _slideAnimation.SetActive(false);
-            },
-            () =>
-            {
-                // Scene toUnload = SceneManager.GetSceneByName(_sceneToUnLoad);
-                // if (toUnload != null)
-                SceneManager.UnloadSceneAsync(_sceneToUnLoad);
             });
         }
     }
