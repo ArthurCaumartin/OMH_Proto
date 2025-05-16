@@ -26,7 +26,7 @@ public class SyntaliumManager : MonoBehaviour
         {
             _timeToGetOneSyntalium = 1 - ((1 - (1 / _maxSyntaliumPerSecond)) * Mathf.Log(_numberOfGenerators) / Mathf.Log(_maxGenerators));
         }
-        else _timeToGetOneSyntalium = 1 - (0.2f * _numberOfGenerators);
+        else _timeToGetOneSyntalium = 1 - (0.2f * (_numberOfGenerators -1));
     }
 
     private void Update()
@@ -39,6 +39,7 @@ public class SyntaliumManager : MonoBehaviour
             // _syntalium.Value++;
             
             _gainMetal.Raise();
+            print("Gain Metal");
             
             _timer = 0;
         }
