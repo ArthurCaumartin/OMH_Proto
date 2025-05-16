@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,7 +6,8 @@ using UnityEngine.UI;
 public class SceneTransitionLoader : MonoBehaviour
 {
     [SerializeField] private string _sceneToLoad;
-    [SerializeField] private List<GameObject> _objToDisableOnSceneActivation;
+    [SerializeField] private string _sceneToUnLoad;
+    [SerializeField] private GameObject _slideAnimation;
     [Space]
     [SerializeField] private float _skipSpeed = .5f;
     [SerializeField] private Image _chargeImage;
@@ -18,6 +15,7 @@ public class SceneTransitionLoader : MonoBehaviour
     private AsyncOperation _asyncLoading;
     private bool _chargeSkip;
     private float _time;
+    private bool flowControl = true;
 
     void Start()
     {
@@ -36,24 +34,26 @@ public class SceneTransitionLoader : MonoBehaviour
     private void ChargeSkip()
     {
         if (_chargeSkip)
-        {
             _time += Time.deltaTime * _skipSpeed;
-        }
         else
-        {
             _time -= Time.deltaTime;
-        }
 
         _time = Mathf.Clamp01(_time);
         _chargeImage.fillAmount = _time;
 
-        if (_time >= 1)
+        if (_time >= 1 && flowControl)
         {
+            flowControl = false;
             ScreenHider.instance.HideScreenForDuration(2, .2f, () =>
             {
-                foreach (var item in _objToDisableOnSceneActivation)
-                    item.SetActive(false);
                 _asyncLoading.allowSceneActivation = true;
+                _slideAnimation.SetActive(false);
+            },
+            () =>
+            {
+                // Scene toUnload = SceneManager.GetSceneByName(_sceneToUnLoad);
+                // if (toUnload != null)
+                SceneManager.UnloadSceneAsync(_sceneToUnLoad);
             });
         }
     }
