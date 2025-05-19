@@ -21,7 +21,7 @@ public class HelpPopup : MonoBehaviour
     {
         if (!_isSomethingShowed) return;
         
-        _timer += Time.deltaTime;
+        // _timer += Time.deltaTime;
         if (_timer >= _timerToDepop)
         {
             _timer = 0;
