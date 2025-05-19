@@ -48,8 +48,8 @@ public class Seller : MonoBehaviour
         _placer.UnSelect();
         _selectorVisual.gameObject.SetActive(value);
 
-        _onShowGrid.Raise(value);
-        _onShowRails.Raise(value);
+        // _onShowGrid.Raise(value);
+        // _onShowRails.Raise(value); //! hide rail and trap
         _onPlacableSelect.Raise(!value);
     }
 
@@ -79,7 +79,8 @@ public class Seller : MonoBehaviour
     {
         if (_nearestSellable)
         {
-            _metalQuantity.Value += _nearestSellable.GetCostOnHealth();
+            // _metalQuantity.Value += _nearestSellable.GetCostOnHealth();
+            _metalQuantity.Add(_nearestSellable.GetCostOnHealth());
             _nearestSellable.GetComponentInChildren<DisolveEffect>().Disolve(true, true);
             Destroy(_nearestSellable.gameObject);
             EnableSellMode(false);

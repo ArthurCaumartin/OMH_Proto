@@ -12,8 +12,8 @@ public class ScreenHider : MonoBehaviour
     void Awake()
     {
         print("ScreenHider Awake");
+        // if (instance) Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
-        // if (instance) Destroy(instance.gameObject);
         instance = this;
     }
 
