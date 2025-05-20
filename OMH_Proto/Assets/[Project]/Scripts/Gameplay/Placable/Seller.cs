@@ -21,6 +21,7 @@ public class Seller : MonoBehaviour
     [SerializeField] private GameEvent _onPlacableSelect;
     [SerializeField] private GameEvent _onShowGrid;
     [SerializeField] private GameEvent _onShowRails;
+    [SerializeField] private GameEvent _showTrap;
 
     private Transform _selectorVisual;
     private bool _isEnable = true;
@@ -48,8 +49,9 @@ public class Seller : MonoBehaviour
         _placer.UnSelect();
         _selectorVisual.gameObject.SetActive(value);
 
-        // _onShowGrid.Raise(value);
+        _onShowGrid.Raise(value);
         // _onShowRails.Raise(value); //! hide rail and trap
+        // _showTrap.Raise(value);
         _onPlacableSelect.Raise(!value);
     }
 
