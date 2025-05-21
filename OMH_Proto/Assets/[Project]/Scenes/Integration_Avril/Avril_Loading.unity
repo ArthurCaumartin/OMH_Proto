@@ -190,7 +190,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1038471680}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1625,7 +1625,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.39, y: -0.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 21933085}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2502,7 +2502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneToLoad: Avril_Gameplay
-  _sceneToUnLoad: Avril_Loading
+  _slideAnimation: {fileID: 0}
   _skipSpeed: 0.5
   _chargeImage: {fileID: 2046085520}
   _loadingTextSequence: {fileID: 287522342}
@@ -5440,7 +5440,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.12, y: -0.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1038471680}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9288,6 +9288,11 @@ PrefabInstance:
       propertyPath: _sequence.Array.data[1].strings.Array.data[2]
       value: Hold 'Space' To Skip...
       objectReference: {fileID: 0}
+    - target: {fileID: 1992039282506860363, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 298
+      objectReference: {fileID: 0}
     - target: {fileID: 3339621094515579944, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -9301,7 +9306,7 @@ PrefabInstance:
     - target: {fileID: 3339621094515579944, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 5
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 3862320759541447139, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
@@ -9428,20 +9433,25 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -31
       objectReference: {fileID: 0}
+    - target: {fileID: 4358027357952472265, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6043643250862215058, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.24390353
+      value: 0.19607845
       objectReference: {fileID: 0}
     - target: {fileID: 6043643250862215058, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.49954954
+      value: 0.16862746
       objectReference: {fileID: 0}
     - target: {fileID: 6043643250862215058, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.5943396
+      value: 0.20392159
       objectReference: {fileID: 0}
     - target: {fileID: 7574343380103991393, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
@@ -9451,17 +9461,27 @@ PrefabInstance:
     - target: {fileID: 7666216919366804880, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -171
+      value: -157
       objectReference: {fileID: 0}
     - target: {fileID: 7666216919366804880, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 37
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 7901039827404667687, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8064733288543424938, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8064733288543424938, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8215902893204008035, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
@@ -9493,25 +9513,35 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: AnimationClipNavigation, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 9091684220287447985, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091684220287447985, guid: 0f1764957161f1248820655549faeb76,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9130498586696804469, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
       propertyPath: m_fontColor.b
-      value: 1
+      value: 0.16470589
       objectReference: {fileID: 0}
     - target: {fileID: 9130498586696804469, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
       propertyPath: m_fontColor.g
-      value: 1
+      value: 0.6392157
       objectReference: {fileID: 0}
     - target: {fileID: 9130498586696804469, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
       propertyPath: m_fontColor.r
-      value: 1
+      value: 0.9960785
       objectReference: {fileID: 0}
     - target: {fileID: 9130498586696804469, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 4062880766
       objectReference: {fileID: 0}
     - target: {fileID: 9130498586696804469, guid: 0f1764957161f1248820655549faeb76,
         type: 3}
