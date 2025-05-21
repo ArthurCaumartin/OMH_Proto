@@ -36,13 +36,20 @@ public class PlayerMovement : Upgradable
     {
         _inputVector = _moveInputAction.ReadValue<Vector2>();
 
-        _velocityTarget = new Vector3(_inputVector.x, 0, _inputVector.y)
+        Vector3 camForward = _mainCam.transform.forward;
+        Vector3 camRight = _mainCam.transform.right;
+        camForward.y = 0;
+        camRight.y = 0;
+        camForward = camForward.normalized;
+        camRight = camRight.normalized;
+
+        Vector3 direction = camForward * _inputVector.y + camRight * _inputVector.x;
+        direction = direction.normalized;
+
+        _velocityTarget = direction
                          * (_weaponControler.IsShooting() ? _walkMoveSpeed.Value : _runMoveSpeed.Value)
                          * _upgradeMoveSpeedMult;
 
-        Vector3 dirCamToPlayer = (transform.position - _mainCam.transform.position).normalized;
-        dirCamToPlayer.y = 0;
-        _velocityTarget = Quaternion.LookRotation(dirCamToPlayer, Vector3.up) * _velocityTarget;
         _rb.velocity = _velocityTarget;
     }
 

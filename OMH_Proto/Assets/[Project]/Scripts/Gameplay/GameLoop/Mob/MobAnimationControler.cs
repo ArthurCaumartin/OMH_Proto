@@ -1,9 +1,13 @@
+using System.Collections;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class MobAnimationControler : MonoBehaviour
 {
     [SerializeField] private string _velocityParameter;
     [SerializeField] private string _attackParameter;
+    [SerializeField] private string _stunParameter;
+    [SerializeField] private float _exitStunDuration = .2f;
     [SerializeField] private string _attackAnimationSpeedParameter;
     [Space]
     [SerializeField] private Rigidbody _rigidbody;
@@ -11,7 +15,9 @@ public class MobAnimationControler : MonoBehaviour
     private Animator _animator;
     private int _velocityHash;
     private int _attackHash;
+    private int _stunHash;
     private int _attackAnimationSpeedHash;
+    private bool _stunRuning = false;
 
 
     private void Start()
@@ -24,6 +30,8 @@ public class MobAnimationControler : MonoBehaviour
     {
         _attackHash = Animator.StringToHash(_attackParameter);
         _velocityHash = Animator.StringToHash(_velocityParameter);
+        _velocityHash = Animator.StringToHash(_velocityParameter);
+        _stunHash = Animator.StringToHash(_stunParameter);
         _attackAnimationSpeedHash = Animator.StringToHash(_attackAnimationSpeedParameter);
     }
 
@@ -36,5 +44,23 @@ public class MobAnimationControler : MonoBehaviour
     {
         _animator.SetFloat(_attackAnimationSpeedHash, animationSpeed);
         _animator.SetTrigger(_attackHash);
+    }
+
+    public void PlayStunAnimationn(float duration)
+    {
+        print("Play Stun Animation");
+        if (_stunRuning) return;
+        _animator.SetBool(_stunHash, true);
+        StartCoroutine(WaitForStopStunAnim(duration - _exitStunDuration));
+    }
+
+    private IEnumerator WaitForStopStunAnim(float duration)
+    {
+        print("Start Reset Coroutine");
+
+        _stunRuning = true;
+        yield return new WaitForSeconds(duration);
+        _stunRuning = false;
+        _animator.SetBool(_stunHash, false);
     }
 }

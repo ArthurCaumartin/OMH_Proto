@@ -32,7 +32,9 @@ public class EndGameManager : MonoBehaviour
 
         _weaponImage.sprite = _gameChooseMeta._weaponChoose._weaponIcon;
         _lostHpText.text = 20 - _syphonHealth.Value + " HP Lost :";
-        _timerGameText.text = $"{_gameTime.Value / 60}:{_gameTime.Value % 60}";
+        int timerMinute = Mathf.RoundToInt(_gameTime.Value / 60);
+        int timerSeconds = Mathf.RoundToInt(_gameTime.Value % 60);
+        _timerGameText.text = $"{timerMinute}:{timerSeconds}";
         
         if (_syphonHealth.Value <= 0)
         {

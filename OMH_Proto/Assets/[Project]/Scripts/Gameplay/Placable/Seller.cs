@@ -21,6 +21,7 @@ public class Seller : MonoBehaviour
     [SerializeField] private GameEvent _onPlacableSelect;
     [SerializeField] private GameEvent _onShowGrid;
     [SerializeField] private GameEvent _onShowRails;
+    [SerializeField] private GameEvent _showTrap;
 
     private Transform _selectorVisual;
     private bool _isEnable = true;
@@ -49,7 +50,8 @@ public class Seller : MonoBehaviour
         _selectorVisual.gameObject.SetActive(value);
 
         _onShowGrid.Raise(value);
-        _onShowRails.Raise(value);
+        // _onShowRails.Raise(value); //! hide rail and trap
+        // _showTrap.Raise(value);
         _onPlacableSelect.Raise(!value);
     }
 
@@ -79,7 +81,8 @@ public class Seller : MonoBehaviour
     {
         if (_nearestSellable)
         {
-            _metalQuantity.Value += _nearestSellable.GetCostOnHealth();
+            // _metalQuantity.Value += _nearestSellable.GetCostOnHealth();
+            _metalQuantity.Add(_nearestSellable.GetCostOnHealth());
             _nearestSellable.GetComponentInChildren<DisolveEffect>().Disolve(true, true);
             Destroy(_nearestSellable.gameObject);
             EnableSellMode(false);
