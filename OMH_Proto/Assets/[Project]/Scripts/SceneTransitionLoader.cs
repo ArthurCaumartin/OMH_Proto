@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SceneTransitionLoader : MonoBehaviour
 {
     [SerializeField] private string _sceneToLoad;
-    [SerializeField] private string _sceneToUnLoad;
+    // [SerializeField] private string _sceneToUnLoad;
     [SerializeField] private GameObject _slideAnimation;
     [Space]
     [SerializeField] private float _skipSpeed = .5f;
@@ -19,15 +19,15 @@ public class SceneTransitionLoader : MonoBehaviour
 
     void Start()
     {
-        _asyncLoading = SceneManager.LoadSceneAsync(_sceneToLoad, LoadSceneMode.Additive);
-        _asyncLoading.allowSceneActivation = false;
+        // _asyncLoading = SceneManager.LoadSceneAsync(_sceneToLoad, LoadSceneMode.Additive);
+        // _asyncLoading.allowSceneActivation = false;
     }
 
     void Update()
     {
         // print(_asyncLoading.progress);
-        if (_asyncLoading.progress >= .9f)
-            _loadingTextSequence.IndexToPlay = 1;
+        // if (_asyncLoading.progress >= .9f)
+        _loadingTextSequence.IndexToPlay = 1;
         ChargeSkip();
     }
 
@@ -46,14 +46,9 @@ public class SceneTransitionLoader : MonoBehaviour
             flowControl = false;
             ScreenHider.instance.HideScreenForDuration(2, .2f, () =>
             {
-                _asyncLoading.allowSceneActivation = true;
-                _slideAnimation.SetActive(false);
-            },
-            () =>
-            {
-                // Scene toUnload = SceneManager.GetSceneByName(_sceneToUnLoad);
-                // if (toUnload != null)
-                SceneManager.UnloadSceneAsync(_sceneToUnLoad);
+                // _asyncLoading.allowSceneActivation = true;
+                // _slideAnimation.SetActive(false);
+                SceneManager.LoadScene(_sceneToLoad);
             });
         }
     }

@@ -57,7 +57,7 @@ public class InteractibleMetal : Interactible
         if (_timerMetal >= _timerToGetRessource.Value)
         {
             _timerMetal = 0;
-            GainRessource();
+            // GainRessource();
         }
     }
 

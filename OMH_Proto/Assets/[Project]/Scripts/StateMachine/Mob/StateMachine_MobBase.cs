@@ -8,11 +8,13 @@ public class StateMachine_MobBase : StateMachine
     private MobTargetFinder _targetFinder;
     private PhysicsAgent _agent;
     private bool _isStun = false;
+    private MobAnimationControler _animationControler;
 
     public Transform Target { get => _target; }
 
     private void Awake()
     {
+        _animationControler = GetComponentInChildren<MobAnimationControler>();
         _targetFinder = GetComponent<MobTargetFinder>();
         _agent = GetComponent<PhysicsAgent>();
         _isStun = false;
@@ -39,6 +41,7 @@ public class StateMachine_MobBase : StateMachine
         _isStun = true;
         _agent.SlowAgent(1, duration, true);
         StartCoroutine(ResetStun(duration));
+        _animationControler.PlayStunAnimationn(duration);
     }
 
     private IEnumerator ResetStun(float duration)
