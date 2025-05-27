@@ -1,10 +1,19 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class RespawnSequence : MonoBehaviour
 {
     [SerializeField] private RespawnPoint _respawnPoint;
     [SerializeField] private float _gameplayDisableDuration = 5;
+    [SerializeField] private Volume _baseGameVolume;
+    [SerializeField] private Volume _deathVolume;
+    [SerializeField] private CanvasGroup _canvasGroup;
+    [SerializeField] private AnimationCurve _canvasAlphaCurve;
     [Space]
     [SerializeField] private GameObject[] _objectToHideArray;
     private Shield _shield;
@@ -16,11 +25,12 @@ public class RespawnSequence : MonoBehaviour
     private WeaponControler _weaponControler;
     private MobTarget _mobTarget;
     private PlayerDisolve _playerDisolve;
+    private float _baseGameVolumeWeightBackup;
 
-    private void Start()
+    private void Awake()
     {
-        _shield = GetComponent<Shield>();
         _aim = GetComponent<PlayerAim>();
+        _shield = GetComponent<Shield>();
         _rigidbody = GetComponent<Rigidbody>();
         _mobTarget = GetComponent<MobTarget>();
         _movement = GetComponent<PlayerMovement>();
@@ -31,6 +41,8 @@ public class RespawnSequence : MonoBehaviour
         _playerDisolve = GetComponent<PlayerDisolve>();
 
         _shield.OnDeathEvent.AddListener(Respawn);
+
+        _baseGameVolumeWeightBackup = _baseGameVolume.weight;
     }
 
     private void Respawn()
@@ -45,11 +57,22 @@ public class RespawnSequence : MonoBehaviour
                 _playerDisolve.SetMatValue(0);
                 _rigidbody.MovePosition(_respawnPoint.transform.position);
                 _rigidbody.velocity = Vector3.zero;
+
+                _baseGameVolume.weight = 0;
+                _deathVolume.weight = 1;
+                _canvasGroup.alpha = 0;
             },
             () =>
             {
                 _playerDisolve.ShowPlayerWithDisolve(_gameplayDisableDuration - 1 - .3f);
                 _respawnPoint.StartVisualSequence(_gameplayDisableDuration - 1 - .3f);
+
+                DOTween.To((time) =>
+                {
+                    _baseGameVolume.weight = Mathf.Lerp(0, _baseGameVolumeWeightBackup, time);
+                    _deathVolume.weight = Mathf.Lerp(1, 0, time);
+                    _canvasGroup.alpha = Mathf.Lerp(0, 1, _canvasAlphaCurve.Evaluate(time));
+                }, 0, 1, _gameplayDisableDuration - 1 - .3f);
             });
         }
         else

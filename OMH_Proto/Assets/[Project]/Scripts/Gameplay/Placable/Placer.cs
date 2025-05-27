@@ -211,6 +211,7 @@ public class Placer : MonoBehaviour
         UnSelect();
         Select(2);
         _onShowRails.Raise();
+        _onShowGrid.Raise();
     }
     public void OnSelectPlacable2()
     {
