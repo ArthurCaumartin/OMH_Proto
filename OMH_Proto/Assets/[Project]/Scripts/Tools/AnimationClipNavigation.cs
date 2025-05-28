@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 [Serializable]
@@ -24,6 +25,10 @@ public class StepData
 public class AnimationClipNavigation : MonoBehaviour
 {
     [SerializeField] private Slider _sliderUI;
+    [SerializeField] private Image _pauseFeedbackImage;
+    [SerializeField] private Sprite _pauseImage;
+    [SerializeField] private Sprite _runingImage;
+    [Space]
     [SerializeField] private float _speed = .2f;
     [SerializeField, Range(0, 1)] private float _sliderTime;
     [SerializeField] private Animator _animator;
@@ -35,6 +40,7 @@ public class AnimationClipNavigation : MonoBehaviour
     private void Start()
     {
         InitializeSlideData();
+        EnableAutoSlider(true);
     }
 
     private void InitializeSlideData()
@@ -121,5 +127,12 @@ public class AnimationClipNavigation : MonoBehaviour
     public void EnableAutoSlider(bool value)
     {
         _isAutoSlider = value;
+        _pauseFeedbackImage.sprite = value ? _runingImage : _pauseImage;
+    }
+
+    private void OnSpace(InputValue value)
+    {
+        if (value.Get<float>() > .5f)
+            EnableAutoSlider(!_isAutoSlider);
     }
 }
