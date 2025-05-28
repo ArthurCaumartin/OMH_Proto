@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine.Rendering;
 using DepthOfField = UnityEngine.Rendering.Universal.DepthOfField;
 
@@ -11,6 +13,11 @@ public class InventoryPauseMenu : MonoBehaviour
     [SerializeField] private GameEvent _pauseMenuEvent, _resumeMenuEvent;
 
     [SerializeField] private ItemMenu _itemMenu;
+    [Space]
+    [SerializeField] private GameObject _statsPannel;
+    [SerializeField] private GameObject _infoPannel;
+    [SerializeField] private Image _infoImage;
+    [SerializeField] private TextMeshProUGUI _infoName, _infoDescription;
 
     public bool _isInventoryOpen;
     
@@ -56,5 +63,21 @@ public class InventoryPauseMenu : MonoBehaviour
         }
         
         _resumeMenuEvent.Raise();
+    }
+
+    public void ViewItem(string objectName, string objectDescription, Sprite objectImage)
+    {
+        _infoImage.sprite = objectImage;
+        _infoName.text = objectName;
+        _infoDescription.text = objectDescription;
+        
+        _statsPannel.SetActive(false);
+        _infoPannel.SetActive(true);
+    }
+
+    public void StopViewItem()
+    {
+        _infoPannel.SetActive(false);
+        _statsPannel.SetActive(true);
     }
 }

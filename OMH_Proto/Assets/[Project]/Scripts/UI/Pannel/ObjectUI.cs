@@ -16,5 +16,8 @@ public class ObjectUI : MonoBehaviour
         _objectDescription.text = objectDescription;
         _objectImage.sprite = objectImage;
         _popupImage.sprite = objectImage;
+
+        HighLightObject highLightObject = GetComponent<HighLightObject>();
+        highLightObject.InitializeInfos(_objectName.text, _objectDescription.text, _objectImage.sprite);
     }
 }
