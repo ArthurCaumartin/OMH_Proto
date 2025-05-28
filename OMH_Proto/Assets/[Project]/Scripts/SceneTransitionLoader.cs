@@ -53,8 +53,9 @@ public class SceneTransitionLoader : MonoBehaviour
         }
     }
 
-    private void OnSkipLoading(InputValue value)
+    private void OnE(InputValue value)
     {
+        print("E : " + value.Get<float>());
         _chargeSkip = value.Get<float>() > .5f;
     }
 }
