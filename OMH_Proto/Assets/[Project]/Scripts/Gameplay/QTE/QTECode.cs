@@ -13,7 +13,7 @@ public class QTECode : Upgradable
     private int _codeSelectIndex = 0;
     private bool _isWrondCode;
     
-    private void Start()
+    private void Awake()
     {
         _secretCode = new int[6];
         for (int i = 0; i < _secretCode.Length; i++)
@@ -59,6 +59,13 @@ public class QTECode : Upgradable
     {
         _qteUi.WinCode();
         StartCoroutine(Wait());
+    }
+
+    public string GetCodeManager()
+    {
+        string code = _secretCode[0].ToString() + _secretCode[1].ToString() + _secretCode[2].ToString() + _secretCode[3].ToString() + _secretCode[4].ToString() + _secretCode[5].ToString();
+        
+        return code;
     }
 
     private IEnumerator Wait()
