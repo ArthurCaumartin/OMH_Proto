@@ -45,7 +45,7 @@ public class QTECode : Upgradable
             _codeSelectIndex ++;
             _qteUi.SetGoodInputFeedBack(code);
             
-            if (_codeSelectIndex >= _secretCode.Length - 1) WinCode();
+            if (_codeSelectIndex >= _secretCode.Length) WinCode();
         }
         else
         {
@@ -64,6 +64,7 @@ public class QTECode : Upgradable
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(1f);
+        _qteUi.ResetText();
         _qte.KillQTE();
         _qte.OnWin.Invoke();
     }

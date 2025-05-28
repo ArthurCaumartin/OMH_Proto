@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class TutoManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _movementCanvasObject, _shootCanvasObject;
+    [SerializeField] private GameObject _movementCanvasObject, _shootCanvasObject, _placementCanvasObject;
 
-    private bool _isMovementPassed;
+    private bool _isMovementPassed, _isShootPassed;
 
     void Start()
     {
@@ -19,6 +19,7 @@ public class TutoManager : MonoBehaviour
         
         _movementCanvasObject.SetActive(true);
         _shootCanvasObject.SetActive(false);
+        _placementCanvasObject.SetActive(false);
     }
 
     private void Update()
@@ -38,6 +39,16 @@ public class TutoManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 _shootCanvasObject.SetActive(false);
+                _placementCanvasObject.SetActive(true);
+                _isShootPassed = true;
+            }
+        }
+
+        if (_isMovementPassed && _isShootPassed)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                _placementCanvasObject.SetActive(false);
                 Destroy(gameObject);
             }
         }

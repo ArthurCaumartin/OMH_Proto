@@ -93,6 +93,45 @@ public class ItemManager : MonoBehaviour
         
         _itemMenu.OpenItemMenu(itemsToSelect, this, _isBuildB);
     }
+    
+    public void OpenItemSelectionArmory()
+    {
+        //Select Random items and add to a list
+        Debug.Assert(_itemMenu != null, "ITEM MENU IS NULL IN ITEM MANAGER");
+        if (_itemMenu == null) return;
+        
+        itemsToSelect.Clear();
+        
+        //1st item
+        _firstItemID = Random.Range(0, _rareList._itemsList.Count);
+        
+        itemsToSelect.Add(_rareList._itemsList[_firstItemID]);
+        
+        
+        //2nd item
+        _secondItemID = Random.Range(0, _rareList._itemsList.Count);
+        while (_secondItemID == _firstItemID)
+        {
+            _secondItemID = Random.Range(0, _rareList._itemsList.Count);
+        }
+        
+        itemsToSelect.Add(_rareList._itemsList[_secondItemID]);
+        
+        
+        //3rd item
+        _thirdItemID = Random.Range(0, _rareList._itemsList.Count);
+        while (_thirdItemID == _firstItemID || _thirdItemID == _secondItemID)
+        {
+            _thirdItemID = Random.Range(0, _rareList._itemsList.Count);
+        }
+        
+        itemsToSelect.Add(_rareList._itemsList[_thirdItemID]);
+        
+        
+        //Activate UI
+        
+        _itemMenu.OpenItemMenu(itemsToSelect, this, _isBuildB);
+    }
 
     public void SelectItem(int itemId)
     {

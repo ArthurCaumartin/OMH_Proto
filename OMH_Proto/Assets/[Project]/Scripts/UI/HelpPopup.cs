@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class HelpPopup : MonoBehaviour
 {
-    [SerializeField] private GameObject _thanatosPopup, _syntaliumPopup, _lockPopup;
+    [SerializeField] private GameObject _thanatosPopup, _syntaliumPopup, _lockPopup, _barrierPopup;
 
     [SerializeField] private float _timerToDepop = 5f;
     
     private float _timer;
-    private bool _isThanatosShowed, _isSyntaliumShowed, _isLockShowed, _isSomethingShowed;
+    private bool _isThanatosShowed, _isSyntaliumShowed, _isLockShowed, _isSomethingShowed, _isBarrierShowed;
     
     private void Start()
     {
@@ -19,6 +19,8 @@ public class HelpPopup : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Alpha1)) BarrierPopup();
+        
         if (!_isSomethingShowed) return;
         
         // _timer += Time.deltaTime;
@@ -72,5 +74,18 @@ public class HelpPopup : MonoBehaviour
         _thanatosPopup.SetActive(false);
         _syntaliumPopup.SetActive(false);
         _lockPopup.SetActive(true);
+    }
+    
+    public void BarrierPopup()
+    {
+        if (_isBarrierShowed) return;
+        _isBarrierShowed = true;
+        _isSomethingShowed = true;
+        
+        _timer = 0;
+        _thanatosPopup.SetActive(false);
+        _syntaliumPopup.SetActive(false);
+        _lockPopup.SetActive(false);
+        _barrierPopup.SetActive(true);
     }
 }
