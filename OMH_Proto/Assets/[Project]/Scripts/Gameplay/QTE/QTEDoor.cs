@@ -35,11 +35,20 @@ public class QTEDoor : Upgradable
     {
         _diskList.Clear();
         
-        _diskList.Add(_disk1);
-        _diskList.Add(_disk2);
-        _diskList.Add(_disk3);
-        _diskList.Add(_disk4);
-
+        //Chose 2 randoms int from 0 to 3. Those numbers are the disks that will not be done in the QTE
+        int randomIndex1 = Random.Range(0, 4);
+        int randomIndex2 = Random.Range(0, 4);
+        while (randomIndex2 == randomIndex1)
+        {
+            randomIndex2 = Random.Range(0, 4);
+        }
+        print(randomIndex1 + " : " + randomIndex2);
+        if(randomIndex1 == 1 || randomIndex2 == 1) _diskList.Add(_disk1);
+        if(randomIndex1 == 2 || randomIndex2 == 2) _diskList.Add(_disk2);
+        if(randomIndex1 == 3 || randomIndex2 == 3) _diskList.Add(_disk3);
+        if(randomIndex1 == 4 || randomIndex2 == 4) _diskList.Add(_disk4);
+        
+        
         foreach (RectTransform disk in _diskList)
         {
             float tempRandomZ = Random.Range(0f, 359f);
