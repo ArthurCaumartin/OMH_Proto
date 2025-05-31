@@ -152,6 +152,46 @@
 						</Curve>
 					</SwitchOnRTPC>
 				</SwitchGroup>
+				<SwitchGroup Name="PlayerWeapon" ID="{AFE3B7A9-2848-4AC7-84E7-D97A99503252}">
+					<PropertyList>
+						<Property Name="UseGameParameter" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Switch Name="Fugitive" ID="{B560FB3E-4841-4FC0-91DA-ECF9F1E6D6E8}"/>
+						<Switch Name="StunGun" ID="{133A0859-2E50-4792-85F2-701D814E7542}"/>
+						<Switch Name="MachineGun" ID="{A728215C-333D-4F36-A25A-94D8681C8E06}"/>
+					</ChildrenList>
+					<SwitchOnRTPC>
+						<GameParameterRef Name="RTPC_WeaponChose" ID="{815E2007-9F7C-44A8-B582-D9A4457B9231}"/>
+						<Curve Name="" ID="{7D94CEE2-D043-4290-941E-27E0B49C388B}">
+							<PropertyList>
+								<Property Name="Flags" Type="int32" Value="65537"/>
+							</PropertyList>
+							<PointList>
+								<Point>
+									<XPos>0</XPos>
+									<YPos>1</YPos>
+									<Flags>5</Flags>
+								</Point>
+								<Point>
+									<XPos>1</XPos>
+									<YPos>2</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>1.999</XPos>
+									<YPos>3</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>2</XPos>
+									<YPos>3</YPos>
+									<Flags>37</Flags>
+								</Point>
+							</PointList>
+						</Curve>
+					</SwitchOnRTPC>
+				</SwitchGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</Switches>
