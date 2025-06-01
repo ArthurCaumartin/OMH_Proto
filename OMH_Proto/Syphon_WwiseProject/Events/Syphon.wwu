@@ -137,9 +137,43 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Play_AMB_BackCreditToMenu" ID="{A8C263BF-6A82-42A0-AF24-72B2AFBC34A7}">
+									<ChildrenList>
+										<Action Name="" ID="{5A7A8D1C-ED8D-4B99-B9D2-FF3C609F82F8}" ShortID="429071993">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+												<Property Name="FadeOutCurve" Type="int16" Value="1"/>
+												<Property Name="FadeTime" Type="Real64" Value="2"/>
+												<Property Name="Scope" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB_InMenu_Credits" ID="{00F957A1-42FB-4CB7-B623-C728F4250BF0}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{078B5B33-7013-4D3F-9E70-40AE6B8B49BE}" ShortID="556833681">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="39"/>
+												<Property Name="FadeOutCurve" Type="int16" Value="1"/>
+												<Property Name="FadeTime" Type="Real64" Value="2.5"/>
+												<Property Name="Scope" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RTPC_LPMusicMenu" ID="{BBA0BB55-63EC-4FDE-9164-E7CBE9A0821F}" WorkUnitID="{44DEA821-E645-4ADE-B7AF-55126F879D1C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="UI_PlayerMove" ID="{D4240717-26F4-45F5-83E7-0DDC5492FF25}" ShortID="19474258">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="4"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Event Name="Play_UI_Menu_Confirm" ID="{C7EBAE86-99CB-4B2C-85BB-3D07B22FDA24}">
 									<ChildrenList>
@@ -221,6 +255,10 @@
 							</ChildrenList>
 						</Folder>
 						<Folder Name="UI_Anims" ID="{C2617260-3C99-4B69-A5E4-49AE926155E0}" ShortID="995767330">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="4"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Event Name="Play_SFX_Menu_ChangePageBack" ID="{ACCD4E27-118A-4EEF-AF38-07D03CD67180}">
 									<ChildrenList>

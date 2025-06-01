@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PLAY_AMB_BACKCREDITTOMENU = 4233067813U;
         static const AkUniqueID PLAY_AMB_BLENDTEST = 2118589750U;
         static const AkUniqueID PLAY_AMB_INMENU_CREDITS = 2230101518U;
         static const AkUniqueID PLAY_AMB_INMENU_MAINMENU = 518201918U;
@@ -185,6 +186,15 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID RTPC_BUS_AMB = 2418825774U;
+        static const AkUniqueID RTPC_BUS_GAMEMUS = 148268885U;
+        static const AkUniqueID RTPC_BUS_GENMUS = 1132542661U;
+        static const AkUniqueID RTPC_BUS_MAST = 1078656225U;
+        static const AkUniqueID RTPC_BUS_MENUMUS = 3137385588U;
+        static const AkUniqueID RTPC_BUS_PLAYERSOUND = 3690343070U;
+        static const AkUniqueID RTPC_BUS_SFX = 2868967511U;
+        static const AkUniqueID RTPC_BUS_UI = 3374762476U;
+        static const AkUniqueID RTPC_BUS_VO = 3324429475U;
         static const AkUniqueID RTPC_DISTANCE = 262290038U;
         static const AkUniqueID RTPC_GROUNDWETNESS = 870672907U;
         static const AkUniqueID RTPC_LPMUSICMENU = 3992807061U;
