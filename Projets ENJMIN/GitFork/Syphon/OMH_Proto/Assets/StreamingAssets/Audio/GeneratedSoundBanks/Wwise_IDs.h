@@ -25,6 +25,7 @@ namespace AK
         static const AkUniqueID PLAY_SFX_INMENU_OPTIONSDISPLAY = 3936488577U;
         static const AkUniqueID PLAY_SFX_MENU_CHANGEPAGEBACK = 3919501610U;
         static const AkUniqueID PLAY_SFX_MENU_CHANGEPAGESWOOSH = 1842550574U;
+        static const AkUniqueID PLAY_SFX_PLAYERWEAPONS_STUNGUN = 566078571U;
         static const AkUniqueID PLAY_SFX_SLIDESHOW_SCREEN01ERASE = 3913140766U;
         static const AkUniqueID PLAY_SFX_SLIDESHOW_SCREEN01GETREADY = 2390793601U;
         static const AkUniqueID PLAY_SFX_SLIDESHOW_SCREEN01WRITING = 845771312U;
@@ -179,7 +180,6 @@ namespace AK
             {
                 static const AkUniqueID FUGITIVE = 555859512U;
                 static const AkUniqueID MACHINEGUN = 3678545986U;
-                static const AkUniqueID STUNGUN = 55720629U;
             } // namespace SWITCH
         } // namespace PLAYERWEAPON
 

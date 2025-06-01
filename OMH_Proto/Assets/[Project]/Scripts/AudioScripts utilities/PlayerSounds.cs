@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
 {
-    [SerializeField] public AK.Wwise.Event _SoundShieldUp;
-    [SerializeField] public AK.Wwise.Event _SoundShieldDown;
+    [SerializeField] private AK.Wwise.Event _SoundShieldUp;
+    [SerializeField] private AK.Wwise.Event _SoundShieldDown;
+    
   public void OnShieldUp()
     {
         _SoundShieldUp.Post(gameObject);

@@ -9,13 +9,13 @@
 			<ChildrenList>
 				<Folder Name="MainMenu" ID="{D91C72E1-FAF8-44DC-B8B7-008233AF49FC}" ShortID="500895606">
 					<PropertyList>
-						<Property Name="Color" Type="int16" Value="9"/>
+						<Property Name="Color" Type="int16" Value="4"/>
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
 						<Folder Name="Ambience" ID="{BFA282DD-B04E-4294-972A-06B4BC2CECE0}" ShortID="624760889">
 							<PropertyList>
-								<Property Name="Color" Type="int16" Value="23"/>
+								<Property Name="Color" Type="int16" Value="4"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 							</PropertyList>
 							<ChildrenList>
@@ -382,6 +382,17 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="SFX_WEAPONS_ShieldRegen" ID="{F914622A-E6B7-4239-AD63-D28475F0137F}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_SFX_PlayerWEAPONS_StunGun" ID="{0675BA6C-F909-49AA-AE1D-5C68D65F3559}">
+									<ChildrenList>
+										<Action Name="" ID="{5A753911-4D23-490D-8F1D-EBF0BAECEC26}" ShortID="934295434">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="SFX_PlayerWEAPONS_StunGun" ID="{A32ACEE0-C122-453B-94DE-59F0BD6F136C}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>

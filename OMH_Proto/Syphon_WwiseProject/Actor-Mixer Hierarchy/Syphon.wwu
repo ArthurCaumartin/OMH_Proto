@@ -999,64 +999,11 @@
 												</Sound>
 											</ChildrenList>
 										</RandomSequenceContainer>
-										<Sound Name="SFX_WEAPONS_StunGun" ID="{A32ACEE0-C122-453B-94DE-59F0BD6F136C}" ShortID="244517647">
-											<PropertyList>
-												<Property Name="MakeUpGain" Type="Real64">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{4B6B0C51-1454-40D6-90E9-B587890DCE0D}">
-																<PropertyList>
-																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="1"/>
-																	<Property Name="Min" Type="Real64" Value="-2"/>
-																</PropertyList>
-															</Modifier>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-												<Property Name="Pitch" Type="int32">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{5DCCC6D9-9279-4C40-9BF1-727F76F4ED9B}">
-																<PropertyList>
-																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="150"/>
-																	<Property Name="Min" Type="Real64" Value="-140"/>
-																</PropertyList>
-															</Modifier>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="SFX_WEAPONS_StunGun" ID="{0CB0D9AF-CE91-4220-BE2E-D1B20DF0FDD2}">
-													<Language>SFX</Language>
-													<AudioFile>SFX_WEAPONS_StunGun.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="418724174"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="SFX_WEAPONS_StunGun" ID="{0CB0D9AF-CE91-4220-BE2E-D1B20DF0FDD2}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
 									</ChildrenList>
 									<GroupingInfo>
 										<GroupingBehaviorList>
 											<GroupingBehavior>
 												<ItemRef Name="Fugitive" ID="{C561C63B-4B1B-4E1B-B093-155503867A7D}"/>
-											</GroupingBehavior>
-											<GroupingBehavior>
-												<ItemRef Name="SFX_WEAPONS_StunGun" ID="{A32ACEE0-C122-453B-94DE-59F0BD6F136C}"/>
 											</GroupingBehavior>
 										</GroupingBehaviorList>
 										<GroupingList>
@@ -1064,12 +1011,6 @@
 												<SwitchRef Name="Fugitive" ID="{B560FB3E-4841-4FC0-91DA-ECF9F1E6D6E8}"/>
 												<ItemList>
 													<ItemRef Name="Fugitive" ID="{C561C63B-4B1B-4E1B-B093-155503867A7D}"/>
-												</ItemList>
-											</Grouping>
-											<Grouping>
-												<SwitchRef Name="StunGun" ID="{133A0859-2E50-4792-85F2-701D814E7542}"/>
-												<ItemList>
-													<ItemRef Name="SFX_WEAPONS_StunGun" ID="{A32ACEE0-C122-453B-94DE-59F0BD6F136C}"/>
 												</ItemList>
 											</Grouping>
 										</GroupingList>
@@ -1153,6 +1094,56 @@
 										</Sound>
 									</ChildrenList>
 								</ActorMixer>
+								<Sound Name="SFX_PlayerWEAPONS_StunGun" ID="{A32ACEE0-C122-453B-94DE-59F0BD6F136C}" ShortID="244517647">
+									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{4B6B0C51-1454-40D6-90E9-B587890DCE0D}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="1"/>
+															<Property Name="Min" Type="Real64" Value="-2"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{5DCCC6D9-9279-4C40-9BF1-727F76F4ED9B}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="150"/>
+															<Property Name="Min" Type="Real64" Value="-140"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_WEAPONS_StunGun" ID="{0CB0D9AF-CE91-4220-BE2E-D1B20DF0FDD2}">
+											<Language>SFX</Language>
+											<AudioFile>SFX_WEAPONS_StunGun.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="418724174"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_WEAPONS_StunGun" ID="{0CB0D9AF-CE91-4220-BE2E-D1B20DF0FDD2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
@@ -1185,6 +1176,28 @@
 									<ObjectRef Name="2DAmbientsBeds" ID="{14DA7535-9315-4341-AB2D-66184109A9D6}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
 								</Reference>
 							</ReferenceList>
+							<ChildrenList>
+								<ActorMixer Name="Amb_2D" ID="{CEBBE1E1-7DA6-410D-8895-E9D561EE7696}" ShortID="866738795">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+								</ActorMixer>
+								<ActorMixer Name="Amb_3D" ID="{8B1B4FF2-CBB9-40FB-BD69-E82A12FE832A}" ShortID="109150076">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+								</ActorMixer>
+							</ChildrenList>
 						</ActorMixer>
 					</ChildrenList>
 				</Folder>
@@ -1195,6 +1208,10 @@
 					</PropertyList>
 					<ChildrenList>
 						<Folder Name="InMainMenu" ID="{7C69F159-CF3E-4F7B-A600-9958019BE134}" ShortID="383953272">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="4"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Sound Name="AMB_InMenu_MainMenu" ID="{C251D029-11C2-4225-BD2F-93EF25572C3F}" ShortID="979009667">
 									<ReferenceList>

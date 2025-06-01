@@ -31,6 +31,11 @@ public class HierarchyColorObjects : MonoBehaviour
                 backgroundColor = new Color(1f, 0.6470588f, 0f);
                 textColor = new Color(0.2f, 0.2f, 0.2f);
             }
+            if (obj.name == "AudioThings")
+            {
+                backgroundColor = new Color(1f, 0.6470588f, 0f);
+                textColor = new Color(0.2f, 0.2f, 0.2f);
+            }
             // Or you can use switch case
             //switch (obj.name)
             //{
