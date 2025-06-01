@@ -58,6 +58,7 @@ namespace AK
         static const AkUniqueID PLAY_SFX_WEAPONS_SHIELDBREAK = 1355972168U;
         static const AkUniqueID PLAY_SFX_WEAPONS_SHIELDREGEN = 4105057630U;
         static const AkUniqueID PLAY_START_AMB_MUS_INMENU_MAINMENU = 1403299731U;
+        static const AkUniqueID PLAY_STARTMENUTRANSITION_FROMSTARTTORUNDOWN = 3874336859U;
         static const AkUniqueID PLAY_TESTSHOOT = 2635067583U;
         static const AkUniqueID PLAY_UI_MENU_BACK = 777803296U;
         static const AkUniqueID PLAY_UI_MENU_CONFIRM = 3500366795U;
