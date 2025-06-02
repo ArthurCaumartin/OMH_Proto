@@ -47,6 +47,9 @@ public class MobTargetFinder : MonoBehaviour
 
     private void Update()
     {
+        if (_currentTarget && !_currentTarget.isActive)
+            _currentTarget = null;
+
         //TODO delay pour le detect
         DetectNearestTarget();
 
@@ -80,7 +83,7 @@ public class MobTargetFinder : MonoBehaviour
         {
             MobTarget currentTarget = col[i].GetComponent<MobTarget>();
             if (!currentTarget) continue;
-            if (!currentTarget.enable) continue;
+            if (!currentTarget.isActive) continue;
             if (currentTarget == _ifLostTarget) continue;
 
             float currentDistance = Vector3.Distance(transform.position, currentTarget.transform.position);

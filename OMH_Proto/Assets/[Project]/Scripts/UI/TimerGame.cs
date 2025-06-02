@@ -8,18 +8,18 @@ public class TimerGame : MonoBehaviour
     [SerializeField] private FloatReference _exploDuration;
 
     [SerializeField] private Color _colorTextDefense;
-    
+    [SerializeField] private TextMeshPro _syphonMeshWorldText;
     private TextMeshProUGUI _timerText;
     private float _timer;
     private int _intCounter;
 
     private bool _isDefenseStarted, _isTimerStarted;
-    
+
     void Start()
     {
         _timerText = GetComponent<TextMeshProUGUI>();
         _timerText.color = Color.white;
-        
+
         _intCounter = (int)_exploDuration.Value;
         _timer = _intCounter;
 
@@ -59,23 +59,26 @@ public class TimerGame : MonoBehaviour
             {
                 if (_intCounter % 60 < 10)
                 {
-                    if(_intCounter < 600) _timerText.text = $"0{_intCounter / 60}:0{_intCounter % 60}";
+                    if (_intCounter < 600) _timerText.text = $"0{_intCounter / 60}:0{_intCounter % 60}";
                     else _timerText.text = $"{_intCounter / 60}:0{_intCounter % 60}";
                 }
                 else
                 {
-                    if(_intCounter < 600) _timerText.text = $"0{_intCounter / 60}:{_intCounter % 60}";
+                    if (_intCounter < 600) _timerText.text = $"0{_intCounter / 60}:{_intCounter % 60}";
                     else _timerText.text = $"{_intCounter / 60}:{_intCounter % 60}";
                 }
                 _intCounter--;
             }
         }
-        
+
         if (_intCounter + 1 == 0)
         {
             StartDefense();
             // Destroy(gameObject);
         }
+
+        if (_syphonMeshWorldText)
+            _syphonMeshWorldText.text = _timerText.text;
     }
 
     public void StartDefense()
@@ -83,7 +86,7 @@ public class TimerGame : MonoBehaviour
         if (_isTimerStarted) return;
         Debug.LogWarning("SET TIMER IN RED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         _isTimerStarted = true;
-        
+
         _isDefenseStarted = true;
         _timerText.color = _colorTextDefense;
         _timerText.text = "00:00";

@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
     private GameObject _shooter;
     private Rigidbody _rb;
     private Vector3 _lastFramePosition;
+    [SerializeField] private AK.Wwise.Event _shootSound;
 
     public Projectile Initialize(GameObject shooter, float speed, float damage)
     {
@@ -22,6 +23,7 @@ public class Projectile : MonoBehaviour
         _shooter = shooter;
         _speed = speed;
         _damage = damage;
+        _shootSound.Post(gameObject);
 
         _rb = GetComponent<Rigidbody>();
         _lastFramePosition = _rb.position;
