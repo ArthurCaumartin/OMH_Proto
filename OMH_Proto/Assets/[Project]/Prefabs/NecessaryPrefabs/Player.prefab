@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 1115393156313987994}
   - component: {fileID: 6800687197529148891}
   - component: {fileID: 4093695560007885744}
+  - component: {fileID: 6563420792076411706}
   m_Layer: 17
   m_Name: Player
   m_TagString: Player
@@ -229,10 +230,34 @@ MonoBehaviour:
     m_Bits: 2048
   _onShieldDown:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6563420792076411706}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: OnShieldDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onShieldUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6563420792076411706}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: OnShieldUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onPlayerDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -297,7 +322,7 @@ MonoBehaviour:
     propertyType: 0
     constantValue: 50
     variable: {fileID: 0}
-  enable: 1
+  isActive: 1
 --- !u!114 &6430276508798863550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,6 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _respawnPoint: {fileID: 0}
   _gameplayDisableDuration: 5
+  _noAgroBonusTime: 1.5
   _baseGameVolume: {fileID: 0}
   _deathVolume: {fileID: 0}
   _canvasGroup: {fileID: 0}
@@ -429,6 +455,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _anneArmorDamage: {fileID: 2100000, guid: 886cf9a34179e394aa8277e184daa79a, type: 2}
   _anne: {fileID: 2100000, guid: 84c1e37ce9fdb144283bcb4ea573bcb0, type: 2}
+--- !u!114 &6563420792076411706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294628952006894197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d2c6dbc28f82e04c8833a8a2a6ed967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _SoundShieldUp:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 50260a5a589f0244bbb4a976957ccb65,
+      type: 2}
+  _SoundShieldDown:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 949f68ffd0aed7f45b2e9420ef828a69,
+      type: 2}
+  _shootGun:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2a6d7f93ac51f9348aa20d94421ee10a,
+      type: 2}
+  _shootStun:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2576478243230e145b6b5f6b94427a75,
+      type: 2}
 --- !u!1 &2684623747496799196
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,7 +693,7 @@ GameObject:
   - component: {fileID: 3094675639315671987}
   - component: {fileID: 1536333092842136522}
   m_Layer: 0
-  m_Name: Audio Listener
+  m_Name: Audio Listener (UnityAudio)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
