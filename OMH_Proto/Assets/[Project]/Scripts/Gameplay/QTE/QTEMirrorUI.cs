@@ -27,7 +27,7 @@ public class QTEMirrorUI : MonoBehaviour
 
         for (int i = 0; i < _objectsToLight.Count; i++)
         {
-            _objectsToLight[i].color = new Color32(29, 173, 215, 255);
+            // _objectsToLight[i].color = new Color32(29, 173, 215, 255);
         }
         
     }
@@ -73,7 +73,7 @@ public class QTEMirrorUI : MonoBehaviour
         {
             _activateObjects[i].GetComponent<Image>().color = new Color32(232, 73, 73, 255);
         }
-        StartCoroutine(BadInputFeedBack());
+        // StartCoroutine(BadInputFeedBack());
     }
 
     public void WinCode()
