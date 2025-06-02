@@ -1,6 +1,7 @@
 using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
 public class FootDecalsSpawner : MonoBehaviour
@@ -26,6 +27,12 @@ public class FootDecalsSpawner : MonoBehaviour
     [SerializeField] private Feet _rightFeet;
     [SerializeField] private Feet _leftFeet;
 
+    public UnityEvent<RaycastHit> OnStepEvent;
+
+    void Start()
+    {
+        // OnStepEvent.AddListener((hit) => { print("YAAAAAA"); });
+    }
 
     private void Update()
     {
@@ -52,10 +59,12 @@ public class FootDecalsSpawner : MonoBehaviour
 
         Physics.Raycast(feet.pivot.position, feet.pivot.up, out RaycastHit groundHit, _rayLenth, _groundLayer);
         if (!groundHit.collider) feet.asStep = true;
+
+
         if (groundHit.collider && feet.canSpawnDecal > 0 && feet.asStep)
         {
             feet.asStep = false;
-            print("spawn");
+            OnStepEvent.Invoke(groundHit);
             DecalProjector newDecal = Instantiate(_feetDecalPrefab
                                                 , groundHit.point + new Vector3(0, .06f, 0)
                                                 , Quaternion.LookRotation(-groundHit.normal, transform.forward));
@@ -65,6 +74,14 @@ public class FootDecalsSpawner : MonoBehaviour
             newDecal.material = new Material(newDecal.material);
             newDecal.material.SetTexture("_Decal", feet.texture2D);
             newDecal.material.SetFloat("_Mix", feet.lastBloodMixe);
+            return;
+        }
+
+        if (groundHit.collider && feet.asStep)
+        {
+            feet.asStep = false;
+            OnStepEvent.Invoke(groundHit);
+            return;
         }
     }
 }
