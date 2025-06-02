@@ -10,7 +10,7 @@ public class InteractibleNest : Interactible
 
     [SerializeField] private GameEvent _destroyNest, _encounterNest, _notEnoughtSyringe;
     [SerializeField] private GameObject _enemyPrefab, _eggMesh, _doorObject1, _doorObject2;
-    
+
     [Space]
     [SerializeField] private Transform _posToSpawn;
     [SerializeField] private float _timeMinSpawn, _timeMaxSpawn;
@@ -26,7 +26,7 @@ public class InteractibleNest : Interactible
     {
         _boxCollider = GetComponent<BoxCollider>();
         _boxCollider.enabled = false;
-        
+
         _timeToSpawn = Random.Range(_timeMinSpawn, _timeMaxSpawn);
         _isPlayerInRangeForEncounter = false;
     }
@@ -41,8 +41,8 @@ public class InteractibleNest : Interactible
     {
         // _syringeValue.Value -= 1;
         _destroyNest.Raise();
-        
-        if(_eggMesh != null) _eggMesh.SetActive(false);
+
+        if (_eggMesh != null) _eggMesh.SetActive(false);
         Material object1Material = _doorObject1.GetComponent<MeshRenderer>().material;
         object1Material.SetFloat("_infested", 0);
         Material object2Material = _doorObject2.GetComponent<MeshRenderer>().material;
@@ -56,7 +56,7 @@ public class InteractibleNest : Interactible
     public virtual void Update()
     {
         base.Update();
-        
+
         if (_isNestActive)
         {
             _timerSpawnMob += Time.deltaTime;
@@ -96,17 +96,18 @@ public class InteractibleNest : Interactible
         for (int i = 0; i < _numberOfEnemiesToSpawn; i++)
         {
             GameObject tempObject = Instantiate(_enemyPrefab, _posToSpawn.position, Quaternion.identity);
-            
+
             tempObject.GetComponent<MobTargetFinder>().Initialize(_mobTarget);
         }
     }
 
+    [ContextMenu("YAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")]
     public void ActivateNest()
     {
         _isNestActive = true;
         _boxCollider.enabled = true;
-        
-        if(_eggMesh != null) _eggMesh.SetActive(true);
+
+        if (_eggMesh != null) _eggMesh.SetActive(true);
         Material object1Material = _doorObject1.GetComponent<MeshRenderer>().material;
         object1Material.SetFloat("_infested", 1);
         Material object2Material = _doorObject2.GetComponent<MeshRenderer>().material;
