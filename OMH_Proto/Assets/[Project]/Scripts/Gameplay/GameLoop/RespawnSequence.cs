@@ -10,6 +10,7 @@ public class RespawnSequence : MonoBehaviour
 {
     [SerializeField] private RespawnPoint _respawnPoint;
     [SerializeField] private float _gameplayDisableDuration = 5;
+    [SerializeField] private float _noAgroBonusTime = 1.5f;
     [SerializeField] private Volume _baseGameVolume;
     [SerializeField] private Volume _deathVolume;
     [SerializeField] private CanvasGroup _canvasGroup;
@@ -42,7 +43,8 @@ public class RespawnSequence : MonoBehaviour
 
         _shield.OnDeathEvent.AddListener(Respawn);
 
-        _baseGameVolumeWeightBackup = _baseGameVolume.weight;
+        if (_baseGameVolume)
+            _baseGameVolumeWeightBackup = _baseGameVolume.weight;
     }
 
     private void Respawn()
@@ -58,21 +60,27 @@ public class RespawnSequence : MonoBehaviour
                 _rigidbody.MovePosition(_respawnPoint.transform.position);
                 _rigidbody.velocity = Vector3.zero;
 
-                _baseGameVolume.weight = 0;
-                _deathVolume.weight = 1;
-                _canvasGroup.alpha = 0;
+                if (_baseGameVolume)
+                {
+                    _baseGameVolume.weight = 0;
+                    _deathVolume.weight = 1;
+                    _canvasGroup.alpha = 0;
+                }
             },
             () =>
             {
                 _playerDisolve.ShowPlayerWithDisolve(_gameplayDisableDuration - 1 - .3f);
                 _respawnPoint.StartVisualSequence(_gameplayDisableDuration - 1 - .3f);
 
-                DOTween.To((time) =>
+                if (_baseGameVolume)
                 {
-                    _baseGameVolume.weight = Mathf.Lerp(0, _baseGameVolumeWeightBackup, time);
-                    _deathVolume.weight = Mathf.Lerp(1, 0, time);
-                    _canvasGroup.alpha = Mathf.Lerp(0, 1, _canvasAlphaCurve.Evaluate(time));
-                }, 0, 1, _gameplayDisableDuration - 1 - .3f);
+                    DOTween.To((time) =>
+                    {
+                        _baseGameVolume.weight = Mathf.Lerp(0, _baseGameVolumeWeightBackup, time);
+                        _deathVolume.weight = Mathf.Lerp(1, 0, time);
+                        _canvasGroup.alpha = Mathf.Lerp(0, 1, _canvasAlphaCurve.Evaluate(time));
+                    }, 0, 1, _gameplayDisableDuration - 1 - .3f);
+                }
             });
         }
         else
@@ -89,7 +97,8 @@ public class RespawnSequence : MonoBehaviour
         _aim.enabled = value;
         _interact.enabled = value;
         _weaponControler.enabled = value;
-        _mobTarget.enable = value;
+
+        _rigidbody.isKinematic = !value;
 
         foreach (var item in _objectToHideArray)
             item.SetActive(value);
@@ -98,8 +107,11 @@ public class RespawnSequence : MonoBehaviour
     private IEnumerator DisableAllForDuration(float duration)
     {
         EnableGameplay(false);
+        _mobTarget.isActive = false;
         yield return new WaitForSeconds(duration);
         EnableGameplay(true);
+        yield return new WaitForSeconds(_noAgroBonusTime);
+        _mobTarget.isActive = true;
     }
 }
 
