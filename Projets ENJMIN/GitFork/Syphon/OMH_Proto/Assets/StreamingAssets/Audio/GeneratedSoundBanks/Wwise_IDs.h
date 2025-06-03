@@ -19,6 +19,7 @@ namespace AK
         static const AkUniqueID PLAY_AMB_INMENU_MAINMENU = 518201918U;
         static const AkUniqueID PLAY_AMB_MUSIC_MAINMENU_V1 = 241809481U;
         static const AkUniqueID PLAY_PLAYERWEAPON = 3121554309U;
+        static const AkUniqueID PLAY_PLYR_FOOTSTEPS = 673033979U;
         static const AkUniqueID PLAY_SFX2D_INTERFACE_PLYRARROWSEQBLEEPS_OS = 3038203535U;
         static const AkUniqueID PLAY_SFX2D_INTERFACE_PLYRARROWSEQSUCCESS_OS = 1167542187U;
         static const AkUniqueID PLAY_SFX2D_INTERFACE_PLYRARROWSEQWRONG_OS = 2476857413U;
@@ -168,7 +169,6 @@ namespace AK
             {
                 static const AkUniqueID FIRING = 860902532U;
                 static const AkUniqueID RUNNING = 3863236874U;
-                static const AkUniqueID WALKING = 340271938U;
             } // namespace SWITCH
         } // namespace PLAYERSPEEDSWITCH
 

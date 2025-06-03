@@ -16,9 +16,6 @@
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
 										</Reference>
-										<Reference Name="DefaultSwitchOrState">
-											<ObjectRef Name="Walking" ID="{CD4AC599-0961-476A-B109-39BE8FB90DB1}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
-										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
 										</Reference>
@@ -27,249 +24,6 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<BlendContainer Name="Player_BlendFootstepsWalk" ID="{79A6577E-520E-495F-821C-EA835F821176}" ShortID="900848173">
-											<PropertyList>
-												<Property Name="Color" Type="int16" Value="23"/>
-												<Property Name="OverrideColor" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<SwitchContainer Name="Dry_MatSwitch" ID="{297010F7-943A-4A2A-9C40-6B1562BCAA19}" ShortID="574953549">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-														</Reference>
-														<Reference Name="DefaultSwitchOrState">
-															<ObjectRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-														</Reference>
-														<Reference Name="SwitchGroupOrStateGroup">
-															<ObjectRef Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<RandomSequenceContainer Name="Glass" ID="{571AC3B9-FDD1-4DA2-BDC6-DB2747461F30}" ShortID="506793963">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-																</Reference>
-															</ReferenceList>
-														</RandomSequenceContainer>
-														<RandomSequenceContainer Name="Metal" ID="{C1F8611F-9B67-4C1E-890E-4961B16FA1CA}" ShortID="840188583">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-																</Reference>
-															</ReferenceList>
-														</RandomSequenceContainer>
-													</ChildrenList>
-													<GroupingInfo>
-														<GroupingBehaviorList>
-															<GroupingBehavior>
-																<ItemRef Name="Metal" ID="{C1F8611F-9B67-4C1E-890E-4961B16FA1CA}"/>
-															</GroupingBehavior>
-															<GroupingBehavior>
-																<ItemRef Name="Glass" ID="{571AC3B9-FDD1-4DA2-BDC6-DB2747461F30}"/>
-															</GroupingBehavior>
-														</GroupingBehaviorList>
-														<GroupingList>
-															<Grouping>
-																<SwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
-																<ItemList>
-																	<ItemRef Name="Glass" ID="{571AC3B9-FDD1-4DA2-BDC6-DB2747461F30}"/>
-																</ItemList>
-															</Grouping>
-															<Grouping>
-																<SwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
-																<ItemList>
-																	<ItemRef Name="Metal" ID="{C1F8611F-9B67-4C1E-890E-4961B16FA1CA}"/>
-																</ItemList>
-															</Grouping>
-														</GroupingList>
-													</GroupingInfo>
-												</SwitchContainer>
-												<SwitchContainer Name="Damp_MatSwitch" ID="{6007EA71-2D41-4316-8C5A-C7108FDC63C4}" ShortID="807414140">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-														</Reference>
-														<Reference Name="DefaultSwitchOrState">
-															<ObjectRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-														</Reference>
-														<Reference Name="SwitchGroupOrStateGroup">
-															<ObjectRef Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<RandomSequenceContainer Name="Glass" ID="{FBDCA181-AD4D-4B33-8782-F01FFE495DAA}" ShortID="997723038">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-																</Reference>
-															</ReferenceList>
-														</RandomSequenceContainer>
-														<RandomSequenceContainer Name="Metal" ID="{77D6C45C-7DBB-4358-90DE-CC39006E02E6}" ShortID="318164655">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-																</Reference>
-															</ReferenceList>
-														</RandomSequenceContainer>
-													</ChildrenList>
-													<GroupingInfo>
-														<GroupingBehaviorList>
-															<GroupingBehavior>
-																<ItemRef Name="Metal" ID="{77D6C45C-7DBB-4358-90DE-CC39006E02E6}"/>
-															</GroupingBehavior>
-															<GroupingBehavior>
-																<ItemRef Name="Glass" ID="{FBDCA181-AD4D-4B33-8782-F01FFE495DAA}"/>
-															</GroupingBehavior>
-														</GroupingBehaviorList>
-														<GroupingList>
-															<Grouping>
-																<SwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
-																<ItemList>
-																	<ItemRef Name="Glass" ID="{FBDCA181-AD4D-4B33-8782-F01FFE495DAA}"/>
-																</ItemList>
-															</Grouping>
-															<Grouping>
-																<SwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
-																<ItemList>
-																	<ItemRef Name="Metal" ID="{77D6C45C-7DBB-4358-90DE-CC39006E02E6}"/>
-																</ItemList>
-															</Grouping>
-														</GroupingList>
-													</GroupingInfo>
-												</SwitchContainer>
-												<SwitchContainer Name="Soaked_MatSwitch" ID="{B4005880-A4B0-416F-8AC4-1840F9FD5DF8}" ShortID="587218803">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-														</Reference>
-														<Reference Name="DefaultSwitchOrState">
-															<ObjectRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-														</Reference>
-														<Reference Name="SwitchGroupOrStateGroup">
-															<ObjectRef Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<RandomSequenceContainer Name="Glass" ID="{F8A7563F-054B-450D-8259-AD0C5CD1829F}" ShortID="565679924">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-																</Reference>
-															</ReferenceList>
-														</RandomSequenceContainer>
-														<RandomSequenceContainer Name="Metal" ID="{54ABC981-39C4-4729-A975-A6FD43DA843C}" ShortID="522646826">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-																</Reference>
-															</ReferenceList>
-														</RandomSequenceContainer>
-													</ChildrenList>
-													<GroupingInfo>
-														<GroupingBehaviorList>
-															<GroupingBehavior>
-																<ItemRef Name="Glass" ID="{F8A7563F-054B-450D-8259-AD0C5CD1829F}"/>
-															</GroupingBehavior>
-															<GroupingBehavior>
-																<ItemRef Name="Metal" ID="{54ABC981-39C4-4729-A975-A6FD43DA843C}"/>
-															</GroupingBehavior>
-														</GroupingBehaviorList>
-														<GroupingList>
-															<Grouping>
-																<SwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
-																<ItemList>
-																	<ItemRef Name="Glass" ID="{F8A7563F-054B-450D-8259-AD0C5CD1829F}"/>
-																</ItemList>
-															</Grouping>
-															<Grouping>
-																<SwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
-																<ItemList>
-																	<ItemRef Name="Metal" ID="{54ABC981-39C4-4729-A975-A6FD43DA843C}"/>
-																</ItemList>
-															</Grouping>
-														</GroupingList>
-													</GroupingInfo>
-												</SwitchContainer>
-											</ChildrenList>
-											<BlendTrackList>
-												<BlendTrack Name="FootstepWetness" ID="{F6AECF35-27D6-4C8A-893E-58D1A1EE093A}" ShortID="702491418">
-													<PropertyList>
-														<Property Name="EnableCrossFading" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="LayerCrossFadeControlInput">
-															<ObjectRef Name="RTPC_GroundWetness" ID="{9AC47AC9-0CB2-4E86-B5CB-5A18407FBF01}" WorkUnitID="{44DEA821-E645-4ADE-B7AF-55126F879D1C}"/>
-														</Reference>
-													</ReferenceList>
-													<BlendTrackAssocList>
-														<BlendTrackAssoc>
-															<ItemRef Name="Dry_MatSwitch" ID="{297010F7-943A-4A2A-9C40-6B1562BCAA19}"/>
-															<CrossfadingInfo>
-																<LeftEdgePos>0</LeftEdgePos>
-																<LeftFadingMode>Automatic</LeftFadingMode>
-																<RightEdgePos>40</RightEdgePos>
-																<RightFadingMode>Automatic</RightFadingMode>
-															</CrossfadingInfo>
-														</BlendTrackAssoc>
-														<BlendTrackAssoc>
-															<ItemRef Name="Damp_MatSwitch" ID="{6007EA71-2D41-4316-8C5A-C7108FDC63C4}"/>
-															<CrossfadingInfo>
-																<LeftEdgePos>35</LeftEdgePos>
-																<LeftFadingMode>Automatic</LeftFadingMode>
-																<RightEdgePos>80</RightEdgePos>
-																<RightFadingMode>Automatic</RightFadingMode>
-															</CrossfadingInfo>
-														</BlendTrackAssoc>
-														<BlendTrackAssoc>
-															<ItemRef Name="Soaked_MatSwitch" ID="{B4005880-A4B0-416F-8AC4-1840F9FD5DF8}"/>
-															<CrossfadingInfo>
-																<LeftEdgePos>75</LeftEdgePos>
-																<LeftFadingMode>Automatic</LeftFadingMode>
-																<RightEdgePos>100</RightEdgePos>
-																<RightFadingMode>Automatic</RightFadingMode>
-															</CrossfadingInfo>
-														</BlendTrackAssoc>
-													</BlendTrackAssocList>
-												</BlendTrack>
-											</BlendTrackList>
-										</BlendContainer>
 										<BlendContainer Name="Player_BlendFootstepsFire" ID="{1B0A93FF-D529-4572-8EF8-F806510235C4}" ShortID="558443079">
 											<PropertyList>
 												<Property Name="Color" Type="int16" Value="23"/>
@@ -309,6 +63,272 @@
 																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
 																</Reference>
 															</ReferenceList>
+															<ChildrenList>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Walking_01" ID="{1825E84B-EB35-4362-955B-485941CFD7B3}" ShortID="903572089">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_01" ID="{F65E6792-119C-48B8-9204-E56FEC02AE35}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Walking_01.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="772987171"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_01" ID="{F65E6792-119C-48B8-9204-E56FEC02AE35}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Walking_02" ID="{D88924EB-A3F5-4C72-ADE8-BECB454ADF66}" ShortID="838989242">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_02" ID="{9599B9C4-1F9F-420D-8ECA-59FF5D4FEE61}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Walking_02.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="804422242"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_02" ID="{9599B9C4-1F9F-420D-8ECA-59FF5D4FEE61}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Walking_03" ID="{9C16DE0A-C3EF-4721-84C7-0E99BB1F6E9C}" ShortID="952655295">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_03" ID="{B2536238-4F94-48DC-A8F2-DC1607E98B8F}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Walking_03.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="119985525"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_03" ID="{B2536238-4F94-48DC-A8F2-DC1607E98B8F}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Walking_04" ID="{35053798-2F94-4C37-BBA0-3F88875A361B}" ShortID="564488944">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_04" ID="{A1807DEE-1B38-44D4-B26A-FBD50EBE4A0D}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Walking_04.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="133544080"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_04" ID="{A1807DEE-1B38-44D4-B26A-FBD50EBE4A0D}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Walking_05" ID="{8A5FD327-DC11-47F8-8873-9EC323B1CCFF}" ShortID="720471712">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_05" ID="{E6D32258-BFB7-4160-A98D-AAAB64AC56B0}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Walking_05.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="498761139"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_05" ID="{E6D32258-BFB7-4160-A98D-AAAB64AC56B0}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Walking_06" ID="{A107295F-D735-49D6-ACD8-BB46AEC21C4E}" ShortID="576410525">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_06" ID="{49E70437-CCED-4E6B-B16E-83F4E76E3A0D}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Walking_06.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="545961318"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_06" ID="{49E70437-CCED-4E6B-B16E-83F4E76E3A0D}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Walking_07" ID="{8CC2B5DA-C662-4714-8199-593EDB39B755}" ShortID="507079033">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_07" ID="{CDD2B197-49F8-44D1-8175-A5038CC33312}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Walking_07.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="576868194"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_07" ID="{CDD2B197-49F8-44D1-8175-A5038CC33312}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Walking_08" ID="{E56D1724-AAF7-4DDC-8B94-8A4B6BAF3276}" ShortID="616451557">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_08" ID="{FE039CDA-FBA7-46A2-8CBE-80AA548318B4}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Walking_08.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="40316102"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_08" ID="{FE039CDA-FBA7-46A2-8CBE-80AA548318B4}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Walking_09" ID="{39324B80-9E73-4147-A5AD-D6D22183CE15}" ShortID="661553292">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_09" ID="{FA1D0AE6-667F-4DE0-8F62-DD9C42BC3070}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Walking_09.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="822083137"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_09" ID="{FA1D0AE6-667F-4DE0-8F62-DD9C42BC3070}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Walking_10" ID="{BC068BEB-BD7F-47CD-9CA0-BE0E17BDD442}" ShortID="4397576">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_10" ID="{A11877E0-2B57-42D1-B14E-8815B4CFF238}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Walking_10.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="445574644"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_10" ID="{A11877E0-2B57-42D1-B14E-8815B4CFF238}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Walking_11" ID="{D4A281BE-6A9F-49F4-805B-90D1DCAC844F}" ShortID="709878362">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_11" ID="{D8F369B7-201E-47D8-86EF-11661229B49E}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Walking_11.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="293650905"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_11" ID="{D8F369B7-201E-47D8-86EF-11661229B49E}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Walking_12" ID="{27445DF1-9A22-48D3-9D92-860FA1D34C80}" ShortID="908917270">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_12" ID="{CE202282-1D54-478E-93DC-6390AA3456E6}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Walking_12.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="789928430"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Walking_12" ID="{CE202282-1D54-478E-93DC-6390AA3456E6}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+															</ChildrenList>
 														</RandomSequenceContainer>
 														<RandomSequenceContainer Name="Metal" ID="{9D768154-AFBD-4A8E-B988-F31188B4CFB2}" ShortID="20823490">
 															<ReferenceList>
@@ -319,6 +339,250 @@
 																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
 																</Reference>
 															</ReferenceList>
+															<ChildrenList>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Walking_01" ID="{C3114BD4-1418-40E3-8C93-97E78C79CCF6}" ShortID="594259502">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_01" ID="{995E08AB-C21E-4EEB-A556-2F9981AEF48A}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Walking_01.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="605520576"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_01" ID="{995E08AB-C21E-4EEB-A556-2F9981AEF48A}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Walking_02" ID="{EAD17754-D14A-4A99-8F53-DA1B08007B96}" ShortID="247129294">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_02" ID="{FB5D80BA-6008-42AD-A44D-D9C450934ABC}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Walking_02.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="867257437"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_02" ID="{FB5D80BA-6008-42AD-A44D-D9C450934ABC}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Walking_03" ID="{4D710772-ED49-4DD0-B896-3EC607E8684B}" ShortID="507353556">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_03" ID="{BF851368-3C2A-4655-963B-3FF9EF78AF6B}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Walking_03.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="859496705"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_03" ID="{BF851368-3C2A-4655-963B-3FF9EF78AF6B}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Walking_04" ID="{EECC8042-5854-4559-833A-187779C26E13}" ShortID="580741011">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_04" ID="{A98D8827-6D45-4993-9312-FD0D7709FD80}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Walking_04.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="458037693"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_04" ID="{A98D8827-6D45-4993-9312-FD0D7709FD80}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Walking_05" ID="{7BA46AAD-6E8A-4E75-8C17-A18C321D5A71}" ShortID="499793101">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_05" ID="{339CF45A-59CF-40F2-8B86-0469D7CD9BE4}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Walking_05.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="941262188"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_05" ID="{339CF45A-59CF-40F2-8B86-0469D7CD9BE4}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Walking_06" ID="{7D3DA15D-A3D6-4DE5-8AE3-2B91E53D1763}" ShortID="394258855">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_06" ID="{00EC8DB1-808C-43B1-B4B5-C46C0095E9BC}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Walking_06.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="310871373"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_06" ID="{00EC8DB1-808C-43B1-B4B5-C46C0095E9BC}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Walking_07" ID="{DFBBE1E0-FDDF-45C2-AC9F-50C94B2AC507}" ShortID="575838832">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_07" ID="{017E2CFA-7387-4E0D-9AB5-5514C4C23D73}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Walking_07.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="374653551"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_07" ID="{017E2CFA-7387-4E0D-9AB5-5514C4C23D73}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Walking_08" ID="{7053F4C4-CCF6-47EA-8007-AD8267A13297}" ShortID="54173744">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_08" ID="{E374E187-D4DA-46A9-B0DB-F496A456681E}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Walking_08.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="668462711"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_08" ID="{E374E187-D4DA-46A9-B0DB-F496A456681E}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Walking_09" ID="{86C8010E-EAAA-4FEC-9C1E-1CA3514ED108}" ShortID="1060238004">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_09" ID="{8963CF1A-1179-4543-9CC3-6DBC33A60D37}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Walking_09.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="291573780"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_09" ID="{8963CF1A-1179-4543-9CC3-6DBC33A60D37}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Walking_10" ID="{F2462530-EFB8-449C-86D8-E0D3B5534F92}" ShortID="699062890">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_10" ID="{28D784E2-EBB9-46A5-833C-6D108B153539}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Walking_10.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="82949517"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_10" ID="{28D784E2-EBB9-46A5-833C-6D108B153539}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Walking_11" ID="{727E62B1-1858-4D0D-9114-EEC94960B95A}" ShortID="345845269">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_11" ID="{0F4C56E8-8849-4535-B7ED-A761A094CC4A}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Walking_11.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="633510869"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Walking_11" ID="{0F4C56E8-8849-4535-B7ED-A761A094CC4A}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+															</ChildrenList>
 														</RandomSequenceContainer>
 													</ChildrenList>
 													<GroupingInfo>
@@ -408,68 +672,6 @@
 														</GroupingList>
 													</GroupingInfo>
 												</SwitchContainer>
-												<SwitchContainer Name="Soaked_MatSwitch" ID="{6EC59E50-BD80-441C-8624-6F9FCEA90AA9}" ShortID="204628917">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-														</Reference>
-														<Reference Name="DefaultSwitchOrState">
-															<ObjectRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-														</Reference>
-														<Reference Name="SwitchGroupOrStateGroup">
-															<ObjectRef Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<RandomSequenceContainer Name="Glass" ID="{D3CA35DB-11EA-404A-B6FA-83E596E6E35F}" ShortID="142954467">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-																</Reference>
-															</ReferenceList>
-														</RandomSequenceContainer>
-														<RandomSequenceContainer Name="Metal" ID="{DF891504-30B8-4E82-AF1A-AF352B07E0D7}" ShortID="191018277">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-																</Reference>
-															</ReferenceList>
-														</RandomSequenceContainer>
-													</ChildrenList>
-													<GroupingInfo>
-														<GroupingBehaviorList>
-															<GroupingBehavior>
-																<ItemRef Name="Metal" ID="{DF891504-30B8-4E82-AF1A-AF352B07E0D7}"/>
-															</GroupingBehavior>
-															<GroupingBehavior>
-																<ItemRef Name="Glass" ID="{D3CA35DB-11EA-404A-B6FA-83E596E6E35F}"/>
-															</GroupingBehavior>
-														</GroupingBehaviorList>
-														<GroupingList>
-															<Grouping>
-																<SwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
-																<ItemList>
-																	<ItemRef Name="Glass" ID="{D3CA35DB-11EA-404A-B6FA-83E596E6E35F}"/>
-																</ItemList>
-															</Grouping>
-															<Grouping>
-																<SwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
-																<ItemList>
-																	<ItemRef Name="Metal" ID="{DF891504-30B8-4E82-AF1A-AF352B07E0D7}"/>
-																</ItemList>
-															</Grouping>
-														</GroupingList>
-													</GroupingInfo>
-												</SwitchContainer>
 											</ChildrenList>
 											<BlendTrackList>
 												<BlendTrack Name="FootstepWetness" ID="{D057F788-56F0-4CE3-876B-3B1651F36E59}" ShortID="615596149">
@@ -487,7 +689,7 @@
 															<CrossfadingInfo>
 																<LeftEdgePos>0</LeftEdgePos>
 																<LeftFadingMode>Automatic</LeftFadingMode>
-																<RightEdgePos>40</RightEdgePos>
+																<RightEdgePos>50.6990014265335</RightEdgePos>
 																<RightFadingMode>Automatic</RightFadingMode>
 															</CrossfadingInfo>
 														</BlendTrackAssoc>
@@ -495,15 +697,6 @@
 															<ItemRef Name="Damp_MatSwitch" ID="{33E05729-8C7A-45EF-BE6A-5665D8F75949}"/>
 															<CrossfadingInfo>
 																<LeftEdgePos>35</LeftEdgePos>
-																<LeftFadingMode>Automatic</LeftFadingMode>
-																<RightEdgePos>80</RightEdgePos>
-																<RightFadingMode>Automatic</RightFadingMode>
-															</CrossfadingInfo>
-														</BlendTrackAssoc>
-														<BlendTrackAssoc>
-															<ItemRef Name="Soaked_MatSwitch" ID="{6EC59E50-BD80-441C-8624-6F9FCEA90AA9}"/>
-															<CrossfadingInfo>
-																<LeftEdgePos>75</LeftEdgePos>
 																<LeftFadingMode>Automatic</LeftFadingMode>
 																<RightEdgePos>100</RightEdgePos>
 																<RightFadingMode>Automatic</RightFadingMode>
@@ -552,6 +745,228 @@
 																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
 																</Reference>
 															</ReferenceList>
+															<ChildrenList>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Running_01" ID="{3CFE1EA4-085A-460A-A107-88CE5F9FF284}" ShortID="745327623">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_01" ID="{81EA2804-696F-4407-8AAC-7B64159794ED}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Running_01.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="788754743"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_01" ID="{81EA2804-696F-4407-8AAC-7B64159794ED}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Running_02" ID="{020ADAE5-6003-4A4D-B4D9-54D61A1FFC78}" ShortID="524951326">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_02" ID="{57C1F564-2847-47DF-910C-14DF5444C50A}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Running_02.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="985909237"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_02" ID="{57C1F564-2847-47DF-910C-14DF5444C50A}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Running_03" ID="{D2C3C289-87F9-401D-87F4-C9A4994D8ED6}" ShortID="502029748">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_03" ID="{8F24A4D6-DD98-4C60-BB59-3959F0B33536}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Running_03.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="866692248"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_03" ID="{8F24A4D6-DD98-4C60-BB59-3959F0B33536}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Running_04" ID="{BFAB750F-6971-46B9-9494-AE46DD10C438}" ShortID="579067397">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_04" ID="{E82BE512-86B1-435D-8500-66A0FC9AFDB3}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Running_04.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="187753050"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_04" ID="{E82BE512-86B1-435D-8500-66A0FC9AFDB3}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Running_05" ID="{3F87D885-DDA2-4488-9C75-6FE4504B01C1}" ShortID="34262832">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_05" ID="{BEFE0F11-5E28-4257-8C5C-F837B739C1C8}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Running_05.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="96458950"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_05" ID="{BEFE0F11-5E28-4257-8C5C-F837B739C1C8}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Running_06" ID="{1ADC6508-3EC5-4B38-9D84-A1C7330BCD1B}" ShortID="771662568">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_06" ID="{ED9085A1-C649-4C1C-977E-DD4F0FC78BB3}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Running_06.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="924906697"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_06" ID="{ED9085A1-C649-4C1C-977E-DD4F0FC78BB3}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Running_07" ID="{3E62BD2B-640F-43BB-B23B-0CECB0E155F3}" ShortID="552605090">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_07" ID="{C3F21B9F-ED0B-4C1F-AEF7-A2D83CF28A2C}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Running_07.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="378626191"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_07" ID="{C3F21B9F-ED0B-4C1F-AEF7-A2D83CF28A2C}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Running_08" ID="{988D173D-A300-4DDC-AC9B-33CDF99C4F73}" ShortID="387875204">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_08" ID="{FBEB094C-2787-484A-9B09-D551B00CB268}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Running_08.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="659045742"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_08" ID="{FBEB094C-2787-484A-9B09-D551B00CB268}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Running_09" ID="{3865DC62-7B7E-4EE8-8EE1-40DB14AE3206}" ShortID="521554626">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_09" ID="{D5C68D04-AD6B-416A-99B1-ACC858C0B61F}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Running_09.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="316216080"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_09" ID="{D5C68D04-AD6B-416A-99B1-ACC858C0B61F}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Glass_Running_10" ID="{3FE42A7E-8565-48F8-9F7E-D4DE14B915D6}" ShortID="261836307">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_10" ID="{51957409-8417-4C90-888E-64B3135A6BC7}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Glass_Running_10.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="82573498"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Glass_Running_10" ID="{51957409-8417-4C90-888E-64B3135A6BC7}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+															</ChildrenList>
 														</RandomSequenceContainer>
 														<RandomSequenceContainer Name="Metal" ID="{BFBE44C9-A7C0-4675-A997-06D5F4EF3AB0}" ShortID="123489767">
 															<ReferenceList>
@@ -562,6 +977,184 @@
 																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
 																</Reference>
 															</ReferenceList>
+															<ChildrenList>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Running_01" ID="{98CE06B3-5FB7-49BA-8767-A74FE8AE1752}" ShortID="293762479">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_01" ID="{ABE309D7-8503-4A90-9801-452B76F52383}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Running_01.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="558650387"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_01" ID="{ABE309D7-8503-4A90-9801-452B76F52383}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Running_02" ID="{63C6EC23-36B5-49EC-808A-D2BA16924272}" ShortID="730423319">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_02" ID="{C0B7E01A-84DB-4497-81C2-E99F1437C78B}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Running_02.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="1003698335"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_02" ID="{C0B7E01A-84DB-4497-81C2-E99F1437C78B}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Running_03" ID="{F99BD5FF-544D-4105-B1D3-016C15FA5BCE}" ShortID="607473088">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_03" ID="{57F104CE-0103-4A28-B05A-49810D6A5582}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Running_03.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="371567978"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_03" ID="{57F104CE-0103-4A28-B05A-49810D6A5582}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Running_04" ID="{C076B118-59F2-4000-BD48-BF68108AFBE2}" ShortID="1064517811">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_04" ID="{BFEF2415-1BDD-46FF-93B7-8EE361A3A9A3}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Running_04.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="564811248"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_04" ID="{BFEF2415-1BDD-46FF-93B7-8EE361A3A9A3}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Running_05" ID="{6A2CDBA4-41E0-4F4E-829A-0D8B781134C7}" ShortID="881816583">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_05" ID="{A3160264-43AF-4470-8685-0D5FECE42520}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Running_05.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="376580964"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_05" ID="{A3160264-43AF-4470-8685-0D5FECE42520}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Running_06" ID="{21503EA1-BFC0-4C44-843F-AC802B1EFBD8}" ShortID="200038677">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_06" ID="{1292803A-50ED-47E7-8FDE-F019782EF6F2}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Running_06.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="551850810"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_06" ID="{1292803A-50ED-47E7-8FDE-F019782EF6F2}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Running_07" ID="{986DDA09-3E6D-4DDA-91BD-E6DD76521DA5}" ShortID="924994541">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_07" ID="{69F49FF4-D6A4-4D3B-A530-CA7488441D7C}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Running_07.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="318489198"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_07" ID="{69F49FF4-D6A4-4D3B-A530-CA7488441D7C}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="SFX3D_Player_PlyrFootstep_Metal_Running_08" ID="{7D72A498-2CE1-4FBD-B988-DD9D36CBCC8A}" ShortID="829643134">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_08" ID="{173A9AC2-7461-4370-BBE2-67D3AA639CB0}">
+																			<Language>SFX</Language>
+																			<AudioFile>SFX3D_Player_PlyrFootstep_Metal_Running_08.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="964317355"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="SFX3D_Player_PlyrFootstep_Metal_Running_08" ID="{173A9AC2-7461-4370-BBE2-67D3AA639CB0}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+															</ChildrenList>
 														</RandomSequenceContainer>
 													</ChildrenList>
 													<GroupingInfo>
@@ -651,68 +1244,6 @@
 														</GroupingList>
 													</GroupingInfo>
 												</SwitchContainer>
-												<SwitchContainer Name="Soaked_MatSwitch" ID="{72A4BF75-BD0E-4341-A80C-FF751D1E0119}" ShortID="71638422">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-														</Reference>
-														<Reference Name="DefaultSwitchOrState">
-															<ObjectRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-														</Reference>
-														<Reference Name="SwitchGroupOrStateGroup">
-															<ObjectRef Name="GroundMaterials" ID="{AD374EEA-F625-46E7-8210-D9BA800AEAAA}" WorkUnitID="{0102F9C1-F733-41E5-A589-212597C4F5B9}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<RandomSequenceContainer Name="Glass" ID="{AF889DCC-0999-4782-BD70-7F4C697CC786}" ShortID="925416468">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-																</Reference>
-															</ReferenceList>
-														</RandomSequenceContainer>
-														<RandomSequenceContainer Name="Metal" ID="{A873D561-1AA8-4212-AFCC-72B7EE60D39F}" ShortID="1071418938">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
-																</Reference>
-															</ReferenceList>
-														</RandomSequenceContainer>
-													</ChildrenList>
-													<GroupingInfo>
-														<GroupingBehaviorList>
-															<GroupingBehavior>
-																<ItemRef Name="Metal" ID="{A873D561-1AA8-4212-AFCC-72B7EE60D39F}"/>
-															</GroupingBehavior>
-															<GroupingBehavior>
-																<ItemRef Name="Glass" ID="{AF889DCC-0999-4782-BD70-7F4C697CC786}"/>
-															</GroupingBehavior>
-														</GroupingBehaviorList>
-														<GroupingList>
-															<Grouping>
-																<SwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
-																<ItemList>
-																	<ItemRef Name="Glass" ID="{AF889DCC-0999-4782-BD70-7F4C697CC786}"/>
-																</ItemList>
-															</Grouping>
-															<Grouping>
-																<SwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
-																<ItemList>
-																	<ItemRef Name="Metal" ID="{A873D561-1AA8-4212-AFCC-72B7EE60D39F}"/>
-																</ItemList>
-															</Grouping>
-														</GroupingList>
-													</GroupingInfo>
-												</SwitchContainer>
 											</ChildrenList>
 											<BlendTrackList>
 												<BlendTrack Name="FootstepWetness" ID="{FC837A5D-2260-49AE-AF7C-16FA2BD112F2}" ShortID="329607281">
@@ -730,7 +1261,7 @@
 															<CrossfadingInfo>
 																<LeftEdgePos>0</LeftEdgePos>
 																<LeftFadingMode>Automatic</LeftFadingMode>
-																<RightEdgePos>40</RightEdgePos>
+																<RightEdgePos>50.6990014265335</RightEdgePos>
 																<RightFadingMode>Automatic</RightFadingMode>
 															</CrossfadingInfo>
 														</BlendTrackAssoc>
@@ -738,15 +1269,6 @@
 															<ItemRef Name="Damp_MatSwitch" ID="{0908343F-49CE-4AC1-B05B-5C8467CC620E}"/>
 															<CrossfadingInfo>
 																<LeftEdgePos>35</LeftEdgePos>
-																<LeftFadingMode>Automatic</LeftFadingMode>
-																<RightEdgePos>80</RightEdgePos>
-																<RightFadingMode>Automatic</RightFadingMode>
-															</CrossfadingInfo>
-														</BlendTrackAssoc>
-														<BlendTrackAssoc>
-															<ItemRef Name="Soaked_MatSwitch" ID="{72A4BF75-BD0E-4341-A80C-FF751D1E0119}"/>
-															<CrossfadingInfo>
-																<LeftEdgePos>75</LeftEdgePos>
 																<LeftFadingMode>Automatic</LeftFadingMode>
 																<RightEdgePos>100</RightEdgePos>
 																<RightFadingMode>Automatic</RightFadingMode>
@@ -763,9 +1285,6 @@
 												<ItemRef Name="Player_BlendFootstepsRun" ID="{FAE13911-10ED-4D24-8F90-ADFC0441C74E}"/>
 											</GroupingBehavior>
 											<GroupingBehavior>
-												<ItemRef Name="Player_BlendFootstepsWalk" ID="{79A6577E-520E-495F-821C-EA835F821176}"/>
-											</GroupingBehavior>
-											<GroupingBehavior>
 												<ItemRef Name="Player_BlendFootstepsFire" ID="{1B0A93FF-D529-4572-8EF8-F806510235C4}"/>
 											</GroupingBehavior>
 										</GroupingBehaviorList>
@@ -774,12 +1293,6 @@
 												<SwitchRef Name="Running" ID="{FC10B88F-D664-4B0E-BD5E-97E2E5696951}"/>
 												<ItemList>
 													<ItemRef Name="Player_BlendFootstepsRun" ID="{FAE13911-10ED-4D24-8F90-ADFC0441C74E}"/>
-												</ItemList>
-											</Grouping>
-											<Grouping>
-												<SwitchRef Name="Walking" ID="{CD4AC599-0961-476A-B109-39BE8FB90DB1}"/>
-												<ItemList>
-													<ItemRef Name="Player_BlendFootstepsWalk" ID="{79A6577E-520E-495F-821C-EA835F821176}"/>
 												</ItemList>
 											</Grouping>
 											<Grouping>
