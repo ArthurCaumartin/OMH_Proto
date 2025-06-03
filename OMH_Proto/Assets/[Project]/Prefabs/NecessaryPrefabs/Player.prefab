@@ -1893,6 +1893,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4388212056126120535}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bf2b27d8a1fdcdc4cafce68da7f616b8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5721054027150264008}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bf2b27d8a1fdcdc4cafce68da7f616b8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1774516224458779177}
   m_SourcePrefab: {fileID: 100100000, guid: bf2b27d8a1fdcdc4cafce68da7f616b8, type: 3}
 --- !u!4 &2972307556445583807 stripped
 Transform:
@@ -2005,6 +2013,59 @@ MonoBehaviour:
     canSpawnDecal: 0
     asStep: 0
     lastBloodMixe: 0
+  OnStepEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5721054027150264008}
+        m_TargetAssemblyTypeName: SimpleAkPost, Assembly-CSharp
+        m_MethodName: PostTheSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5721054027150264008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8146179330933171809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4c5199e32411f4fb567479a91560f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _SoundToPost:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 49202577071634d4dbae575fdb8f5005,
+      type: 2}
+--- !u!114 &1774516224458779177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8146179330933171809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa89855460ecac4e89326873b94ebeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _footstepEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 49202577071634d4dbae575fdb8f5005,
+      type: 2}
+  _gearsEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!4 &8810969811452886235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bf2b27d8a1fdcdc4cafce68da7f616b8,
