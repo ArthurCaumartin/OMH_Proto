@@ -12,9 +12,18 @@ public class PlayerMoveScript : MonoBehaviour
     [SerializeField] private LayerMask surfaceLayerMask;
 
     [SerializeField] private AK.Wwise.RTPC _RTPC_GroundWetness;
+    [SerializeField] private AK.Wwise.RTPC _RTPC_PlayerSpeed;
+
+    [SerializeField] private PlayerMovement playerMovement;
 
     private string currentSurface = "Default";
     private float _wetnessValue;
+
+    private void Start()
+    {
+        playerMovement = GetComponentInParent<PlayerMovement>();
+    }
+
     public void StepSound()
     {
         DetectSurface();
@@ -24,15 +33,13 @@ public class PlayerMoveScript : MonoBehaviour
 
     private void Update()
     {
+        _RTPC_PlayerSpeed.SetValue(gameObject, playerMovement.CurrentSpeed);
         UpdateGroundWetnessRTPC();
         _RTPC_GroundWetness.SetGlobalValue(_wetnessValue);
     }
 
     private void UpdateGroundWetnessRTPC()
     {
-        // int decalCount = DecalManager.Instance != null ? DecalManager.Instance.PlayerDecalsCount : 0;
-        // _wetnessValue = Mathf.Clamp(decalCount * 80f, 0f, 80f);
-        // AudioDebugLog.LogAudio(this.GetType().ToString(), gameObject.name, "Trig Update Wetness");
         if (DecalManager.Instance != null && DecalManager.Instance.LastPlayerDecal != null)
         {
             float opacity = DecalManager.Instance.LastPlayerDecal.CurrentOpacity;
@@ -42,7 +49,6 @@ public class PlayerMoveScript : MonoBehaviour
         {
             _wetnessValue = 0f;
         }
-
         _RTPC_GroundWetness.SetGlobalValue(_wetnessValue);
     }
 
