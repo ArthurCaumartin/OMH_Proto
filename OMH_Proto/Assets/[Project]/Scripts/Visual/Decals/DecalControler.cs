@@ -8,14 +8,23 @@ public class DecalControler : MonoBehaviour
     private float _currentTime;
     private float _startFade = 1;
 
+    [SerializeField] private DecalType _decalType = DecalType.Mob;
+    public DecalType Type => _decalType;
     private DecalProjector _projector;
+
+    public float CurrentOpacity => _projector != null ? _projector.fadeFactor : 0f;
 
     private void Start()
     {
         _projector = GetComponent<DecalProjector>();
-        if(_startFade == 0) _startFade = 1;
+        if (_startFade == 0) _startFade = 1;
+
         if (DecalManager.Instance != null)
-            DecalManager.Instance.RegisterDecal();
+        {
+            var identifier = GetComponent<DecalIdentifier>();
+            if (identifier != null)
+                DecalManager.Instance.RegisterDecal(identifier);
+        }
     }
 
     public void SetLifeTime(float value, float startFade = 1)
@@ -34,6 +43,10 @@ public class DecalControler : MonoBehaviour
     private void OnDestroy()
     {
         if (DecalManager.Instance != null)
-            DecalManager.Instance.UnregisterDecal();
+    {
+        var identifier = GetComponent<DecalIdentifier>();
+        if (identifier != null)
+            DecalManager.Instance.UnregisterDecal(identifier);
+    }
     }
 }

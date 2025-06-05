@@ -68,6 +68,11 @@ public class FootDecalsSpawner : MonoBehaviour
             DecalProjector newDecal = Instantiate(_feetDecalPrefab
                                                 , groundHit.point + new Vector3(0, .06f, 0)
                                                 , Quaternion.LookRotation(-groundHit.normal, transform.forward));
+           
+            // identifier setter to get which decal come from Player's feet
+            var identifier = newDecal.gameObject.AddComponent<DecalIdentifier>();
+            identifier.Type = DecalType.Player;
+
             newDecal.GetComponent<DecalControler>().SetLifeTime(_decalLifeTime
                                                                 , Mathf.InverseLerp(0, _decalSpawnDuration, feet.canSpawnDecal));
 
