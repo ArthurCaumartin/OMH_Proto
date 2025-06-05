@@ -30,10 +30,20 @@ public class PlayerMoveScript : MonoBehaviour
 
     private void UpdateGroundWetnessRTPC()
     {
-        int decalCount = DecalManager.Instance != null ? DecalManager.Instance.ActiveDecalsCount : 0;
-        _wetnessValue = Mathf.Clamp(decalCount * 65f, 0f, 65f);
-        AudioDebugLog.LogAudio(this.GetType().ToString(), gameObject.name, "Trig Update Wetness");
+        // int decalCount = DecalManager.Instance != null ? DecalManager.Instance.PlayerDecalsCount : 0;
+        // _wetnessValue = Mathf.Clamp(decalCount * 80f, 0f, 80f);
+        // AudioDebugLog.LogAudio(this.GetType().ToString(), gameObject.name, "Trig Update Wetness");
+        if (DecalManager.Instance != null && DecalManager.Instance.LastPlayerDecal != null)
+        {
+            float opacity = DecalManager.Instance.LastPlayerDecal.CurrentOpacity;
+            _wetnessValue = Mathf.Lerp(0f, 85f, opacity); 
+        }
+        else
+        {
+            _wetnessValue = 0f;
+        }
 
+        _RTPC_GroundWetness.SetGlobalValue(_wetnessValue);
     }
 
     public void DetectSurface()
