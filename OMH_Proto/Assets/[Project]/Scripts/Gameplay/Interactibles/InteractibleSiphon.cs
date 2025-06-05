@@ -6,6 +6,7 @@ public class InteractibleSiphon : Interactible
 {
     [SerializeField] private GameObject _confirmUIStartSiphon;
     [SerializeField] private GameEvent _startDefense;
+    [SerializeField] private SphereCollider _collider;
     
     public override void Interact(PlayerInteract playerInteract, out bool cancelIteraction)
     {
@@ -17,6 +18,7 @@ public class InteractibleSiphon : Interactible
     public void StartSiphon()
     {
         _startDefense.Raise();
-        Destroy(gameObject);
+        _collider.enabled = false;
+        // Destroy(gameObject);
     }
 }
