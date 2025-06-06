@@ -11,7 +11,7 @@ public class Interactible : MonoBehaviour
 
     public string _textToInteract;
     public string _textFeedBack;
-    [SerializeField] private Canvas _interactText;
+    [SerializeField] public Canvas _interactText;
     [SerializeField] private List<MeshRenderer> _meshRenderersToOutline;
     [SerializeField] float _timeToVerifyOutline = 0.3f;
 

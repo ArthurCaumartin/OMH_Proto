@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class HelpPopup : MonoBehaviour
 {
-    [SerializeField] private GameObject _thanatosPopup, _syntaliumPopup, _lockPopup, _barrierPopup;
+    [SerializeField] private GameObject _thanatosPopup, _syntaliumPopup, _lockPopup, _barrierPopup, _infoPopup, _infoPopup2;
 
     [SerializeField] private float _timerToDepop = 5f;
     
     private float _timer;
-    private bool _isThanatosShowed, _isSyntaliumShowed, _isLockShowed, _isSomethingShowed, _isBarrierShowed;
+    private bool _isThanatosShowed, _isSyntaliumShowed, _isLockShowed, _isSomethingShowed, _isBarrierShowed, _isInfoShowed, _isInfoShowed2;
     
     private void Start()
     {
@@ -36,6 +36,9 @@ public class HelpPopup : MonoBehaviour
         _thanatosPopup.SetActive(false);
         _syntaliumPopup.SetActive(false);
         _lockPopup.SetActive(false);
+        _barrierPopup.SetActive(false);
+        _infoPopup.SetActive(false);
+        _infoPopup2.SetActive(false);
 
         _isSomethingShowed = false;
     }
@@ -87,5 +90,33 @@ public class HelpPopup : MonoBehaviour
         _syntaliumPopup.SetActive(false);
         _lockPopup.SetActive(false);
         _barrierPopup.SetActive(true);
+    }
+    
+    public void InfoPopup()
+    {
+        if (_isInfoShowed) return;
+        _isInfoShowed = true;
+        _isSomethingShowed = true;
+        
+        _timer = 0;
+        _thanatosPopup.SetActive(false);
+        _syntaliumPopup.SetActive(false);
+        _lockPopup.SetActive(false);
+        _barrierPopup.SetActive(false);
+        _infoPopup.SetActive(true);
+    }
+    
+    public void InfoPopup2()
+    {
+        if (_isInfoShowed2) return;
+        _isInfoShowed2 = true;
+        _isSomethingShowed = true;
+        
+        _timer = 0;
+        _thanatosPopup.SetActive(false);
+        _syntaliumPopup.SetActive(false);
+        _lockPopup.SetActive(false);
+        _barrierPopup.SetActive(false);
+        _infoPopup2.SetActive(true);
     }
 }
