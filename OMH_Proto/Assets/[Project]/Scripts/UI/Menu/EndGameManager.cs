@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class EndGameManager : MonoBehaviour
 {
     [SerializeField] private GameChooseMeta _gameChooseMeta;
-    [SerializeField] private FloatReference _syphonHealth, _pcen, _scrapMetal;
+    [SerializeField] private FloatReference _syphonHealth, _pcen, _kills, _defenses;
     [SerializeField] private FloatReference _gameTime, _defenseDuration, explorationDuration;
     [Space] [SerializeField] private PlayerItemList _playerItemList;
     [SerializeField] private ObjectUIManager _objectUIManager;
     [Space] [SerializeField] private TextMeshProUGUI _titleText, _lostHpText, _timerGameText;
-    [SerializeField] private GameObject _pcenFromTime, _pcenFromMetal, _pcenLost, _pcenText;
+    [SerializeField] private GameObject _countDefenses, _countHP, _countKills, _total;
     [SerializeField] private Image _weaponImage;
 
     [Space]
@@ -23,7 +23,6 @@ public class EndGameManager : MonoBehaviour
     
     void Start()
     {
-        // _pcenText.GetComponent<TextMeshProUGUI>().text = _pcen.Value.ToString();
         for (int i = 0; i < _playerItemList._items.Count; i++)
         {
             ItemScriptable tempItem = _playerItemList._items[i];
@@ -32,9 +31,21 @@ public class EndGameManager : MonoBehaviour
 
         _weaponImage.sprite = _gameChooseMeta._weaponChoose._weaponIcon;
         _lostHpText.text = 20 - _syphonHealth.Value + " HP Lost :";
+        
         int timerMinute = Mathf.RoundToInt(_gameTime.Value / 60);
+        string timerMinuteString = "" + timerMinute;
+        if (timerMinute < 10)
+        {
+            timerMinuteString = "0" + timerMinute;
+        }
         int timerSeconds = Mathf.RoundToInt(_gameTime.Value % 60);
-        _timerGameText.text = $"{timerMinute}:{timerSeconds}";
+        string timerSecondsString = "" + timerSeconds;
+        if (timerMinute < 10)
+        {
+            timerSecondsString = "0" + timerMinute;
+        }
+        
+        _timerGameText.text = $"-{timerMinuteString}:{timerSecondsString}-";
         
         if (_syphonHealth.Value <= 0)
         {
@@ -78,35 +89,35 @@ public class EndGameManager : MonoBehaviour
 
     private IEnumerator AddPcen(int pcenTime)
     {
-        int pcenGainFromMetal = Mathf.RoundToInt(_scrapMetal.Value / _valueDivisionMetal);
-        int pcenLostFromSyphonHealth = (int)((20 - _syphonHealth.Value) * _costEachHealthLost);
-        
-        _pcen.Value = pcenTime + pcenGainFromMetal + pcenLostFromSyphonHealth;
-        
-        yield return new WaitForSeconds(2);
-        
-        ChangeText(_pcenFromTime, pcenTime);
-        yield return new WaitForSeconds(2);
-        
-        ChangeText(_pcenFromMetal, pcenGainFromMetal);
-
-        if (pcenLostFromSyphonHealth != 0)
-        {
+    //     int pcenGainFromMetal = Mathf.RoundToInt(_scrapMetal.Value / _valueDivisionMetal);
+    //     int pcenLostFromSyphonHealth = (int)((20 - _syphonHealth.Value) * _costEachHealthLost);
+    //     
+    //     _pcen.Value = pcenTime + pcenGainFromMetal + pcenLostFromSyphonHealth;
+    //     
             yield return new WaitForSeconds(2);
-            ChangeText(_pcenLost, pcenLostFromSyphonHealth);
-        }
-        
-        yield return new WaitForSeconds(2);
-        
-        ChangeText(_pcenFromTime, 0);
-        ChangeText(_pcenText, pcenTime);
-        yield return new WaitForSeconds(2);
-        
-        ChangeText(_pcenFromMetal, 0);
-        ChangeText(_pcenText, pcenGainFromMetal + pcenTime);
-        yield return new WaitForSeconds(2);
-        
-        ChangeText(_pcenText, pcenTime + pcenGainFromMetal - pcenLostFromSyphonHealth);
-        ChangeText(_pcenLost, 0);
+    //     
+    //     ChangeText(_countDefenses, pcenTime);
+    //     yield return new WaitForSeconds(2);
+    //     
+    //     ChangeText(_countHP, pcenGainFromMetal);
+    //
+    //     if (pcenLostFromSyphonHealth != 0)
+    //     {
+    //         yield return new WaitForSeconds(2);
+    //         ChangeText(_countKills, pcenLostFromSyphonHealth);
+    //     }
+    //     
+    //     yield return new WaitForSeconds(2);
+    //     
+    //     ChangeText(_countDefenses, 0);
+    //     ChangeText(_total, pcenTime);
+    //     yield return new WaitForSeconds(2);
+    //     
+    //     ChangeText(_countHP, 0);
+    //     ChangeText(_total, pcenGainFromMetal + pcenTime);
+    //     yield return new WaitForSeconds(2);
+    //     
+    //     ChangeText(_total, pcenTime + pcenGainFromMetal - pcenLostFromSyphonHealth);
+    //     ChangeText(_countKills, 0);
     }
 }
