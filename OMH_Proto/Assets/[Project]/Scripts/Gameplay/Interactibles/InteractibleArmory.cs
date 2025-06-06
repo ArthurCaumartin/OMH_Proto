@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,14 +28,11 @@ public class InteractibleArmory : Interactible
         _onCompleteArmory.Raise();
         
         gameObject.layer = LayerMask.NameToLayer("Default");
-        Destroy(_casierObject);
-        // GetComponent<BoxCollider>().enabled = false;
+        _casierObject.SetActive(false);
     } 
 
     public void OpenArmory()
     {
-        // GetComponentInChildren<MapPin>()._tallMapPin = _activatedSprite;
-        
         _isArmoryOpened = true;
     }
 }

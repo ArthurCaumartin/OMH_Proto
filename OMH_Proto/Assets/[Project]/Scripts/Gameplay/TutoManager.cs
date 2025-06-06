@@ -6,6 +6,7 @@ using UnityEngine;
 public class TutoManager : MonoBehaviour
 {
     [SerializeField] private GameObject _movementCanvasObject, _shootCanvasObject, _placementCanvasObject;
+    [SerializeField] private GameEvent _showInfos;
 
     private bool _isMovementPassed, _isShootPassed;
 
@@ -49,8 +50,15 @@ public class TutoManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 _placementCanvasObject.SetActive(false);
-                Destroy(gameObject);
+                StartCoroutine(WaitForInfos());
             }
         }
+    }
+
+    IEnumerator WaitForInfos()
+    {
+        yield return new WaitForSeconds(5f);
+        _showInfos.Raise();
+        Destroy(gameObject);
     }
 }

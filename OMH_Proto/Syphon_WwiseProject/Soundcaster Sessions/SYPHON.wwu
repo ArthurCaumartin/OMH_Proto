@@ -38,6 +38,10 @@
 							<Position X="3" Y="3"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Play_StartMenuTransition_FromStartToRundown" ID="{1013BF93-F115-49BC-A726-B4A4C1F6CBBF}" WorkUnitID="{96FA0854-DBB3-48BA-A57F-CDF57D48F332}"/>
+							<Position X="3" Y="5"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Play_UI_Menu_Confirm_SwitchPerkWeapon" ID="{CA3AD186-B426-4F1F-8D0E-A7D4825E62EE}" WorkUnitID="{96FA0854-DBB3-48BA-A57F-CDF57D48F332}"/>
 							<Position X="4" Y="2"/>
 						</Module>
@@ -52,6 +56,34 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
+							<GameParameterRef Name="RTPC_PlayerSpeed" ID="{2B50CDBD-87CC-4172-B607-FF1E451696F4}"/>
+							<Value>5.702</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="RTPC_WeaponChose" ID="{815E2007-9F7C-44A8-B582-D9A4457B9231}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="RTPC_BUS_MAST" ID="{D1E83312-4197-4522-A64F-4734747E1343}"/>
+							<Value>8</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="RTPC_TransitionMusic" ID="{4A586810-3D13-462E-87A9-F3B2A9CC49A0}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="RTPC_BUS_GenMUS" ID="{05FC7BBE-C9C5-4AE0-9FD8-D8AE627FEB6C}"/>
+							<Value>8</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="RTPC_BUS_AMB" ID="{6CC8C9AA-DF59-4B89-AC5D-0CAFED37E8FD}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="RTPC_GroundWetness" ID="{9AC47AC9-0CB2-4E86-B5CB-5A18407FBF01}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="RTPC_LPMusicMenu" ID="{BBA0BB55-63EC-4FDE-9164-E7CBE9A0821F}"/>
 							<Value>0</Value>
 						</RTPCValue>
@@ -62,7 +94,11 @@
 						<CurrentStateRef Name="None" ID="{57E0A263-C6EA-4FD0-B643-BC68E14418B1}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Dry" ID="{ADF4DAAE-CB8B-43C6-AFFE-BB6DA4CF8CD2}"/>
+						<CurrentSwitchRef Name="Running" ID="{FC10B88F-D664-4B0E-BD5E-97E2E5696951}"/>
+						<CurrentSwitchRef Name="Metal" ID="{5509E2EA-A525-4160-9B98-6871D5B3754C}"/>
 						<CurrentSwitchRef Name="MidHealth" ID="{BD17F327-1492-4A55-A765-844CD56FD4A9}"/>
+						<CurrentSwitchRef Name="Fugitive" ID="{B560FB3E-4841-4FC0-91DA-ECF9F1E6D6E8}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>

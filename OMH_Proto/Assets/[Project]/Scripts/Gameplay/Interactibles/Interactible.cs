@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class Interactible : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class Interactible : MonoBehaviour
     public bool HaveQTE { get => _qte; }
 
     public string _textToInteract;
-    [SerializeField] private Canvas _interactText;
+    public string _textFeedBack;
+    [SerializeField] public Canvas _interactText;
     [SerializeField] private List<MeshRenderer> _meshRenderersToOutline;
     [SerializeField] float _timeToVerifyOutline = 0.3f;
 
@@ -81,7 +83,10 @@ public class Interactible : MonoBehaviour
     private void EnableFeedback(bool value)
     {
         if (_interactText)
+        {
             _interactText.transform.DOScale(value ? Vector3.one : Vector3.zero, .2f).SetEase(Ease.Linear);
+            _interactText.GetComponentInChildren<TextMeshProUGUI>().text = _textFeedBack;
+        }
         for (int i = 0; i < _meshRenderersToOutline.Count; i++)
             _meshRenderersToOutline[i].materials[_meshRenderersToOutline[i].materials.Length - 1].SetFloat("_outlineAlpha", value ? 1 : 0);
     }
