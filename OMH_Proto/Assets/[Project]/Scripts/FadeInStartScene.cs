@@ -21,7 +21,7 @@ public class FadeInStartScene : MonoBehaviour
     private void Update()
     {
         _timer += Time.deltaTime;
-        if(_timer >= 1.5f) FinishFade(); 
+        if(_timer >= 1.2f) FinishFade(); 
     }
 
     void FinishFade()
