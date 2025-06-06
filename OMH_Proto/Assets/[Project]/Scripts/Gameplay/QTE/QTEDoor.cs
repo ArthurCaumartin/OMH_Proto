@@ -36,8 +36,8 @@ public class QTEDoor : Upgradable
         _diskList.Clear();
         
         //Chose 2 randoms int from 0 to 3. Those numbers are the disks that will not be done in the QTE
-        int randomIndex1 = Random.Range(0, 4);
-        int randomIndex2 = Random.Range(0, 4);
+        int randomIndex1 = Random.Range(1, 5);
+        int randomIndex2 = Random.Range(1, 5);
         while (randomIndex2 == randomIndex1)
         {
             randomIndex2 = Random.Range(0, 4);
