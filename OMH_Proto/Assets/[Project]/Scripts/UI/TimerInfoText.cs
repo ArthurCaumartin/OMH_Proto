@@ -23,13 +23,13 @@ public class TimerInfoText : MonoBehaviour
         if (_timer < _timerTick) return;
         _timer = 0;
         
+        DeactivateAllText();
+        
         if (_isDefenseStarted)
         {
             _timerInfoTexts[7].SetActive(true);
             return;
         }
-
-        DeactivateAllText();
         
         //Explore the base
         if(_explorationTimer < 240) _timerInfoTexts[0].SetActive(true);

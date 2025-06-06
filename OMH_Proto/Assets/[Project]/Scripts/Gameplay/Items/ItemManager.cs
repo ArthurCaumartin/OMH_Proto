@@ -7,8 +7,6 @@ using Random = UnityEngine.Random;
 
 public class ItemManager : MonoBehaviour
 {
-    [SerializeField, Tooltip("When checked, select 2 items, when not, select 3 items")] private bool _isBuildB;
-    [Space]
     [SerializeField] private ItemList _commonList, _rareList;
 
     [SerializeField] private ItemStatsContainer _refsStatsContainer, _baseStatsContainer;
@@ -91,7 +89,7 @@ public class ItemManager : MonoBehaviour
         
         //Activate UI
         
-        _itemMenu.OpenItemMenu(itemsToSelect, this, _isBuildB);
+        _itemMenu.OpenItemMenu(itemsToSelect, this);
     }
     
     public void OpenItemSelectionArmory()
@@ -130,7 +128,7 @@ public class ItemManager : MonoBehaviour
         
         //Activate UI
         
-        _itemMenu.OpenItemMenu(itemsToSelect, this, _isBuildB);
+        _itemMenu.OpenItemMenu(itemsToSelect, this);
     }
 
     public void SelectItem(int itemId)
