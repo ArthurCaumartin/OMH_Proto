@@ -10,6 +10,7 @@ public class ItemScriptable : ScriptableObject
     [TextArea (1, 5)] public string _itemDescription;
     public Sprite _itemSprite;
     public ItemStatsContainer _itemStats;
+    public bool _forTurret, _forBarrier, _forTrap;
 }
 
 
