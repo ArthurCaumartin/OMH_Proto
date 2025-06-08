@@ -36,7 +36,7 @@ public class LockConsole : Interactible
 
         _mapPinLock.GetComponent<SpriteRenderer>().sprite = _closedLockSprite;
 
-        Destroy(_interactText);
+        _interactText.enabled = false;
         
         Destroy(gameObject); 
     }

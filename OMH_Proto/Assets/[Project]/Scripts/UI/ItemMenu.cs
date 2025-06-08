@@ -8,27 +8,26 @@ using DepthOfField = UnityEngine.Rendering.Universal.DepthOfField;
 
 public class ItemMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject _itemMenu, _itemMenuB, _gameUI;
+    [SerializeField] private GameObject _itemMenu, _gameUI;
     
     [SerializeField] private Image _itemSprite1, _itemsSprite2, _imageSprite3;
     [SerializeField] private TextMeshProUGUI _itemName1, _itemName2, _itemName3;
     [SerializeField] private TextMeshProUGUI _itemDescription1, _itemDescription2, _itemDescription3;
-    
-    [SerializeField] private Image _itemSpriteB1, _itemsSpriteB2;
-    [SerializeField] private TextMeshProUGUI _itemNameB1, _itemNameB2;
-    [SerializeField] private TextMeshProUGUI _itemDescriptionB1, _itemDescriptionB2;
+
+    [SerializeField] private GameObject _familyItemParent1, _familyItemParent2, _familyItemParent3;
+    [SerializeField] private GameObject _familyItem1, _familyItem2, _familyItem3;
     
     private ItemManager _itemManager;
+    private List<GameObject> _objectsToDestroy = new List<GameObject>();
     public bool _isItemSelectionMenuOpen;
 
-    public void OpenItemMenu(List<ItemScriptable> itemsList, ItemManager itemManager, bool _isBuildB)
+    public void OpenItemMenu(List<ItemScriptable> itemsList, ItemManager itemManager)
     {
         _isItemSelectionMenuOpen = true;
         
         _itemManager = itemManager;
         
-        if(_isBuildB) _itemMenuB.SetActive(true);
-        else _itemMenu.SetActive(true);
+        _itemMenu.SetActive(true);
         
         _gameUI.SetActive(false);
         
@@ -40,32 +39,24 @@ public class ItemMenu : MonoBehaviour
         {
             depthOfField.focalLength.value = 300f;
         }
-
-        if (_isBuildB)
-        {
-            _itemSpriteB1.sprite = itemsList[0]._itemSprite;
-            _itemNameB1.text = itemsList[0]._itemName;
-            _itemDescriptionB1.text = itemsList[0]._itemDescription;
-            
-            _itemsSpriteB2.sprite = itemsList[2]._itemSprite;
-            _itemNameB2.text = itemsList[2]._itemName;
-            _itemDescriptionB2.text = itemsList[2]._itemDescription;
-        }
-
-        else
-        {
-            _itemSprite1.sprite = itemsList[0]._itemSprite;
-            _itemName1.text = itemsList[0]._itemName;
-            _itemDescription1.text = itemsList[0]._itemDescription;
-            
-            _itemsSprite2.sprite = itemsList[1]._itemSprite;
-            _itemName2.text = itemsList[1]._itemName;
-            _itemDescription2.text = itemsList[1]._itemDescription;
-            
-            _imageSprite3.sprite = itemsList[2]._itemSprite;
-            _itemName3.text = itemsList[2]._itemName;
-            _itemDescription3.text = itemsList[2]._itemDescription; 
-        }
+        
+        _itemSprite1.sprite = itemsList[0]._itemSprite;
+        _itemName1.text = itemsList[0]._itemName;
+        _itemDescription1.text = itemsList[0]._itemDescription;
+        AddFamilyItem(_familyItemParent1.transform, 
+            itemsList[0]._forBarrier, itemsList[0]._forTrap, itemsList[0]._forTurret);
+        
+        _itemsSprite2.sprite = itemsList[1]._itemSprite;
+        _itemName2.text = itemsList[1]._itemName;
+        _itemDescription2.text = itemsList[1]._itemDescription;
+        AddFamilyItem(_familyItemParent2.transform, 
+            itemsList[1]._forBarrier, itemsList[1]._forTrap, itemsList[1]._forTurret);
+        
+        _imageSprite3.sprite = itemsList[2]._itemSprite;
+        _itemName3.text = itemsList[2]._itemName;
+        _itemDescription3.text = itemsList[2]._itemDescription; 
+        AddFamilyItem(_familyItemParent3.transform, 
+            itemsList[2]._forBarrier, itemsList[2]._forTrap, itemsList[2]._forTurret);
     }
 
     public void SelectItem(int itemId)
@@ -77,8 +68,12 @@ public class ItemMenu : MonoBehaviour
     public void CloseMenu()
     {
         _isItemSelectionMenuOpen = false;
+
+        for (int i = 0; i < _objectsToDestroy.Count; i++)
+        {
+            Destroy(_objectsToDestroy[i]);
+        }
         
-        _itemMenuB.SetActive(false);
         _itemMenu.SetActive(false);
         _gameUI.SetActive(true);
         
@@ -89,6 +84,27 @@ public class ItemMenu : MonoBehaviour
         if (volume.profile.TryGet<DepthOfField>(out depthOfField))
         {
             depthOfField.focalLength.value = 34f;
+        }
+    }
+
+    private void AddFamilyItem(Transform familyParent, bool isFamily1, bool isFamily2, bool isFamily3)
+    {
+        if (isFamily1)
+        {
+            GameObject instantiatedObject = Instantiate(_familyItem1, familyParent.transform);
+            _objectsToDestroy.Add(instantiatedObject);
+        }
+
+        if (isFamily2)
+        {
+            GameObject instantiatedObject = Instantiate(_familyItem2, familyParent.transform);
+            _objectsToDestroy.Add(instantiatedObject);
+        }
+
+        if (isFamily3)
+        {
+            GameObject instantiatedObject = Instantiate(_familyItem3, familyParent.transform);
+            _objectsToDestroy.Add(instantiatedObject);
         }
     }
 }

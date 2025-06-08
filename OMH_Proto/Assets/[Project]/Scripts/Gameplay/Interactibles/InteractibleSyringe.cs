@@ -28,7 +28,7 @@ public class InteractibleSyringe : Interactible
         {
             cancelInteraction = true;
             _isDomeOpen = true;
-            _textToInteract = _textAfterOpeningCentrifuge;
+            _interactText.GetComponentInChildren<TextMeshProUGUI>().text = _textAfterOpeningCentrifuge;
             
             _rotatingObject.transform.DOLocalRotate(new Vector3(-30, 0, 0), 1);
             DOTween.To(() => _speed, x => _speed = x, 0f, 3f);
