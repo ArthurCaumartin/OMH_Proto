@@ -16,7 +16,34 @@ public class Projectile : MonoBehaviour
     private Vector3 _lastFramePosition;
     [SerializeField] private AK.Wwise.Event _shootSound;
     [SerializeField] private AK.Wwise.RTPC _RTPCWeapon;
+    
+    [ContextMenu("Test RTPC Set")]
+    private void TestRTPCSet()
+    {
+        if (_shooter == null)
+        {
+            Debug.LogWarning("Shooter not set.");
+            return;
+        }
 
+        var weaponId = _shooter.GetComponent<WeaponIdentifier>();
+        if (weaponId == null)
+        {
+            Debug.LogWarning("WeaponIdentifier not found.");
+            return;
+        }
+
+        float value = 0;
+        switch (weaponId.weaponType)
+        {
+            case WeaponType.Fugitive: value = 0; break;
+            case WeaponType.Sobek: value = 1; break;
+            case WeaponType.Gatling: value = 2; break;
+        }
+
+        _RTPCWeapon.SetValue(gameObject, value);
+        Debug.Log($"[Test] RTPC set to {value} for {weaponId.weaponType}");
+    }
     public Projectile Initialize(GameObject shooter, float speed, float damage)
     {
         print(name + " Initialize");
@@ -52,12 +79,20 @@ public class Projectile : MonoBehaviour
 
     private void PlayShootSwitch()
     {
-        if (_shooter == null) return;
+        if (_shooter == null)
+        {
+            Debug.LogWarning("Shooter is null");
+            return;
+        }
 
         var weaponId = _shooter.GetComponent<WeaponIdentifier>();
-        if (weaponId == null) return;
+        if (weaponId == null)
+        {
+            Debug.LogWarning("WeaponIdentifier not found on shooter or its children.");
+            return;
+        }
 
-        float value = 0;
+        float value = -1;
         switch (weaponId.weaponType)
         {
             case WeaponType.Fugitive:
@@ -72,8 +107,12 @@ public class Projectile : MonoBehaviour
                 AudioDebugLog.LogAudio(this.GetType().ToString(), ToString(), "Bullet from gatling");
                 value = 2;
                 break;
+            default:
+                Debug.LogWarning("Unknown WeaponType: " + weaponId.weaponType);
+                break;
         }
-        _RTPCWeapon.SetValue(gameObject, value);
+        _RTPCWeapon.SetGlobalValue(value);
+        AudioDebugLog.LogAudio(this.GetType().ToString(), ToString(), $"RTPC Weapon set to {value} for {weaponId.weaponType}");
     }
 
     public void AddShootEffect()
