@@ -23,11 +23,14 @@ public class Projectile : MonoBehaviour
         _shooter = shooter;
         _speed = speed;
         _damage = damage;
-        _shootSound.Post(gameObject);
+        
 
         _rb = GetComponent<Rigidbody>();
         _lastFramePosition = _rb.position;
         _rb.AddForce(transform.forward * _speed, ForceMode.Impulse);
+
+        PlayShootSwitch();
+        _shootSound.Post(gameObject);
 
         Destroy(gameObject, 1f);
         return this;
@@ -46,6 +49,23 @@ public class Projectile : MonoBehaviour
         _lastFramePosition = _rb.position;
     }
 
+    private void PlayShootSwitch()
+    {
+        if (_shooter == null) return;
+
+        var weaponId = _shooter.GetComponent<WeaponIdentifier>();
+        if (weaponId == null) return;
+
+        switch (weaponId.weaponType)
+        {
+            case WeaponType.Fugitive:
+                break;
+            case WeaponType.Sobek:
+                break;
+            case WeaponType.Gatling:
+                break;
+        }
+    }
 
     public void AddShootEffect()
     {
