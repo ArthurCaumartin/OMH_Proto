@@ -18,6 +18,9 @@ public class WeaponControler : MonoBehaviour
     private InputAction _secondaryAttackInputAction;
     private bool _isPrimaryAttacking;
     private bool _isSecondaryAttacking;
+
+    [SerializeField] private AK.Wwise.Event _gatlingStartEvent;
+    [SerializeField] private AK.Wwise.Event _gatlingStopEvent;
     public bool IsPrimaryAttacking { get => _isPrimaryAttacking; }
     public bool IsSecondaryAttacking { get => _isSecondaryAttacking; }
     private Transform _currentWeaponMesh;
@@ -27,6 +30,9 @@ public class WeaponControler : MonoBehaviour
     {
         _primaryAttackInputAction = GetComponent<PlayerInput>().actions.FindAction("Attack");
         _secondaryAttackInputAction = GetComponent<PlayerInput>().actions.FindAction("SecondaryAttack");
+
+        _primaryAttackInputAction.performed += ctx => OnPrimaryAttackStarted();
+        _primaryAttackInputAction.canceled += ctx => OnPrimaryAttackCanceled();
 
         _playerAnimation = GetComponent<PlayerAnimation>();
 
@@ -98,7 +104,32 @@ public class WeaponControler : MonoBehaviour
         Weapon tempWeapon = tempObject.GetComponent<Weapon>();
         AddWeapon(tempWeapon);
     }
+    private bool IsCurrentWeaponGatling()
+    {
+        var weapon = _weaponList[_currentWeaponIndex];
+        var identifier = weapon.GetComponent<WeaponIdentifier>();
+        if (identifier == null) return false;
+        return identifier.weaponType == WeaponType.Gatling;
+    }
+    private void OnPrimaryAttackStarted()
+    {
+        _isPrimaryAttacking = true;
 
+        if (IsCurrentWeaponGatling())
+        {
+            _gatlingStartEvent.Post(gameObject);
+        }
+    }
+
+    private void OnPrimaryAttackCanceled()
+    {
+        _isPrimaryAttacking = false;
+
+        if (IsCurrentWeaponGatling())
+        {
+            _gatlingStopEvent.Post(gameObject);
+        }
+    }
     public void AddWeapon(Weapon weaponToAdd)
     {
         Weapon newWeapon = Instantiate(weaponToAdd, _weaponParent);

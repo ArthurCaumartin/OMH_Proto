@@ -2091,12 +2091,14 @@
 							<ChildrenList>
 								<SwitchContainer Name="PlayerWeapon" ID="{4F1F56AA-AB35-4AC9-9A12-A0BD487EF205}" ShortID="1037998958">
 									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
 										<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
 												<Value>4</Value>
 											</ValueList>
 										</Property>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
 										<Property Name="UseMaxSoundPerInstance" Type="bool">
 											<ValueList>
 												<Value>True</Value>
@@ -2119,6 +2121,10 @@
 									</ReferenceList>
 									<ChildrenList>
 										<RandomSequenceContainer Name="Fugitive" ID="{C561C63B-4B1B-4E1B-B093-155503867A7D}" ShortID="837171575">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2307,6 +2313,10 @@
 											</ChildrenList>
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Sobek" ID="{1A7DE34F-4803-4418-9C7F-7711C4FAFB39}" ShortID="193350346">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2496,6 +2506,8 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Gatling" ID="{3A796EAF-DD4A-4584-B089-03148612D82C}" ShortID="1019386482">
 											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 											</PropertyList>
@@ -2736,6 +2748,118 @@
 														<ActiveSource Name="SFX_WEAPONS_GatlingShoot_LP" ID="{9362B937-0329-4ECC-B67C-0342FD7688E9}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
+												<Sound Name="SFX_WEAPONS_GatlingLastShoot_OS_01" ID="{F4D95C72-568E-4A82-BFCE-96A780E52138}" ShortID="933889242">
+													<PropertyList>
+														<Property Name="OverrideEffect" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{B08F24C2-E643-4218-BD09-5B048059B134}">
+															<Language>SFX</Language>
+															<AudioFile>SFX_WEAPONS_GatlingSecondShoot_OS.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="561082993"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists>
+														<ObjectList Name="Effects">
+															<Reference>
+																<Local>
+																	<EffectSlot Name="" ID="{CD2B89C5-D645-4880-BB41-6250154DFCA1}" ShortID="733097075">
+																		<PropertyList>
+																			<Property Name="Render" Type="bool" Value="True"/>
+																		</PropertyList>
+																		<ReferenceList>
+																			<Reference Name="Effect">
+																				<Custom>
+																					<Effect Name="Matrix Reverb (Custom)" ID="{80D52244-2DC8-41AE-95DE-5D997E36EEA7}" ShortID="151983023" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+																						<PropertyList>
+																							<Property Name="DryLevel" Type="Real32" Value="0"/>
+																							<Property Name="ReverbTime" Type="Real32" Value="1.7"/>
+																							<Property Name="WetLevel" Type="Real32" Value="-27"/>
+																						</PropertyList>
+																					</Effect>
+																				</Custom>
+																			</Reference>
+																		</ReferenceList>
+																	</EffectSlot>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{B08F24C2-E643-4218-BD09-5B048059B134}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX_WEAPONS_GatlingBeforLastShoot_OS_02" ID="{521B2BD9-817B-49EF-AAFE-952A9A10FCB1}" ShortID="722366640">
+													<PropertyList>
+														<Property Name="Highpass" Type="int16">
+															<ValueList>
+																<Value>28</Value>
+															</ValueList>
+														</Property>
+														<Property Name="OverrideEffect" Type="bool" Value="True"/>
+														<Property Name="Pitch" Type="int32">
+															<ValueList>
+																<Value>-150</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{D29D9C9D-E5F8-4453-8C23-C7C9A700B4E6}">
+															<Language>SFX</Language>
+															<AudioFile>SFX_WEAPONS_GatlingSecondShoot_OS.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="618015467"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists>
+														<ObjectList Name="Effects">
+															<Reference>
+																<Local>
+																	<EffectSlot Name="" ID="{CBA879DD-0AB4-4849-BC48-60C58884E22B}" ShortID="601521438">
+																		<PropertyList>
+																			<Property Name="Render" Type="bool" Value="True"/>
+																		</PropertyList>
+																		<ReferenceList>
+																			<Reference Name="Effect">
+																				<Custom>
+																					<Effect Name="Matrix Reverb (Custom)" ID="{A809D39C-C02D-4EE0-B472-1330B2F3F55E}" ShortID="728476589" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+																						<PropertyList>
+																							<Property Name="DryLevel" Type="Real32" Value="-1"/>
+																							<Property Name="ReverbTime" Type="Real32" Value="0.9"/>
+																							<Property Name="WetLevel" Type="Real32" Value="-21"/>
+																						</PropertyList>
+																					</Effect>
+																				</Custom>
+																			</Reference>
+																		</ReferenceList>
+																	</EffectSlot>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{D29D9C9D-E5F8-4453-8C23-C7C9A700B4E6}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
 											<ObjectLists>
 												<ObjectList Name="Playlist">
@@ -2772,6 +2896,12 @@
 												</ItemList>
 											</Grouping>
 											<Grouping>
+												<SwitchRef Name="MachineGun" ID="{C6E13A43-F215-4C44-A4A1-1C0F9261BFB1}"/>
+												<ItemList>
+													<ItemRef Name="Gatling" ID="{3A796EAF-DD4A-4584-B089-03148612D82C}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
 												<SwitchRef Name="Sobek" ID="{8FC4B1EA-83B1-4244-8AC3-0C1CF6C77B50}"/>
 												<ItemList>
 													<ItemRef Name="Sobek" ID="{1A7DE34F-4803-4418-9C7F-7711C4FAFB39}"/>
@@ -2781,6 +2911,10 @@
 									</GroupingInfo>
 								</SwitchContainer>
 								<ActorMixer Name="PlayerShield" ID="{D434980D-2C6D-468E-9D69-3A1334BFD66C}" ShortID="2263224">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="4"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2969,11 +3103,13 @@
 									<ChildrenList>
 										<Sound Name="SFX3D_NPCs_NPCPteratankCall_Os" ID="{F5201790-F7CD-45CD-91D0-3604528FAAD9}" ShortID="410570020">
 											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
 												<Property Name="MakeUpGain" Type="Real64">
 													<ValueList>
 														<Value>3</Value>
 													</ValueList>
 												</Property>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ValueList>
 														<Value>-100</Value>
@@ -3002,6 +3138,10 @@
 											</ActiveSourceList>
 										</Sound>
 										<RandomSequenceContainer Name="SFX3D_NPCs_NPCPteratankAtk_Os" ID="{CAC782EA-119D-416D-B798-4AEAC4AF9CC0}" ShortID="722691729">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -3119,6 +3259,10 @@
 											</ObjectLists>
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="SFX3D_NPCs_NPCPteratankDeath_Os" ID="{4B53542D-3140-4D17-BACA-DF0EE62F5A7E}" ShortID="427575774">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -3197,6 +3341,10 @@
 											</ChildrenList>
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="SFX3D_NPCs_NPCPteratankVocal_Os" ID="{442BACB2-EF1A-47CC-8582-9B1DAA6C9226}" ShortID="88258467">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -3269,7 +3417,9 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="SFX3D_NPCs_NPCPteromyrAtk_Os" ID="{5C2CCB7A-88FF-4A16-958D-E8638C820994}" ShortID="911901166">
 											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
 												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -3411,7 +3561,9 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="SFX3D_NPCs_NPCPteromyrDeath_Os" ID="{3E82F880-1D00-43B5-A000-913172713E94}" ShortID="126720398">
 											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
 												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -3514,6 +3666,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="SFX3D_NPCs_NPCPteromyrVocal_Os" ID="{F43E8165-CBC9-44D4-A14B-6EC2FADC25E3}" ShortID="365991913">
 											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
 												<Property Name="MakeUpGain" Type="Real64">
 													<ModifierList>
 														<ModifierInfo>
@@ -3528,6 +3681,7 @@
 													</ModifierList>
 												</Property>
 												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -3782,7 +3936,9 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="SFX3D_NPCs_NPCPteromyrCall_Os" ID="{BA08DB68-E221-41AD-8C35-817DECAE8B17}" ShortID="354987429">
 											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
 												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -3906,6 +4062,7 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="SFX3D_Item_TurretShoot_Os" ID="{935A80D5-5C36-410C-8E95-33707A75F4BC}" ShortID="140313670">
 									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
 										<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ModifierList>
@@ -3926,6 +4083,7 @@
 											</ValueList>
 										</Property>
 										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
@@ -4046,6 +4204,8 @@
 								</RandomSequenceContainer>
 								<Sound Name="SFX3D_Item_TurretDie_Os" ID="{7815BA25-670F-4124-B759-5DDCEF0F779F}" ShortID="241206003">
 									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
@@ -4083,7 +4243,9 @@
 								</Sound>
 								<RandomSequenceContainer Name="SFX3D_Item_TurretHit_Os" ID="{16A06F49-7290-42C2-92BD-93199F064200}" ShortID="261601636">
 									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
 										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
@@ -4678,6 +4840,10 @@
 						<Folder Name="InGameMenu" ID="{6699E2A1-4031-4A65-B425-078372090E30}" ShortID="512515505">
 							<ChildrenList>
 								<Sound Name="SFX2D_Interface_PlyrArrowSeqSuccess_Os" ID="{CC5C7B50-8C23-42D8-B83D-6F09E2E96D70}" ShortID="685298796">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -4700,6 +4866,10 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="SFX2D_Interface_PlyrArrowSeqWrong_Os" ID="{40A0A015-FEB9-45F2-B54D-DECCE7E64ABC}" ShortID="395195539">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -4723,11 +4893,13 @@
 								</Sound>
 								<RandomSequenceContainer Name="SFX2D_Interface_PlyrArrowSeqBleeps_Os" ID="{9B47E16B-3103-426D-8A7A-CCFE97F73347}" ShortID="696251493">
 									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
 												<Value>-5</Value>
 											</ValueList>
 										</Property>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">

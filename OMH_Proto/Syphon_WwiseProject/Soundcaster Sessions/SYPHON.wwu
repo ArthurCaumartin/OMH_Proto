@@ -65,7 +65,7 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="RTPC_WeaponChose" ID="{815E2007-9F7C-44A8-B582-D9A4457B9231}"/>
-							<Value>0</Value>
+							<Value>2</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="RTPC_BUS_MAST" ID="{D1E83312-4197-4522-A64F-4734747E1343}"/>
@@ -98,11 +98,39 @@
 						<CurrentStateRef Name="None" ID="{57E0A263-C6EA-4FD0-B643-BC68E14418B1}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="Dry" ID="{ADF4DAAE-CB8B-43C6-AFFE-BB6DA4CF8CD2}"/>
+						<CurrentSwitchRef Name="Damp" ID="{CA29BD28-5251-4F3B-A1FA-0C4F3276FDB7}"/>
 						<CurrentSwitchRef Name="Firing" ID="{C44185DE-2FB0-49D0-95E3-A4825A143E74}"/>
+						<CurrentSwitchRef Name="FullEnergy" ID="{B3E9E17F-414C-4D8B-A33F-2B0C7D057376}"/>
 						<CurrentSwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
-						<CurrentSwitchRef Name="MidHealth" ID="{BD17F327-1492-4A55-A765-844CD56FD4A9}"/>
-						<CurrentSwitchRef Name="Fugitive" ID="{B560FB3E-4841-4FC0-91DA-ECF9F1E6D6E8}"/>
+						<CurrentSwitchRef Name="FullHealth" ID="{D552AEDB-98D4-4E1F-9543-C88865F33FB8}"/>
+						<CurrentSwitchRef Name="MachineGun" ID="{C6E13A43-F215-4C44-A4A1-1C0F9261BFB1}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Weapons" ID="{6D108DF1-A026-4CD8-9FA4-B73674F9D263}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Play_PlayerWeapon" ID="{DA1B94DC-F38A-428E-B74F-5E252D393EEC}" WorkUnitID="{96FA0854-DBB3-48BA-A57F-CDF57D48F332}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Stop_PlayerGatling" ID="{2BE8905B-DCF5-4731-846C-1695D4AAAA50}" WorkUnitID="{96FA0854-DBB3-48BA-A57F-CDF57D48F332}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="RTPC_WeaponChose" ID="{815E2007-9F7C-44A8-B582-D9A4457B9231}"/>
+							<Value>2</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Damp" ID="{CA29BD28-5251-4F3B-A1FA-0C4F3276FDB7}"/>
+						<CurrentSwitchRef Name="Firing" ID="{C44185DE-2FB0-49D0-95E3-A4825A143E74}"/>
+						<CurrentSwitchRef Name="FullEnergy" ID="{B3E9E17F-414C-4D8B-A33F-2B0C7D057376}"/>
+						<CurrentSwitchRef Name="Glass" ID="{3AB7BB52-808E-4E35-9F1F-E556E723770F}"/>
+						<CurrentSwitchRef Name="FullHealth" ID="{D552AEDB-98D4-4E1F-9543-C88865F33FB8}"/>
+						<CurrentSwitchRef Name="MachineGun" ID="{C6E13A43-F215-4C44-A4A1-1C0F9261BFB1}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>

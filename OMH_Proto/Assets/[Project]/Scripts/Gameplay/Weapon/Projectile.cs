@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour
     private Rigidbody _rb;
     private Vector3 _lastFramePosition;
     [SerializeField] private AK.Wwise.Event _shootSound;
+    [SerializeField] private AK.Wwise.RTPC _RTPCWeapon;
 
     public Projectile Initialize(GameObject shooter, float speed, float damage)
     {
@@ -56,15 +57,23 @@ public class Projectile : MonoBehaviour
         var weaponId = _shooter.GetComponent<WeaponIdentifier>();
         if (weaponId == null) return;
 
+        float value = 0;
         switch (weaponId.weaponType)
         {
             case WeaponType.Fugitive:
+                AudioDebugLog.LogAudio(this.GetType().ToString(), ToString(), "Bullet from fugitive");
+                value = 0;
                 break;
             case WeaponType.Sobek:
+                AudioDebugLog.LogAudio(this.GetType().ToString(), ToString(), "Bullet from sobek");
+                value = 1;
                 break;
             case WeaponType.Gatling:
+                AudioDebugLog.LogAudio(this.GetType().ToString(), ToString(), "Bullet from gatling");
+                value = 2;
                 break;
         }
+        _RTPCWeapon.SetValue(gameObject, value);
     }
 
     public void AddShootEffect()
