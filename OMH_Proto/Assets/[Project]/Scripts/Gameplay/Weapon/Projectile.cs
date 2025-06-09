@@ -44,7 +44,7 @@ public class Projectile : MonoBehaviour
         _RTPCWeapon.SetValue(gameObject, value);
         Debug.Log($"[Test] RTPC set to {value} for {weaponId.weaponType}");
     }
-    public Projectile Initialize(GameObject shooter, float speed, float damage)
+    public Projectile Initialize(GameObject shooter, float speed, float damage, WeaponIdentifier weaponID = null)
     {
         print(name + " Initialize");
 
@@ -57,7 +57,7 @@ public class Projectile : MonoBehaviour
         _lastFramePosition = _rb.position;
         _rb.AddForce(transform.forward * _speed, ForceMode.Impulse);
 
-        PlayShootSwitch();
+        PlayShootSwitch(weaponID);
         _shootSound.Post(gameObject);
 
         Destroy(gameObject, 1f);
@@ -77,20 +77,22 @@ public class Projectile : MonoBehaviour
         _lastFramePosition = _rb.position;
     }
 
-    private void PlayShootSwitch()
+    private void PlayShootSwitch(WeaponIdentifier weaponId)
     {
-        if (_shooter == null)
-        {
-            Debug.LogWarning("Shooter is null");
-            return;
-        }
+        // if (_shooter == null)
+        // {
+        //     Debug.LogWarning("Shooter is null");
+        //     return;
+        // }
 
-        var weaponId = _shooter.GetComponent<WeaponIdentifier>();
+        // var weaponId = _shooter.GetComponent<WeaponIdentifier>();
         if (weaponId == null)
         {
             Debug.LogWarning("WeaponIdentifier not found on shooter or its children.");
             return;
         }
+
+        print("IS name : " + weaponId.name);
 
         float value = -1;
         switch (weaponId.weaponType)
