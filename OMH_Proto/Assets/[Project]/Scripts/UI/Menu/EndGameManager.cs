@@ -12,8 +12,8 @@ public class EndGameManager : MonoBehaviour
     [Space] [SerializeField] private PlayerItemList _playerItemList;
     [SerializeField] private ObjectUIManager _objectUIManager;
     [Space] [SerializeField] private TextMeshProUGUI _titleText, _lostHpText, _timerGameText, _dangerLevelText;
-    [SerializeField] private GameObject _countDefenses, _countHP, _countKills, _total;
-    [SerializeField] private Image _weaponImage;
+    [SerializeField] private TextMeshProUGUI _countDefenses, _countKills;
+    [SerializeField] private GameObject _total;
 
     [Space]
     
@@ -33,9 +33,10 @@ public class EndGameManager : MonoBehaviour
         //Danger Level
         _dangerLevelText.text = $"- {_dangerLevel.Value} -";
 
-        //Weapon and HP
-        _weaponImage.sprite = _gameChooseMeta._weaponChoose._weaponIcon;
-        _lostHpText.text = 20 - _syphonHealth.Value + " HP Lost";
+        //HP
+        _lostHpText.text = $"- {20 - _syphonHealth.Value} -";
+        _countDefenses.text = $"- {_defenses.Value} -";
+        _countKills.text = $"- {_kills.Value} -";
         
         //Timer
         int timerMinute = Mathf.RoundToInt(_gameTime.Value / 60);
