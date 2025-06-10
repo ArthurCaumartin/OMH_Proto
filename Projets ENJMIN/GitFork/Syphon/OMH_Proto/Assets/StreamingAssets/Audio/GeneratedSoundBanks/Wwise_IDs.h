@@ -23,6 +23,17 @@ namespace AK
         static const AkUniqueID PLAY_SFX2D_INTERFACE_PLYRARROWSEQBLEEPS_OS = 3038203535U;
         static const AkUniqueID PLAY_SFX2D_INTERFACE_PLYRARROWSEQSUCCESS_OS = 1167542187U;
         static const AkUniqueID PLAY_SFX2D_INTERFACE_PLYRARROWSEQWRONG_OS = 2476857413U;
+        static const AkUniqueID PLAY_SFX3D_ITEM_TURRETDIE_OS = 2645086962U;
+        static const AkUniqueID PLAY_SFX3D_ITEM_TURRETHIT_OS = 439223545U;
+        static const AkUniqueID PLAY_SFX3D_ITEM_TURRETSHOOT_OS = 3996551447U;
+        static const AkUniqueID PLAY_SFX3D_NPCS_NPCPTERATANKATK_OS = 4284211126U;
+        static const AkUniqueID PLAY_SFX3D_NPCS_NPCPTERATANKCALL_OS = 3905437730U;
+        static const AkUniqueID PLAY_SFX3D_NPCS_NPCPTERATANKDEATH_OS = 2236200422U;
+        static const AkUniqueID PLAY_SFX3D_NPCS_NPCPTERATANKVOCAL_OS = 2283779585U;
+        static const AkUniqueID PLAY_SFX3D_NPCS_NPCPTEROMYRATK_OS = 2069826082U;
+        static const AkUniqueID PLAY_SFX3D_NPCS_NPCPTEROMYRCALL_OS = 659605406U;
+        static const AkUniqueID PLAY_SFX3D_NPCS_NPCPTEROMYRDEATH_OS = 1362598770U;
+        static const AkUniqueID PLAY_SFX3D_NPCS_NPCPTEROMYRVOCAL_OS = 2978099101U;
         static const AkUniqueID PLAY_SFX_INMENU_OPTIONSDISPLAY = 3936488577U;
         static const AkUniqueID PLAY_SFX_MENU_CHANGEPAGEBACK = 3919501610U;
         static const AkUniqueID PLAY_SFX_MENU_CHANGEPAGESWOOSH = 1842550574U;
@@ -69,6 +80,7 @@ namespace AK
         static const AkUniqueID PLAY_UI_MENU_HOOVER = 1620222164U;
         static const AkUniqueID PLAY_UI_MENU_SELECT = 1416073485U;
         static const AkUniqueID PLAY_UI_MENU_STARTGAME = 4232330581U;
+        static const AkUniqueID STOP_PLAYERGATLING = 3814609273U;
     } // namespace EVENTS
 
     namespace STATES
@@ -180,6 +192,7 @@ namespace AK
             {
                 static const AkUniqueID FUGITIVE = 555859512U;
                 static const AkUniqueID MACHINEGUN = 3678545986U;
+                static const AkUniqueID SOBEK = 742942223U;
             } // namespace SWITCH
         } // namespace PLAYERWEAPON
 
@@ -187,6 +200,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID RPTC_NPCHOSTILITY = 4153289483U;
         static const AkUniqueID RTPC_BUS_AMB = 2418825774U;
         static const AkUniqueID RTPC_BUS_GAMEMUS = 148268885U;
         static const AkUniqueID RTPC_BUS_GENMUS = 1132542661U;
