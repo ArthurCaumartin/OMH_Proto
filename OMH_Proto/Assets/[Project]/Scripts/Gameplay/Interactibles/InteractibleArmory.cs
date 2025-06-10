@@ -25,10 +25,13 @@ public class InteractibleArmory : Interactible
 
     public override void OnQTEWin()
     {
+        if (_isArmoryOpened) return;
         _onCompleteArmory.Raise();
         
         gameObject.layer = LayerMask.NameToLayer("Default");
         _casierObject.SetActive(false);
+
+        OpenArmory();
     } 
 
     public void OpenArmory()

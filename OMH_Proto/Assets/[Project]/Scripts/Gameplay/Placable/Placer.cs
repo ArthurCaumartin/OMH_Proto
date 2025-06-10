@@ -17,7 +17,7 @@ public class Placer : MonoBehaviour
     [SerializeField] private FloatVariable _ressourceCondition;
     [Space]
     [SerializeField] private List<Placable> _placableList;
-    [SerializeField] private GameEvent _onPlacableSelect, _onShowGrid, _onShowRails;
+    [SerializeField] private GameEvent _onPlacableSelect, _onShowGrid, _onShowRails, _placeSomething;
     [SerializeField] private Image _button1Image, _button2Image, _button3Image;
     private Placable _ghostPlacable;
     private Camera _mainCamera;
@@ -91,6 +91,7 @@ public class Placer : MonoBehaviour
             InstantiatePlaceblePrefab();
             UnSelect();
             _oldPlacableIndex = -1;
+            _placeSomething.Raise();
         }
     }
 
