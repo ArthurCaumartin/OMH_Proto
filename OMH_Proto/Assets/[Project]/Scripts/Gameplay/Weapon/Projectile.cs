@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -57,8 +58,15 @@ public class Projectile : MonoBehaviour
         _lastFramePosition = _rb.position;
         _rb.AddForce(transform.forward * _speed, ForceMode.Impulse);
 
-        PlayShootSwitch(weaponID);
-        if (playSound)   _shootSound.Post(gameObject);
+        if (weaponID != null)
+        {
+            PlayShootSwitch(weaponID);
+            
+        }
+        if (playSound)
+        {
+            _shootSound.Post(gameObject);
+        }
 
 
         Destroy(gameObject, 1f);

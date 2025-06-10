@@ -568,7 +568,7 @@
 								</Folder>
 								<Event Name="Play_PlayerWeapon" ID="{DA1B94DC-F38A-428E-B74F-5E252D393EEC}">
 									<PropertyList>
-										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="Color" Type="int16" Value="4"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
 									<ChildrenList>
@@ -642,6 +642,10 @@
 									</ChildrenList>
 								</Event>
 								<Event Name="Stop_PlayerGatling" ID="{2BE8905B-DCF5-4731-846C-1695D4AAAA50}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="4"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
 									<ChildrenList>
 										<Action Name="" ID="{07735E7D-24E2-4BFD-97FB-286C79676975}" ShortID="99753010">
 											<PropertyList>
@@ -673,6 +677,21 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="SFX_WEAPONS_GatlingLastShoot_OS_01" ID="{F4D95C72-568E-4A82-BFCE-96A780E52138}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_SFX_WEAPONS_PoisonShootRB" ID="{789A03AE-AAB5-42CF-B6D4-ED26C17EF45D}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="4"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<Action Name="" ID="{EFCB5CFB-4CE1-426F-85C6-323F9ED7D200}" ShortID="980649015">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="SFX_WEAPONS_PoisonShootRB" ID="{BA2D99E2-E78C-4D0B-B057-6E47F3AAF82B}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>

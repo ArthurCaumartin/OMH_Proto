@@ -2091,7 +2091,7 @@
 							<ChildrenList>
 								<SwitchContainer Name="PlayerWeapon" ID="{4F1F56AA-AB35-4AC9-9A12-A0BD487EF205}" ShortID="1037998958">
 									<PropertyList>
-										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="Color" Type="int16" Value="4"/>
 										<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
@@ -2122,7 +2122,7 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="Fugitive" ID="{C561C63B-4B1B-4E1B-B093-155503867A7D}" ShortID="837171575">
 											<PropertyList>
-												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="Color" Type="int16" Value="4"/>
 												<Property Name="OverrideColor" Type="bool" Value="True"/>
 											</PropertyList>
 											<ReferenceList>
@@ -2314,7 +2314,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Sobek" ID="{1A7DE34F-4803-4418-9C7F-7711C4FAFB39}" ShortID="193350346">
 											<PropertyList>
-												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="Color" Type="int16" Value="4"/>
 												<Property Name="OverrideColor" Type="bool" Value="True"/>
 											</PropertyList>
 											<ReferenceList>
@@ -2506,7 +2506,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Gatling" ID="{3A796EAF-DD4A-4584-B089-03148612D82C}" ShortID="1019386482">
 											<PropertyList>
-												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="Color" Type="int16" Value="4"/>
 												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
@@ -2775,7 +2775,6 @@
 																<Value>2</Value>
 															</ValueList>
 														</Property>
-														<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 														<Property Name="MaxSoundPerInstance" Type="int16">
 															<ValueList>
 																<Value>2</Value>
@@ -3125,6 +3124,23 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="SFX_WEAPONS_PoisonShootRB" ID="{BA2D99E2-E78C-4D0B-B057-6E47F3AAF82B}" ShortID="295663240">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="4"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{4500E6EA-4FDB-42FC-A1C5-0F1823E2327B}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="300"/>
+															<Property Name="Min" Type="Real64" Value="-50"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
