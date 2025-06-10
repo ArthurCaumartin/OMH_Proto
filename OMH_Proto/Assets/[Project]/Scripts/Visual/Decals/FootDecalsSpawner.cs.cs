@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,8 +25,7 @@ public class FootDecalsSpawner : MonoBehaviour
     [Space]
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private LayerMask _decalsLayer;
-    [SerializeField] private Feet _rightFeet;
-    [SerializeField] private Feet _leftFeet;
+    [SerializeField] private List<Feet> _feetList = new List<Feet>();
 
     public UnityEvent<RaycastHit> OnStepEvent;
 
@@ -36,14 +36,21 @@ public class FootDecalsSpawner : MonoBehaviour
 
     private void Update()
     {
-        Cast(_leftFeet);
-        Cast(_rightFeet);
 
-        _rightFeet.canSpawnDecal -= Time.deltaTime;
-        _rightFeet.canSpawnDecal = Mathf.Clamp(_rightFeet.canSpawnDecal, 0, 1000);
+        foreach (var item in _feetList)
+        {
+            Cast(item);
+            item.canSpawnDecal -= Time.deltaTime;
+            item.canSpawnDecal = Mathf.Clamp(item.canSpawnDecal, 0, 1000);
+        }
+        // Cast(_leftFeet);
+        // Cast(_rightFeet);
 
-        _leftFeet.canSpawnDecal -= Time.deltaTime;
-        _leftFeet.canSpawnDecal = Mathf.Clamp(_leftFeet.canSpawnDecal, 0, 1000);
+        // _rightFeet.canSpawnDecal -= Time.deltaTime;
+        // _rightFeet.canSpawnDecal = Mathf.Clamp(_rightFeet.canSpawnDecal, 0, 1000);
+
+        // _leftFeet.canSpawnDecal -= Time.deltaTime;
+        // _leftFeet.canSpawnDecal = Mathf.Clamp(_leftFeet.canSpawnDecal, 0, 1000);
     }
 
     private void Cast(Feet feet)
@@ -68,7 +75,7 @@ public class FootDecalsSpawner : MonoBehaviour
             DecalProjector newDecal = Instantiate(_feetDecalPrefab
                                                 , groundHit.point + new Vector3(0, .06f, 0)
                                                 , Quaternion.LookRotation(-groundHit.normal, transform.forward));
-           
+
             // identifier setter to get which decal come from Player's feet
             var identifier = newDecal.gameObject.AddComponent<DecalIdentifier>();
             identifier.Type = DecalType.Player;
