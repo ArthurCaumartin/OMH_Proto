@@ -12,12 +12,11 @@ public class ObjectUI : MonoBehaviour
 
     public void Initialize(string objectName, string objectDescription, Sprite objectImage, bool isPannelActivated)
     {
-        _objectName.text = objectName;
-        _objectDescription.text = objectDescription;
+        // _objectName.text = objectName;
+        // _objectDescription.text = objectDescription;
         _objectImage.sprite = objectImage;
-        _popupImage.sprite = objectImage;
 
-        HighLightObject highLightObject = GetComponent<HighLightObject>();
-        highLightObject.InitializeInfos(_objectName.text, _objectDescription.text, _objectImage.sprite);
+        // HighLightObject highLightObject = GetComponent<HighLightObject>();
+        // highLightObject.InitializeInfos(_objectName.text, _objectDescription.text, _objectImage.sprite);
     }
 }

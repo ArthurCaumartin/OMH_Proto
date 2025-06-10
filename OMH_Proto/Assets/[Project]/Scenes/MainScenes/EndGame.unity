@@ -1214,7 +1214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HP remaining
+  m_text: 0 HP Lost
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9ff4c82404a1db4f9125280d8980e0f, type: 2}
   m_sharedMaterial: {fileID: 4237746529934077175, guid: f9ff4c82404a1db4f9125280d8980e0f,
@@ -2622,7 +2622,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hold Space to continue
+  m_text: Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9ff4c82404a1db4f9125280d8980e0f, type: 2}
   m_sharedMaterial: {fileID: 4237746529934077175, guid: f9ff4c82404a1db4f9125280d8980e0f,
@@ -2650,8 +2650,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3344,7 +3344,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694992845}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8edb993ab4f016b439b862fd96dae076, type: 2}
   m_CullingMode: 0
@@ -3394,8 +3394,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.493, y: -116.616}
-  m_SizeDelta: {x: 645.7241, y: 678.5173}
+  m_AnchoredPosition: {x: 15.8394, y: 74}
+  m_SizeDelta: {x: 1553.9385, y: 166.5935}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1714376077
 MonoBehaviour:
@@ -3447,7 +3447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5894b79d1a9eba54094a2f5c2905cc51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectImagePrefab: {fileID: 5711160756206247915, guid: f15f31e42926ad14782bebe672e88130,
+  _objectImagePrefab: {fileID: 5711160756206247915, guid: 1c536f230e418204c94024c9eb8172dd,
     type: 3}
 --- !u!114 &1714376080
 MonoBehaviour:
@@ -3466,13 +3466,13 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 3
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 50, y: 50}
-  m_Spacing: {x: 100, y: 100}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  m_CellSize: {x: 120, y: 120}
+  m_Spacing: {x: 80, y: 100}
+  m_Constraint: 2
+  m_ConstraintCount: 1
 --- !u!225 &1714376081
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3862,13 +3862,17 @@ MonoBehaviour:
     constantValue: 0
     variable: {fileID: 11400000, guid: 039ef110c6c610343a97eb957a86f5c2, type: 2}
   _kills:
-    propertyType: 0
+    propertyType: 1
     constantValue: 0
-    variable: {fileID: 0}
+    variable: {fileID: 11400000, guid: 06febe62f3949924ab149a1036d4a3f3, type: 2}
   _defenses:
-    propertyType: 0
+    propertyType: 1
     constantValue: 0
-    variable: {fileID: 0}
+    variable: {fileID: 11400000, guid: b1a56683d76c76f4d9b24b849fcda50b, type: 2}
+  _dangerLevel:
+    propertyType: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 5d2cfef90d6ab8344926c6bc2812159a, type: 2}
   _gameTime:
     propertyType: 1
     constantValue: 0
@@ -3886,6 +3890,7 @@ MonoBehaviour:
   _titleText: {fileID: 2059282274}
   _lostHpText: {fileID: 610014283}
   _timerGameText: {fileID: 1153179957}
+  _dangerLevelText: {fileID: 915203550}
   _countDefenses: {fileID: 1607104393}
   _countHP: {fileID: 1604585244}
   _countKills: {fileID: 702171962}
