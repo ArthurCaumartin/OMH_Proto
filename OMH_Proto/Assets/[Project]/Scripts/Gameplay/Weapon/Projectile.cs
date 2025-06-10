@@ -44,7 +44,7 @@ public class Projectile : MonoBehaviour
         _RTPCWeapon.SetValue(gameObject, value);
         Debug.Log($"[Test] RTPC set to {value} for {weaponId.weaponType}");
     }
-    public Projectile Initialize(GameObject shooter, float speed, float damage, WeaponIdentifier weaponID = null)
+    public Projectile Initialize(GameObject shooter, float speed, float damage, WeaponIdentifier weaponID = null, bool playSound = true)
     {
         print(name + " Initialize");
 
@@ -58,7 +58,8 @@ public class Projectile : MonoBehaviour
         _rb.AddForce(transform.forward * _speed, ForceMode.Impulse);
 
         PlayShootSwitch(weaponID);
-        _shootSound.Post(gameObject);
+        if (playSound)   _shootSound.Post(gameObject);
+
 
         Destroy(gameObject, 1f);
         return this;

@@ -130,9 +130,9 @@ public class WeaponControler : MonoBehaviour
     {
         _isPrimaryAttacking = true;
 
-        if (IsCurrentWeaponGatling())
-        {
-            _gatlingStartEvent.Post(gameObject);
+       if (IsCurrentWeaponGatling())
+       {
+          _gatlingStartEvent.Post(gameObject);
         }
     }
 
