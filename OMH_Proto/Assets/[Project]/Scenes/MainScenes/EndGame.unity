@@ -268,7 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 58783090}
   m_Layer: 5
-  m_Name: FromMetal
+  m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -305,7 +305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 79423993}
   m_Layer: 5
-  m_Name: PCEN
+  m_Name: Total
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2328,7 +2328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1337091213}
   m_Layer: 5
-  m_Name: Lost
+  m_Name: Kill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3160,7 +3160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1679008156}
   m_Layer: 5
-  m_Name: FromTime
+  m_Name: Defenses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3861,14 +3861,18 @@ MonoBehaviour:
     propertyType: 1
     constantValue: 0
     variable: {fileID: 11400000, guid: 039ef110c6c610343a97eb957a86f5c2, type: 2}
-  _scrapMetal:
-    propertyType: 1
-    constantValue: 300
-    variable: {fileID: 11400000, guid: 5cecde5db3ccbdb4f90e412031e11c2d, type: 2}
+  _kills:
+    propertyType: 0
+    constantValue: 0
+    variable: {fileID: 0}
+  _defenses:
+    propertyType: 0
+    constantValue: 0
+    variable: {fileID: 0}
   _gameTime:
     propertyType: 1
     constantValue: 0
-    variable: {fileID: 11400000, guid: 36503a46efb980e4dbfb28ad7de88cc2, type: 2}
+    variable: {fileID: 11400000, guid: 6d9024c3c230630499ff957eb14ac3e9, type: 2}
   _defenseDuration:
     propertyType: 1
     constantValue: 0
@@ -3880,12 +3884,12 @@ MonoBehaviour:
   _playerItemList: {fileID: 11400000, guid: 0d097130c194fdb418655eeed11b9074, type: 2}
   _objectUIManager: {fileID: 1714376079}
   _titleText: {fileID: 2059282274}
-  _lostHpText: {fileID: 1892349487}
+  _lostHpText: {fileID: 610014283}
   _timerGameText: {fileID: 1153179957}
-  _pcenFromTime: {fileID: 1607104393}
-  _pcenFromMetal: {fileID: 1604585244}
-  _pcenLost: {fileID: 702171962}
-  _pcenText: {fileID: 1622993685}
+  _countDefenses: {fileID: 1607104393}
+  _countHP: {fileID: 1604585244}
+  _countKills: {fileID: 702171962}
+  _total: {fileID: 1622993685}
   _weaponImage: {fileID: 458447134}
   _costEachHealthLost: 2
   _valueEachSecond: 10
@@ -3964,7 +3968,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemMenu: {fileID: 0}
-  _itemMenuB: {fileID: 0}
   _gameUI: {fileID: 0}
   _itemSprite1: {fileID: 0}
   _itemsSprite2: {fileID: 0}
@@ -3975,12 +3978,12 @@ MonoBehaviour:
   _itemDescription1: {fileID: 0}
   _itemDescription2: {fileID: 0}
   _itemDescription3: {fileID: 0}
-  _itemSpriteB1: {fileID: 0}
-  _itemsSpriteB2: {fileID: 0}
-  _itemNameB1: {fileID: 0}
-  _itemNameB2: {fileID: 0}
-  _itemDescriptionB1: {fileID: 0}
-  _itemDescriptionB2: {fileID: 0}
+  _familyItemParent1: {fileID: 0}
+  _familyItemParent2: {fileID: 0}
+  _familyItemParent3: {fileID: 0}
+  _familyItem1: {fileID: 0}
+  _familyItem2: {fileID: 0}
+  _familyItem3: {fileID: 0}
   _isItemSelectionMenuOpen: 0
 --- !u!1 &2059282272
 GameObject:
