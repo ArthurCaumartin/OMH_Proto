@@ -22,7 +22,7 @@ public class SubmachineGun : Weapon
         _heatMultiplier = _heatMultiplier + _bulletsHeat / _maxHeatBullets;
 
         Projectile newProj = Instantiate(_projectile, _shootPoint.position, transform.rotation);
-        newProj.Initialize(_parentShooter, _stat.projectileSpeed.Value, _stat.damage.Value);
+        newProj.Initialize(_parentShooter, _stat.projectileSpeed.Value, _stat.damage.Value, _weaponID);
 
         float randomAngle = Random.Range(-_spreadAngle.Value, _spreadAngle.Value);
         float x = Mathf.InverseLerp(-45, 45, randomAngle);

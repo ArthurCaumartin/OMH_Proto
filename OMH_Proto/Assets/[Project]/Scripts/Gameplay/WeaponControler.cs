@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Progress;
 
 public class WeaponControler : MonoBehaviour
 {
@@ -13,20 +14,41 @@ public class WeaponControler : MonoBehaviour
     [SerializeField] private GameEvent _secondaryAttackEvent;
 
     private int _currentWeaponIndex = 0;
+    private List<WeaponIdentifier> _weaponIdentifiers = new List<WeaponIdentifier>();
 
     private InputAction _primaryAttackInputAction;
     private InputAction _secondaryAttackInputAction;
     private bool _isPrimaryAttacking;
     private bool _isSecondaryAttacking;
+
+    [SerializeField] private AK.Wwise.Event _gatlingStartEvent;
+    [SerializeField] private AK.Wwise.Event _gatlingStopEvent;
     public bool IsPrimaryAttacking { get => _isPrimaryAttacking; }
     public bool IsSecondaryAttacking { get => _isSecondaryAttacking; }
     private Transform _currentWeaponMesh;
     private PlayerAnimation _playerAnimation;
 
+
+    [ContextMenu("Test Weapon Identifiers")]
+    private void TestWeaponIdentifiers()
+    {
+        Debug.Log("----- Weapon Identifiers Test -----");
+
+        for (int i = 0; i < _weaponList.Count; i++)
+        {
+            string weaponName = _weaponList[i].name;
+            string weaponType = _weaponIdentifiers[i] != null ? _weaponIdentifiers[i].weaponType.ToString() : "NULL";
+
+            Debug.Log($"Index {i} | Weapon: {weaponName} | Type: {weaponType}");
+        }
+    }
     private void Start()
     {
         _primaryAttackInputAction = GetComponent<PlayerInput>().actions.FindAction("Attack");
         _secondaryAttackInputAction = GetComponent<PlayerInput>().actions.FindAction("SecondaryAttack");
+
+        _primaryAttackInputAction.performed += ctx => OnPrimaryAttackStarted();
+        _primaryAttackInputAction.canceled += ctx => OnPrimaryAttackCanceled();
 
         _playerAnimation = GetComponent<PlayerAnimation>();
 
@@ -98,32 +120,68 @@ public class WeaponControler : MonoBehaviour
         Weapon tempWeapon = tempObject.GetComponent<Weapon>();
         AddWeapon(tempWeapon);
     }
+    private bool IsCurrentWeaponGatling()
+    {
+        if (_weaponIdentifiers.Count <= _currentWeaponIndex) return false;
+        return _weaponIdentifiers[_currentWeaponIndex] != null
+            && _weaponIdentifiers[_currentWeaponIndex].weaponType == WeaponType.Gatling;
+    }
+    private void OnPrimaryAttackStarted()
+    {
+        _isPrimaryAttacking = true;
 
+        if (IsCurrentWeaponGatling())
+        {
+            _gatlingStartEvent.Post(gameObject);
+        }
+    }
+
+    private void OnPrimaryAttackCanceled()
+    {
+        _isPrimaryAttacking = false;
+
+        if (IsCurrentWeaponGatling())
+        {
+            _gatlingStopEvent.Post(gameObject);
+        }
+    }
     public void AddWeapon(Weapon weaponToAdd)
     {
         Weapon newWeapon = Instantiate(weaponToAdd, _weaponParent);
-
         newWeapon.Initialize(this);
 
         _weaponList.Add(newWeapon);
+        _weaponIdentifiers.Add(newWeapon.GetComponent<WeaponIdentifier>());
+
         EnableWeapon(_weaponList.Count - 1);
     }
 
     public void RemoveWeapon(Weapon weaponToRemove)
     {
-        _weaponList.Remove(weaponToRemove);
+
+        int index = _weaponList.IndexOf(weaponToRemove);
+        if (index >= 0)
+        {
+            _weaponList.RemoveAt(index);
+            _weaponIdentifiers.RemoveAt(index);
+        }
+
         EnableWeapon(0);
     }
 
     private void GetAllChildWeapon()
     {
         _weaponList.Clear();
+        _weaponIdentifiers.Clear();
+
         foreach (var item in GetComponentsInChildren<Weapon>())
         {
             item.Initialize(this);
 
             _weaponList.Add(item);
+            _weaponIdentifiers.Add(item.GetComponent<WeaponIdentifier>());
         }
+
         EnableWeapon(0);
     }
 }

@@ -17,6 +17,7 @@ public class PlayerMovement : Upgradable
     private Vector3 _velocityTarget;
     private Camera _mainCam;
     public float _upgradeMoveSpeedMult = 1;
+    public float CurrentSpeed => _rb.velocity.magnitude;
 
     public bool IsMoving { get => _inputVector.magnitude != 0; }
 

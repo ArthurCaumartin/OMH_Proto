@@ -22,6 +22,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private FloatReference _secondaryDynamicCoolDown;
     [SerializeField] protected StatContainer _secondaryStat;
     private float _attackTime;
+    protected WeaponIdentifier _weaponID;
 
 
     public WeaponVisual _weaponVisual;
@@ -36,6 +37,7 @@ public class Weapon : MonoBehaviour
         _parentShooter = GetComponentInParent<PlayerAim>().gameObject;
         _weaponVisual = GetComponent<WeaponVisual>();
         _secondaryDynamicCoolDown.Value = _secondaryCooldown.Value;
+        _weaponID = GetComponent<WeaponIdentifier>();
     }
 
     private void OnEnable()
