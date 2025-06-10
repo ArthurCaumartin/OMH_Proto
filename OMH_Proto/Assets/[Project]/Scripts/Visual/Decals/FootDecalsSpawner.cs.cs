@@ -17,7 +17,7 @@ public class FootDecalsSpawner : MonoBehaviour
         [HideInInspector] public float lastBloodMixe = 0;
     }
 
-
+    //BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     [SerializeField] private float _rayLenth = 5;
     [SerializeField] private float _decalLifeTime = 5;
     [SerializeField] private float _decalSpawnDuration = 5;
