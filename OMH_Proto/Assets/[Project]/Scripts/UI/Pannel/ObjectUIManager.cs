@@ -33,4 +33,11 @@ public class ObjectUIManager : MonoBehaviour
 
         objectUI.Initialize(objectName, objectDescription, objectImage, _isPannelActivated);
     }
+
+    public void AddObjectUiEndgame(Sprite objectImage)
+    {
+        ObjectUI objectUI = Instantiate(_objectImagePrefab, transform).GetComponent<ObjectUI>();
+
+        objectUI.InitalizeEndGame(objectImage);
+    }
 }

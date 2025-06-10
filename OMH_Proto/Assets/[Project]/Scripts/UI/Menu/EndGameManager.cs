@@ -27,7 +27,7 @@ public class EndGameManager : MonoBehaviour
         for (int i = 0; i < _playerItemList._items.Count; i++)
         {
             ItemScriptable tempItem = _playerItemList._items[i];
-            _objectUIManager.AddObjectUI(tempItem._itemName, tempItem._itemDescription, tempItem._itemSprite);
+            _objectUIManager.AddObjectUiEndgame(tempItem._itemSprite);
         }
         
         //Danger Level
@@ -66,7 +66,7 @@ public class EndGameManager : MonoBehaviour
 
     public void LostGame()
     {
-        _titleText.text = "Mission failed";
+        _titleText.text = "Mission Failed";
         
 
         float defenseTimeBeforeLost = _gameTime.Value;
@@ -77,7 +77,7 @@ public class EndGameManager : MonoBehaviour
 
     public void WinGame()
     {
-        _titleText.text = "Succes !";
+        _titleText.text = "Extraction Complete";
 
         int pcenGainFromTime = Mathf.RoundToInt(_defenseDuration.Value * _valueEachSecond);
         
