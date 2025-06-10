@@ -17,6 +17,7 @@ public class QTEMirrorUI : MonoBehaviour
     [SerializeField] private List<GameObject> _activateObjects = new List<GameObject>();
     
     [SerializeField] private TextMeshProUGUI _counterText;
+    [SerializeField] private Image _bgImage;
     [SerializeField] private Sprite _reproduceButtonSprite, _notReproduceButtonSprite;
 
     public void InitializeUI(int numberWinsValue)
@@ -79,6 +80,7 @@ public class QTEMirrorUI : MonoBehaviour
     public void WinCode()
     {
         _reproduceButtonsParent.SetActive(false);
+        _bgImage.color = new Color32(29, 173, 215, 255);
         _endText.SetActive(true);
     }
 
