@@ -13,11 +13,13 @@
 							<ChildrenList>
 								<SwitchContainer Name="Player_SpeedSwitch" ID="{2E950F1F-7A35-417A-AD42-34A72EAA696D}" ShortID="282661426">
 									<PropertyList>
+										<Property Name="Color" Type="int16" Value="4"/>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
 											</ValueList>
 										</Property>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -33,7 +35,7 @@
 									<ChildrenList>
 										<BlendContainer Name="Player_BlendFootstepsFire" ID="{1B0A93FF-D529-4572-8EF8-F806510235C4}" ShortID="558443079">
 											<PropertyList>
-												<Property Name="Color" Type="int16" Value="23"/>
+												<Property Name="Color" Type="int16" Value="4"/>
 												<Property Name="OverrideColor" Type="bool" Value="True"/>
 											</PropertyList>
 											<ReferenceList>
@@ -1083,7 +1085,7 @@
 														<BlendTrackAssoc>
 															<ItemRef Name="Damp_MatSwitch" ID="{33E05729-8C7A-45EF-BE6A-5665D8F75949}"/>
 															<CrossfadingInfo>
-																<LeftEdgePos>56.5406562054208</LeftEdgePos>
+																<LeftEdgePos>68.095577746077</LeftEdgePos>
 																<LeftFadingMode>Automatic</LeftFadingMode>
 																<RightEdgePos>100</RightEdgePos>
 																<RightFadingMode>Automatic</RightFadingMode>
@@ -1095,7 +1097,7 @@
 										</BlendContainer>
 										<BlendContainer Name="Player_BlendFootstepsRun" ID="{FAE13911-10ED-4D24-8F90-ADFC0441C74E}" ShortID="1056809938">
 											<PropertyList>
-												<Property Name="Color" Type="int16" Value="23"/>
+												<Property Name="Color" Type="int16" Value="4"/>
 												<Property Name="OverrideColor" Type="bool" Value="True"/>
 											</PropertyList>
 											<ReferenceList>
@@ -1108,6 +1110,10 @@
 											</ReferenceList>
 											<ChildrenList>
 												<SwitchContainer Name="Dry_MatSwitch" ID="{ACBDF59E-B3CD-4B33-A68B-35797B77FCF2}" ShortID="196501061">
+													<PropertyList>
+														<Property Name="Color" Type="int16" Value="4"/>
+														<Property Name="OverrideColor" Type="bool" Value="True"/>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -1570,6 +1576,10 @@
 													</GroupingInfo>
 												</SwitchContainer>
 												<SwitchContainer Name="Damp_MatSwitch" ID="{0908343F-49CE-4AC1-B05B-5C8467CC620E}" ShortID="839368449">
+													<PropertyList>
+														<Property Name="Color" Type="int16" Value="4"/>
+														<Property Name="OverrideColor" Type="bool" Value="True"/>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2028,7 +2038,7 @@
 														<BlendTrackAssoc>
 															<ItemRef Name="Damp_MatSwitch" ID="{0908343F-49CE-4AC1-B05B-5C8467CC620E}"/>
 															<CrossfadingInfo>
-																<LeftEdgePos>53.4022824536376</LeftEdgePos>
+																<LeftEdgePos>69.0941512125534</LeftEdgePos>
 																<LeftFadingMode>Automatic</LeftFadingMode>
 																<RightEdgePos>100</RightEdgePos>
 																<RightFadingMode>Automatic</RightFadingMode>
@@ -2064,11 +2074,37 @@
 										</GroupingList>
 									</GroupingInfo>
 								</SwitchContainer>
+								<SwitchContainer Name="Player_Gear" ID="{C963A12C-EFE2-4B73-B72F-A35B7EDB193F}" ShortID="992048249">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<GroupingInfo/>
+								</SwitchContainer>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Player_Equipment" ID="{06159C6B-C730-4D8F-9D86-F39D9A9B127E}" ShortID="265313775">
 							<ChildrenList>
 								<SwitchContainer Name="PlayerWeapon" ID="{4F1F56AA-AB35-4AC9-9A12-A0BD487EF205}" ShortID="1037998958">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2085,6 +2121,10 @@
 									</ReferenceList>
 									<ChildrenList>
 										<RandomSequenceContainer Name="Fugitive" ID="{C561C63B-4B1B-4E1B-B093-155503867A7D}" ShortID="837171575">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2094,7 +2134,7 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<Sound Name="SFX_WEAPONS_FugitiveShootLB_Vari_06" ID="{26A072D6-F8ED-4654-A746-B6A96D5C4CFF}" ShortID="392823446">
+												<Sound Name="SFX_WEAPONS_FugitiveShootLB_05" ID="{F17B8EA1-E90C-4640-BA3E-A5E52FDD88B1}" ShortID="843539016">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2104,19 +2144,19 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_Vari_06" ID="{6807E16A-9E70-4442-8394-6DF9C1EE73E0}">
+														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_05" ID="{A191ADAE-0289-4D94-BB82-CE9418C429A2}">
 															<Language>SFX</Language>
-															<AudioFile>SFX_WEAPONS_FugitiveShootLB_Vari_06.wav</AudioFile>
+															<AudioFile>SFX_WEAPONS_FugitiveShootLB_05.wav</AudioFile>
 															<MediaIDList>
-																<MediaID ID="219230640"/>
+																<MediaID ID="560635250"/>
 															</MediaIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
-														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_Vari_06" ID="{6807E16A-9E70-4442-8394-6DF9C1EE73E0}" Platform="Linked"/>
+														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_05" ID="{A191ADAE-0289-4D94-BB82-CE9418C429A2}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="SFX_WEAPONS_FugitiveShootLB_Vari_05" ID="{8271FA08-D23A-45A3-9BD0-FF8FBE1FD541}" ShortID="558987559">
+												<Sound Name="SFX_WEAPONS_FugitiveShootLB_01" ID="{B45C8247-0F2D-4624-A932-8CC55A627D41}" ShortID="347658254">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2126,19 +2166,19 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_Vari_05" ID="{3E0698B4-8EC0-4217-9088-04C8B2242DA5}">
+														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_01" ID="{7DA7A309-EB2C-4021-9DD8-E1DCC17FD7F6}">
 															<Language>SFX</Language>
-															<AudioFile>SFX_WEAPONS_FugitiveShootLB_Vari_05.wav</AudioFile>
+															<AudioFile>SFX_WEAPONS_FugitiveShootLB_01.wav</AudioFile>
 															<MediaIDList>
-																<MediaID ID="882242084"/>
+																<MediaID ID="751244898"/>
 															</MediaIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
-														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_Vari_05" ID="{3E0698B4-8EC0-4217-9088-04C8B2242DA5}" Platform="Linked"/>
+														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_01" ID="{7DA7A309-EB2C-4021-9DD8-E1DCC17FD7F6}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="SFX_WEAPONS_FugitiveShootLB_Vari_07" ID="{34B5187A-B53A-4296-8E2F-64DD0F52A910}" ShortID="297072688">
+												<Sound Name="SFX_WEAPONS_FugitiveShootLB_03" ID="{EC6064A0-0284-4D2C-807F-4F87AC4531CC}" ShortID="480194189">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2148,19 +2188,19 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_Vari_07" ID="{F9B028A1-A7C1-43B5-BCE5-D38E857F3821}">
+														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_03" ID="{7ABC30C7-EC9F-4BCA-855C-2135A2A5477F}">
 															<Language>SFX</Language>
-															<AudioFile>SFX_WEAPONS_FugitiveShootLB_Vari_07.wav</AudioFile>
+															<AudioFile>SFX_WEAPONS_FugitiveShootLB_03.wav</AudioFile>
 															<MediaIDList>
-																<MediaID ID="270256980"/>
+																<MediaID ID="848928810"/>
 															</MediaIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
-														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_Vari_07" ID="{F9B028A1-A7C1-43B5-BCE5-D38E857F3821}" Platform="Linked"/>
+														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_03" ID="{7ABC30C7-EC9F-4BCA-855C-2135A2A5477F}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="SFX_WEAPONS_FugitiveShootLB_Vari_04" ID="{55F5AE59-5652-4683-A53F-E4A4219733A9}" ShortID="155508248">
+												<Sound Name="SFX_WEAPONS_FugitiveShootLB_06" ID="{D065A9EF-B255-428F-BDE4-2AF7F0F1E494}" ShortID="558276844">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2170,19 +2210,19 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_Vari_04" ID="{060785A1-7A43-4567-A1C4-BC0953B80D60}">
+														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_06" ID="{C4A3DFED-F9C4-406F-9EB9-3791F4C81873}">
 															<Language>SFX</Language>
-															<AudioFile>SFX_WEAPONS_FugitiveShootLB_Vari_04.wav</AudioFile>
+															<AudioFile>SFX_WEAPONS_FugitiveShootLB_06.wav</AudioFile>
 															<MediaIDList>
-																<MediaID ID="452974522"/>
+																<MediaID ID="992868105"/>
 															</MediaIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
-														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_Vari_04" ID="{060785A1-7A43-4567-A1C4-BC0953B80D60}" Platform="Linked"/>
+														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_06" ID="{C4A3DFED-F9C4-406F-9EB9-3791F4C81873}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="SFX_WEAPONS_FugitiveShootLB_Vari_01" ID="{6B2EB3E7-6673-4645-8559-521A44F654E5}" ShortID="247630251">
+												<Sound Name="SFX_WEAPONS_FugitiveShootLB_08" ID="{B76C253E-6D8C-441C-B0CC-28F11CB87D18}" ShortID="401393796">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2192,19 +2232,19 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_Vari_01" ID="{D12A50E3-4202-4C81-9E93-FE28B0527916}">
+														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_08" ID="{40A94B0A-79F8-4177-8B1B-2FFDF7FF424F}">
 															<Language>SFX</Language>
-															<AudioFile>SFX_WEAPONS_FugitiveShootLB_Vari_01.wav</AudioFile>
+															<AudioFile>SFX_WEAPONS_FugitiveShootLB_08.wav</AudioFile>
 															<MediaIDList>
-																<MediaID ID="142878235"/>
+																<MediaID ID="237861089"/>
 															</MediaIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
-														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_Vari_01" ID="{D12A50E3-4202-4C81-9E93-FE28B0527916}" Platform="Linked"/>
+														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_08" ID="{40A94B0A-79F8-4177-8B1B-2FFDF7FF424F}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="SFX_WEAPONS_FugitiveShootLB_Vari_02" ID="{7920B379-4990-45F7-8894-B3098C245CEC}" ShortID="119742645">
+												<Sound Name="SFX_WEAPONS_FugitiveShootLB_04" ID="{7774B61B-778A-45D6-9F6A-4F56F45DD940}" ShortID="119749405">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2214,19 +2254,19 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_Vari_02" ID="{E0DC7409-309D-42C2-82B2-D6D84B721E22}">
+														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_04" ID="{0189CA0D-06AF-44E3-9A04-78083280D369}">
 															<Language>SFX</Language>
-															<AudioFile>SFX_WEAPONS_FugitiveShootLB_Vari_02.wav</AudioFile>
+															<AudioFile>SFX_WEAPONS_FugitiveShootLB_04.wav</AudioFile>
 															<MediaIDList>
-																<MediaID ID="349666683"/>
+																<MediaID ID="809758306"/>
 															</MediaIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
-														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_Vari_02" ID="{E0DC7409-309D-42C2-82B2-D6D84B721E22}" Platform="Linked"/>
+														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_04" ID="{0189CA0D-06AF-44E3-9A04-78083280D369}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="SFX_WEAPONS_FugitiveShootLB" ID="{654E9D36-2A78-40C7-BAA2-D8C57E541B40}" ShortID="890768064">
+												<Sound Name="SFX_WEAPONS_FugitiveShootLB_07" ID="{E3B6DABA-9C8B-43C3-80E6-F2548746697E}" ShortID="154651022">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2236,19 +2276,19 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB" ID="{8F0E024E-FE4A-47EF-8680-2B10F8FBB88B}">
+														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_07" ID="{BDAC65C1-4389-4D7C-A0CB-A352A26A02A7}">
 															<Language>SFX</Language>
-															<AudioFile>SFX_WEAPONS_FugitiveShootLB.wav</AudioFile>
+															<AudioFile>SFX_WEAPONS_FugitiveShootLB_07.wav</AudioFile>
 															<MediaIDList>
-																<MediaID ID="467292555"/>
+																<MediaID ID="30293390"/>
 															</MediaIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
-														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB" ID="{8F0E024E-FE4A-47EF-8680-2B10F8FBB88B}" Platform="Linked"/>
+														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_07" ID="{BDAC65C1-4389-4D7C-A0CB-A352A26A02A7}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="SFX_WEAPONS_FugitiveShootLB_Vari_03" ID="{26784699-1BB5-4124-B79B-DA09271CE71A}" ShortID="514144642">
+												<Sound Name="SFX_WEAPONS_FugitiveShootLB_02" ID="{F1A348E2-80C8-4801-AF49-BA106218ABC8}" ShortID="1063462918">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2258,25 +2298,594 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_Vari_03" ID="{F99B66CB-CBF6-441C-9F5F-83942C8D4E91}">
+														<AudioFileSource Name="SFX_WEAPONS_FugitiveShootLB_02" ID="{5A19CD2D-EB19-472C-A408-F297C19F87F1}">
 															<Language>SFX</Language>
-															<AudioFile>SFX_WEAPONS_FugitiveShootLB_Vari_03.wav</AudioFile>
+															<AudioFile>SFX_WEAPONS_FugitiveShootLB_02.wav</AudioFile>
 															<MediaIDList>
-																<MediaID ID="310455408"/>
+																<MediaID ID="732624607"/>
 															</MediaIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
-														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_Vari_03" ID="{F99B66CB-CBF6-441C-9F5F-83942C8D4E91}" Platform="Linked"/>
+														<ActiveSource Name="SFX_WEAPONS_FugitiveShootLB_02" ID="{5A19CD2D-EB19-472C-A408-F297C19F87F1}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
 											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Sobek" ID="{1A7DE34F-4803-4418-9C7F-7711C4FAFB39}" ShortID="193350346">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX_WEAPONS_SobekShootLB_02" ID="{1BF1C95D-E2A2-4A73-B7A4-7561E85F4155}" ShortID="234775048">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_WEAPONS_SobekShootLB_02" ID="{F04222A3-2382-428D-91B0-96B366682C01}">
+															<Language>SFX</Language>
+															<AudioFile>SFX_WEAPONS_SobekShootLB_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="266794790"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_WEAPONS_SobekShootLB_02" ID="{F04222A3-2382-428D-91B0-96B366682C01}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX_WEAPONS_SobekShootLB_01" ID="{29A964F5-5708-4E9C-A8DF-1B58A8E3192E}" ShortID="232614029">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_WEAPONS_SobekShootLB_01" ID="{5F7FAD33-D83C-4985-892E-03C07B79B25C}">
+															<Language>SFX</Language>
+															<AudioFile>SFX_WEAPONS_SobekShootLB_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="492379468"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_WEAPONS_SobekShootLB_01" ID="{5F7FAD33-D83C-4985-892E-03C07B79B25C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX_WEAPONS_SobekShootLB_03" ID="{83B4291C-1843-46F6-A820-B111B06AE496}" ShortID="222214539">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_WEAPONS_SobekShootLB_03" ID="{FB3BA0E7-EAD3-48F3-ABD4-E3BA5FAF096C}">
+															<Language>SFX</Language>
+															<AudioFile>SFX_WEAPONS_SobekShootLB_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="469347202"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_WEAPONS_SobekShootLB_03" ID="{FB3BA0E7-EAD3-48F3-ABD4-E3BA5FAF096C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX_WEAPONS_SobekShootLB_08" ID="{EFD1CDA1-C9DF-427E-B5EC-1D1EE80E3D72}" ShortID="776911548">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_WEAPONS_SobekShootLB_08" ID="{0DAAFFC5-D4FC-4CD7-A63F-E3E446169DE5}">
+															<Language>SFX</Language>
+															<AudioFile>SFX_WEAPONS_SobekShootLB_08.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="962797987"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_WEAPONS_SobekShootLB_08" ID="{0DAAFFC5-D4FC-4CD7-A63F-E3E446169DE5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX_WEAPONS_SobekShootLB_07" ID="{D4605B66-68CD-4E06-849E-84DEE19AD3BC}" ShortID="667704041">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_WEAPONS_SobekShootLB_07" ID="{1AEE626F-0B36-41C2-B393-DFE8A0B178A6}">
+															<Language>SFX</Language>
+															<AudioFile>SFX_WEAPONS_SobekShootLB_07.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="961590246"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_WEAPONS_SobekShootLB_07" ID="{1AEE626F-0B36-41C2-B393-DFE8A0B178A6}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX_WEAPONS_SobekShootLB_04" ID="{99C6FA17-0E28-4DF2-A313-18D8F1C43E50}" ShortID="57428503">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_WEAPONS_SobekShootLB_04" ID="{D6029B2B-2F8A-4EAF-9391-BCB5BC96D897}">
+															<Language>SFX</Language>
+															<AudioFile>SFX_WEAPONS_SobekShootLB_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="604167470"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_WEAPONS_SobekShootLB_04" ID="{D6029B2B-2F8A-4EAF-9391-BCB5BC96D897}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX_WEAPONS_SobekShootLB_06" ID="{35A5304F-67A9-4C83-8FF1-E86362AA3CD6}" ShortID="239781324">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_WEAPONS_SobekShootLB_06" ID="{72A2A245-EFF8-4725-A663-E0D45A0E8284}">
+															<Language>SFX</Language>
+															<AudioFile>SFX_WEAPONS_SobekShootLB_06.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="451542206"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_WEAPONS_SobekShootLB_06" ID="{72A2A245-EFF8-4725-A663-E0D45A0E8284}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX_WEAPONS_SobekShootLB_05" ID="{1898599A-DBC2-49E0-8687-EBF8A61AC265}" ShortID="83622377">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_WEAPONS_SobekShootLB_05" ID="{60AEC979-17CF-487B-B48D-36B618CA29E2}">
+															<Language>SFX</Language>
+															<AudioFile>SFX_WEAPONS_SobekShootLB_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="89167277"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_WEAPONS_SobekShootLB_05" ID="{60AEC979-17CF-487B-B48D-36B618CA29E2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Gatling" ID="{3A796EAF-DD4A-4584-B089-03148612D82C}" ShortID="1019386482">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<RandomSequenceContainer Name="SFX_WEAPONS_GatlingFirstShoot_OS" ID="{D5FFABAA-D1F5-4DAC-B593-AF7970DF643A}" ShortID="1022810116">
+													<PropertyList>
+														<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="SFX_WEAPONS_GatlingFirstShoot_OS_01" ID="{08E4A9E2-1CC2-4C50-9F19-2CF35A27BC9C}" ShortID="96620641">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="SFX_WEAPONS_GatlingFirstShoot_OS" ID="{CFAED0F8-1F26-424C-BDCB-2AF28D363914}">
+																	<Language>SFX</Language>
+																	<AudioFile>SFX_WEAPONS_GatlingFirstShoot_OS.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="194546314"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="SFX_WEAPONS_GatlingFirstShoot_OS" ID="{CFAED0F8-1F26-424C-BDCB-2AF28D363914}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="SFX_WEAPONS_GatlingFirstShoot_OS_02" ID="{1FC7A259-D2FF-4AEE-8D2A-12CB4FE4C93D}" ShortID="221718998">
+															<PropertyList>
+																<Property Name="Highpass" Type="int16">
+																	<ValueList>
+																		<Value>10</Value>
+																	</ValueList>
+																</Property>
+																<Property Name="Lowpass" Type="int16">
+																	<ValueList>
+																		<Value>29</Value>
+																	</ValueList>
+																</Property>
+																<Property Name="Pitch" Type="int32">
+																	<ValueList>
+																		<Value>-130</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="SFX_WEAPONS_GatlingFirstShoot_OS" ID="{FEA3FEDB-5EB4-4530-A99F-8A0929285CC3}">
+																	<Language>SFX</Language>
+																	<AudioFile>SFX_WEAPONS_GatlingFirstShoot_OS.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="194546314"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="SFX_WEAPONS_GatlingFirstShoot_OS" ID="{FEA3FEDB-5EB4-4530-A99F-8A0929285CC3}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="SFX_WEAPONS_GatlingFirstShoot_OS" ID="{4F4232E2-91D5-4AD7-B978-3295954E30C3}" ShortID="498490525">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="SFX_WEAPONS_GatlingFirstShoot_OS" ID="{06BCC086-C07A-435F-ABF9-7DA145F209CD}">
+																	<Language>SFX</Language>
+																	<AudioFile>SFX_WEAPONS_GatlingFirstShoot_OS.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="194546314"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="SFX_WEAPONS_GatlingFirstShoot_OS" ID="{06BCC086-C07A-435F-ABF9-7DA145F209CD}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{ECC19D13-3EC4-4AC2-984D-CCC6AD656A01}" ShortID="361025355">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{929EFFED-7115-418D-8DFB-61782C20BE90}">
+																	<Language>SFX</Language>
+																	<AudioFile>SFX_WEAPONS_GatlingSecondShoot_OS.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="415738344"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{929EFFED-7115-418D-8DFB-61782C20BE90}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{4C59D6E8-B06E-4763-8BCA-32A093307E1A}" ShortID="374758623">
+													<PropertyList>
+														<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="SFX_WEAPONS_GatlingSecondShoot_OS_01" ID="{894746EF-27AC-4D39-A084-6A88FDAA9410}" ShortID="830984167">
+															<PropertyList>
+																<Property Name="Highpass" Type="int16">
+																	<ValueList>
+																		<Value>12</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{2292E175-6BA5-4626-BF07-083A15F49E8C}">
+																	<Language>SFX</Language>
+																	<AudioFile>SFX_WEAPONS_GatlingSecondShoot_OS.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="415738344"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{2292E175-6BA5-4626-BF07-083A15F49E8C}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="SFX_WEAPONS_GatlingSecondShoot_OS_02" ID="{9A9EDFF8-D133-4431-9B93-33263EFAB80A}" ShortID="826644413">
+															<PropertyList>
+																<Property Name="Highpass" Type="int16">
+																	<ValueList>
+																		<Value>28</Value>
+																	</ValueList>
+																</Property>
+																<Property Name="Pitch" Type="int32">
+																	<ValueList>
+																		<Value>-150</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{7D65451F-6E43-43EC-8302-C5E721D66CFD}">
+																	<Language>SFX</Language>
+																	<AudioFile>SFX_WEAPONS_GatlingSecondShoot_OS.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="415738344"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{7D65451F-6E43-43EC-8302-C5E721D66CFD}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+												<Sound Name="SFX_WEAPONS_GatlingShoot_LP" ID="{CF4A7DEF-5948-4C0B-A573-2260C7353ADC}" ShortID="150625856">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+														<Property Name="MakeUpGain" Type="Real64">
+															<ValueList>
+																<Value>2</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_WEAPONS_GatlingShoot_LP" ID="{9362B937-0329-4ECC-B67C-0342FD7688E9}">
+															<Language>SFX</Language>
+															<AudioFile>SFX_WEAPONS_GatlingShoot_LP.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="221425136"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_WEAPONS_GatlingShoot_LP" ID="{9362B937-0329-4ECC-B67C-0342FD7688E9}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX_WEAPONS_GatlingLastShoot_OS_01" ID="{F4D95C72-568E-4A82-BFCE-96A780E52138}" ShortID="933889242">
+													<PropertyList>
+														<Property Name="OverrideEffect" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{B08F24C2-E643-4218-BD09-5B048059B134}">
+															<Language>SFX</Language>
+															<AudioFile>SFX_WEAPONS_GatlingSecondShoot_OS.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="561082993"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists>
+														<ObjectList Name="Effects">
+															<Reference>
+																<Local>
+																	<EffectSlot Name="" ID="{CD2B89C5-D645-4880-BB41-6250154DFCA1}" ShortID="733097075">
+																		<PropertyList>
+																			<Property Name="Render" Type="bool" Value="True"/>
+																		</PropertyList>
+																		<ReferenceList>
+																			<Reference Name="Effect">
+																				<Custom>
+																					<Effect Name="Matrix Reverb (Custom)" ID="{80D52244-2DC8-41AE-95DE-5D997E36EEA7}" ShortID="151983023" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+																						<PropertyList>
+																							<Property Name="DryLevel" Type="Real32" Value="0"/>
+																							<Property Name="ReverbTime" Type="Real32" Value="1.7"/>
+																							<Property Name="WetLevel" Type="Real32" Value="-27"/>
+																						</PropertyList>
+																					</Effect>
+																				</Custom>
+																			</Reference>
+																		</ReferenceList>
+																	</EffectSlot>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{B08F24C2-E643-4218-BD09-5B048059B134}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX_WEAPONS_GatlingBeforLastShoot_OS_02" ID="{521B2BD9-817B-49EF-AAFE-952A9A10FCB1}" ShortID="722366640">
+													<PropertyList>
+														<Property Name="Highpass" Type="int16">
+															<ValueList>
+																<Value>28</Value>
+															</ValueList>
+														</Property>
+														<Property Name="OverrideEffect" Type="bool" Value="True"/>
+														<Property Name="Pitch" Type="int32">
+															<ValueList>
+																<Value>-150</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{D29D9C9D-E5F8-4453-8C23-C7C9A700B4E6}">
+															<Language>SFX</Language>
+															<AudioFile>SFX_WEAPONS_GatlingSecondShoot_OS.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="618015467"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists>
+														<ObjectList Name="Effects">
+															<Reference>
+																<Local>
+																	<EffectSlot Name="" ID="{CBA879DD-0AB4-4849-BC48-60C58884E22B}" ShortID="601521438">
+																		<PropertyList>
+																			<Property Name="Render" Type="bool" Value="True"/>
+																		</PropertyList>
+																		<ReferenceList>
+																			<Reference Name="Effect">
+																				<Custom>
+																					<Effect Name="Matrix Reverb (Custom)" ID="{A809D39C-C02D-4EE0-B472-1330B2F3F55E}" ShortID="728476589" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+																						<PropertyList>
+																							<Property Name="DryLevel" Type="Real32" Value="-1"/>
+																							<Property Name="ReverbTime" Type="Real32" Value="0.9"/>
+																							<Property Name="WetLevel" Type="Real32" Value="-21"/>
+																						</PropertyList>
+																					</Effect>
+																				</Custom>
+																			</Reference>
+																		</ReferenceList>
+																	</EffectSlot>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{D29D9C9D-E5F8-4453-8C23-C7C9A700B4E6}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Playlist">
+													<Reference>
+														<ObjectRef Name="SFX_WEAPONS_GatlingFirstShoot_OS" ID="{D5FFABAA-D1F5-4DAC-B593-AF7970DF643A}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+													</Reference>
+													<Reference>
+														<ObjectRef Name="SFX_WEAPONS_GatlingSecondShoot_OS" ID="{4C59D6E8-B06E-4763-8BCA-32A093307E1A}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+													</Reference>
+													<Reference>
+														<ObjectRef Name="SFX_WEAPONS_GatlingShoot_LP" ID="{CF4A7DEF-5948-4C0B-A573-2260C7353ADC}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
 										</RandomSequenceContainer>
 									</ChildrenList>
 									<GroupingInfo>
 										<GroupingBehaviorList>
 											<GroupingBehavior>
 												<ItemRef Name="Fugitive" ID="{C561C63B-4B1B-4E1B-B093-155503867A7D}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Sobek" ID="{1A7DE34F-4803-4418-9C7F-7711C4FAFB39}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Gatling" ID="{3A796EAF-DD4A-4584-B089-03148612D82C}"/>
 											</GroupingBehavior>
 										</GroupingBehaviorList>
 										<GroupingList>
@@ -2286,10 +2895,26 @@
 													<ItemRef Name="Fugitive" ID="{C561C63B-4B1B-4E1B-B093-155503867A7D}"/>
 												</ItemList>
 											</Grouping>
+											<Grouping>
+												<SwitchRef Name="MachineGun" ID="{C6E13A43-F215-4C44-A4A1-1C0F9261BFB1}"/>
+												<ItemList>
+													<ItemRef Name="Gatling" ID="{3A796EAF-DD4A-4584-B089-03148612D82C}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Sobek" ID="{8FC4B1EA-83B1-4244-8AC3-0C1CF6C77B50}"/>
+												<ItemList>
+													<ItemRef Name="Sobek" ID="{1A7DE34F-4803-4418-9C7F-7711C4FAFB39}"/>
+												</ItemList>
+											</Grouping>
 										</GroupingList>
 									</GroupingInfo>
 								</SwitchContainer>
 								<ActorMixer Name="PlayerShield" ID="{D434980D-2C6D-468E-9D69-3A1334BFD66C}" ShortID="2263224">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="4"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2369,6 +2994,7 @@
 								</ActorMixer>
 								<Sound Name="SFX_PlayerWEAPONS_StunGun" ID="{A32ACEE0-C122-453B-94DE-59F0BD6F136C}" ShortID="244517647">
 									<PropertyList>
+										<Property Name="Color" Type="int16" Value="4"/>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ModifierList>
 												<ModifierInfo>
@@ -2382,6 +3008,7 @@
 												</ModifierInfo>
 											</ModifierList>
 										</Property>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
@@ -2417,6 +3044,28 @@
 										<ActiveSource Name="SFX_WEAPONS_StunGun" ID="{0CB0D9AF-CE91-4220-BE2E-D1B20DF0FDD2}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="SFX_WEAPONS_PoisonShootRB" ID="{BA2D99E2-E78C-4D0B-B057-6E47F3AAF82B}" ShortID="295663240">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_WEAPONS_PoisonShootRB" ID="{744D1520-E39F-4821-940B-36FAC94C5594}">
+											<Language>SFX</Language>
+											<AudioFile>SFX_WEAPONS_PoisonShootRB.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="720038480"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_WEAPONS_PoisonShootRB" ID="{744D1520-E39F-4821-940B-36FAC94C5594}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
@@ -2432,6 +3081,1308 @@
 								<Folder Name="NPCs_Footsteps" ID="{D3BEAC61-F8FE-438F-A6A8-CCF115EA4588}" ShortID="188914651"/>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="NPCs_Voicing" ID="{A93D2A0A-EDD8-435A-AFC5-60513F81EC6E}" ShortID="940319467">
+							<ChildrenList>
+								<ActorMixer Name="Pteratank" ID="{583ED360-9CF9-4DB4-8666-D57109487DBA}" ShortID="548953002">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>22</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="SFX3D_NPCs_NPCPteratankCall_Os" ID="{F5201790-F7CD-45CD-91D0-3604528FAAD9}" ShortID="410570020">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>-100</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX3D_NPCs_NPCPteratankCall_Os" ID="{3BC1DAF5-16F1-49B3-8B74-87FB72037F33}">
+													<Language>SFX</Language>
+													<AudioFile>SFX3D_NPCs_NPCPteratankCall_Os.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="833083269"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX3D_NPCs_NPCPteratankCall_Os" ID="{3BC1DAF5-16F1-49B3-8B74-87FB72037F33}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<RandomSequenceContainer Name="SFX3D_NPCs_NPCPteratankAtk_Os" ID="{CAC782EA-119D-416D-B798-4AEAC4AF9CC0}" ShortID="722691729">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX3D_NPCs_NPCPteratankAtk_Os_01" ID="{12CE0D2E-D338-429E-A354-D167C93A0554}" ShortID="85775975">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteratankAtk_Os_01" ID="{6C02A61E-3BCA-46EC-A888-DCE58992E5C1}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteratankAtk_Os_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1042941587"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteratankAtk_Os_01" ID="{6C02A61E-3BCA-46EC-A888-DCE58992E5C1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteratankAtk_Os_02" ID="{1A1207C5-6D82-4002-B1DF-445299E235AF}" ShortID="720598780">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteratankAtk_Os_02" ID="{3E6B5B57-A05F-46A1-B1FE-35D4EA5B5523}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteratankAtk_Os_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1014842452"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteratankAtk_Os_02" ID="{3E6B5B57-A05F-46A1-B1FE-35D4EA5B5523}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteratankAtk_Os_03" ID="{D1AD82F1-9298-4CE4-A8AE-F6F91A9D78A7}" ShortID="787239329">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteratankAtk_Os_03" ID="{C1AC0D6C-6A29-41A7-AE61-A62E0C2448A4}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteratankAtk_Os_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="296427175"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteratankAtk_Os_03" ID="{C1AC0D6C-6A29-41A7-AE61-A62E0C2448A4}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="RTPC">
+													<Reference>
+														<Local>
+															<RTPC Name="" ID="{1BB4DBE5-9377-4F22-9F76-336633C6448A}" ShortID="275861648">
+																<PropertyList>
+																	<Property Name="PropertyName" Type="string" Value="Pitch"/>
+																</PropertyList>
+																<ReferenceList>
+																	<Reference Name="ControlInput">
+																		<ObjectRef Name="RPTC_NpcHostility" ID="{5C7B94BE-BD00-43E9-BDDB-BF5688A492A0}" WorkUnitID="{44DEA821-E645-4ADE-B7AF-55126F879D1C}"/>
+																	</Reference>
+																	<Reference Name="Curve">
+																		<Custom>
+																			<Curve Name="" ID="{E02A2DFD-D114-412C-88A4-4C1386C8452E}">
+																				<PropertyList>
+																					<Property Name="Flags" Type="int32" Value="65537"/>
+																				</PropertyList>
+																				<PointList>
+																					<Point>
+																						<XPos>0</XPos>
+																						<YPos>0</YPos>
+																						<Flags>5</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>1</XPos>
+																						<YPos>-200</YPos>
+																						<Flags>37</Flags>
+																					</Point>
+																				</PointList>
+																			</Curve>
+																		</Custom>
+																	</Reference>
+																</ReferenceList>
+															</RTPC>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="SFX3D_NPCs_NPCPteratankDeath_Os" ID="{4B53542D-3140-4D17-BACA-DF0EE62F5A7E}" ShortID="427575774">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX3D_NPCs_NPCPteratankDeath_Os_01" ID="{74C2DDB2-50D8-4042-B563-ECC0BDFDE81E}" ShortID="86825706">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteratankDeath_Os_01" ID="{CB58D288-0518-469F-A9E7-2E1FF051521E}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteratankDeath_Os_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="963634237"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteratankDeath_Os_01" ID="{CB58D288-0518-469F-A9E7-2E1FF051521E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteratankDeath_Os_02" ID="{8927FDF0-A44D-47F4-A143-9D6342D391F0}" ShortID="257810194">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteratankDeath_Os_02" ID="{8E5A9401-E19D-47C5-B6D1-218D8425AE3C}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteratankDeath_Os_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="619166405"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteratankDeath_Os_02" ID="{8E5A9401-E19D-47C5-B6D1-218D8425AE3C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteratankDeath_Os_03" ID="{343D7C61-5A59-4B3E-8E59-43A7395EE6B5}" ShortID="718314110">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteratankDeath_Os_03" ID="{CCB4407C-8FA2-4CBC-909A-7B29C9C7E420}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteratankDeath_Os_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="498373158"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteratankDeath_Os_03" ID="{CCB4407C-8FA2-4CBC-909A-7B29C9C7E420}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="SFX3D_NPCs_NPCPteratankVocal_Os" ID="{442BACB2-EF1A-47CC-8582-9B1DAA6C9226}" ShortID="88258467">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX3D_NPCs_NPCPteratankVocal_Os_01" ID="{592C203D-C1CF-49A1-928D-D04128591EAF}" ShortID="622451465">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteratankVocal_Os_01" ID="{55507D2C-E464-4752-9328-2214B6B97D94}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteratankVocal_Os_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="931328949"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteratankVocal_Os_01" ID="{55507D2C-E464-4752-9328-2214B6B97D94}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteratankVocal_Os_02" ID="{6E4F98FA-F53A-4EDD-AF1B-B040946BB7E4}" ShortID="602436761">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteratankVocal_Os_02" ID="{7826B67F-D3A1-40C0-A391-65E2AF86B158}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteratankVocal_Os_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="943414527"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteratankVocal_Os_02" ID="{7826B67F-D3A1-40C0-A391-65E2AF86B158}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</ActorMixer>
+								<ActorMixer Name="Pteramyr" ID="{0198AB40-4D05-47C7-BF1F-3E669465211D}" ShortID="867836103">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="SFX3D_NPCs_NPCPteromyrAtk_Os" ID="{5C2CCB7A-88FF-4A16-958D-E8638C820994}" ShortID="911901166">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrAtk_Os_01" ID="{7F926A6B-1D8F-42E9-967E-4FBAD56D38C5}" ShortID="824850108">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrAtk_Os_01" ID="{42FB9321-CB68-4652-8D84-D24000E8285F}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrAtk_Os_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="117434706"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrAtk_Os_01" ID="{42FB9321-CB68-4652-8D84-D24000E8285F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrAtk_Os_04" ID="{19949C67-E929-427B-AEE4-B260926545E5}" ShortID="254139506">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrAtk_Os_04" ID="{6EA4D5FE-4C5E-4D20-8A30-0E47C3E76921}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrAtk_Os_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="695933749"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrAtk_Os_04" ID="{6EA4D5FE-4C5E-4D20-8A30-0E47C3E76921}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrAtk_Os_02" ID="{9C3FCD04-1917-4F35-B87A-387B36986EA9}" ShortID="578641295">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrAtk_Os_02" ID="{D96615CE-CF60-4C4C-B292-07A7F7438C76}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrAtk_Os_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="675630540"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrAtk_Os_02" ID="{D96615CE-CF60-4C4C-B292-07A7F7438C76}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrAtk_Os_03" ID="{DB2A6667-7A87-4E65-958E-E792BC6F04C8}" ShortID="929683844">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrAtk_Os_03" ID="{FE2CF285-12CB-4525-AA3F-10B0B9430DF3}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrAtk_Os_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="492182207"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrAtk_Os_03" ID="{FE2CF285-12CB-4525-AA3F-10B0B9430DF3}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="RTPC">
+													<Reference>
+														<Local>
+															<RTPC Name="" ID="{9197AF70-7BED-4ED3-9CC8-4A8F4BD983A8}" ShortID="1044520225">
+																<PropertyList>
+																	<Property Name="PropertyName" Type="string" Value="Pitch"/>
+																</PropertyList>
+																<ReferenceList>
+																	<Reference Name="ControlInput">
+																		<ObjectRef Name="RPTC_NpcHostility" ID="{5C7B94BE-BD00-43E9-BDDB-BF5688A492A0}" WorkUnitID="{44DEA821-E645-4ADE-B7AF-55126F879D1C}"/>
+																	</Reference>
+																	<Reference Name="Curve">
+																		<Custom>
+																			<Curve Name="" ID="{140854AB-3142-4632-91BC-3B545680194F}">
+																				<PropertyList>
+																					<Property Name="Flags" Type="int32" Value="65537"/>
+																				</PropertyList>
+																				<PointList>
+																					<Point>
+																						<XPos>0</XPos>
+																						<YPos>0</YPos>
+																						<Flags>5</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>1</XPos>
+																						<YPos>300</YPos>
+																						<Flags>37</Flags>
+																					</Point>
+																				</PointList>
+																			</Curve>
+																		</Custom>
+																	</Reference>
+																</ReferenceList>
+															</RTPC>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="SFX3D_NPCs_NPCPteromyrDeath_Os" ID="{3E82F880-1D00-43B5-A000-913172713E94}" ShortID="126720398">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrDeath_Os_03" ID="{E27B2A7D-D2E3-4686-818C-D085DB24EAD5}" ShortID="520198251">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrDeath_Os_03" ID="{AC60E58E-23E8-4325-94CC-FCAAF67526BF}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrDeath_Os_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="427333313"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrDeath_Os_03" ID="{AC60E58E-23E8-4325-94CC-FCAAF67526BF}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrDeath_Os_01" ID="{41DB890B-B171-453C-9497-BCED3350F9D9}" ShortID="403865076">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrDeath_Os_01" ID="{D943310A-E044-47FB-B4E7-46DF13B150B8}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrDeath_Os_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="814362505"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrDeath_Os_01" ID="{D943310A-E044-47FB-B4E7-46DF13B150B8}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrDeath_Os_02" ID="{A74D4CD2-14F9-45CA-8813-A505177609BC}" ShortID="306406784">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrDeath_Os_02" ID="{857FC256-4255-4C31-93E7-CDB07AF96164}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrDeath_Os_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="226560913"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrDeath_Os_02" ID="{857FC256-4255-4C31-93E7-CDB07AF96164}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrDeath_Os_04" ID="{E896B4DB-1FCF-43EF-A320-D2FA09E0381E}" ShortID="750989323">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrDeath_Os_04" ID="{F8DD0487-1AF8-4C7E-9507-C218634644BA}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrDeath_Os_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="388916785"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrDeath_Os_04" ID="{F8DD0487-1AF8-4C7E-9507-C218634644BA}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="SFX3D_NPCs_NPCPteromyrVocal_Os" ID="{F43E8165-CBC9-44D4-A14B-6EC2FADC25E3}" ShortID="365991913">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{75EC98AB-5FA1-4850-9FE9-29C5B75A80E2}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="1"/>
+																	<Property Name="Min" Type="Real64" Value="-2"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{61C77144-E74B-4038-9B87-F25D293C3552}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="40"/>
+																	<Property Name="Min" Type="Real64" Value="-40"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrVocal_Os_02" ID="{C015B221-0361-46F3-AAF6-417C024FBAEB}" ShortID="51777432">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_02" ID="{D0FC1B47-2828-459A-8C63-4C79FF28937A}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrVocal_Os_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="756954269"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_02" ID="{D0FC1B47-2828-459A-8C63-4C79FF28937A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrVocal_Os_05" ID="{E188321F-2F9C-478B-8875-34B2CF1B5835}" ShortID="443643439">
+													<PropertyList>
+														<Property Name="Highpass" Type="int16">
+															<ValueList>
+																<Value>50</Value>
+															</ValueList>
+														</Property>
+														<Property Name="MakeUpGain" Type="Real64">
+															<ValueList>
+																<Value>5</Value>
+															</ValueList>
+														</Property>
+														<Property Name="Pitch" Type="int32">
+															<ValueList>
+																<Value>60</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_05" ID="{73E980A7-419C-48AA-AA65-CCC332488A87}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrVocal_Os_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="980526393"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_05" ID="{73E980A7-419C-48AA-AA65-CCC332488A87}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrVocal_Os_06" ID="{18C29AB1-D824-4FC1-91E4-CBEC0E875DBF}" ShortID="618595724">
+													<PropertyList>
+														<Property Name="Highpass" Type="int16">
+															<ValueList>
+																<Value>53</Value>
+															</ValueList>
+														</Property>
+														<Property Name="MakeUpGain" Type="Real64">
+															<ValueList>
+																<Value>8</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_06" ID="{AFC4B5B6-44D9-47C3-B0B8-360D5EF79A51}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrVocal_Os_06.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="650703854"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_06" ID="{AFC4B5B6-44D9-47C3-B0B8-360D5EF79A51}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrVocal_Os_08" ID="{2D2B6F2A-EAA9-43C2-941C-E739BFACFFAF}" ShortID="497828200">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_08" ID="{6E42800E-77DA-4B19-9300-B3CC1BC0BCAB}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrVocal_Os_08.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="997362561"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_08" ID="{6E42800E-77DA-4B19-9300-B3CC1BC0BCAB}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrVocal_Os_09" ID="{9394F0A0-6437-4393-BD77-7CB00BA9EA96}" ShortID="544537991">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_09" ID="{8E5E5E82-5073-4E2A-AE36-378FF695E36D}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrVocal_Os_09.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="150387462"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_09" ID="{8E5E5E82-5073-4E2A-AE36-378FF695E36D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrVocal_Os_04" ID="{54BD16FC-7E44-4360-ACB4-6B4A3F9EC856}" ShortID="719453412">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_04" ID="{A2AA1801-6D37-4672-BE09-8F1CEB010558}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrVocal_Os_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="533766596"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_04" ID="{A2AA1801-6D37-4672-BE09-8F1CEB010558}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrVocal_Os_01" ID="{63F20BD2-53D9-4A09-BEF7-E9BD1171E4E7}" ShortID="696853870">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_01" ID="{EC3CB9DD-AA69-4ECA-B352-BAC722CBD058}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrVocal_Os_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="745198937"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_01" ID="{EC3CB9DD-AA69-4ECA-B352-BAC722CBD058}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrVocal_Os_03" ID="{D8B912D3-FB6D-416C-8F20-E3ACEE1E6313}" ShortID="101526448">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_03" ID="{5E42E68F-71D9-4140-AF3B-00FB094B83E2}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrVocal_Os_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="23363708"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_03" ID="{5E42E68F-71D9-4140-AF3B-00FB094B83E2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrVocal_Os_07" ID="{9971E666-6E13-49AF-9C9C-44D0A28205B6}" ShortID="362104982">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_07" ID="{7073C341-5069-4F3A-8A28-B455CDC8CFA5}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrVocal_Os_07.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="223131252"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrVocal_Os_07" ID="{7073C341-5069-4F3A-8A28-B455CDC8CFA5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="SFX3D_NPCs_NPCPteromyrCall_Os" ID="{BA08DB68-E221-41AD-8C35-817DECAE8B17}" ShortID="354987429">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrCall_Os_01" ID="{130E910E-D713-45E3-8618-F9D0DBE9A203}" ShortID="678667823">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrCall_Os_01" ID="{96080927-A395-4676-9049-C52110A57D0A}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrCall_Os_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="927675806"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrCall_Os_01" ID="{96080927-A395-4676-9049-C52110A57D0A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrCall_Os_02" ID="{106CAF11-78D0-4855-9922-1FEF0544B1EB}" ShortID="841852762">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ValueList>
+																<Value>660</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrCall_Os_02" ID="{6CDB69FB-9DC4-4301-BF5F-1EDF68E99113}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrCall_Os_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="570339134"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrCall_Os_02" ID="{6CDB69FB-9DC4-4301-BF5F-1EDF68E99113}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrCall_Os_03" ID="{9A3E6380-AD0C-4318-B4A4-B0869A853137}" ShortID="662611066">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrCall_Os_03" ID="{69384533-FFC7-454B-A355-14A72D777DD9}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrCall_Os_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="545130303"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrCall_Os_03" ID="{69384533-FFC7-454B-A355-14A72D777DD9}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX3D_NPCs_NPCPteromyrCall_Os_04" ID="{366AF2D1-6A0E-40F9-8FE6-C15B130A1D5D}" ShortID="308680134">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX3D_NPCs_NPCPteromyrCall_Os_04" ID="{1A7834B7-31A4-49E2-AD31-CD622D8043D3}">
+															<Language>SFX</Language>
+															<AudioFile>SFX3D_NPCs_NPCPteromyrCall_Os_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="537608969"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX3D_NPCs_NPCPteromyrCall_Os_04" ID="{1A7834B7-31A4-49E2-AD31-CD622D8043D3}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</ActorMixer>
+							</ChildrenList>
+						</Folder>
+						<ActorMixer Name="Turrets" ID="{AB7C5557-DF1D-40DF-95EE-1E24E65A42D1}" ShortID="649700439">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="SFX3D_Item_TurretShoot_Os" ID="{935A80D5-5C36-410C-8E95-33707A75F4BC}" ShortID="140313670">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{77D3198F-FE27-44A5-9A8D-B58E7AD5BFB0}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="1"/>
+															<Property Name="Min" Type="Real64" Value="-3"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{AD7C98AB-29B2-4285-9F81-AFDAB1C87091}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="110"/>
+															<Property Name="Min" Type="Real64" Value="-120"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="SFX3D_Item_TurretShoot_Os_01" ID="{A39F1FE6-EE2E-4EFA-8DFA-BC31881FC18A}" ShortID="950686992">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX3D_Item_TurretShoot_Os_01" ID="{EB8462B0-8D22-45FA-8FF7-A11426A9D58E}">
+													<Language>SFX</Language>
+													<AudioFile>SFX3D_Item_TurretShoot_Os_01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="362872100"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX3D_Item_TurretShoot_Os_01" ID="{EB8462B0-8D22-45FA-8FF7-A11426A9D58E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="SFX3D_Item_TurretShoot_Os_02" ID="{139F52E5-ECB3-43D2-81B0-63083FFC25BC}" ShortID="2989961">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX3D_Item_TurretShoot_Os_02" ID="{5F100AAF-550A-40A2-AA92-2DEB6A8BEB59}">
+													<Language>SFX</Language>
+													<AudioFile>SFX3D_Item_TurretShoot_Os_02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="730575520"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX3D_Item_TurretShoot_Os_02" ID="{5F100AAF-550A-40A2-AA92-2DEB6A8BEB59}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="SFX3D_Item_TurretShoot_Os_03" ID="{6F4378DD-55EF-4D4D-93D0-DEFEC8CB7B62}" ShortID="957942288">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX3D_Item_TurretShoot_Os_03" ID="{EA9B2D0A-9A22-4F67-A9E5-3CDBD7C089D3}">
+													<Language>SFX</Language>
+													<AudioFile>SFX3D_Item_TurretShoot_Os_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1021892845"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX3D_Item_TurretShoot_Os_03" ID="{EA9B2D0A-9A22-4F67-A9E5-3CDBD7C089D3}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="SFX3D_Item_TurretShoot_Os_04" ID="{599433F4-F265-474B-BEDB-C598157D0350}" ShortID="864247614">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX3D_Item_TurretShoot_Os_04" ID="{A0C8A068-E0FE-4944-86A1-825560442156}">
+													<Language>SFX</Language>
+													<AudioFile>SFX3D_Item_TurretShoot_Os_04.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="891799918"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX3D_Item_TurretShoot_Os_04" ID="{A0C8A068-E0FE-4944-86A1-825560442156}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<Sound Name="SFX3D_Item_TurretDie_Os" ID="{7815BA25-670F-4124-B759-5DDCEF0F779F}" ShortID="241206003">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{EE2248B5-4DC5-40DD-9389-C0D5CBE6D030}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="50"/>
+															<Property Name="Min" Type="Real64" Value="-40"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX3D_Item_TurretDie_Os" ID="{F524B50E-EEEB-4469-961A-7B1602E6C1C1}">
+											<Language>SFX</Language>
+											<AudioFile>SFX3D_Item_TurretDie_Os.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="238791807"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX3D_Item_TurretDie_Os" ID="{F524B50E-EEEB-4469-961A-7B1602E6C1C1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<RandomSequenceContainer Name="SFX3D_Item_TurretHit_Os" ID="{16A06F49-7290-42C2-92BD-93199F064200}" ShortID="261601636">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{2EF732AC-DBBC-4854-8572-F5B0AFAC5D3F}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="50"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="SFX3D_Item_TurretHit_Os_01" ID="{A4CAEAF7-76A6-45DD-8B21-F6730E413704}" ShortID="666673006">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX3D_Item_TurretHit_Os_01" ID="{7A2757E2-07ED-4890-A5B7-E35496A2BAD7}">
+													<Language>SFX</Language>
+													<AudioFile>SFX3D_Item_TurretHit_Os_01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="635599079"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX3D_Item_TurretHit_Os_01" ID="{7A2757E2-07ED-4890-A5B7-E35496A2BAD7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="SFX3D_Item_TurretHit_Os_02" ID="{6292386F-E41F-4024-863A-ACB51C5F88CC}" ShortID="1026860184">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX3D_Item_TurretHit_Os_02" ID="{19E459DE-074A-400D-A1FC-D27D3C3F4397}">
+													<Language>SFX</Language>
+													<AudioFile>SFX3D_Item_TurretHit_Os_02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="105734473"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX3D_Item_TurretHit_Os_02" ID="{19E459DE-074A-400D-A1FC-D27D3C3F4397}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="SFX3D_Item_TurretHit_Os_03" ID="{D4056911-A487-4FF9-A51E-D996B2B4C0E5}" ShortID="147967081">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX3D_Item_TurretHit_Os_03" ID="{CD81B485-9ED0-4396-97A8-3A7C45017A0B}">
+													<Language>SFX</Language>
+													<AudioFile>SFX3D_Item_TurretHit_Os_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1020880093"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX3D_Item_TurretHit_Os_03" ID="{CD81B485-9ED0-4396-97A8-3A7C45017A0B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="SFX3D_Item_TurretHit_Os_04" ID="{35A33A45-C8C1-408B-845F-96DD11F14C2E}" ShortID="254607226">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX3D_Item_TurretHit_Os_04" ID="{F481E3DB-30E6-4D20-A317-17D2A4E9BC5B}">
+													<Language>SFX</Language>
+													<AudioFile>SFX3D_Item_TurretHit_Os_04.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="697999627"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX3D_Item_TurretHit_Os_04" ID="{F481E3DB-30E6-4D20-A317-17D2A4E9BC5B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="SFX3D_Item_TurretHit_Os_05" ID="{E9EA5EE8-50A6-4830-9A72-3F6B92BEF8F9}" ShortID="86482159">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX3D_Item_TurretHit_Os_05" ID="{D85CF47E-5AFB-4FF7-BE01-54CF865B71F8}">
+													<Language>SFX</Language>
+													<AudioFile>SFX3D_Item_TurretHit_Os_05.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="560766797"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX3D_Item_TurretHit_Os_05" ID="{D85CF47E-5AFB-4FF7-BE01-54CF865B71F8}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+							</ChildrenList>
+						</ActorMixer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Ambiences" ID="{70ED32DA-8947-4652-B41F-6487EBC826F7}" ShortID="105966123">
@@ -2889,6 +4840,10 @@
 						<Folder Name="InGameMenu" ID="{6699E2A1-4031-4A65-B425-078372090E30}" ShortID="512515505">
 							<ChildrenList>
 								<Sound Name="SFX2D_Interface_PlyrArrowSeqSuccess_Os" ID="{CC5C7B50-8C23-42D8-B83D-6F09E2E96D70}" ShortID="685298796">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2911,6 +4866,10 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="SFX2D_Interface_PlyrArrowSeqWrong_Os" ID="{40A0A015-FEB9-45F2-B54D-DECCE7E64ABC}" ShortID="395195539">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
@@ -2934,11 +4893,13 @@
 								</Sound>
 								<RandomSequenceContainer Name="SFX2D_Interface_PlyrArrowSeqBleeps_Os" ID="{9B47E16B-3103-426D-8A7A-CCFE97F73347}" ShortID="696251493">
 									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
 												<Value>-5</Value>
 											</ValueList>
 										</Property>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
