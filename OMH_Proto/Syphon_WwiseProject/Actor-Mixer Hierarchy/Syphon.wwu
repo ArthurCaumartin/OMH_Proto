@@ -4937,7 +4937,7 @@
 							<ChildrenList>
 								<Sound Name="SFX2D_Interface_PlyrArrowSeqSuccess_Os" ID="{CC5C7B50-8C23-42D8-B83D-6F09E2E96D70}" ShortID="685298796">
 									<PropertyList>
-										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="Color" Type="int16" Value="4"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
@@ -4963,7 +4963,7 @@
 								</Sound>
 								<Sound Name="SFX2D_Interface_PlyrArrowSeqWrong_Os" ID="{40A0A015-FEB9-45F2-B54D-DECCE7E64ABC}" ShortID="395195539">
 									<PropertyList>
-										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="Color" Type="int16" Value="4"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
@@ -4989,7 +4989,7 @@
 								</Sound>
 								<RandomSequenceContainer Name="SFX2D_Interface_PlyrArrowSeqBleeps_Os" ID="{9B47E16B-3103-426D-8A7A-CCFE97F73347}" ShortID="696251493">
 									<PropertyList>
-										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="Color" Type="int16" Value="4"/>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
 												<Value>-5</Value>
@@ -5074,6 +5074,32 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<Sound Name="SFX2D_Interface_ChestSuccessGold_Os" ID="{50711F06-2D3C-4E46-A2F8-515BB40FB6BF}" ShortID="427325230">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="4"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6385CED9-17DD-4F00-9829-22BAFA25A772}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AE05E3AA-E7D2-4149-B869-D49EF088F832}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX2D_Interface_ChestSuccessGold_Os" ID="{F5F51A80-F4D8-4309-BB7A-AC9366B013F6}">
+											<Language>SFX</Language>
+											<AudioFile>SFX2D_Interface_ChestSuccessGold_Os.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="459767007"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX2D_Interface_ChestSuccessGold_Os" ID="{F5F51A80-F4D8-4309-BB7A-AC9366B013F6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Rundown" ID="{0317E46C-8239-4F6F-85DB-D0BBBA8314D9}" ShortID="357786767">
