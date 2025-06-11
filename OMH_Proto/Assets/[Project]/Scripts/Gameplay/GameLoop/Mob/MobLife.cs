@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class MobLife : MonoBehaviour, IDamageable
 {
     [SerializeField] private FloatReference _mobMaxHealth;
+    [SerializeField] private GameEvent _onDeathGameEvent;
     [SerializeField] private Renderer _renderer;
     private float _currentHealth;
     [SerializeField] private UnityEvent<MobLife, DamageType> _onDeathEvent;
@@ -40,6 +41,7 @@ public class MobLife : MonoBehaviour, IDamageable
 
     private void Death()
     {
+        _onDeathGameEvent.Raise();
         Destroy(gameObject);
     }
 

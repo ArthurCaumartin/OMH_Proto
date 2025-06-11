@@ -837,6 +837,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _debugStateName: 
+  OnStateChange:
+    m_PersistentCalls:
+      m_Calls: []
   _roamState:
     _delay: 5
     _maxCount: 5
@@ -873,6 +876,7 @@ MonoBehaviour:
     propertyType: 1
     constantValue: 0
     variable: {fileID: 11400000, guid: 252ef0c9dde5e7146b9e2e918a1b6a8b, type: 2}
+  _onDeathGameEvent: {fileID: 11400000, guid: 3c0886b3e7afec84c978033537175dac, type: 2}
   _renderer: {fileID: 3008561796673590203}
   _onDeathEvent:
     m_PersistentCalls:
@@ -1740,6 +1744,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7771738092548835954}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bb10f2b981f775d42bdaecb9979a569a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2670157103982013743}
   m_SourcePrefab: {fileID: 100100000, guid: bb10f2b981f775d42bdaecb9979a569a, type: 3}
 --- !u!4 &35318830491406982 stripped
 Transform:
@@ -1926,3 +1934,40 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2670157103982013743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7715279692973080572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 888f81557c0e8cb46bda8012f94ff794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rayLenth: 5
+  _decalLifeTime: 5
+  _decalSpawnDuration: 5
+  _feetDecalPrefab: {fileID: 0}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _decalsLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _rightFeet:
+    pivot: {fileID: 0}
+    texture2D: {fileID: 0}
+    canSpawnDecal: 0
+    asStep: 0
+    lastBloodMixe: 0
+  _leftFeet:
+    pivot: {fileID: 0}
+    texture2D: {fileID: 0}
+    canSpawnDecal: 0
+    asStep: 0
+    lastBloodMixe: 0
+  OnStepEvent:
+    m_PersistentCalls:
+      m_Calls: []

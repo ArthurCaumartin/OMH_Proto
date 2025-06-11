@@ -17,6 +17,7 @@ public class InteractibleChest : Interactible
     [SerializeField] private ParticleSystem _openParticle;
     [Space]
     [SerializeField] private GameObject _goldenChestPrefab;
+    [SerializeField] private List<MeshRenderer> _chestShader = new List<MeshRenderer>();
 
     private bool _isOpen = false;
 
@@ -59,6 +60,11 @@ public class InteractibleChest : Interactible
             Destroy(p.gameObject, p.main.duration + 1);
         }
 
+        for (int i = 0; i < _chestShader.Count; i++)
+        {
+            _chestShader[i].material.SetFloat("_BlinkingSpeed", 0);
+        }
+        
         _mapPin.SetActive(false);
 
         gameObject.layer = LayerMask.NameToLayer("Default");
