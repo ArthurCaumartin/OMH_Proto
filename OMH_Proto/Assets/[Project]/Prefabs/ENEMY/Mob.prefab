@@ -793,6 +793,10 @@ PrefabInstance:
         type: 3}
       insertIndex: 4
       addedObject: {fileID: 8495946310215847825}
+    - targetCorrespondingSourceObject: {fileID: 7191879917368600816, guid: 79b0b90dd5ecea8418eb1d6890915a97,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7283856493717443075}
   m_SourcePrefab: {fileID: 100100000, guid: 79b0b90dd5ecea8418eb1d6890915a97, type: 3}
 --- !u!54 &3534787374573192709 stripped
 Rigidbody:
@@ -860,6 +864,9 @@ MonoBehaviour:
       propertyType: 0
       constantValue: 1
       variable: {fileID: 0}
+  call: {fileID: 0}
+  roam: {fileID: 0}
+  atk: {fileID: 0}
 --- !u!114 &3042697620327133910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,7 +887,19 @@ MonoBehaviour:
   _renderer: {fileID: 3008561796673590203}
   _onDeathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7283856493717443075}
+        m_TargetAssemblyTypeName: PteramyrSounds, Assembly-CSharp
+        m_MethodName: DeathSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onDamageTakenEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -978,6 +997,38 @@ MonoBehaviour:
   _ifLostTarget: {fileID: 0}
   _currentTarget: {fileID: 0}
   _banTag: []
+--- !u!114 &7283856493717443075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873736450507444681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b74723011c8e04093bf4a38f8caca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pteramyrAttackSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 75601724b2d38bd4180ad6b6561ff8c8,
+      type: 2}
+  _pteramyrCallSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 565aa2aa88cbf3b4ca669fe31f87ab84,
+      type: 2}
+  _pteramyrVocalsSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 514f4b4406de5f74c8ff42f06f9170b4,
+      type: 2}
+  _pteramyrDeath:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: da690a68dc26a7b4483a34763f9ad186,
+      type: 2}
 --- !u!1001 &3410296336349859670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1956,18 +2007,7 @@ MonoBehaviour:
   _decalsLayer:
     serializedVersion: 2
     m_Bits: 0
-  _rightFeet:
-    pivot: {fileID: 0}
-    texture2D: {fileID: 0}
-    canSpawnDecal: 0
-    asStep: 0
-    lastBloodMixe: 0
-  _leftFeet:
-    pivot: {fileID: 0}
-    texture2D: {fileID: 0}
-    canSpawnDecal: 0
-    asStep: 0
-    lastBloodMixe: 0
+  _feetList: []
   OnStepEvent:
     m_PersistentCalls:
       m_Calls: []
