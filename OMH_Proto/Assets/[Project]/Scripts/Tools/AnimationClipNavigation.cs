@@ -65,7 +65,7 @@ public class AnimationClipNavigation : MonoBehaviour
         }
 
         // set normalize time in a other loop because need total duration
-        for (int i = 0; i < rac.animationClips.Length; i++)
+        for (int i = 0; i < _stepDataList.Count; i++)
             _stepDataList[i].startTime = Mathf.InverseLerp(0, _totalAnimationDuration, _stepDataList[i].startSecond);
     }
 
