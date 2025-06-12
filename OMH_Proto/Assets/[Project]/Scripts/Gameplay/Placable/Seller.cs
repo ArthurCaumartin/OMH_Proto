@@ -23,6 +23,8 @@ public class Seller : MonoBehaviour
     [SerializeField] private GameEvent _onShowRails;
     [SerializeField] private GameEvent _showTrap;
 
+    [SerializeField] private AK.Wwise.Event _sellSound;
+
     private Transform _selectorVisual;
     private bool _isEnable = true;
     private Camera _mainCamera;
@@ -85,6 +87,7 @@ public class Seller : MonoBehaviour
             _metalQuantity.Add(_nearestSellable.GetCostOnHealth());
             _nearestSellable.GetComponentInChildren<DisolveEffect>().Disolve(true, true);
             Destroy(_nearestSellable.gameObject);
+            _sellSound.Post(gameObject);
             EnableSellMode(false);
         }
     }

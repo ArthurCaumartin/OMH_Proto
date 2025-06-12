@@ -341,6 +341,7 @@ GameObject:
   - component: {fileID: 3683390807749516614}
   - component: {fileID: 5143254621603635265}
   - component: {fileID: 4403791811967871888}
+  - component: {fileID: 7134697657976265422}
   m_Layer: 16
   m_Name: Turret
   m_TagString: Defenses
@@ -455,10 +456,34 @@ MonoBehaviour:
     variable: {fileID: 0}
   _onDamageTaken:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7134697657976265422}
+        m_TargetAssemblyTypeName: TurretSounds, Assembly-CSharp
+        m_MethodName: OnHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onDeathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7134697657976265422}
+        m_TargetAssemblyTypeName: TurretSounds, Assembly-CSharp
+        m_MethodName: OnDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onHealEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -495,6 +520,33 @@ MonoBehaviour:
     - {fileID: 7133649469616151016}
     - {fileID: 4054908831443232737}
     - {fileID: 7851267391606864491}
+--- !u!114 &7134697657976265422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819192095676879814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a2f0d5ab5c18b46b33ad7fda20a0a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TurretGetHit:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 92527d6a336ae0a4aa22294d0fe4b45f,
+      type: 2}
+  _TurretPlace:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d63afd1350470d84c8aada66fba477d5,
+      type: 2}
+  _TurretDie:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b0b49cc9f3a457641bccb611d2cb134e,
+      type: 2}
 --- !u!1001 &2427572853039638334
 PrefabInstance:
   m_ObjectHideFlags: 0
