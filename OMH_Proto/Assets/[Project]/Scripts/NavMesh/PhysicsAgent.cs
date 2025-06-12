@@ -29,6 +29,7 @@ public class PhysicsAgent : MonoBehaviour
     public bool CanBeSlow { set => _canBeSlow = value; }
 
     public float Speed { get => _acctualSpeed; set => _acctualSpeed = value; }
+    public float SpeedBaseMultiplier { get => _speedToset.Value; }
 
     private void Start()
     {

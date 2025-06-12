@@ -6,6 +6,7 @@ public class MobAnimationControler : MonoBehaviour
 {
     [SerializeField] private string _velocityParameter;
     [SerializeField] private string _attackParameter;
+    [SerializeField] private string _chargeAttackParameter;
     [SerializeField] private string _stunParameter;
     [SerializeField] private float _exitStunDuration = .2f;
     [SerializeField] private string _attackAnimationSpeedParameter;
@@ -17,6 +18,7 @@ public class MobAnimationControler : MonoBehaviour
     private int _velocityHash;
     private int _attackHash;
     private int _stunHash;
+    private int _chargeAttackHash;
     private int _walkTransitionHash;
     private int _attackAnimationSpeedHash;
     private bool _stunRuning = false;
@@ -36,6 +38,7 @@ public class MobAnimationControler : MonoBehaviour
         _stunHash = Animator.StringToHash(_stunParameter);
         _walkTransitionHash = Animator.StringToHash(_walkTransitionParametre);
         _attackAnimationSpeedHash = Animator.StringToHash(_attackAnimationSpeedParameter);
+        _chargeAttackHash = Animator.StringToHash(_chargeAttackParameter);
     }
 
     private void Update()
@@ -52,6 +55,12 @@ public class MobAnimationControler : MonoBehaviour
     {
         _animator.SetFloat(_attackAnimationSpeedHash, animationSpeed);
         _animator.SetTrigger(_attackHash);
+    }
+
+    public void PlayChargeAttack(out float duration)
+    {
+        _animator.Play(_chargeAttackHash);
+        duration =_animator.GetCurrentAnimatorStateInfo(0).length;
     }
 
     public void PlayStunAnimationn(float duration)
@@ -75,5 +84,10 @@ public class MobAnimationControler : MonoBehaviour
     public bool IsAttackAnimation()
     {
         return _animator.GetCurrentAnimatorStateInfo(0).IsName("Mob_Pterattack");
+    }
+
+    public bool IsChargeAttack()
+    {
+        return _animator.GetCurrentAnimatorStateInfo(0).IsName("Charge_Attack");
     }
 }
