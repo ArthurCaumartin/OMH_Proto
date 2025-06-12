@@ -11,10 +11,12 @@ public class State_Mob_AttackArmor : IEntityState
     private MobAnimationControler _mobAnimationControler;
     private StateMachine_Pterarmure _machinePteramyr;
     private float _timeDelay = 0;
+    private PhysicsAgent _agent;
 
     public void Initialize(StateMachine behavior)
     {
         _mobAnimationControler = behavior.GetComponentInChildren<MobAnimationControler>();
+        _agent = behavior.GetComponent<PhysicsAgent>();
         _machinePteramyr = behavior as StateMachine_Pterarmure;
     }
 
@@ -22,10 +24,16 @@ public class State_Mob_AttackArmor : IEntityState
     {
         // Debug.Log("ENTER ATTACK STATE");
         _timeDelay = _attackDelais.Value;
+        _agent.enabled = false;
     }
 
     public void UpdateState()
     {
+        if (_mobAnimationControler.IsAttackAnimation())
+        {
+            return;
+        }
+
         if (!_machinePteramyr.Target)
         {
             _machinePteramyr.SetState(_machinePteramyr.PrepChargeState);
@@ -33,6 +41,7 @@ public class State_Mob_AttackArmor : IEntityState
         }
 
         float _targetDistance = Vector3.Distance(_machinePteramyr.transform.position, _machinePteramyr.Target.position);
+        Debug.Log("Current distance : " + _targetDistance);
         if (_targetDistance > _distanceToTriggerAttack.Value)
         {
             _machinePteramyr.SetState(_machinePteramyr.PrepChargeState);
@@ -69,6 +78,6 @@ public class State_Mob_AttackArmor : IEntityState
 
     public void ExitState()
     {
-
+        _agent.enabled = true;
     }
 }

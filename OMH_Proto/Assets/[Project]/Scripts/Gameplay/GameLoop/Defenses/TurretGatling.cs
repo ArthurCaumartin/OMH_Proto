@@ -89,16 +89,18 @@ public class TurretGatling : TurretCannon
 
     private void CannonAnimation()
     {
+        Vector3 dir = _currentTarget.position - transform.position;
+        dir = dir.normalized * 0.3f;
         float duration = 1 / (_stat.attackPerSecond.Value * (_attackSpeedMultiplier * _fullShootSpeedMultiplier));
         // duration /= 4;
 
         duration = Mathf.Clamp(duration, 0, .1f);
 
         //! .002
-        _canonMeshPivot.DOLocalMove(_cannonMeshStartPos - (_canonMeshPivot.forward * .002f), duration / 2)
+        _canonMeshPivot.DOMove(_canonMeshPivot.position - dir, duration / 2)
         .OnComplete(() => { _canonMeshPivot.DOLocalMove(_cannonMeshStartPos, duration / 2); });
 
-        _hat.DOLocalMove(_hatMeshStartPos + (_hat.up * .002f), duration / 4)
+        _hat.DOLocalMove(_hatMeshStartPos + (_hat.up * .003f), duration / 4)
         .OnComplete(() => { _hat.DOLocalMove(_hatMeshStartPos, duration / 4); });
     }
 }
