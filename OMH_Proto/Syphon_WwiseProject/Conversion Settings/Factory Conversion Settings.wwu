@@ -27,6 +27,11 @@
 										<Value Platform="Windows">0</Value>
 									</ValueList>
 								</Property>
+								<Property Name="SRConversionQuality" Type="int32">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
 								<Property Name="SampleRate" Type="int32">
 									<ValueList>
 										<Value>3</Value>
@@ -36,7 +41,11 @@
 							</PropertyList>
 							<ConversionPluginInfoList>
 								<ConversionPluginInfo Platform="Windows">
-									<ConversionPlugin Name="" ID="{DBE1C939-A93E-4F5E-92FF-A4C0E3A0799D}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
+									<ConversionPlugin Name="" ID="{DBE1C939-A93E-4F5E-92FF-A4C0E3A0799D}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+										<PropertyList>
+											<Property Name="QualityFactor" Type="Real32" Value="6"/>
+										</PropertyList>
+									</ConversionPlugin>
 								</ConversionPluginInfo>
 							</ConversionPluginInfoList>
 						</Conversion>
