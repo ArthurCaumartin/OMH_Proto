@@ -6655,6 +6655,62 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2580792114318124417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5615917177746056066}
+  - component: {fileID: 1649139801521219353}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5615917177746056066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2580792114318124417}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 10.27, y: 2.37, z: -9.81}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4213435120355396720}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!220 &1649139801521219353
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2580792114318124417}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 3.4532738, y: 1, z: 5.836155}
+  - {x: 3.661522, y: 1, z: -4.5945263}
+  - {x: 0.8302994, y: -1, z: 3.814989}
+  - {x: 0.1781578, y: -1, z: -4.2333965}
+  - {x: -3.5044537, y: 1, z: 6.0436077}
+  - {x: -5.9365273, y: 1, z: 1.2340622}
+  - {x: -4.428026, y: -1, z: 0.37685394}
+  - {x: -3.554491, y: -1, z: -3.4032116}
+  - {x: -5.40975, y: 1.0000001, z: -4.7342515}
+  - {x: 4.070776, y: 1.0000001, z: 1.6597552}
+  - {x: 7.621047, y: 1, z: 9.789267}
+  - {x: 12.9417305, y: 1, z: 6.719245}
+  - {x: 8.982546, y: -1, z: 9.198797}
+  - {x: 8.982553, y: -1, z: 9.198805}
+  m_Dering: 1
 --- !u!1 &2665399678993354358
 GameObject:
   m_ObjectHideFlags: 0
@@ -15835,6 +15891,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5615917177746056066}
   - {fileID: 1951589979713470414}
   - {fileID: 6735830964346921458}
   - {fileID: 7969952592089371981}
