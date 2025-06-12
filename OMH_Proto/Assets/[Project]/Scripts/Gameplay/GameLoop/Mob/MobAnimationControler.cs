@@ -63,4 +63,9 @@ public class MobAnimationControler : MonoBehaviour
         _stunRuning = false;
         _animator.SetBool(_stunHash, false);
     }
+
+    public bool IsAttackAnimation()
+    {
+        return _animator.GetCurrentAnimatorStateInfo(0).IsName("Mob_Pterattack");
+    }
 }
