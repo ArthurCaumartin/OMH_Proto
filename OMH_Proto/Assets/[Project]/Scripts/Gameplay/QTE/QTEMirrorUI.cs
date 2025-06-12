@@ -18,7 +18,7 @@ public class QTEMirrorUI : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI _counterText;
     [SerializeField] private Image _bgImage;
-    [SerializeField] private Sprite _reproduceButtonSprite, _notReproduceButtonSprite;
+    [SerializeField] private Sprite _reproduceButtonSprite, _activateButtonSprite;
 
     public void InitializeUI(int numberWinsValue)
     {
@@ -40,15 +40,16 @@ public class QTEMirrorUI : MonoBehaviour
         for (int i = 0; i < _activateObjects.Count; i++)
         {
             _activateObjects[i].GetComponent<Image>().color = new Color32(232, 73, 73, 255);
-            // _reproduceObjects[i].GetComponent<Image>().sprite = _notReproduceButtonSprite;
+            _activateObjects[i].GetComponent<Image>().sprite = _activateButtonSprite;
             _reproduceObjects[i].GetComponent<Image>().color = new Color32(232, 73, 73, 255);
+            _reproduceObjects[i].GetComponent<Image>().sprite = _activateButtonSprite;
         }
         
         for (int i = 0; i < intArray.Length; i++)
         {
             Image tempImage = _reproduceObjects[intArray[i]].GetComponent<Image>();
             tempImage.color = new Color32(29, 173, 215, 255);
-            // tempImage.sprite = _reproduceButtonSprite;
+            tempImage.sprite = _reproduceButtonSprite;
         }
     }
 
@@ -58,13 +59,16 @@ public class QTEMirrorUI : MonoBehaviour
         
         for (int i = 0; i < _activateObjects.Count; i++)
         {
+            _activateObjects[i].GetComponent<Image>().sprite = _activateButtonSprite;
             _activateObjects[i].GetComponent<Image>().color = new Color32(232, 73, 73, 255);
+            _reproduceObjects[i].GetComponent<Image>().sprite = _activateButtonSprite;
             _reproduceObjects[i].GetComponent<Image>().color = new Color32(232, 73, 73, 255);
         }
     }
     
     public void SetGoodInputFeedBack(int value)
     {
+        _activateObjects[value].GetComponent<Image>().sprite = _reproduceButtonSprite;
         _activateObjects[value].GetComponent<Image>().color = new Color32(29, 173, 215, 255);
     }
 
@@ -73,8 +77,8 @@ public class QTEMirrorUI : MonoBehaviour
         for (int i = 0; i < _activateObjects.Count; i++)
         {
             _activateObjects[i].GetComponent<Image>().color = new Color32(232, 73, 73, 255);
+            _activateObjects[i].GetComponent<Image>().sprite = _activateButtonSprite;
         }
-        // StartCoroutine(BadInputFeedBack());
     }
 
     public void WinCode()
