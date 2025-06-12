@@ -46,8 +46,17 @@ public class WeaponControler : MonoBehaviour
         _primaryAttackInputAction = GetComponent<PlayerInput>().actions.FindAction("Attack");
         _secondaryAttackInputAction = GetComponent<PlayerInput>().actions.FindAction("SecondaryAttack");
 
-        _primaryAttackInputAction.performed += ctx => OnPrimaryAttackStarted();
-        _primaryAttackInputAction.canceled += ctx => OnPrimaryAttackCanceled();
+        _primaryAttackInputAction.performed += ctx =>
+        {
+            if (!enabled) return;
+            OnPrimaryAttackStarted();
+        };
+
+        _primaryAttackInputAction.canceled += ctx =>
+        {
+            if (!enabled) return;
+            OnPrimaryAttackCanceled();
+        };
 
         _playerAnimation = GetComponent<PlayerAnimation>();
 
@@ -129,9 +138,9 @@ public class WeaponControler : MonoBehaviour
     {
         _isPrimaryAttacking = true;
 
-       if (IsCurrentWeaponGatling())
-       {
-          _gatlingStartEvent.Post(gameObject);
+        if (IsCurrentWeaponGatling())
+        {
+            _gatlingStartEvent.Post(gameObject);
         }
     }
 
