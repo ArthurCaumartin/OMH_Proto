@@ -24,13 +24,16 @@ public class PhysicsAgent : MonoBehaviour
     private float _acctualSpeed;
     private bool _isAllreadySlow = false;
     private bool _canBeSlow = true;
+    private float _reComputePathPerSecondBackup;
 
     public bool CanBeSlow { set => _canBeSlow = value; }
 
     public float Speed { get => _acctualSpeed; set => _acctualSpeed = value; }
+    public float SpeedBaseMultiplier { get => _speedToset.Value; }
 
     private void Start()
     {
+        _reComputePathPerSecondBackup = _reComputePathPerSecond;
         _rigidbody = GetComponent<Rigidbody>();
         _acctualSpeed = _speedToset.Value;
     }
@@ -56,6 +59,12 @@ public class PhysicsAgent : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_currentTarget && _currentTarget.tag == "Player")
+            _reComputePathPerSecond = _reComputePathPerSecondBackup * 10;
+        else
+            _reComputePathPerSecond = _reComputePathPerSecondBackup;
+
+
         if (_currentTarget == null && _posToGoIfNoTarget == Vector3.zero)
         {
             _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity, Vector3.zero, Time.fixedDeltaTime * _acceleration);
@@ -108,7 +117,7 @@ public class PhysicsAgent : MonoBehaviour
         Vector3 direction = (path[1] - transform.position).normalized;
         transform.right = Vector3.Slerp(transform.right
                                         , new Vector3(direction.x, 0, direction.z)
-                                        , Time.deltaTime * _acceleration * _rotationSpeed * Mathf.Clamp01(_slowMultiplier));
+                                        , Time.fixedDeltaTime * _acceleration * _rotationSpeed * Mathf.Clamp01(_slowMultiplier));
 
         _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity
                                             , direction * Mathf.Clamp01(_slowMultiplier) * _acctualSpeed
