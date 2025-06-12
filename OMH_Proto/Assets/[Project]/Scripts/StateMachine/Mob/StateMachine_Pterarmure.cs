@@ -21,4 +21,10 @@ public class StateMachine_Pterarmure : StateMachine_MobBase
 
         SetState(PrepChargeState);
     }
+
+    public override void StunMob(float duration)
+    {
+        if (_currentState is State_Mob_Charge || _currentState is State_Mob_ChargeAttack) return;
+        base.StunMob(duration);
+    }
 }

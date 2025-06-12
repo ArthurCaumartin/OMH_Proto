@@ -30,6 +30,11 @@ public class State_Mob_Attack : IEntityState
 
     public void UpdateState()
     {
+        if (_mobAnimationControler.IsAttackAnimation())
+        {
+            return;
+        }
+
         if (!_machinePteramyr.Target)
         {
             _machinePteramyr.SetState(_machinePteramyr.RoamState);
@@ -59,7 +64,7 @@ public class State_Mob_Attack : IEntityState
         Vector3 targetDir = (_machinePteramyr.Target.transform.position - _machinePteramyr.transform.position).normalized;
         float dotDir = Vector3.Dot(_machinePteramyr.transform.right, targetDir);
         // Debug.Log("dot : " + dotDir);
-        return dotDir > .95f;
+        return dotDir > .8f;
     }
 
     public void ExitState()

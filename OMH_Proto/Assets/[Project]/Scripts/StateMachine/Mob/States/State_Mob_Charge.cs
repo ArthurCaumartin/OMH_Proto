@@ -9,16 +9,19 @@ public class State_Mob_Charge : IEntityState
     [SerializeField] private FloatReference _distanceToChargeAt;
     [SerializeField] private FloatReference _timeBetweenSpeedUp;
     [SerializeField] private FloatReference _maxSpeed;
-
+    private float _startSpeedBackup;
     private PhysicsAgent _agent;
     StateMachine_Pterarmure _machinePteramyr;
+    private MobAnimationControler _animationControler;
     
     private float _timerSpeed;
-    
+
     public void Initialize(StateMachine behavior)
     {
         _agent = behavior.GetComponent<PhysicsAgent>();
         _machinePteramyr = behavior as StateMachine_Pterarmure;
+        _animationControler = _machinePteramyr.GetComponentInChildren<MobAnimationControler>();
+        _startSpeedBackup = _agent.SpeedBaseMultiplier;
     }
 
     public void EnterState()
@@ -28,6 +31,7 @@ public class State_Mob_Charge : IEntityState
 
     public void UpdateState()
     {
+        _animationControler.SetWalkTransition(Mathf.InverseLerp(_startSpeedBackup, _maxSpeed.Value, _agent.Speed));
         _timerSpeed += Time.deltaTime;
         if (_timerSpeed > _timeBetweenSpeedUp.Value)
         {
