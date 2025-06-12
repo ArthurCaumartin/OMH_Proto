@@ -30,6 +30,7 @@ public class PhysicsAgent : MonoBehaviour
 
     public float Speed { get => _acctualSpeed; set => _acctualSpeed = value; }
     public float SpeedBaseMultiplier { get => _speedToset.Value; }
+    public bool IsMoving { get => _rigidbody.velocity != Vector3.zero; }
 
     private void Start()
     {
