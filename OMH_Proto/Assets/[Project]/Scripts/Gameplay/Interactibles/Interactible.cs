@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.Events;
 
 public class Interactible : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class Interactible : MonoBehaviour
     [SerializeField] public Canvas _interactText;
     [SerializeField] private List<MeshRenderer> _meshRenderersToOutline;
     [SerializeField] float _timeToVerifyOutline = 0.3f;
-
+    [SerializeField] protected UnityEvent _onWin;
     private float _timer;
     private bool _isOutlined;
 
@@ -43,6 +44,7 @@ public class Interactible : MonoBehaviour
 
     public virtual void OnQTEWin()
     {
+        _onWin.Invoke();
         // print("INTERACTIBLE : QTE win !");
     }
 

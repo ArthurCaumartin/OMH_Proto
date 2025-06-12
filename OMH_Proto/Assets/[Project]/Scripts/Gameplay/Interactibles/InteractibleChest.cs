@@ -53,6 +53,7 @@ public class InteractibleChest : Interactible
 
     public override void OnQTEWin()
     {
+        base.OnQTEWin();
         _isOpen = true;
         _openChestSound.Post(gameObject);
         
