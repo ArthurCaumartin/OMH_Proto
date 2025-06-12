@@ -20,6 +20,8 @@ namespace AK
         static const AkUniqueID PLAY_AMB_MUSIC_MAINMENU_V1 = 241809481U;
         static const AkUniqueID PLAY_PLAYERWEAPON = 3121554309U;
         static const AkUniqueID PLAY_PLYR_FOOTSTEPS = 673033979U;
+        static const AkUniqueID PLAY_SETRTPC_PLAYRUNDOWN = 2617649731U;
+        static const AkUniqueID PLAY_SETRTPC_WAITRUNDOWN = 2311311924U;
         static const AkUniqueID PLAY_SFX2D_INTERFACE_CHESTSUCCESSGOLD_OS = 3827792867U;
         static const AkUniqueID PLAY_SFX2D_INTERFACE_PLYRARROWSEQBLEEPS_OS = 3038203535U;
         static const AkUniqueID PLAY_SFX2D_INTERFACE_PLYRARROWSEQSUCCESS_OS = 1167542187U;
@@ -198,6 +200,17 @@ namespace AK
             } // namespace SWITCH
         } // namespace PLAYERWEAPON
 
+        namespace SYNTALIUM
+        {
+            static const AkUniqueID GROUP = 4218505167U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID ISACTIVE = 1244746431U;
+                static const AkUniqueID ISINACTIVE = 2338056542U;
+            } // namespace SWITCH
+        } // namespace SYNTALIUM
+
     } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
@@ -217,6 +230,7 @@ namespace AK
         static const AkUniqueID RTPC_LPMUSICMENU = 3992807061U;
         static const AkUniqueID RTPC_PLAYERHEALTH = 3975082306U;
         static const AkUniqueID RTPC_PLAYERSPEED = 2653406601U;
+        static const AkUniqueID RTPC_RUNDOWNWAITSTATE = 4029023624U;
         static const AkUniqueID RTPC_TOD = 3588715232U;
         static const AkUniqueID RTPC_TRANSITIONMUSIC = 4142207403U;
         static const AkUniqueID RTPC_WEAPONCHOSE = 3922230529U;
@@ -237,7 +251,6 @@ namespace AK
         static const AkUniqueID AMB_MASTER = 3073528060U;
         static const AkUniqueID AMBIENTSBEDS = 4038353046U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
-        static const AkUniqueID MOTION_FACTORY_BUS = 985987111U;
         static const AkUniqueID MUS_INGAME = 562626134U;
         static const AkUniqueID MUS_INMENU = 3498363069U;
         static const AkUniqueID MUS_MASTER = 2086042571U;

@@ -18,7 +18,7 @@
     "Type": "User",
     "GUID": "{F93F8246-269A-447B-BF18-1EB8B8B71DDC}",
     "Language": "SFX",
-    "Hash": "{D0DA61F9-8419-7431-0B37-89927DA827B9}",
+    "Hash": "{54E260EE-06B1-4AF5-046A-13FBC3AEAD0E}",
     "ObjectPath": "\\SoundBanks\\SYPHON\\MainSB",
     "ShortName": "MainSB",
     "Path": "MainSB.bnk",
@@ -1879,6 +1879,28 @@
       ]
      },
      {
+      "Id": "2617649731",
+      "Name": "Play_SetRTPC_PlayRundown",
+      "ObjectPath": "\\Events\\Syphon\\Rundown\\Play_SetRTPC_PlayRundown",
+      "GUID": "{9B8B0A6B-79D5-4DAC-90AF-D5731B55248A}",
+      "Color": "4",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
+      "Id": "2311311924",
+      "Name": "Play_SetRTPC_WaitRundown",
+      "ObjectPath": "\\Events\\Syphon\\Rundown\\Play_SetRTPC_WaitRundown",
+      "GUID": "{EE774103-1F51-4E2D-8EFE-DBF9F2A78718}",
+      "Color": "4",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
       "Id": "3827792867",
       "Name": "Play_SFX2D_Interface_ChestSuccessGold_Os",
       "ObjectPath": "\\Events\\Syphon\\InGame\\NPC\\Items\\Play_SFX2D_Interface_ChestSuccessGold_Os",
@@ -3027,7 +3049,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{578E3347-F023-C6A6-F3C9-108C5F1ED1CF}",
+    "Hash": "{634F6392-839C-CCE8-0DA8-EA487870477F}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -3101,12 +3123,6 @@
       "ObjectPath": "\\Master-Mixer Hierarchy\\BUSSES\\Master Audio Bus\\SFX_Master\\Player_Master\\Player_SFX",
       "GUID": "{196D595A-9B28-4B8B-9B63-2FE55D345847}",
       "Color": "6"
-     },
-     {
-      "Id": "985987111",
-      "Name": "Motion Factory Bus",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\BUSSES\\Motion Factory Bus",
-      "GUID": "{2AF9B9C6-6EF1-46E9-B5F2-E30C9E602C74}"
      },
      {
       "Id": "1301074112",
@@ -3317,6 +3333,12 @@
       "Name": "RTPC_LPMusicMenu",
       "ObjectPath": "\\Game Parameters\\Syphon_RTPCs\\SystemsRTPCs\\RTPC_LPMusicMenu",
       "GUID": "{BBA0BB55-63EC-4FDE-9164-E7CBE9A0821F}"
+     },
+     {
+      "Id": "4029023624",
+      "Name": "RTPC_RundownWaitState",
+      "ObjectPath": "\\Game Parameters\\Syphon_RTPCs\\SystemsRTPCs\\RTPC_RundownWaitState",
+      "GUID": "{AD4B367E-6D84-4E3E-B05C-B5A054D5A80B}"
      },
      {
       "Id": "4142207403",
@@ -3573,6 +3595,26 @@
         "GUID": "{C6E13A43-F215-4C44-A4A1-1C0F9261BFB1}"
        }
       ]
+     },
+     {
+      "Id": "4218505167",
+      "Name": "Syntalium",
+      "ObjectPath": "\\Switches\\Syphon_Switches\\Syntalium",
+      "GUID": "{36E53E56-6581-42BC-A04F-3890BB4CA400}",
+      "Switches": [
+       {
+        "Id": "1244746431",
+        "Name": "isActive",
+        "ObjectPath": "\\Switches\\Syphon_Switches\\Syntalium\\isActive",
+        "GUID": "{82008822-AC30-4216-A362-81A185813773}"
+       },
+       {
+        "Id": "2338056542",
+        "Name": "isInactive",
+        "ObjectPath": "\\Switches\\Syphon_Switches\\Syntalium\\isInactive",
+        "GUID": "{3E0197DF-A158-4A06-B08F-08117B16CA6D}"
+       }
+      ]
      }
     ]
    },
@@ -3668,6 +3710,6 @@
     ]
    }
   ],
-  "FileHash": "{928D2900-E451-0263-599F-2282AF65DEE4}"
+  "FileHash": "{71AE2DC5-EC7D-E4C3-1158-DCF60E9E1B86}"
  }
 }

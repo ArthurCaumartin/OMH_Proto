@@ -1443,6 +1443,46 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_SetRTPC_WaitRundown" ID="{EE774103-1F51-4E2D-8EFE-DBF9F2A78718}">
+							<ChildrenList>
+								<Action Name="" ID="{7737BB34-9E29-46F7-B741-EBF729931EC6}" ShortID="84352420">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.08"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="RTPC_RundownWaitState" ID="{AD4B367E-6D84-4E3E-B05C-B5A054D5A80B}" WorkUnitID="{44DEA821-E645-4ADE-B7AF-55126F879D1C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{03A86B57-0834-433C-B89D-FAC599FCF9BE}" ShortID="910515350">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.08"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList/>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_SetRTPC_PlayRundown" ID="{9B8B0A6B-79D5-4DAC-90AF-D5731B55248A}">
+							<ChildrenList>
+								<Action Name="" ID="{792E4F99-29D5-45CD-8DB8-92FD5254852C}" ShortID="627230420">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="1"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="RTPC_RundownWaitState" ID="{AD4B367E-6D84-4E3E-B05C-B5A054D5A80B}" WorkUnitID="{44DEA821-E645-4ADE-B7AF-55126F879D1C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
