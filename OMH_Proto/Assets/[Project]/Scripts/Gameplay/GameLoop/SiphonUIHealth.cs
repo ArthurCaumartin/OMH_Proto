@@ -7,12 +7,13 @@ using UnityEngine.UI;
 public class SiphonUIHealth : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _healthObjects = new List<GameObject>();
+    [SerializeField] private List<GameObject> _particlesSyphon = new List<GameObject>();
 
     private int _currentHealth = 20;
     private Vector3 _startPos;
 
     private float _timer, _timerToShowLife = 15;
-    private int _timerIndex;
+    private int _timerIndex, _damageIndex = 1;
     private bool _isAllLifeShowed;
     
     private void Start()
@@ -44,6 +45,13 @@ public class SiphonUIHealth : MonoBehaviour
     {
         RemoveHealthPoint(_healthObjects[_currentHealth].GetComponent<Image>() );
         _currentHealth--;
+
+        _damageIndex++;
+        if (_damageIndex >= 4)
+        {
+            _particlesSyphon[_damageIndex].SetActive(true);
+            _damageIndex = 0;
+        }
     }
 
     private void RemoveHealthPoint(Image image)
