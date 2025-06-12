@@ -36,7 +36,7 @@ public class StateMachine_MobBase : StateMachine
         _currentState.UpdateState();
     }
 
-    public void StunMob(float duration)
+    public virtual void StunMob(float duration)
     {
         // print("Mob Stun");
         _isStun = true;

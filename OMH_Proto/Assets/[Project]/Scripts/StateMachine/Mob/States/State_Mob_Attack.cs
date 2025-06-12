@@ -31,7 +31,9 @@ public class State_Mob_Attack : IEntityState
     public void UpdateState()
     {
         if (_mobAnimationControler.IsAttackAnimation())
+        {
             return;
+        }
 
         if (!_machinePteramyr.Target)
         {

@@ -21,7 +21,7 @@ public class State_Mob_Charge : IEntityState
         _agent = behavior.GetComponent<PhysicsAgent>();
         _machinePteramyr = behavior as StateMachine_Pterarmure;
         _animationControler = _machinePteramyr.GetComponentInChildren<MobAnimationControler>();
-        _startSpeedBackup = _agent.Speed;
+        _startSpeedBackup = _agent.SpeedBaseMultiplier;
     }
 
     public void EnterState()
