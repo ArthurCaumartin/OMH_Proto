@@ -9,6 +9,7 @@ public class MobAnimationControler : MonoBehaviour
     [SerializeField] private string _stunParameter;
     [SerializeField] private float _exitStunDuration = .2f;
     [SerializeField] private string _attackAnimationSpeedParameter;
+    [SerializeField] private string _walkTransitionParametre;
     [Space]
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private PhysicsAgent _physicsAgent;
@@ -16,6 +17,7 @@ public class MobAnimationControler : MonoBehaviour
     private int _velocityHash;
     private int _attackHash;
     private int _stunHash;
+    private int _walkTransitionHash;
     private int _attackAnimationSpeedHash;
     private bool _stunRuning = false;
 
@@ -32,12 +34,18 @@ public class MobAnimationControler : MonoBehaviour
         _velocityHash = Animator.StringToHash(_velocityParameter);
         _velocityHash = Animator.StringToHash(_velocityParameter);
         _stunHash = Animator.StringToHash(_stunParameter);
+        _walkTransitionHash = Animator.StringToHash(_walkTransitionParametre);
         _attackAnimationSpeedHash = Animator.StringToHash(_attackAnimationSpeedParameter);
     }
 
     private void Update()
     {
         _animator.SetFloat(_velocityHash, _rigidbody.velocity.magnitude);
+    }
+
+    public void SetWalkTransition(float ratio)
+    {
+        _animator.SetFloat(_walkTransitionHash, ratio);
     }
 
     public void PlayAttackAnimation(float animationSpeed)
