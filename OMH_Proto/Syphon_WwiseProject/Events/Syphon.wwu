@@ -324,6 +324,10 @@
 								<Folder Name="Ennemies" ID="{3C6C6A1D-1ACE-440A-8487-C056F10E6412}" ShortID="614869043">
 									<ChildrenList>
 										<Folder Name="Voices" ID="{8AE7E3D9-D8BC-498A-852E-4D4810A8D579}" ShortID="907115625">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
 											<ChildrenList>
 												<Event Name="Play_SFX3D_NPCs_NPCPteromyrAtk_Os" ID="{0956AD32-6296-41D5-8A05-BA3F6DE7D0F5}">
 													<PropertyList>
@@ -546,6 +550,112 @@
 												</Action>
 											</ChildrenList>
 										</Event>
+										<Event Name="Play_SFX3D_Item_SparkMine_Trig_Os" ID="{4895635E-2E5C-4ACB-BDEC-5AADAE6CA365}">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<Action Name="" ID="{4B2A222A-C335-4F70-939B-97A0E1BAF7A6}" ShortID="956507933">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="SFX3D_Item_SparkMine_Trig_Os" ID="{D30FBE3A-7388-484F-92A9-E5377B20C1E8}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_SFX3D_Item_SparkMine_Place_Os" ID="{AAC3DB95-E64D-4F82-8646-8C766CA5450F}">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="6"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<Action Name="" ID="{90A8351B-E141-416E-A670-C833A391A70C}" ShortID="298955873">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="SFX3D_Item_SparkMine_Place_Os" ID="{60791841-15E9-4A69-BF88-C497D9D3DC77}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_SFX3D_Item_DoorOpen" ID="{027D892F-C2B5-49DE-9B0B-AA545EC57973}">
+											<ChildrenList>
+												<Action Name="" ID="{A2B5E6E6-30AC-445F-B47F-D6517E686D66}" ShortID="61865300">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="SFX3D_Item_DoorOpen" ID="{3B785DBD-BE3A-4449-935D-98A5A414B7CD}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_SFX3D_Item_DoorClose" ID="{76E4F951-D0E9-4CD7-B553-18BFDB940431}">
+											<ChildrenList>
+												<Action Name="" ID="{D86333FB-BEEE-4A49-9A4A-68B3E5673FB6}" ShortID="311216248">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="SFX3D_Item_DoorClose" ID="{C2CF1F81-8B5D-4D7D-8A2F-3E210B65263A}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_SFX2D_Item_SellComponent" ID="{C2B76376-7B6A-4DEB-B3D9-F770A731BCFE}">
+											<ChildrenList>
+												<Action Name="" ID="{D5AF8B51-BF81-49E4-B139-C142963A11D5}" ShortID="619098107">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="SFX2D_Item_SellComponent" ID="{4D2CA446-8732-448C-9FE7-A3F8A2E81F3F}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_SFX3D_IncomeDevice_Startup" ID="{BD37F653-ECBF-4E07-A903-CB22E7B539E9}">
+											<ChildrenList>
+												<Action Name="" ID="{D77E6CBE-FAA4-4396-A0F0-FAF030109FF5}" ShortID="117021806">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="SFX3D_IncomeDevice_Startup" ID="{FA29224D-3FF4-4F11-8EFC-61F41035AECE}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+												<Action Name="" ID="{27BA67C9-15EE-4177-9F02-97E5D3A587B8}" ShortID="218576382">
+													<PropertyList>
+														<Property Name="ActionType" Type="int16" Value="41"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Play_AMB3D_IncomeDevice" ID="{5B8CC46E-67F2-4D94-B8BB-93B725DBE4C2}" WorkUnitID="{96FA0854-DBB3-48BA-A57F-CDF57D48F332}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_SFX3D_ThanatosOpen" ID="{84579A34-EC1B-40CF-80DC-9436E0C0742C}">
+											<ChildrenList>
+												<Action Name="" ID="{821EADD9-E935-438A-B7FC-502271D632A0}" ShortID="78853580">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="SFX3D_ThanatosOpen" ID="{B3D4442E-2525-4754-8C12-80E65284ED8E}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_SFX3D_Item_HardenedDoorClose" ID="{4F8E3E29-E3E2-46C7-9572-F18C4EBF03CF}">
+											<ChildrenList>
+												<Action Name="" ID="{2FB3E8E8-A333-4CD6-A6A5-AE418AB26ED8}" ShortID="214470082">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="SFX3D_Item_HardenedDoorClose" ID="{16BA18B4-11A3-423F-AE4A-2AE79FD35850}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
 									</ChildrenList>
 								</Folder>
 							</ChildrenList>
@@ -555,6 +665,253 @@
 								<Property Name="Color" Type="int16" Value="23"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 							</PropertyList>
+							<ChildrenList>
+								<Event Name="Play_AMB3D_BrokenGlass" ID="{5B7B529E-6295-4BEC-B2AA-FE97215D7319}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<Action Name="" ID="{2FCD7ECD-59EC-4D88-A957-2B88C63AE752}" ShortID="732835423">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB3D_BrokenGlass" ID="{D405D597-4C04-4FC7-BCAE-E8992674529A}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{0D24123A-78AA-4BF6-AEF6-2526D16E80AF}" ShortID="218893534">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="36"/>
+												<Property Name="SeekPercent" Type="Real64" Value="30">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{0FF8868E-9647-4203-B846-99D50B0A484F}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="15"/>
+																	<Property Name="Min" Type="Real64" Value="-29"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB3D_BrokenGlass" ID="{D405D597-4C04-4FC7-BCAE-E8992674529A}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_AMB3D_Area_SyntaliumRoom" ID="{E5BD5BD1-B5A7-42D4-8BB6-72A81FE6F4D5}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<Action Name="" ID="{0E5D5457-58CD-4B98-A973-F17A3CB3262B}" ShortID="26643734">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB3D_Area_SyntaliumRoom" ID="{A3263F34-1EE2-4E0A-92A2-883FFFD01844}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{AB069CB5-A3AE-47E6-BD60-4771C4FE09D8}" ShortID="36573294">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="36"/>
+												<Property Name="SeekPercent" Type="Real64" Value="30">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{A2BD3751-4984-4DB5-AB59-2353A2194CCA}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="15"/>
+																	<Property Name="Min" Type="Real64" Value="-29"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB3D_Area_SyntaliumRoom" ID="{A3263F34-1EE2-4E0A-92A2-883FFFD01844}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_AMB3D_DoorNest_LP" ID="{4B335BD1-C741-4A03-A70C-8FB001857B95}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<Action Name="" ID="{C4F55C38-2F19-404B-8EC1-9F60C2193602}" ShortID="615930072">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB3D_DoorNest_LP" ID="{CA36E533-6B19-4E03-AD6A-C0867289914B}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{6D28FD62-EA30-4853-A45C-9CD036779DFB}" ShortID="483752494">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="36"/>
+												<Property Name="SeekPercent" Type="Real64" Value="30">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{E745899A-385C-48B7-9C80-EB8FA6D04A52}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="15"/>
+																	<Property Name="Min" Type="Real64" Value="-29"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB3D_DoorNest_LP" ID="{CA36E533-6B19-4E03-AD6A-C0867289914B}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_AMB2D_SpaceshipAll" ID="{3390F043-CB73-4ADC-AEFE-BBA369AC1E31}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<Action Name="" ID="{35D7A7E6-F4EC-4CFF-846C-365ED846437F}" ShortID="898484547">
+											<PropertyList>
+												<Property Name="FadeInCurve" Type="int16" Value="0"/>
+												<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB2D_SpaceshipAll" ID="{DA3B8A76-7D8C-4769-9051-21E6F3EB97AA}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{CECBC80B-038F-4F5A-A7A9-3D9369BEE2E0}" ShortID="769144994">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+												<Property Name="FadeOutCurve" Type="int16" Value="2"/>
+												<Property Name="FadeTime" Type="Real64" Value="1"/>
+												<Property Name="Scope" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB_InMenu_Credits" ID="{00F957A1-42FB-4CB7-B623-C728F4250BF0}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{BBFADA56-6CBB-4D75-A25C-9A588C3D0C64}" ShortID="1053288316">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="36"/>
+												<Property Name="SeekPercent" Type="Real64" Value="30">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{C7DC39F5-5E6A-436F-80EB-AA38B95A574A}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="15"/>
+																	<Property Name="Min" Type="Real64" Value="-29"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB2D_SpaceshipAll" ID="{DA3B8A76-7D8C-4769-9051-21E6F3EB97AA}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_AMB3D_ThanatosShell" ID="{D3B597DD-BD5B-4A61-AF6B-BD5D66227CE0}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<Action Name="" ID="{F0EA4F46-D508-408C-89A1-2332275B7DEE}" ShortID="387360163">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB3D_ThanatosShell" ID="{96D878F7-2CE9-45D0-8D69-345E8E21EC25}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{3D4B5DEA-3628-4023-8737-56E0B452F67D}" ShortID="62714191">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="36"/>
+												<Property Name="SeekPercent" Type="Real64" Value="30">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{7D3981FC-E1B8-4CBF-BA8B-D1A4F0207C23}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="15"/>
+																	<Property Name="Min" Type="Real64" Value="-29"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB3D_ThanatosShell" ID="{96D878F7-2CE9-45D0-8D69-345E8E21EC25}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_AMB3D_IncomeDevice" ID="{5B8CC46E-67F2-4D94-B8BB-93B725DBE4C2}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="6"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<Action Name="" ID="{249EA4AF-CED3-4CE3-9CF3-9DBAB59B7E45}" ShortID="884595105">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB3D_IncomeDevice" ID="{CBB41604-11AE-4FE2-9036-609C4D8483AD}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{8D76F128-7484-419C-86CC-1B114A54DD03}" ShortID="64614656">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="36"/>
+												<Property Name="SeekPercent" Type="Real64" Value="30">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{7CDBA80B-EBCC-4BD6-9C37-EE00E5F43880}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="15"/>
+																	<Property Name="Min" Type="Real64" Value="-29"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AMB3D_IncomeDevice" ID="{CBB41604-11AE-4FE2-9036-609C4D8483AD}" WorkUnitID="{9DD43C2B-9F8E-4C9A-A035-54E29C4BDBAE}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
 						</Folder>
 						<Folder Name="Player" ID="{EC3FC1E9-F792-4083-9F80-451C472CB3DC}" ShortID="29772542">
 							<PropertyList>
