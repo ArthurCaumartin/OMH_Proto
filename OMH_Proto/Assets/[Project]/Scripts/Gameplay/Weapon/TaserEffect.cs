@@ -49,6 +49,7 @@ public class TaserEffect : MonoBehaviour, IEffectable
 
     public void RefreshVisual()
     {
+        if (!_spriteRenderer) return;
         // _spriteRenderer.transform.forward = (transform.position - Camera.main.transform.position).normalized;
         _spriteRenderer.transform.localEulerAngles = new Vector3(0, Random.Range(0, 360), 0);
         _spriteRenderer.transform.localScale = Vector3.one * Random.Range(1, 1.5f);

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class StateMachine_MobBase : StateMachine
 {
+    [SerializeField] protected GameObject _stunFx;
     // public float debugDistance;
     private Transform _target;
     private MobTargetFinder _targetFinder;
@@ -40,6 +41,8 @@ public class StateMachine_MobBase : StateMachine
         // print("Mob Stun");
         _isStun = true;
         _agent.SlowAgent(1, duration, true);
+        GameObject fx = Instantiate(_stunFx, transform);
+        Destroy(fx, duration);
         StartCoroutine(ResetStun(duration));
         _animationControler.PlayStunAnimationn(duration);
     }
