@@ -4479,6 +4479,9 @@ MonoBehaviour:
   _meshRenderersToOutline:
   - {fileID: 6335855636484173505}
   _timeToVerifyOutline: 0.3
+  _onWin:
+    m_PersistentCalls:
+      m_Calls: []
   _metalGainPerInput:
     propertyType: 0
     constantValue: 10
@@ -5059,12 +5062,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
         type: 3}
+      propertyPath: _onInputEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
       propertyPath: _onQTEWin.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
         type: 3}
+      propertyPath: _onQTEWin.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
       propertyPath: _onQTEKill.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: _onQTEKill.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
@@ -5079,8 +5097,23 @@ PrefabInstance:
       objectReference: {fileID: 563577205694671885}
     - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
         type: 3}
+      propertyPath: _onInputEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
       propertyPath: _onQTEWin.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: _onQTEWin.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: _onInputEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
         type: 3}
@@ -5089,8 +5122,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
         type: 3}
+      propertyPath: _onQTEKill.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
       propertyPath: _onQTEWin.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResetCode
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: _onQTEWin.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
         type: 3}
@@ -5109,6 +5152,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
         type: 3}
+      propertyPath: _onQTEKill.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: QTE_Wrong
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: _onInputEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: _onInputEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
       propertyPath: ResetQTEScript.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResetCode
       objectReference: {fileID: 0}
@@ -5119,8 +5177,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
         type: 3}
+      propertyPath: _onQTEWin.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: QTEsounds, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
       propertyPath: _onQTEKill.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: QTEMirror, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: _onQTEKill.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: QTEsounds, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: _onInputEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: QTEsounds, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
         type: 3}
@@ -5139,7 +5212,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
         type: 3}
+      propertyPath: _onQTEWin.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
       propertyPath: _onQTEKill.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: _onQTEKill.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133245423974995766, guid: 2a55ecedb7ab5134d8f43a778292388f,
+        type: 3}
+      propertyPath: _onInputEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4969287227894701924, guid: 2a55ecedb7ab5134d8f43a778292388f,
@@ -5175,6 +5263,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5703936412662924257, guid: 2a55ecedb7ab5134d8f43a778292388f, type: 3}
     - {fileID: 4377856562284164607, guid: 2a55ecedb7ab5134d8f43a778292388f, type: 3}
+    - {fileID: 3592157041236927558, guid: 2a55ecedb7ab5134d8f43a778292388f, type: 3}
     m_RemovedGameObjects:
     - {fileID: 4382910218235330307, guid: 2a55ecedb7ab5134d8f43a778292388f, type: 3}
     - {fileID: 8299122050794416066, guid: 2a55ecedb7ab5134d8f43a778292388f, type: 3}
