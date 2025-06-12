@@ -24,6 +24,7 @@ public class OverlapAttack : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (!_pivot) return;
         Gizmos.color = new Color(1, 0, 0, 0.3f);
         Gizmos.DrawSphere(_pivot.position, _raduis.Value);
     }

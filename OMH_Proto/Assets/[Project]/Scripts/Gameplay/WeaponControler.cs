@@ -134,7 +134,7 @@ public class WeaponControler : MonoBehaviour
     }
     private void OnPrimaryAttackStarted()
     {
-        if (!enabled) return;
+        // if (!enabled) return;
         _isPrimaryAttacking = true;
 
         if (IsCurrentWeaponGatling())
@@ -145,7 +145,7 @@ public class WeaponControler : MonoBehaviour
 
     private void OnPrimaryAttackCanceled()
     {
-        if (!enabled) return;
+        // if (!enabled) return;
         _isPrimaryAttacking = false;
 
         if (IsCurrentWeaponGatling())
