@@ -9,6 +9,7 @@ public class TimerInfoText : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private List<GameObject> _timerInfoTexts = new List<GameObject>();
     [SerializeField] private GameEvent _showStartInfo;
+    [SerializeField] private FloatVariable _dangerIndex;
 
     private float _explorationTimer = 0;
     private bool _isDefenseStarted = false;
@@ -68,5 +69,24 @@ public class TimerInfoText : MonoBehaviour
     public void DefenseStart()
     {
         _isDefenseStarted = true;
+
+        switch (_explorationTimer)
+        {
+            case < 360 :
+                _dangerIndex.Value = 1;
+                break;
+            case < 420 :
+                _dangerIndex.Value = 2;
+                break;
+            case < 480 :
+                _dangerIndex.Value = 3;
+                break;
+            case < 540 :
+                _dangerIndex.Value = 4;
+                break;
+            case < 600 :
+                _dangerIndex.Value = 5;
+                break;
+        }
     }
 }

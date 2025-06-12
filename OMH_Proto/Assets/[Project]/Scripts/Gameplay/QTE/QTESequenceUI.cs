@@ -15,12 +15,14 @@ public class QTESequenceUI : MonoBehaviour
     [SerializeField] private float _animDuration = .5f;
     [SerializeField] private AnimationCurve _inputAlphaCurve;
     [SerializeField] private AnimationCurve _inputScaleCurve;
+    [SerializeField] private AK.Wwise.Event _goodInputSound;
 
     [Header("Bad Input Animation :")]
     [SerializeField] private Color _badInputColor = Color.red;
     [SerializeField] private float _badInputShakeStrenght = 3;
     [SerializeField] private int _badInputShakeVibrato = 15;
     [SerializeField] private float _badInputShakeRandomness = 90;
+    [SerializeField] private AK.Wwise.Event _badInputSound;
 
     [Space]
     [SerializeField] private Sprite _directionSprite;
@@ -104,6 +106,7 @@ public class QTESequenceUI : MonoBehaviour
             _imageList[index].color =
             Color.Lerp(startColor, new Color(startColor.r, startColor.g, startColor.b), Mathf.Lerp(1, 0, curvetime));
         }, 0, 1, _animDuration);
+        _goodInputSound.Post(gameObject);
     }
 
     public void SetBadInputFeedBack()
@@ -117,6 +120,7 @@ public class QTESequenceUI : MonoBehaviour
             colorSwap.Append(_imageList[i].DOColor(_badInputColor, _animDuration / 2));
             colorSwap.Append(_imageList[i].DOColor(Color.white, _animDuration / 2));
         }
+        _badInputSound.Post(gameObject);
     }
 
     public void CloseUI()

@@ -17,6 +17,10 @@ public class InteractibleChest : Interactible
     [SerializeField] private ParticleSystem _openParticle;
     [Space]
     [SerializeField] private GameObject _goldenChestPrefab;
+    [SerializeField] private List<MeshRenderer> _chestShader = new List<MeshRenderer>();
+    [Space]
+    [SerializeField] private AK.Wwise.Event _openChestSound;
+    [SerializeField] private AK.Wwise.Event _goldChestSound;
 
     private bool _isOpen = false;
 
@@ -50,7 +54,9 @@ public class InteractibleChest : Interactible
     public override void OnQTEWin()
     {
         _isOpen = true;
-        _topPart.DOLocalRotate(new Vector3(-195, 0, 0), _animationDuration);
+        _openChestSound.Post(gameObject);
+        
+            _topPart.DOLocalRotate(new Vector3(-195, 0, 0), _animationDuration);
         StartCoroutine(GetLoot(_delayToGetLoot));
 
         if (_openParticle)
@@ -59,6 +65,11 @@ public class InteractibleChest : Interactible
             Destroy(p.gameObject, p.main.duration + 1);
         }
 
+        for (int i = 0; i < _chestShader.Count; i++)
+        {
+            _chestShader[i].material.SetFloat("_BlinkingSpeed", 0);
+        }
+        
         _mapPin.SetActive(false);
 
         gameObject.layer = LayerMask.NameToLayer("Default");
@@ -69,6 +80,7 @@ public class InteractibleChest : Interactible
     public void TransformationGoldChest()
     {
         Instantiate(_goldenChestPrefab, transform.position, transform.rotation);
+        _goldChestSound.Post(gameObject);
         Destroy(gameObject);
     }
 

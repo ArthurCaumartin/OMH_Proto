@@ -62,8 +62,8 @@ public class QTECodeUI : MonoBehaviour
 
     private IEnumerator WrongNumber()
     {
-        _textContainerImage.color = new Color(1f, 0f, 0f, 1f);
+        _textContainerImage.color = new Color(0.909804f, 0.2862745f, 0.282f, 1f);
         yield return new WaitForSeconds(_wrongRedDuration);
-        _textContainerImage.color = new Color(1f, 1f, 1f, 1f);
+        _textContainerImage.color = new Color(0.1254902f, 0.6470588f, 0.8000001f, 1f);
     }
 }
