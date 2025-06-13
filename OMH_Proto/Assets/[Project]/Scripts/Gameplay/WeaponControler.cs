@@ -20,10 +20,21 @@ public class WeaponControler : MonoBehaviour
     private bool _isPrimaryAttacking;
     private bool _isSecondaryAttacking;
 
-    [SerializeField] private AK.Wwise.Event _gatlingStartEvent;
-    [SerializeField] private AK.Wwise.Event _gatlingStopEvent;
     public bool IsPrimaryAttacking { get => _isPrimaryAttacking; }
     public bool IsSecondaryAttacking { get => _isSecondaryAttacking; }
+    [Space]
+    [Header("Wwise Events")]
+    [SerializeField] private AK.Wwise.Event _fugitiveShoot;
+    [SerializeField] private AK.Wwise.Event _sobekShoot;
+    [SerializeField] private AK.Wwise.Event _gatlingShoot;
+    [SerializeField] private AK.Wwise.Event _stopGatling;
+
+    [Header("Wwise RTPC")]
+    [SerializeField] private AK.Wwise.RTPC _weaponRTPC;
+
+    [Header("Weapon Config")]
+    [SerializeField] private WeaponIdentifier _weaponIdentifier;
+    [Space]
     private Transform _currentWeaponMesh;
     private PlayerAnimation _playerAnimation;
 
@@ -116,13 +127,94 @@ public class WeaponControler : MonoBehaviour
         Weapon tempWeapon = tempObject.GetComponent<Weapon>();
         AddWeapon(tempWeapon);
     }
-    private bool IsCurrentWeaponGatling()
+
+             #region Posting sounds
+    public void FireWeapon()
     {
-        if (_weaponIdentifiers.Count <= _currentWeaponIndex) return false;
-        return _weaponIdentifiers[_currentWeaponIndex] != null
-            && _weaponIdentifiers[_currentWeaponIndex].weaponType == WeaponType.Gatling;
+        if (_weaponIdentifiers.Count <= _currentWeaponIndex)
+        {
+            Debug.LogWarning($"{name} : WeaponIdentifier introuvable.");
+            return;
+        }
+
+        WeaponIdentifier currentIdentifier = _weaponList[_currentWeaponIndex].GetComponent<WeaponIdentifier>();
+
+        if (currentIdentifier == null)
+        {
+            Debug.LogWarning($"{name} : WeaponIdentifier null pour l'arme courante.");
+            return;
+        }
+
+        SetWeaponRTPC(currentIdentifier.weaponType);
+        PostWeaponSound(currentIdentifier.weaponType);
+    }
+    public void StopWeaponSound() //spécifique pour la gatling
+    {
+        if (_weaponList.Count <= _currentWeaponIndex)
+        {
+            Debug.LogWarning($"{name} : WeaponList vide ou index invalide.");
+            return;
+        }
+
+        WeaponIdentifier currentIdentifier = _weaponList[_currentWeaponIndex].GetComponent<WeaponIdentifier>();
+
+        if (currentIdentifier == null)
+        {
+            Debug.LogWarning($"{name} : WeaponIdentifier null pour l'arme courante.");
+            return;
+        }
+
+        StopWeaponEvent(currentIdentifier.weaponType);
+    }
+    private void StopWeaponEvent(WeaponType type)
+    {
+        switch (type)
+        {
+            case WeaponType.Gatling:
+                _stopGatling.Post(gameObject);
+                break;
+        }
     }
 
+    private void SetWeaponRTPC(WeaponType type)
+    {
+        float rtpcValue = type switch
+        {
+            WeaponType.Fugitive => 0f,
+            WeaponType.Sobek => 1f,
+            WeaponType.Gatling => 2f,
+            _ => -1f
+        };
+
+        if (rtpcValue >= 0)
+        {
+            _weaponRTPC.SetGlobalValue(rtpcValue);
+        }
+        else
+        {
+            Debug.LogWarning($"{name} : WeaponType inconnu ({type}) pour RTPC.");
+        }
+    }
+
+    private void PostWeaponSound(WeaponType type)
+    {
+        switch (type)
+        {
+            case WeaponType.Fugitive:
+                _fugitiveShoot.Post(gameObject);
+                break;
+            case WeaponType.Sobek:
+                _sobekShoot.Post(gameObject);
+                break;
+            case WeaponType.Gatling:
+                _gatlingShoot.Post(gameObject);
+                break;
+            default:
+                Debug.LogWarning($"{name} : Aucun son assigné pour {type}");
+                break;
+        }
+    }
+                #endregion
     public void AddWeapon(Weapon weaponToAdd)
     {
         Weapon newWeapon = Instantiate(weaponToAdd, _weaponParent);

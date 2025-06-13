@@ -12,9 +12,20 @@ public class SubmachineGun : Weapon
     private float _heatTimerCooldown = 0f;
     private int _bulletsHeat;
 
+    [SerializeField] private AK.Wwise.Event _poisonGun;
+
     public override void Attack()
     {
         base.Attack();
+
+        if (_weaponControler != null)
+        {
+            _weaponControler.FireWeapon();
+        }
+        else
+        {
+            Debug.LogWarning($"{name} : Pas de WeaponControler assigné à cette arme.");
+        }
 
         //TODO Ajouter un système de surchauffe
         _bulletsHeat++;
@@ -38,5 +49,6 @@ public class SubmachineGun : Weapon
         base.SecondaryAttack();
         Projectile newProj = Instantiate(_secondaryProjectile, transform.position, transform.rotation);
         newProj.Initialize(_parentShooter, _secondaryStat.projectileSpeed.Value, _secondaryStat.damage.Value);
+        _poisonGun.Post(gameObject);
     }
 }
