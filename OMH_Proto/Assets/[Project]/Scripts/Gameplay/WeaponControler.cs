@@ -46,16 +46,6 @@ public class WeaponControler : MonoBehaviour
         _primaryAttackInputAction = GetComponent<PlayerInput>().actions.FindAction("Attack");
         _secondaryAttackInputAction = GetComponent<PlayerInput>().actions.FindAction("SecondaryAttack");
 
-        _primaryAttackInputAction.performed += ctx =>
-        {
-            OnPrimaryAttackStarted();
-        };
-
-        _primaryAttackInputAction.canceled += ctx =>
-        {
-            OnPrimaryAttackCanceled();
-        };
-
         _playerAnimation = GetComponent<PlayerAnimation>();
 
         // Debug.Assert(_uiWeapon != null, "UI Weapon is not set in WeaponControler on Player");
@@ -132,27 +122,7 @@ public class WeaponControler : MonoBehaviour
         return _weaponIdentifiers[_currentWeaponIndex] != null
             && _weaponIdentifiers[_currentWeaponIndex].weaponType == WeaponType.Gatling;
     }
-    private void OnPrimaryAttackStarted()
-    {
-        // if (!enabled) return;
-        _isPrimaryAttacking = true;
 
-        if (IsCurrentWeaponGatling())
-        {
-            _gatlingStartEvent.Post(gameObject);
-        }
-    }
-
-    private void OnPrimaryAttackCanceled()
-    {
-        // if (!enabled) return;
-        _isPrimaryAttacking = false;
-
-        if (IsCurrentWeaponGatling())
-        {
-            _gatlingStopEvent.Post(gameObject);
-        }
-    }
     public void AddWeapon(Weapon weaponToAdd)
     {
         Weapon newWeapon = Instantiate(weaponToAdd, _weaponParent);
