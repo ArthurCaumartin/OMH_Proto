@@ -7,7 +7,8 @@ public class MobLife : MonoBehaviour, IDamageable
 {
     [SerializeField] private FloatReference _mobMaxHealth;
     [SerializeField] private GameEvent _onDeathGameEvent;
-    [SerializeField] private Renderer _renderer;
+    [SerializeField] private MobAnimationControler _animationControler;
+    [SerializeField] private Transform _mobRendererTransform;
     private float _currentHealth;
     [SerializeField] private UnityEvent<MobLife, DamageType> _onDeathEvent;
     [SerializeField] private UnityEvent<GameObject, DamageType> _onDamageTakenEvent;
@@ -20,13 +21,13 @@ public class MobLife : MonoBehaviour, IDamageable
         _currentHealth = _mobMaxHealth.Value;
         _healthBar = GetComponentInChildren<HealthBar>();
         _healthBar?.SetFillAmount(1);
+        _animationControler = GetComponentInChildren<MobAnimationControler>();
     }
 
     public void TakeDamages(GameObject damageDealer, float value, DamageType type)
     {
         if (value > 0)
         {
-            if (_renderer) StartCoroutine(Hit());
             _onDamageTakenEvent.Invoke(damageDealer, type);
         }
 
@@ -41,14 +42,9 @@ public class MobLife : MonoBehaviour, IDamageable
 
     private void Death()
     {
+        _animationControler.PlayDeathAnimation();
+        _mobRendererTransform.parent = null;
         _onDeathGameEvent.Raise();
         Destroy(gameObject);
-    }
-
-    public IEnumerator Hit()
-    {
-        _renderer.material.SetColor("_Color", Color.red);
-        yield return new WaitForSeconds(0.2f);
-        _renderer.material.SetColor("_Color", Color.white);
     }
 }

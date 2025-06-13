@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
     private Vector3 _lastFramePosition;
     public Projectile Initialize(GameObject shooter, float speed, float damage, WeaponIdentifier weaponID = null, bool playSound = true)
     {
-        print(name + " Initialize");
+        // print(name + " Initialize");
 
         _shooter = shooter;
         _speed = speed;
