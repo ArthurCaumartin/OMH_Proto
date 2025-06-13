@@ -15,6 +15,7 @@ public class MobLife : MonoBehaviour, IDamageable
     public UnityEvent<GameObject, DamageType> OnDamageTakenEvent { get => _onDamageTakenEvent; }
     public UnityEvent<MobLife, DamageType> OnDeathEvent { get => _onDeathEvent; }
     private HealthBar _healthBar;
+    private DisolveEffect _disolveEffect;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class MobLife : MonoBehaviour, IDamageable
         _healthBar = GetComponentInChildren<HealthBar>();
         _healthBar?.SetFillAmount(1);
         _animationControler = GetComponentInChildren<MobAnimationControler>();
+        _disolveEffect = GetComponentInChildren<DisolveEffect>();
     }
 
     public void TakeDamages(GameObject damageDealer, float value, DamageType type)
@@ -45,6 +47,7 @@ public class MobLife : MonoBehaviour, IDamageable
         _animationControler.PlayDeathAnimation();
         _mobRendererTransform.parent = null;
         _onDeathGameEvent.Raise();
+        _disolveEffect?.Disolve(true, true);
         Destroy(gameObject);
     }
 }
