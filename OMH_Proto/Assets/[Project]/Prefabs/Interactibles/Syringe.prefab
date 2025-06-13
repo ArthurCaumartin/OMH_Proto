@@ -2262,6 +2262,9 @@ MonoBehaviour:
   _meshRenderersToOutline:
   - {fileID: 6736794929761568308}
   _timeToVerifyOutline: 0.3
+  _onWin:
+    m_PersistentCalls:
+      m_Calls: []
   _textAfterOpeningCentrifuge: Grab
   _syringeValue: {fileID: 11400000, guid: 9251047eb0ab4b241aca90ae13039e56, type: 2}
   _getSyringe: {fileID: 11400000, guid: 9dbab37f3f59da945958abbea302af3b, type: 2}
@@ -3210,6 +3213,7 @@ GameObject:
   - component: {fileID: 7052245530555485335}
   - component: {fileID: 6445646833433719878}
   - component: {fileID: 7774375629097133230}
+  - component: {fileID: 7937610150754364766}
   m_Layer: 0
   m_Name: WinText
   m_TagString: Untagged
@@ -3333,6 +3337,23 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7937610150754364766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6710962268730225230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2379490f3b7d34ab047d38c798d85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _SoundToPost:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 201e53d34be948a4f8d6f51e6e2039ed,
+      type: 2}
 --- !u!1 &6899439860638917346
 GameObject:
   m_ObjectHideFlags: 0
@@ -5125,6 +5146,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8468485372107357717, guid: 0c75e4d06a8a20b43967d4511a7d6933,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5334,11 +5360,84 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -6822244944518600376, guid: 0588a2c62a1eafd4784b0a79afbb2a91,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1614401901233044722}
+    - targetCorrespondingSourceObject: {fileID: -6822244944518600376, guid: 0588a2c62a1eafd4784b0a79afbb2a91,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8179019183576775851}
     - targetCorrespondingSourceObject: {fileID: -3868366686327458527, guid: 0588a2c62a1eafd4784b0a79afbb2a91,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8157720256649818148}
   m_SourcePrefab: {fileID: 100100000, guid: 0588a2c62a1eafd4784b0a79afbb2a91, type: 3}
+--- !u!1 &263391789272529820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6822244944518600376, guid: 0588a2c62a1eafd4784b0a79afbb2a91,
+    type: 3}
+  m_PrefabInstance: {fileID: 2518995646343828180}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1614401901233044722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263391789272529820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f4321ef6931ad4f8bcdb40fb5d85bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  usePositionOffsetData: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  scalingFactor: 1
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &8179019183576775851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263391789272529820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed1dd2d9b9027a94692e4e961751e1e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: ae8d9d44
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 40d2fbee5e8178c4c96c2bd4e7f10948,
+      type: 2}
+  useCallbacks: 0
+  stopSoundOnDestroy: 1
+  Callbacks: []
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}
+  MultiPositionType: 1
+  multiPositionTypeLabel: 0
+  attenuationSphereColor: {r: 1, g: 0, b: 0, a: 0.1}
+  LargeModePositions: []
+  multiPositionArray: []
 --- !u!4 &2702155708243719487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0588a2c62a1eafd4784b0a79afbb2a91,

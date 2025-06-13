@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 4446903255052029556}
   - component: {fileID: 3852836700417546793}
   - component: {fileID: 9020423861077944736}
+  - component: {fileID: 1280431675023144688}
   m_Layer: 11
   m_Name: PteraTank
   m_TagString: Mob
@@ -663,7 +664,19 @@ MonoBehaviour:
   _renderer: {fileID: 0}
   _onDeathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1280431675023144688}
+        m_TargetAssemblyTypeName: PteramyrSounds, Assembly-CSharp
+        m_MethodName: DeathSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onDamageTakenEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -777,6 +790,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9689701, y: 1.8816824, z: 1.6349154}
   m_Center: {x: -0.107524276, y: 0.9408412, z: 0}
+--- !u!114 &1280431675023144688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193887633719100724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b74723011c8e04093bf4a38f8caca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pteramyrAttackSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  _pteramyrCallSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  _pteramyrVocalsSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a31673260cb06b1408db6ed2d153140c,
+      type: 2}
+  _pteramyrDeath:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e8116e7b5ab951345bbf390a8dbf6de4,
+      type: 2}
 --- !u!1 &6619099970630340440
 GameObject:
   m_ObjectHideFlags: 0
