@@ -19,10 +19,13 @@ public class Trap : MonoBehaviour
     private float _activationTime;
     private bool _isActif = false;
 
+    [SerializeField] private AK.Wwise.Event _SpawnMine;
+    [SerializeField] private AK.Wwise.Event _sparkSound;
     private void Start()
     {
         _attackParticle.gameObject.SetActive(false);
         _activationTime = _activationDelay.Value;
+        _SpawnMine.Post(gameObject);
     }
 
     private void Update()
@@ -71,6 +74,7 @@ public class Trap : MonoBehaviour
         _attackParticle.Clear();
         _attackParticle.gameObject.SetActive(true);
         yield return new WaitForSeconds(_activationDelay.Value * .95f);
+        _sparkSound.Post(gameObject);
         _attackParticle.gameObject.SetActive(false);
     }
 

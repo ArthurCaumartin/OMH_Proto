@@ -7,9 +7,21 @@ public class Gun : Weapon
     [SerializeField] private FloatReference _spread;
     [SerializeField] private FloatReference _randomness;
 
+    [SerializeField] private AK.Wwise.Event _stunGunSound;
+
     public override void Attack()
     {
         base.Attack();
+
+        if (_weaponControler != null)
+        {
+            _weaponControler.FireWeapon();
+        }
+        else
+        {
+            Debug.LogWarning($"{name} : Pas de WeaponControler assigné à cette arme.");
+        }
+
         for (int i = 0; i < (int)_bulletCount.Value; i++)
         {
             Projectile newProj = Instantiate(_projectile, _shootPoint.position, transform.rotation);
@@ -37,5 +49,6 @@ public class Gun : Weapon
         base.SecondaryAttack();
         Projectile newProj = Instantiate(_secondaryProjectile, transform.position, transform.rotation);
         newProj.Initialize(_parentShooter, _secondaryStat.projectileSpeed.Value, _secondaryStat.damage.Value, _weaponID);
+        _stunGunSound.Post(gameObject);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MobAnimationControler : MonoBehaviour
 {
+    [SerializeField] private int _maxDeathIndex = 2;
     [SerializeField] private string _velocityParameter;
     [SerializeField] private string _attackParameter;
     [SerializeField] private string _chargeAttackParameter;
@@ -14,6 +15,7 @@ public class MobAnimationControler : MonoBehaviour
     [Space]
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private PhysicsAgent _physicsAgent;
+    [SerializeField] private bool _isDramaQueen = false;
     private Animator _animator;
     private int _velocityHash;
     private int _attackHash;
@@ -43,7 +45,8 @@ public class MobAnimationControler : MonoBehaviour
 
     private void Update()
     {
-        _animator.SetFloat(_velocityHash, _rigidbody.velocity.magnitude);
+        if (_rigidbody)
+            _animator.SetFloat(_velocityHash, _rigidbody.velocity.magnitude);
     }
 
     public void SetWalkTransition(float ratio)
@@ -60,7 +63,20 @@ public class MobAnimationControler : MonoBehaviour
     public void PlayChargeAttack(out float duration)
     {
         _animator.Play(_chargeAttackHash);
-        duration =_animator.GetCurrentAnimatorStateInfo(0).length;
+        duration = _animator.GetCurrentAnimatorStateInfo(0).length;
+    }
+
+    public void PlayDeathAnimation()
+    {
+        if (_isDramaQueen)
+        {
+            _animator.SetInteger("DeathIndex", 3);
+            _animator.Play("Death");
+            return;
+        }
+
+        _animator.SetInteger("DeathIndex", Random.Range(1, _maxDeathIndex + 1));
+        _animator.Play("Death");
     }
 
     public void PlayStunAnimationn(float duration)
