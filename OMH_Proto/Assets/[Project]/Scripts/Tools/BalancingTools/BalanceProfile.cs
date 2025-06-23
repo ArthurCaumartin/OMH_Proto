@@ -32,6 +32,8 @@ public class BalanceProfile : ScriptableObject
             {
                 if (containerList[i].setterList[j].variable)
                     containerList[i].setterList[j].name = containerList[i].setterList[j].variable.name;
+                else
+                    containerList[i].setterList[j].name = "None";
             }
         }
     }
