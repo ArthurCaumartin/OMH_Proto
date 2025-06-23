@@ -5,7 +5,7 @@
 			<ChildrenList>
 				<Attenuation Name="ATT_Generic_3m" ID="{1C85C16A-AEDB-4446-B7F8-68DA99EA25A1}" ShortID="217672020">
 					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="300"/>
+						<Property Name="RadiusMax" Type="Real64" Value="3"/>
 					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
@@ -21,7 +21,7 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>300</XPos>
+											<XPos>3</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -87,7 +87,7 @@
 				</Attenuation>
 				<Attenuation Name="ATT_Generic_5m" ID="{9B6AE2BF-935D-4A9A-8D67-99553700EF07}" ShortID="346039161">
 					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="500"/>
+						<Property Name="RadiusMax" Type="Real64" Value="5"/>
 					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
@@ -103,7 +103,7 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>500</XPos>
+											<XPos>5</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -169,7 +169,7 @@
 				</Attenuation>
 				<Attenuation Name="ATT_Generic_10m" ID="{A57E013B-99D7-4AD6-97DB-EC4176C6AB69}" ShortID="276541280">
 					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="1000"/>
+						<Property Name="RadiusMax" Type="Real64" Value="10"/>
 					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
@@ -185,7 +185,7 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>1000</XPos>
+											<XPos>10</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -251,7 +251,7 @@
 				</Attenuation>
 				<Attenuation Name="ATT_Generic_20m" ID="{734BDC7D-A612-4AAC-B7A6-C38621EAA2C9}" ShortID="329330012">
 					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="2000"/>
+						<Property Name="RadiusMax" Type="Real64" Value="20"/>
 					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
@@ -267,7 +267,13 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>2000</XPos>
+											<XPos>11.93514</XPos>
+											<YPos>-4.09187</YPos>
+											<Flags>0</Flags>
+											<SegmentShape>Log1</SegmentShape>
+										</Point>
+										<Point>
+											<XPos>20</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -333,7 +339,7 @@
 				</Attenuation>
 				<Attenuation Name="ATT_Generic_50m" ID="{43EA2E94-A69A-4307-B4BE-223779AD5894}" ShortID="532471805">
 					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="5000"/>
+						<Property Name="RadiusMax" Type="Real64" Value="50"/>
 					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
@@ -349,7 +355,7 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>5000</XPos>
+											<XPos>50</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -414,9 +420,6 @@
 					</CurveUsageInfoList>
 				</Attenuation>
 				<Attenuation Name="ATT_Generic_100m" ID="{0F8DDD22-E9C1-4E29-8C0F-8E040BD729E6}" ShortID="1000429927">
-					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="10000"/>
-					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
 							<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -431,7 +434,7 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>10000</XPos>
+											<XPos>100</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -497,7 +500,7 @@
 				</Attenuation>
 				<Attenuation Name="ATT_Generic_200m" ID="{152A606D-0712-46E5-982C-24E6257E44E0}" ShortID="1059073329">
 					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="20000"/>
+						<Property Name="RadiusMax" Type="Real64" Value="200"/>
 					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
@@ -513,7 +516,95 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>20000</XPos>
+											<XPos>200</XPos>
+											<YPos>-200</YPos>
+											<Flags>37</Flags>
+										</Point>
+									</PointList>
+								</Curve>
+							</CurveUsageInfo>
+						</VolumeDryUsage>
+						<VolumeWetGameUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+						</VolumeWetGameUsage>
+						<VolumeWetUserUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+						</VolumeWetUserUsage>
+						<LowPassFilterUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+						</LowPassFilterUsage>
+						<HighPassFilterUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+						</HighPassFilterUsage>
+						<SpreadUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+						</SpreadUsage>
+						<FocusUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+						</FocusUsage>
+						<ObstructionVolumeUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+						</ObstructionVolumeUsage>
+						<ObstructionLPFUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+						</ObstructionLPFUsage>
+						<ObstructionHPFUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+						</ObstructionHPFUsage>
+						<OcclusionVolumeUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+						</OcclusionVolumeUsage>
+						<OcclusionLPFUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+						</OcclusionLPFUsage>
+						<OcclusionHPFUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+						</OcclusionHPFUsage>
+						<DiffractionVolumeUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+						</DiffractionVolumeUsage>
+						<DiffractionLPFUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+						</DiffractionLPFUsage>
+						<DiffractionHPFUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+						</DiffractionHPFUsage>
+						<TransmissionVolumeUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+						</TransmissionVolumeUsage>
+						<TransmissionLPFUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+						</TransmissionLPFUsage>
+						<TransmissionHPFUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+						</TransmissionHPFUsage>
+					</CurveUsageInfoList>
+				</Attenuation>
+				<Attenuation Name="ATT_Generic_15m" ID="{E61F156C-991F-4C1A-A855-149B9C15D4CB}" ShortID="469482196">
+					<PropertyList>
+						<Property Name="RadiusMax" Type="Real64" Value="15"/>
+					</PropertyList>
+					<CurveUsageInfoList>
+						<VolumeDryUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+								<Curve Name="VolumeDry" ID="{6F187D9D-5808-4B01-9929-ED039077158C}">
+									<PropertyList>
+										<Property Name="Flags" Type="int32" Value="3"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>0</XPos>
+											<YPos>0</YPos>
+											<Flags>5</Flags>
+										</Point>
+										<Point>
+											<XPos>3.98919</XPos>
+											<YPos>-1.2614</YPos>
+											<Flags>0</Flags>
+											<SegmentShape>Log1</SegmentShape>
+										</Point>
+										<Point>
+											<XPos>15</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>

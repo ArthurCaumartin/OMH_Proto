@@ -25,7 +25,7 @@ public class TutoManager : MonoBehaviour
 
     private void Update()
     {
-        if (!_isMovementPassed)
+        if (!_isMovementPassed && !_isShootPassed)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
@@ -35,7 +35,7 @@ public class TutoManager : MonoBehaviour
             }
         }
 
-        if (_isMovementPassed)
+        if (_isMovementPassed && !_isShootPassed)
         {
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {

@@ -13,11 +13,11 @@ public class PteramyrSounds : MonoBehaviour
     {
         _pteramyrAttackSound.Post(gameObject);
     }
-    public void CallSound() 
+    public void CallSound() // prise d'agro
     { 
         _pteramyrCallSound.Post(gameObject); 
     }
-    public void VocalSounds() 
+    public void VocalSounds() // roams - trigger au pif
     { 
         _pteramyrVocalsSound.Post(gameObject);
     }

@@ -13,7 +13,7 @@ public class SiphonUIHealth : MonoBehaviour
     private Vector3 _startPos;
 
     private float _timer, _timerToShowLife = 15;
-    private int _timerIndex, _damageIndex = 1;
+    private int _timerIndex, _damageIndex = 1, _damageIndexObject;
     private bool _isAllLifeShowed;
     
     private void Start()
@@ -34,9 +34,10 @@ public class SiphonUIHealth : MonoBehaviour
         _timer += Time.deltaTime;
         if (_timer >= _timerToShowLife)
         {
-            _healthObjects[_timerIndex].GetComponent<Image>().enabled = true;
             _timerIndex++;
             _timer = 0;
+            if (_healthObjects[_timerIndex].GetComponent<Image>() == null) return;
+            _healthObjects[_timerIndex].GetComponent<Image>().enabled = true;
             if (_timerIndex >= _healthObjects.Count) _isAllLifeShowed = true;
         }
     }
@@ -49,7 +50,8 @@ public class SiphonUIHealth : MonoBehaviour
         _damageIndex++;
         if (_damageIndex >= 4)
         {
-            _particlesSyphon[_damageIndex].SetActive(true);
+            _particlesSyphon[_damageIndexObject].SetActive(true);
+            _damageIndexObject++;
             _damageIndex = 0;
         }
     }

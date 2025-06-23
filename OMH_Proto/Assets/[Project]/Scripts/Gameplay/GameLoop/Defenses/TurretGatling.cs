@@ -30,6 +30,8 @@ public class TurretGatling : TurretCannon
     private Vector3 _cannonMeshStartPos;
     private Vector3 _hatMeshStartPos;
 
+    [SerializeField] AK.Wwise.Event _ShootTurretSound;
+
     public void Start()
     {
         _cannonMeshStartPos = _canonMeshPivot.localPosition;
@@ -65,13 +67,14 @@ public class TurretGatling : TurretCannon
 
         Projectile newProjectile = Instantiate(_projectilePrefab, _projectileSpawnPivot.position, Quaternion.LookRotation(newDirection, Vector3.up));
         newProjectile.Initialize(transform.parent.gameObject, _stat.projectileSpeed.Value, _stat.damage.Value * _damagesMultiplier);
-
+        
         _bulletCounter++;
         _counterDecrease = 0;
 
         print("Turret triger visual");
         _weaponVisual.PlayVisual(Vector3.one * .8f);
         CannonAnimation();
+        _ShootTurretSound.Post(gameObject);
     }
 
     protected override void ComputeShootTime()

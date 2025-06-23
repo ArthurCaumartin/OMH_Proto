@@ -31,10 +31,11 @@ public class AudioManagerScript : MonoBehaviour
     [SerializeField] private AK.Wwise.RTPC RTPC_ShieldState;
     [SerializeField] private AK.Wwise.RTPC RTPC_MusicPlayer;
     [SerializeField] private AK.Wwise.RTPC RTPC_Timer;
+    [SerializeField] private AK.Wwise.RTPC RTPC_Weapon;
 
     #region Coroutine logic to update RTPCs over time variables
     // Has to be a singleton to centralize all the required datas for audioscripts
-  
+
     private void Awake()
     {
     if (Instance != null && Instance != this)

@@ -20,6 +20,7 @@ public class GatlingGun : Weapon
     [SerializeField] private float _activeRotateSpeed = 10;
 
     private float _currentGatlingMunition;
+    private bool _isFiring;
 
     private void Awake()
     {
@@ -30,7 +31,19 @@ public class GatlingGun : Weapon
     {
         base.Update();
         _cannonRotate.Speed = _weaponControler.IsPrimaryAttacking ? _activeRotateSpeed : _passiveRotateSpeed;
+        if (_weaponControler.IsPrimaryAttacking && !_isFiring)
+        {
+            _isFiring = true;
+            _weaponControler.FireWeapon();
+        }
+
+        if (!_weaponControler.IsPrimaryAttacking && _isFiring)
+        {
+            _isFiring = false;
+            _weaponControler.StopWeaponSound();
+        }
     }
+
 
     public void GatlingShot()
     {
@@ -68,5 +81,13 @@ public class GatlingGun : Weapon
         base.SecondaryAttack();
         Projectile newProj = Instantiate(_secondaryProjectile, transform.position, transform.rotation);
         newProj.Initialize(_parentShooter, _secondaryStat.projectileSpeed.Value, _secondaryStat.damage.Value, _weaponID);
+    }
+    private void OnDisable()
+    {
+        if (_isFiring)
+        {
+            _isFiring = false;
+            _weaponControler.StopWeaponSound();
+        }
     }
 }

@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 4446903255052029556}
   - component: {fileID: 3852836700417546793}
   - component: {fileID: 9020423861077944736}
+  - component: {fileID: 1280431675023144688}
   m_Layer: 11
   m_Name: PteraTank
   m_TagString: Mob
@@ -571,7 +572,7 @@ MonoBehaviour:
       variable: {fileID: 0}
     _attackDelais:
       propertyType: 0
-      constantValue: 1
+      constantValue: 0
       variable: {fileID: 0}
   _chargeAttackState:
     _distanceToChargeAt:
@@ -657,13 +658,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mobMaxHealth:
     propertyType: 1
-    constantValue: 40
+    constantValue: 40000000
     variable: {fileID: 11400000, guid: b7ca58ba91264c44086c18ca7ea2033f, type: 2}
   _onDeathGameEvent: {fileID: 11400000, guid: 3c0886b3e7afec84c978033537175dac, type: 2}
-  _renderer: {fileID: 0}
+  _animationControler: {fileID: 5315921308844666887}
+  _mobRendererTransform: {fileID: 7640575821911019614}
   _onDeathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1280431675023144688}
+        m_TargetAssemblyTypeName: PteramyrSounds, Assembly-CSharp
+        m_MethodName: DeathSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onDamageTakenEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -777,6 +791,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9689701, y: 1.8816824, z: 1.6349154}
   m_Center: {x: -0.107524276, y: 0.9408412, z: 0}
+--- !u!114 &1280431675023144688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193887633719100724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b74723011c8e04093bf4a38f8caca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pteramyrAttackSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  _pteramyrCallSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  _pteramyrVocalsSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a31673260cb06b1408db6ed2d153140c,
+      type: 2}
+  _pteramyrDeath:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e8116e7b5ab951345bbf390a8dbf6de4,
+      type: 2}
 --- !u!1 &6619099970630340440
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +908,7 @@ GameObject:
   - component: {fileID: 8758397612331752722}
   m_Layer: 0
   m_Name: Collider_Capsule
-  m_TagString: Untagged
+  m_TagString: Mob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1377,6 +1421,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 89.999985
       objectReference: {fileID: 0}
+    - target: {fileID: -3035917158588029805, guid: 1a238de9aa961684eb9e3a9b5ae8e647,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cfb88cb26a4381642a8a86251d1e0d04, type: 2}
     - target: {fileID: -2001272994346208928, guid: 1a238de9aa961684eb9e3a9b5ae8e647,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1501,6 +1550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Syphon_Pterarmor
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a238de9aa961684eb9e3a9b5ae8e647,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1047346108560993847, guid: 1a238de9aa961684eb9e3a9b5ae8e647,
         type: 3}
@@ -1713,6 +1767,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8260887233080294670}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a238de9aa961684eb9e3a9b5ae8e647,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2562592890957619401}
   m_SourcePrefab: {fileID: 100100000, guid: 1a238de9aa961684eb9e3a9b5ae8e647, type: 3}
 --- !u!4 &700435736660657877 stripped
 Transform:
@@ -1762,6 +1820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a60dc640f2d22ef46b4ee7f8d21972a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxDeathIndex: 2
   _velocityParameter: Velocity
   _attackParameter: Attack
   _chargeAttackParameter: Charge_Attack
@@ -1771,6 +1830,7 @@ MonoBehaviour:
   _walkTransitionParametre: WalkTransition
   _rigidbody: {fileID: 3852836700417546793}
   _physicsAgent: {fileID: 6933460311172398903}
+  _isDramaQueen: 0
 --- !u!95 &8260887233080294670
 Animator:
   serializedVersion: 5
@@ -1792,6 +1852,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2562592890957619401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7008471378580048612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fefd2e659d392e4d8d8e3261bdc0c85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parameterName: _Alpha
+  _disolveDuration: 1
+  _initialVisivbility: 0
+  _health: {fileID: 0}
+  _objectToSeeThrought: {fileID: 0}
+  _disolveTresold: 1
+  _transitionSpeed: 5
 --- !u!4 &7640575821911019614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1a238de9aa961684eb9e3a9b5ae8e647,
